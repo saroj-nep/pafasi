@@ -1,10 +1,33 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/home"><p>Home</p>></router-link> |
     <router-link to="/about">About</router-link>
+    <router-link to="/">Main</router-link>
   </nav>
   <router-view/>
+
 </template>
+
+
+<script>
+// import { createDecipheriv } from 'crypto'
+import ButtonCompVue from './components/ButtonComp'
+
+export default{
+  name:'App',
+  components:{
+    ButtonCompVue
+  },
+
+
+}
+
+</script>
+
+
+
+
+
 
 <style>
 #app {
