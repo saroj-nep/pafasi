@@ -17,5 +17,24 @@
     "day":"rfnrj fjrnfj",
     "reminder": false
   }
-]
+],
+
+  "patients": [
+    {
+     "title": " Hr. Schneider",
+     "id":"1", 
+     "details":"This patient gets severe headaches regularly."
+    },
+    {
+     "title": "John Doe",
+     "id":"2",
+     "details":"This patient is missing."},
+    {
+     "title": "Jane Doe", 
+     "id":"3", 
+     "details":"This patient does not exist."
+    }
+  ]
+
 }
+
