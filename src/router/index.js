@@ -6,6 +6,8 @@ import Kleingedrucktes from '../views/Kleingedrucktes.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
 import Tipps from '../views/Tipps.vue'
 import Anleitung from '../views/Anleitung.vue'
+import Patient from '../views/patients/PatientProfile.vue'
+
 
 
 const routes = [
@@ -34,6 +36,9 @@ const routes = [
   },
   {
     path: '/anlei',name: 'Anleitung',component: Anleitung
+  },
+  {
+    path: '/patients/:id',name: 'Patient',component: Patient, props:true
   }
 ]
 
