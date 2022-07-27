@@ -4,20 +4,17 @@ import EinleitungView from '../views/EinleitungView.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
 import Anleitung from '../views/Anleitung.vue'
 import Patient from '../views/patients/PatientProfile.vue'
-import DefaultLayout from '../components/DefaultLayout.vue'
+// import DefaultLayout from '../components/DefaultLayout.vue'
 import Option from '../components/Option.vue'
 import Menu from '../views/menu/Menu.vue'
 
 const routes = [
   {
-    path: '/',component: DefaultLayout, children:[{path:"/main", name:"MainPageView", component: MainPageView}],
+    path: '/', children:[{path:"/main", name:"MainPageView", component: MainPageView}],
   },
-
- 
   {
     path: '/warte',name: 'Wartezimmer',component: Wartezimmer
   },
- 
   {
     path: '/einleitung',name: 'EinleitungView',component: EinleitungView
   },

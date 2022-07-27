@@ -1,7 +1,7 @@
 
 <template>
 
-  <div class="min-h-full">
+  <div class="min-h-full" >
     <Disclosure as="nav" class="bg-green-600" v-slot="{ open }">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -11,7 +11,16 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                <a 
+                v-for="item in navigation" :key="item.name" :href="item.href" 
+                :class="[item.current ? 'bg-gray-900 text-white' : 
+                'text-gray-300 hover:bg-gray-700 hover:text-white', 
+                'px-3 py-2 rounded-md text-sm font-medium']" 
+                v-bind:style=" (route.name === item.name) ? 'background: black' : 'border: none;' "
+                :aria-current="item.current ? 'page' : undefined"
+                >
+                {{ item.name }}
+                </a>
               </div>
             </div>
           </div>
@@ -69,19 +78,19 @@
         </div>
       </DisclosurePanel>
     </Disclosure>
-
+<!-- 
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       
       </div>
-    </header>
+    </header> -->
     <main>
       <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         
         <div class="px-4 py-6 sm:px-0">
-          <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" >
+          <!-- <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" >
            
-           </div>
+           </div> -->
         </div>
         <!-- /End replace -->
       </div>
@@ -92,9 +101,11 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { useRouter } from "vue-router";
-
-
+import { useRoute, useRouter } from 'vue-router';
+import {computed} from 'vue';
+    const route = useRoute();
+  //   console.log('setup', route.name)
+  //  const path = computed(() => route)
 
 const user = {
   name: 'demo user',
