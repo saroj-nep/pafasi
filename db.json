@@ -23,17 +23,33 @@
     {
      "title": " Hr. Schneider",
      "id":"1", 
-     "details":"This patient gets severe headaches regularly."
-    },
-    {
-     "title": "John Doe",
-     "id":"2",
-     "details":"This patient is missing."},
-    {
-     "title": "Jane Doe", 
-     "id":"3", 
-     "details":"This patient does not exist."
+     "details":"Herr Wolfgang Schneider, leicht adipöser EZ, AZ gut. Herr Schneider bewegt sich schwerfällig, leicht gebeugt und leicht humpelnd durchs Zimmer, stützt sich stöhnend auf Ihrem Schreibtisch ab, als er sich hinsetzt. Auf die Frage, was ihm fehle: „Es ist das Kreuz! Ich kann mich bald nicht mehr bewegen! Der Herr Dr. Weber, der hatte mir immer diese Kortisonspritzen gegeben. Bitte, können Sie das bei mir wieder machen? Das ist das Einzige was bei mir hilft. Sie wissen ja, mit den alten Knochen da hat man nur Probleme!“."
+     
+     
     }
+    
+  ],
+
+  "menu_options":[
+    {"id":"1","title": "ausführlichere Anamnese führen"},
+    {"id":"2","title": "einen Blick in die Patientenakte werfen"},
+    {"id":"3","title":"Patienten untersuchen"},
+    {"id":"4","title": "Laboranordnungen"},
+    {"id":"5","title": "Überweisung zum Facharzt ausstellen"},
+    {"id":"6","title": "Heutige Vorstellung beenden und (be-)handeln"}
+
+  ],
+  "anamnese_options":[
+    {"id":"1","economy":"1","satisfaction":"1","time":"2","question": "Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)", "answer": "Schmerzlokalisation: Patient weist auf lumbalen Bereich mit Ausstrahlung ins linke Bein, Dauer: er habe ja immer Rückenschmerzen, aber so schlimm sei es seit dem vergangenen Wochenende"},
+    {"id":"2","economy":"1","satisfaction":"1","time":"0.3","question": "akutes Ereignis?/Aenderung der Lebensumstaende?", "answer": "Er habe ja immer Rückenschmerzen, aber so schlimm sei es seit der Gartenarbeit am Wochenende. Auf genaueres Nachfragen: kein Sturz, hat Unkraut gerupft, ruckartig bewegt, was den Schmerz ausgelöst hatte"},
+    {"id":"3","economy":"0","satisfaction":"1","time":"0.5","question": "Medikamentenanamnese", "answer": "ASS 100, Atorvastatin"},
+    {"id":"4","economy":"1","satisfaction":"1","time":"1","question": "Gewohnheiten, Lebensstil (sport, Ernaehrung,...))", "answer": "kein Sport"},
+    {"id":"5","economy":"0","satisfaction":"0","time":"1","question": "Nikotin, Alkohol, Drogen?", "answer": "Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint"},
+    {"id":"6","economy":"0","satisfaction":"0","time":"0.3","question": "Allergien", "answer": "keine bekannt"},
+    {"id":"7","economy":"1","satisfaction":"1","time":"2","question": "vegetative Anamnese (Appetit, Schlaf, Verdauung etc))", "answer": "er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts (die Hitz) hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich."},
+    {"id":"8","economy":"0","satisfaction":"0","time":"2","question": "Gynokologische/Urologische/Sexualanamnese", "answer": "Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz"},
+    {"id":"9","economy":"0","satisfaction":"0","time":"1","question": "Psyche", "answer": "Patient ist orientiert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B."},
+    {"id":"10","economy":"0","satisfaction":"0","time":"1","question": "Familien- und Sozialanamnese (Beruf, Wohnsituation)", "answer": "Pensionierter Lehrer. Lebt mit seiner Ehefrau in einem Einfamilienhaus in ruhiger Wohngegend, zwei erwachsene Kinder"}
   ]
 
 }

@@ -1,25 +1,24 @@
 <template>
-    <div>
-      <div v-for="patient in patients" :key="patient.id" class="patient">
-        <router-link :to="{ name:'Patient', params: { id:patient.id}}">
-          <h3>{{ patient.title }}</h3>
+<div>
+  <div v-for="option in menu_options" :key="option.id" class="patient" >
+        <router-link :to="{ name:'Menu', params: { id:option.id}}">
+          <h3>{{ option.title }}</h3>
         </router-link>
       </div>
     </div>
-      
 </template>
 
 <script>
   export default{
   data() {
     return{
-      patients: []
+      menu_options: []
     }
   } ,
   mounted() {
-    fetch('http://localhost:3000/patients') //json server to be replaced by database later
+    fetch('http://localhost:3000/menu_options') //json server to be replaced by database later
     .then(res=> res.json())
-    .then(data =>this.patients=data)
+    .then(data =>this.menu_options=data)
     .catch(err =>console.log(err.message))
     
   }
@@ -33,8 +32,8 @@
    padding: 20px;
    border-radius: 10px;
    margin: 10px auto ;
-   max-width: 50 px;
-   width:20%;
+   max-width: 20 px;
+   width:50%;
    cursor: pointer;
    color: #444  
   }

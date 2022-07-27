@@ -1,9 +1,10 @@
 <template>
-    <div v-if ="patient">
+    <div v-if ="option">
        
     <div class="patient">
         <div>
-        <h1><strong> Case {{ patient.id}}: {{ patient.title}}</strong></h1>
+             <h1><strong>  Hr. Schneider </strong></h1>
+        <h1><strong>  {{ option.title}}</strong></h1>
         </div>
     </div>
     
@@ -12,11 +13,11 @@
              
            <div class="fallbeschreibung">  <!-- Should be replaced by a widget -->
                 <h3><strong>Fallbeschreibung</strong></h3><br>
-                 <p>{{patient.details}}</p>
+                 <p>{{option.title}}</p>
             </div>  
-          <div class="column left"> <h3> <strong>Was werden Sie als nächstes tun? </strong> </h3><br>
+          <div class="column left"> <br>
           
-        <Option/>
+      
 
           </div>
          </div>
@@ -40,25 +41,17 @@
 </template>
 
 <script>
-
-
-import Option from '../../components/Option.vue';
-
-components: {
-  Option
-}
-
 export default {
     props: ["id"],
     data() {
         return {
-            patient: null
+            option: null
         };
     },
     mounted() {
-        fetch("http://localhost:3000/patients/" + this.id) //json server to be replaced by database later
+        fetch("http://localhost:3000/menu_options/" + this.id) //json server to be replaced by database later
             .then(res => res.json())
-            .then(data => this.patient = data)
+            .then(data => this.option = data)
             .catch(err => console.log(err.message));
     },
     components: { Option }
