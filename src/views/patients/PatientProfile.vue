@@ -50,12 +50,7 @@
         <!-- <div class="column right"> -->
         <div class="Notepad">
           <!-- Should be replaced by a widget -->
-          <p>
-          <form action="">
-            <label for="phone">Notepad:</label><br><br>
-            <input type="text" id="note" name="notepad" placeholder=" Save your notes here."><br><br>
-          </form>
-          </p>
+               <Notepad />
         </div>
       </div>
     </div>
@@ -69,10 +64,8 @@
 
 import Option from '../../components/Option.vue';
 import Schneider from '../../assets/Schneider.jpg';
+import Notepad from '@/components/Notepad.vue';
 
-components: {
-  Option
-}
 
 export default {
   props: ["id"],
@@ -87,7 +80,7 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option }
+  components: { Option, Notepad }
 }
 
 </script>
