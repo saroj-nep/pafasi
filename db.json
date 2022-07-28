@@ -173,7 +173,35 @@
 {"id":"16","time":"259200","question":"Psychiatrie/Psychosomatik","answer":"Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde." },
 {"id":"17","time":"43200","question":"Radiologie","answer":"Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es zeigen sich unscharf begrenzte, inhomogene hyperdense Areale (Sklerosierungen) im Bereich der WK L2 - S1. Unter Berücksichtigung der Patientenvorgeschichte könnte es sich hierbei um osteoblastische Metastasen im Rahmen der Prostata-CA handeln. Zusätzlich sind Deckplatteneinbrüche des LWK 5 zu erkennen. Diese deuten auf eine Wirbelkörperfraktur ohne Instabilitätskriterien hin." },
 {"id":"18","time":"43200","question":"Urologie","answer":"Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es wurde ein Anstieg des PSA auf 6,0ng/ml festgestellt, sodass von einer ossären Metastasierung in die Wirbelsäule auszugehen ist. Wir haben Hr. Schneider in die onkologische Klinik überwiesen, wo seine Weiterbehandlung koordiniert werden soll." }
+],
+
+"submit_options":[
+{"id":"1","question": "Arbeitsdiagnose", "answer": ""},
+{"id":"2","economy":"0","safety":"100", "question":"Rettungsdienst rufen und Notfallmaßnahmen ergreifen"},
+{"id":"3","economy":"1","safety":"100","question":"keine Verabreden"},
+{"id":"4","economy":"0","safety":"0","question":"bei Verschechterung"},
+{"id":"5","economy":"0","safety":"50","question":"in 2 Tagen"},
+{"id":"6","economy":"0","safety":"80","question":"in 5 Tagen"},
+{"id":"7","economy":"0","safety":"70","question":"in 4 Wochen"},
+{"id":"8","economy":"0","safety":"20","question":"Krankenhauseinweisung"},
+{"id":"9","economy":"0","question":"AU ausstellen"},
+{"id":"10","economy":"1","question":"Rezept(e) und /oder Verordnungen ausstellen", "answer":""}
+],
+
+"counters":[
+{"id": "1", "title": "economy", "values":[],"sum":"" },
+{"id": "2", "title": "time","values":[],"sum":""},
+{"id": "3", "title": "satisfaction","values":[],"sum":""},
+{"id": "4", "title": "safety","values":[],"sum":""}
+],
+
+"notepad":[
+  {"id": "1", "title": "", "text":"","date":"" }
+  
 ]
+
+
+
 
 
 
