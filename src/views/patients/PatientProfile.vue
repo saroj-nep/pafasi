@@ -25,10 +25,10 @@
               <img src="../../assets/Schneider.jpg" alt="Schneider" style="top: 20px;" />
               <h1><strong>
                   <!-- Case {{ patient.id }}: -->
-                 Name: {{ patient.title }}
+                  Name: {{ patient.title }}
                 </strong></h1>
-                <div>Age: 75</div>
-                <div>männlich</div>
+              <div>Age: 75</div>
+              <div>männlich</div>
             </div>
           </div>
           <div class="fallbeschreibung" style="width: 75%">
@@ -44,19 +44,28 @@
         <div>
           <h3 style="margin-top: 50px;"> <strong>Was werden Sie als nächstes tun? </strong> </h3><br>
           <Option />
+          <button color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            Heutige Vorstellung beenden und (be-)handeln
+          </button>
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <h2>my button popup</h2>
+          </Popup>
         </div>
       </div>
       <div class="col-span-1">
         <!-- <div class="column right"> -->
         <div class="Notepad">
           <!-- Should be replaced by a widget -->
-               <Notepad />
+          <p>
+          <form action="">
+            <label for="phone">Notepad:</label><br><br>
+            <input type="text" id="note" name="notepad" placeholder=" Save your notes here."><br><br>
+          </form>
+          </p>
         </div>
       </div>
     </div>
     <!-- </div> -->
-
-    
   </div>
 
 </template>
@@ -66,9 +75,8 @@
 
 import Option from '../../components/Option.vue';
 import Schneider from '../../assets/Schneider.jpg';
-import Notepad from '@/components/Notepad.vue';
-import Anamnese from '@/components/Anamnese.vue';
-
+import Popup from '../../components/Popup.vue';
+import { ref } from 'vue';
 
 export default {
   props: ["id"],
@@ -77,14 +85,31 @@ export default {
       patient: null
     };
   },
+  setup() {
+    const popupTriggers = ref({
+      buttonTrigger: false
+    })
+
+    const TogglePopup = (trigger) => {
+      console.log(trigger, 'trigger')
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+    }
+    return {
+      Popup,
+      popupTriggers,
+      TogglePopup
+    }
+  },
   mounted() {
     fetch("http://localhost:3000/patients/" + this.id) //json server to be replaced by database later
       .then(res => res.json())
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option, Notepad, Anamnese }
+  components: { Option, Popup }
 }
+
+
 
 </script>
 <style scoped>
@@ -95,8 +120,8 @@ export default {
 .column {
   float: left;
   padding: 10px;
-  height: 600px;
-
+  overflow: auto;
+  max-height: calc(100vh - 800px);
 }
 
 .left {
@@ -122,5 +147,17 @@ export default {
   text-align: left;
   height: 600px;
   padding-left: 10px;
+}
+
+.button {
+  background: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px auto;
+  max-width: 50 px;
+  /* width: 20%; */
+  cursor: pointer;
+  /* color: #444   */
 }
 </style>
