@@ -56,12 +56,7 @@
         <!-- <div class="column right"> -->
         <div class="Notepad">
           <!-- Should be replaced by a widget -->
-          <p>
-          <form action="">
-            <label for="phone">Notepad:</label><br><br>
-            <input type="text" id="note" name="notepad" placeholder=" Save your notes here."><br><br>
-          </form>
-          </p>
+          <Notepad />
         </div>
       </div>
     </div>
@@ -71,13 +66,11 @@
 </template>
 
 <script>
-
-
 import Option from '../../components/Option.vue';
 import Schneider from '../../assets/Schneider.jpg';
 import Popup from '../../components/Popup.vue';
 import { ref } from 'vue';
-
+import Notepad from '@/components/Notepad.vue';
 export default {
   props: ["id"],
   data() {
@@ -89,7 +82,6 @@ export default {
     const popupTriggers = ref({
       buttonTrigger: false
     })
-
     const TogglePopup = (trigger) => {
       console.log(trigger, 'trigger')
       popupTriggers.value[trigger] = !popupTriggers.value[trigger]
@@ -106,34 +98,25 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option, Popup }
+  components: { Option, Popup, Notepad }
 }
-
-
-
 </script>
 <style scoped>
 * {
   box-sizing: border-box;
 }
-
 .column {
   float: left;
   padding: 10px;
   overflow: auto;
   max-height: calc(100vh - 800px);
 }
-
 .left {
   width: 75%;
-
 }
-
 .column right {
   width: 25%;
-
 }
-
 .fallbeschreibung {
   /* border: 1px solid green; */
   text-align: left;
@@ -141,14 +124,12 @@ export default {
   padding-left: 10px;
   margin-right: 50px;
 }
-
 .Notepad {
   border: 1px solid green;
   text-align: left;
   height: 600px;
   padding-left: 10px;
 }
-
 .button {
   background: black;
   color: white;
