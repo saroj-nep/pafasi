@@ -3,7 +3,7 @@
     <div class="grid grid-cols-3 gap-2">
       <div v-for="option in anamnese_options" :key="option.id" class="patient">
         <router-link :to="{ name: 'Menu', params: { id: option.id } }">
-          <h3>{{ option.question}}</h3>
+          <h3>{{ option.question }}</h3>
         </router-link>
       </div>
     </div>

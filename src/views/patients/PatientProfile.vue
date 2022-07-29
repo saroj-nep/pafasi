@@ -55,6 +55,8 @@
       </div>
     </div>
     <!-- </div> -->
+
+    
   </div>
 
 </template>
@@ -65,6 +67,7 @@
 import Option from '../../components/Option.vue';
 import Schneider from '../../assets/Schneider.jpg';
 import Notepad from '@/components/Notepad.vue';
+import Anamnese from '@/components/Anamnese.vue';
 
 
 export default {
@@ -80,7 +83,7 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option, Notepad }
+  components: { Option, Notepad, Anamnese }
 }
 
 </script>
