@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="grid grid-cols-3 gap-2">
-      <div v-for="option in menu_options" :key="option.id" class="patient">
-        <router-link :to="{ name: 'Menu', params: { id: option.id } }">
+      <div v-for="option in menu_options" :key="option.menu_id" class="patient">
+        <router-link :to="{ name: 'Menu', params: { id: option.menu_id } }">
           <h3>{{ option.title }}</h3>
         </router-link>
       </div>

@@ -4,11 +4,14 @@ import EinleitungView from '../views/EinleitungView.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
 import Anleitung from '../views/Anleitung.vue'
 import Patient from '../views/patients/PatientProfile.vue'
-// import DefaultLayout from '../components/DefaultLayout.vue'
-//import Option from '../components/Option.vue'
-
 import Anamnesemenu from '../views/menu/Anamnesemenu.vue'
+import Facharztmenu from '../views/menu/Facharztmenu.vue'
+import Labaratorymenu from '../views/menu/Labaratorymenu.vue'
+import Patientenaktemenu from '../views/menu/Patientenaktemenu.vue'
+import Untersuchenmenu from '../views/menu/Untersuchenmenu.vue'
+import Submitmenu from '../views/menu/Submitmenu.vue'
 import Menu from '../views/menu/Menu.vue'
+
 
 
 
@@ -28,10 +31,30 @@ const routes = [
   {
     path: '/patients/:id',name: 'Patient',component: Patient, props:true
   },
+  {
+    path: '/menu/:id',name: 'Menu',component: Menu, 
+  },
+  {
+    path: '/menu/1',name: 'Anamnese',component: Anamnesemenu, 
+  },
+
+  {
+    path: '/menu/2',name: 'Patientenakte',component: Patientenaktemenu, 
+  },
+  {
+    path: '/menu/3',name: 'Untersuchen',component: Untersuchenmenu,
+  },
+  {
+    path: '/menu/4',name: 'Labaratory',component: Labaratorymenu, 
+  },
+  {
+    path: '/menu/5',name: 'Facharzt',component: Facharztmenu, 
+  },
   
   {
-    path: '/patients/:id/menu/1',name: 'Menu',component: Anamnesemenu, props:true
+    path: '/menu/6',name: 'Submit',component: Submitmenu, 
   }
+
   
 ]
 

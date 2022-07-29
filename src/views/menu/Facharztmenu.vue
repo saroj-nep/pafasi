@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="grid grid-cols-3 gap-2">
-      <div v-for="option in anamnese_options" :key="option.anamnese_id" class="patient">
-        
+      <div v-for="option in facharzt_options" :key="option.id" class="patient">
+        <router-link :to="{ name: 'Menu', params: { id: option.id } }">
           <h3>{{ option.question }}</h3>
-      
+        </router-link>
       </div>
     </div>
   </div>
@@ -14,13 +14,13 @@
 export default {
   data() {
     return {
-      anamnese_options: []
+      facharzt_options: []
     }
   },
   mounted() {
-    fetch('http://localhost:3000/anamnese_options') //json server to be replaced by database later
+    fetch('http://localhost:3000/facharzt_options') //json server to be replaced by database later
       .then(res => res.json())
-      .then(data => this.anamnese_options = data)
+      .then(data => this.facharzt_options = data)
       .catch(err => console.log(err.message))
 
   }
