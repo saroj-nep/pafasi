@@ -2,9 +2,9 @@
   <div>
     <div class="grid grid-cols-3 gap-2">
       <div v-for="option in anamnese_options" :key="option.anamnese_id" class="patient">
-        
+        <router-link :to="{ name: 'Menu', params: { id: option.anamnese_id } }">
           <h3>{{ option.question }}</h3>
-      
+        </router-link>
       </div>
     </div>
   </div>

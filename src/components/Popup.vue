@@ -1,8 +1,9 @@
 <template>
   <div class="popup">
     <div class="popup-inner">
-      <slot />
-      <button class="popup-close" @click="TogglePopup()">Close Popup</button>
+     <button class="popup-close" @click="TogglePopup()">Go back to main menu</button><br><br><br>
+     <slot />
+      
     </div>
   </div>
 </template>
@@ -30,7 +31,8 @@ export default {
 
 .popup-inner {
 background: #fff;
-padding: 200px;
+padding: 100px;
+margin-right: 400px;
 }
 </style>
 

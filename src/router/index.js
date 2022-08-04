@@ -10,7 +10,7 @@ import Labaratorymenu from '../views/menu/Labaratorymenu.vue'
 import Patientenaktemenu from '../views/menu/Patientenaktemenu.vue'
 import Untersuchenmenu from '../views/menu/Untersuchenmenu.vue'
 import Submitmenu from '../views/menu/Submitmenu.vue'
-import Menu from '../views/menu/Menu.vue'
+
 
 
 
@@ -31,28 +31,26 @@ const routes = [
   {
     path: '/patients/:id',name: 'Patient',component: Patient, props:true
   },
+  
   {
-    path: '/menu/:id',name: 'Menu',component: Menu, 
-  },
-  {
-    path: '/menu/1',name: 'Anamnese',component: Anamnesemenu, 
+    path: '/anamnese',name: 'Anamnese',component: Anamnesemenu, 
   },
 
   {
-    path: '/menu/2',name: 'Patientenakte',component: Patientenaktemenu, 
+    path: '/patientenakte',name: 'Patientenakte',component: Patientenaktemenu, 
   },
   {
-    path: '/menu/3',name: 'Untersuchen',component: Untersuchenmenu,
+    path: '/untersuchen',name: 'Untersuchen',component: Untersuchenmenu,
   },
   {
-    path: '/menu/4',name: 'Labaratory',component: Labaratorymenu, 
+    path: '/labaratory',name: 'Labaratory',component: Labaratorymenu, 
   },
   {
-    path: '/menu/5',name: 'Facharzt',component: Facharztmenu, 
+    path: '/facharzt',name: 'Facharzt',component: Facharztmenu, 
   },
   
   {
-    path: '/menu/6',name: 'Submit',component: Submitmenu, 
+    path: '/submit',name: 'Submit',component: Submitmenu, 
   }
 
   

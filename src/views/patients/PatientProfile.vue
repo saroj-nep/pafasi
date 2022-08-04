@@ -42,14 +42,48 @@
           </div>
         </div>
         <div>
-          <h3 style="margin-top: 50px;"> <strong>Was werden Sie als nächstes tun? </strong> </h3><br>
-          <Option />
-          <button color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+           <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Was werden Sie als nächstes tun? </strong> </h1><br>
+          
+         
+            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            ausführlichere Anamnese führen 
+            </button>
+
+            <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <Anamnese />
+            </Popup>
+
+          <!-- <button style="margin-right: 50px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            einen Blick in die Patientenakte werfen
+          </button><br>
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <Patientenakte />
+          </Popup>
+        <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            Patienten untersuchen
+          </button>
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <Untersuchen />
+          </Popup>
+          <button style="margin-right: 50px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            Laboranordnungen
+          </button>
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <Labaratory />
+          </Popup>
+          <button style="margin-right: 50px ;margin-left: 100px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
+            Uberweisung zum Facharzt ausstellen
+          </button>
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
+            <Facharzt />
+          </Popup>
+          <button style="margin-right: 50px"  class="submitbutton" @click="()=> TogglePopup('buttonTrigger')">
             Heutige Vorstellung beenden und (be-)handeln
           </button>
           <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
-            <h2>my button popup</h2>
-          </Popup>
+            <Submit />
+          </Popup> -->
+
         </div>
       </div>
       <div class="col-span-1">
@@ -71,6 +105,12 @@ import Schneider from '../../assets/Schneider.jpg';
 import Popup from '../../components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
+import Anamnese from '@/components/Anamnese.vue';
+import Patientenakte from '../../components/Patientenakte.vue';
+import Untersuchen from '../../components/Untersuchen.vue';
+import Labaratory from '../../components/Labaratory.vue';
+import Facharzt from '../../components/Facharzt.vue';
+import Submit from '../../components/Submit.vue';
 export default {
   props: ["id"],
   data() {
@@ -98,7 +138,7 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option, Popup, Notepad }
+  components: { Option, Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt,Submit }
 }
 </script>
 <style scoped>
@@ -136,9 +176,24 @@ export default {
   padding: 20px;
   border-radius: 10px;
   margin: 5px auto;
-  max-width: 50 px;
+  width:400px;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
+.submitbutton{
+  background: #be123c;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px auto;
+  width:400px;
+  /* width: 20%; */
+  cursor: pointer;
+  /* color: #444   */
+}
+.h1{
+ font-size: large; 
+}
+
 </style>
