@@ -42,16 +42,35 @@
           </div>
         </div>
         <div>
-           <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Was werden Sie als nächstes tun? </strong> </h1><br>
-          
-         
-            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
-            ausführlichere Anamnese führen 
-            </button>
+          <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Was werden Sie als
+              nächstes tun? </strong> </h1><br>
 
-            <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup = "()=> TogglePopup('buttonTrigger')">
-            <Anamnese />
-            </Popup>
+
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('buttonTrigger')">
+            ausführlichere Anamnese führen
+          </button>
+
+          <Popup v-if="popupTriggers.buttonTrigger" :TogglePopup="() => TogglePopup('buttonTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 20px" />
+              <img src="../../assets/Expand.png" alt="" @click="showNotepad = true" style="width: 20px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Hide notepad</div>
+              <div v-else class="tooltiptext">Show notepad</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Anamnese />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
 
           <!-- <button style="margin-right: 50px" color="#42b983" class="button" @click="()=> TogglePopup('buttonTrigger')">
             einen Blick in die Patientenakte werfen
@@ -111,11 +130,15 @@ import Untersuchen from '../../components/Untersuchen.vue';
 import Labaratory from '../../components/Labaratory.vue';
 import Facharzt from '../../components/Facharzt.vue';
 import Submit from '../../components/Submit.vue';
+import Tooltip from '@/components/Tooltip.vue';
+
 export default {
   props: ["id"],
   data() {
     return {
-      patient: null
+      patient: null,
+      showTooltip: false,
+      showNotepad: false
     };
   },
   setup() {
@@ -138,7 +161,7 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: { Option, Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt,Submit }
+  components: { Option, Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit, Tooltip }
 }
 </script>
 <style scoped>
@@ -196,4 +219,45 @@ export default {
  font-size: large; 
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 </style>

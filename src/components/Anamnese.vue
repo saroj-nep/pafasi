@@ -1,12 +1,11 @@
 <template>
   <div>
-    <div class="grid grid-cols-3 gap-2">
-      <div v-for="option in anamnese_options" :key="option.anamnese_id" class="patient">
-        
-          <h3>{{ option.question }}</h3>
-       
-      </div>
+    <!-- <div class="grid grid-cols-3 gap-2"> -->
+    <div v-for="option in anamnese_options" :key="option.anamnese_id" class="patient">
+
+      <h3>{{ option.question }}</h3>
     </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -35,7 +34,7 @@ export default {
   border-radius: 10px;
   margin: 10px auto;
   max-width: 20 px;
-    /* width: 50%; */
+  /* width: 50%; */
   cursor: pointer;
   color: #444
 }
