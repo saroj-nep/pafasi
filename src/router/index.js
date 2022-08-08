@@ -32,7 +32,7 @@ const routes = [
     path: '/warte',name: 'Wartezimmer',component: Wartezimmer
   },
   {
-    path: '/einleitung',name: 'EinleitungView',component: EinleitungView
+    path: '/einlei',name: 'EinleitungView',component: EinleitungView
   },
  
   {
