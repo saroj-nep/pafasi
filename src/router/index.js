@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MainPageView from '../views/MainPageView.vue'
 import EinleitungView from '../views/EinleitungView.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
-import Anleitung from '../views/Anleitung.vue'
+import Login from '../views/Login.vue'
 import Patient from '../views/patients/PatientProfile.vue'
 import Anamnesemenu from '../views/menu/Anamnesemenu.vue'
 import Facharztmenu from '../views/menu/Facharztmenu.vue'
@@ -13,11 +13,12 @@ import Submitmenu from '../views/menu/Submitmenu.vue'
 
 
 
-
-
 const routes = [
   {
-    path: '/', children:[{path:"/main", name:"MainPageView", component: MainPageView}],
+    path: '/', name:'Login', component:Login
+  },
+  {
+    path: '/main', name:'MainPageView', component:MainPageView
   },
   {
     path: '/warte',name: 'Wartezimmer',component: Wartezimmer
@@ -25,9 +26,7 @@ const routes = [
   {
     path: '/einleitung',name: 'EinleitungView',component: EinleitungView
   },
-  {
-    path: '/anlei',name: 'Anleitung',component: Anleitung
-  },
+ 
   {
     path: '/patients/:id',name: 'Patient',component: Patient, props:true
   },
@@ -51,7 +50,8 @@ const routes = [
   
   {
     path: '/submit',name: 'Submit',component: Submitmenu, 
-  }
+  },
+ 
 
   
 ]

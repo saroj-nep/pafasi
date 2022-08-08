@@ -1,24 +1,23 @@
 <template>
-     <header>
-        <h1>PaFaSi<br/>Uni-Homburg</h1>
-      </header>
-    <div class="menu">
-        <router-link to="/einlei"><br><Button text="Einleitung" color="#42b983"/></router-link>
-        <router-link to="/anlei"><br><Button text="Anleitung Zu App" color="#42b983"/></router-link>
-        <router-link to="/wart"><br><Button text="Wartezimmer" color="#42b983"/></router-link>
-        <router-link to="/tip"><br><Button text="Tipps & Links" color="#42b983"/></router-link>
-        <router-link to="/kleinge"><br><Button text="Kleingedrucktes" color="#42b983"/></router-link>
+    <Header />
+    <div class="menu flex flex-row  justify-center items-center">
+        <router-link to="/einlei"><br><Button text="Leitfaden zur Bewerbung" /></router-link> 
+        <router-link to="/warte"><br><Button text="Wartezimmer" /></router-link>
+        
+        
     </div>
     
 </template>
 
 <script>
 import Button from '.././components/ButtonComp' 
+import Header from '@/components/DefaultLayout'
 
 export default{
     name:'button',
     components:{
-        Button
+        Button,
+        Header
     }
 }
 </script>
@@ -31,14 +30,23 @@ export default{
 }
 
 .menu button {
-background: #f4f4f4;
-   padding: 20px;
-   border-radius: 10px;
-   margin: 5px auto ;
-   max-width: 50 px;
-   width:20%;
-   cursor: pointer;
-   color: #444  
+ background:  rgb(82, 225, 132);
+  padding: 50px;
+  border-radius: 20px;
+  width:80%;
+  height: 50px;
+  cursor: pointer;
+  color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  
 } 
-
+ .menu button:hover {
+    background: rgb(39, 190, 107)
+  }
+  .menu a{
+    text-decoration: none
+  }
 </style>

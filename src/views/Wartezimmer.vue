@@ -1,5 +1,7 @@
 <template>
+
   <div>
+    <Header />
     <div v-for="patient in patients" :key="patient.id" class="patient">
       <router-link :to="{ name: 'Patient', params: { id: patient.id } }">
         <h3>{{ patient.title }}</h3>
@@ -10,8 +12,14 @@
 </template>
 
 <script>
+import Header from '@/components/DefaultLayout.vue';
 
 export default {
+  components:{
+   
+    Header
+   
+  },
   data() {
     return {
       patients: []
@@ -22,15 +30,16 @@ export default {
       .then(res => res.json())
       .then(data => this.patients = data)
       .catch(err => console.log(err.message))
-  }
+  },
+  
 }
 
 </script>
 
 <style scoped>
 .patient h3 {
-  background: grey;
-  padding: 100px;
+  background: rgb(82, 225, 132);
+  padding: 50px;
   border-radius: 10px;
   margin: 10px auto;
   /* max-width: 50 px; */
@@ -41,7 +50,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  font-weight: bold;
+  
 }
 
   .patient h3:hover {

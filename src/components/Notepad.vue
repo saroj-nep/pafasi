@@ -6,18 +6,20 @@
         <div>
           <h1> {{title}}</h1>
           <h2> {{subtitle}}</h2>
-          <h3>Total Notes: {{ notes.length }}</h3>
+          <h3>Total Noten: {{ notes.length }}</h3>
           <div class="form">
             <div class="form-group">
-              <label>Note Title  </label>
-              <input class="form-control" type="text" v-model="note.title" required>
+              <label>Titel der Notiz:     </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="note.title" required>
             </div>
             <div class="form-group">
-              <label>Note Text </label>
-              <textarea rows="3" class="form-control" v-model="note.text" required></textarea>
+              <label>Beschreibung :     </label>
+              <textarea rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="note.text" required></textarea>
             </div>
-            <button class="btn btn-primary" @click="addNote">Save Note</button>
-            <div class="alert alert-danger text-center" role="alert" v-bind:class="{ active: isActive }">All fields are Required</div>
+            <div class="flex flex-row  justify-center items-center">
+            <button class="btn btn-primary " @click="addNote">Notiz speichern</button>
+            </div>
+            <div class="alert alert-danger text-center text-red-500" role="alert" v-bind:class="{ active: isActive }">Alle Felder sind obligatorisch.</div>
           </div>
           <div class="row">
             <div class="col-sm-6 note" v-for="(note, index) in notes" :key="note.id">
@@ -25,7 +27,7 @@
                 <button class="close" @click="removeNote(index)">&times;</button>
                 <div class="card-block">
                   <h4 class="card-title">{{note.title}}</h4>
-                  <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6>
+                  <!-- <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6> -->
                   <p class="card-text">{{note.text}}</p>
                 </div>
               </div>
@@ -43,8 +45,7 @@ export default({
 			
 			data(){return{
 				isActive: false,
-				title: 'Notepad',
-				subtitle: 'Hr. Schneider Diagnosis Notes',
+				title: 'Noten zur Diagnose',
 				note: {
 					title: '',
 					text: ''
@@ -93,15 +94,16 @@ body {
 	padding: 70px 30px 0px 30px;
 	font-weight: 100; }.card {
   margin: 20px 0;
-  background: #817b7b;
+  background: rgb(52 211 153);
   border: 10px;
-  padding: 20px; }
+  padding: 20px; 
+ }
 button.btn { 
 	display: block; 
-	padding: 15px 20px;
+	padding: 5px  20px;
 	font-family: 'Ubuntu', sans-serif;
-	margin: 15px 0px;
-  width: 100%;
+	margin: 15px 40px 20px 20px;
+  width: 50%;
 	box-shadow: 0px 1px 3px rgb(76, 68, 68);
 	border: none; 
 	border-radius: 2px; }
@@ -117,19 +119,31 @@ h3 {
   font-size: 14px;
   margin: 30px 0px 30px 0px; 
   color: #b5b5b5; }
+h4 { 
+  text-align: center; 
+  font-weight: bold;
+  font-size: 15px;
+  margin: 30px 0px 30px 0px; 
+  color: #000000; }
+
 h4.card-title { margin: 5px 0px 15px 0px; }
 p.card-text { margin: 25px 0px 0px 0px; }
 .card { 
   border-radius: 3px; 
-  box-shadow: 0px 2px 3px rgb(74, 60, 60); }
+  box-shadow: 0px 2px 3px rgb(70, 241, 144);
+  }
 .alert { display: none; }
 .active { display: block; }
 .col-sm-12 > div {
   
-  margin: 0px auto; }
+  margin: auto; }
   .form-control 
-  {padding-left: 10;
-  margin-left: 20;
+  {padding-left: 0;
+  margin-left: 30;
+  
   }
-  .container {background-color: #ffffff;}
+  .container {background-color: #ffffff;
+    }
+  .row{  overflow: auto;
+  max-height: calc(200vh - 800px);}
 </style>

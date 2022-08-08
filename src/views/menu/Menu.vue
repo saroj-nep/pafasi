@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="grid grid-cols-3 gap-2">
-      <div v-for="option in untersuchen_options" :key="option.id" class="patient">
-       
+      <div v-for="option in menu_options" :key="option.menu_id" class="patient">
+        <router-link :to="{ name: 'Menu', params: { id: option.menu_id } }">
           <h3>{{ option.title }}</h3>
-     
+        </router-link>
       </div>
     </div>
   </div>
@@ -14,13 +14,13 @@
 export default {
   data() {
     return {
-      untersuchen_options: []
+      menu_options: []
     }
   },
   mounted() {
-    fetch('http://localhost:3000/untersuchen_options') //json server to be replaced by database later
+    fetch('http://localhost:3000/menu_options') //json server to be replaced by database later
       .then(res => res.json())
-      .then(data => this.untersuchen_options = data)
+      .then(data => this.menu_options = data)
       .catch(err => console.log(err.message))
 
   }

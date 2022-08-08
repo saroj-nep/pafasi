@@ -1,12 +1,21 @@
 {
+
+
+  "users": [
+    {
+      "username":"test",
+      "password":"test"
+    }
+
+  ],
    
   "patients": [
     {
      "id":"1",
-     "title": "Hr. Schneider",
+     "title": "Hr. Wolfgang Schneider",
      "age": "78",
-     "sex": "M", 
-     "image": "/src/assets/Schneider.jpg",
+     "sex": "Männlich", 
+     "image": "./../assets/Schneider.jpg",
      "details":"Herr Wolfgang Schneider, leicht adipöser EZ, AZ gut. Herr Schneider bewegt sich schwerfällig, leicht gebeugt und leicht humpelnd durchs Zimmer, stützt sich stöhnend auf Ihrem Schreibtisch ab, als er sich hinsetzt. Auf die Frage, was ihm fehle: „Es ist das Kreuz! Ich kann mich bald nicht mehr bewegen! Der Herr Dr. Weber, der hatte mir immer diese Kortisonspritzen gegeben. Bitte, können Sie das bei mir wieder machen? Das ist das Einzige was bei mir hilft. Sie wissen ja, mit den alten Knochen da hat man nur Probleme!“."
      
   
