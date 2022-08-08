@@ -222,7 +222,7 @@
 </template>
 
 <script>
-import Option from '../../components/Option.vue';
+
 import Schneider from '../../assets/Schneider.jpg';
 import Popup from '../../components/Popup.vue';
 import { ref } from 'vue';
@@ -265,7 +265,7 @@ export default {
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));
   },
-  components: {Header, Option, Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit }
+  components: {Header,  Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit }
 }
 </script>
 <style scoped>
