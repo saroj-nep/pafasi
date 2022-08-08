@@ -2,11 +2,11 @@
   <form action="" class="form" @submit="checkLogin">
     <div class="errorLogin disable">
       <p class="errorLogin__text" id="errorMsg">
-        Your email and/or password are incorrect
+        Ihre E-Mail und/oder Ihr Passwort sind falsch.
       </p>
     </div>
     <div class="form__group">
-      <label for="Email" class="form__label">Student Email</label>
+      <label for="Email" class="form__label">Studenten-E-Mail:</label>
       <input
         type="email"
         class="form__input"
@@ -28,13 +28,13 @@
         }"
         id="emailError"
       >
-        Enter a valid email address.
+        Geben Sie eine gültige E-Mail-Adresse für Studenten ein.
       </p>
     </div>
 
     <div class="form__group">
       <div class="linking">
-        <label for="Password" class="form__label">Password</label>
+        <label for="Password" class="form__label">Kennwort:</label>
         <!-- <a href="#" class="linking__forgetPassword">Forget password?</a> -->
       </div>
       <input
@@ -51,7 +51,7 @@
         v-model="password"
       />
       <p class="errorMassage disable" id="passwordError">
-        Password must be 8 characters or more
+        Das Passwort muss mindestens 8 Zeichen lang sein.
       </p>
     </div>
     <button
@@ -60,7 +60,7 @@
       :disabled="!isValid"
       :class="{ avalible: isValid, notAvalible: !isValid }"
     >
-      Login
+      Einloggen
     </button>
   </form>
   <div class="linking">
