@@ -1,4 +1,4 @@
-
+!
 <template>
   <div class="container">
     <SliderContainer />
@@ -10,7 +10,7 @@
 import LoginForm from "@/components/Login/LoginFooter.vue";
 import SliderContainer from "@/components/Login/SliderContainer.vue";
 export default {
-  name: "LoginPage",
+  name: "Login",
   components: { LoginForm, SliderContainer },
 };
 </script>

@@ -8,22 +8,32 @@ import ErrorPage from "@/views/ErrorPage.vue"
 
 
 const routes = [
-  {
-    path: '/', name:'Home', component:Login,meta: {
-      title: "Login",
-    },
+ { path: "/",
+  name: "home",
+  component: Login,
+  meta: {
+    title: "Login ",
   },
-  {
-    path: '/login', name:'Login', component:Login,meta: {
-      title: "Login",
-    },
+},
+{
+  path: "/login",
+  name: "login",
+  component: Login,
+  meta: {
+    title: "Login ",
   },
+},
+  
 
   {
-    path: '/main', name:'MainPageView', component:MainPageView
+    path: '/main', name:'MainPageView', component:MainPageView,  meta: {
+      title: "Main",
+    },
   },
   {
-    path: '/warte',name: 'Wartezimmer',component: Wartezimmer
+    path: '/warte',name: 'Wartezimmer',component: Wartezimmer, meta: {
+      title: "Wartezimmer",
+    },
   },
   {
     path: '/einlei',name: 'EinleitungView',component: EinleitungView
@@ -44,11 +54,11 @@ const routes = [
   },
 
   
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;

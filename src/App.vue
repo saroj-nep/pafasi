@@ -1,8 +1,6 @@
 <template>
 
-
   <router-view/>
-  
 </template>
 
 
@@ -12,12 +10,14 @@ import ButtonCompVue from './components/ButtonComp';
 
 
 
+
 // import Option from './components/Option'
 
 export default{
   name:'App',
   components:{
-    ButtonCompVue,
+    ButtonCompVue
+    
     
    
     // Option
@@ -27,4 +27,6 @@ export default{
 
 </script>
 
-
+<style>
+@import "@/style/main.scss";
+</style>
