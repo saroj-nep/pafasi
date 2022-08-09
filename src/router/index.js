@@ -36,7 +36,7 @@ const routes = [
     },
   },
   {
-    path: '/einlei',name: 'EinleitungView',component: EinleitungView
+    path: '/anlei',name: 'EinleitungView',component: EinleitungView
   },
  
   {

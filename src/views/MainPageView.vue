@@ -1,7 +1,7 @@
 <template>
     <Header />
     <div class="menu flex flex-row justify-center content-center justify-self-center self-center items-center justify-items-center ">
-        <router-link to="/einlei"><br><Button class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Leitfaden zur Bewerbung" /></router-link> 
+        <router-link to="#"><br><Button class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Anleitung zur Bewerbung" /></router-link> 
         <router-link to="/warte"><br><Button class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Wartezimmer" /></router-link>
         
     </div>

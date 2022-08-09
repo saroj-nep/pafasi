@@ -129,14 +129,70 @@
     </div>
 </ul>
 <button class="submitbutton"
-            @click="">
+            @click="() => TogglePopup('sendTrigger')">
          Abschicken
-         </button>
+</button>
+ <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Sendblood />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
     </div>
   </div>
 </template>
 
+<script>
+import Popup from '@/components/Popup.vue';
+import { ref } from 'vue';
+import Notepad from '@/components/Notepad.vue';
+import Sendblood from './Sendblood.vue';
 
+
+
+export default {
+ 
+  data() {
+    return {
+      
+      showTooltip: false,
+      showNotepad: false
+    };
+  },
+  setup() {
+    const popupTriggers = ref({
+      buttonTrigger: false
+    })
+    const TogglePopup = (trigger) => {
+      console.log(trigger, 'trigger')
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+    }
+    return {
+      Popup,
+      popupTriggers,
+      TogglePopup
+    }
+  },
+  
+  components: { Notepad, Popup, Sendblood }
+}
+</script>
+
+<style scoped>
 
 
 <style scoped>

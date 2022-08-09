@@ -14,7 +14,7 @@
                 <a 
                 v-for="item in navigation" :key="item.name" :href="item.href" 
                 :class="[item.current ? 'bg-gray-900 text-white' : 
-                'text-gray-300 hover:bg-gray-700 hover:text-white', 
+                'font-bold text-white  hover:bg-gray-700 hover:text-white', 
                 'px-3 py-2 rounded-md text-sm font-medium']" 
                 v-bind:style=" (route.name === item.name) ? 'background: black' : 'border: none;' "
                 :aria-current="item.current ? 'page' : undefined"
@@ -111,7 +111,7 @@ import {computed} from 'vue';
 const navigation = [
    { name: 'Dashboard', href: '/main', current: false },
    { name: "Wartezimmer",href: '/warte', current: false } ,
- 
+  { name: "Anleitung",href: '#' , current: false } ,
 ]
 const userNavigation = [
   

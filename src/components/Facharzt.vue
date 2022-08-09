@@ -4,7 +4,7 @@
     <h1 class="h1 text-white" style=";"> <strong>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten: </strong> </h1>
     </div>
    
-   <br><button style="margin-top: 50px;margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+   <button style="margin-top: 50px;margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="() => TogglePopup('augenTrigger')">
          Augenheilkunde
          </button>

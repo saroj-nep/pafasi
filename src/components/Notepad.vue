@@ -26,9 +26,9 @@
               <div class="card">
                 <button class="close" @click="removeNote(index)">&times;</button>
                 <div class="card-block">
-                  <h4 class="card-title">{{note.title}}</h4>
+                  <h4 class="card-title text-white">{{note.title}}</h4>
                   <!-- <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6> -->
-                  <p class="card-text">{{note.text}}</p>
+                  <p class="card-text text-white">{{note.text}}</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ body {
 	padding: 70px 30px 0px 30px;
 	font-weight: 100; }.card {
   margin: 20px 0;
-  background: rgb(52 211 153);
+  background: rgb(5,150,105);
   border: 10px;
   padding: 20px; 
  }
@@ -124,13 +124,13 @@ h4 {
   font-weight: bold;
   font-size: 15px;
   margin: 30px 0px 30px 0px; 
-  color: #000000; }
+   }
 
 h4.card-title { margin: 5px 0px 15px 0px; }
 p.card-text { margin: 25px 0px 0px 0px; }
 .card { 
   border-radius: 3px; 
-  box-shadow: 0px 2px 3px rgb(70, 241, 144);
+  box-shadow: 0px 2px 3px rgb(5, 150, 105);
   }
 .alert { display: none; }
 .active { display: block; }
@@ -142,8 +142,7 @@ p.card-text { margin: 25px 0px 0px 0px; }
   margin-left: 30;
   
   }
-  .container {background-color: #ffffff;
-    }
+  
   .row{  overflow: auto;
   max-height: calc(200vh - 800px);}
 </style>

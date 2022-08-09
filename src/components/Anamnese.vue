@@ -4,7 +4,7 @@
 
     <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten  </strong> </h1>
     </div>
-    
+    <br>
     <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="() => TogglePopup('beschreibenTrigger')">
          Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)
@@ -331,6 +331,7 @@ export default {
   border-radius: 10px;
   margin: 5px auto;
   width:400px;
+  min-height: 0px;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

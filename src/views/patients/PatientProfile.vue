@@ -50,7 +50,7 @@
     </div>
 <br><br>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('untersuchenTrigger')">
+            @click="() => TogglePopup('anamneseTrigger')">
             ausführlichere Anamnese führen
           </button>
 
