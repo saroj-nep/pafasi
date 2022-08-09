@@ -19,9 +19,9 @@
         </div>
       </div> -->
 
-      <div class="col-span-3">
-        <div style="display:flex;  background-color: #dcfce7; padding: 20px; border-radius: 10px;">
-          <div class="patient" style="width: 25%;">
+      <div class="col-span-3 ">
+        <div class="shadow-xl shadow-slate-600" style="display:flex;  background-color: #dcfce7; padding: 20px; margin-left:10px; padding-left: 40px; border-radius: 10px;">
+          <div class="patient " style="width: 25%;">
             <div class="flex content-start  ">
               <img src= "../../assets/Schneider.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
           </div>
@@ -41,17 +41,18 @@
             <!-- </div> -->
           </div>
         </div>
+        <br>
         <div>
-          <div class="sticky top-0 bg-emerald-600">
+          <div class="sticky top-0 bg-emerald-600 mx-10">
 
     <h1 class="h1 text-white" style="; margin-left:400px;"> <strong>Was werden Sie als
               nächstes tun? </strong> </h1>
     </div>
 <br><br>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('anamneseTrigger')">
-          ausführlichere Anamnese führen
-         </button>
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click="() => TogglePopup('untersuchenTrigger')">
+            ausführlichere Anamnese führen
+          </button>
 
           <Popup v-if="popupTriggers.anamneseTrigger" :TogglePopup="() => TogglePopup('anamneseTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
@@ -74,7 +75,7 @@
             </div>
           </Popup>
   
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('untersuchenTrigger')">
             Untersuchen
           </button>
@@ -92,7 +93,7 @@
                 style="max-height: 20rem; overflow: auto">
                 <Untersuchen />
               </div>
-              <div class="col-span-1">
+              <div >
                 <div v-if="showNotepad">
                   <Notepad />
                 </div>
@@ -101,7 +102,7 @@
           </Popup>
 
           
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('patientenakteTrigger')">
            einen Blick in die Patientenakte werfenn
           </button>
@@ -128,7 +129,7 @@
           </Popup>
 
           
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('laboranordnungenTrigger')">
            Laboranordnungen
          </button>
@@ -154,7 +155,7 @@
             </div>
           </Popup>
         
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('facharztTrigger')">
            Facharzt
          </button>
@@ -180,7 +181,7 @@
             </div>
           </Popup>
 
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="submitbutton"
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="submitbutton  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('beendenTrigger')">
           Heutige Vorstellung beenden und (be-)handeln
          </button>
@@ -210,9 +211,9 @@
 
         </div>
       </div>
-      <div class="col-span-1">
+      <div >
         <!-- <div class="column right"> -->
-        <div class="Notepad">
+        <div >
           <!-- Should be replaced by a widget -->
           <Notepad />
         </div>
@@ -271,21 +272,8 @@ export default {
 }
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-.column {
-  float: left;
-  padding: 10px;
-  overflow: auto;
-  max-height: calc(100vh - 800px);
-}
-.left {
-  width: 75%;
-}
-.column right {
-  width: 25%;
-}
+
+
 .fallbeschreibung {
   /* border: 1px solid green; */
   text-align: left;

@@ -142,7 +142,7 @@ export default {
 
 .heading--1 {
   font-size: 2rem;
-  color: #bcd8e8;
+  color:rgb(255, 255, 255);
 }
 .dots {
   position: absolute;
@@ -154,7 +154,7 @@ export default {
 
 .dots__dot {
   background-color: transparent;
-  @include customBorder(transparent, $color__gray--light);
+  @include customBorder(transparent, rgb(5, 150, 105));
 
   opacity: 0.7;
   height: 1rem;
@@ -170,7 +170,7 @@ export default {
 }
 
 .dots__dot--active {
-  background-color: $color__gray--light;
+  background-color: rgb(5, 150, 105);
   opacity: 1;
 }
 </style>

@@ -4,7 +4,7 @@
     <Header />
     <div v-for="patient in patients" :key="patient.id" class="patient">
       <router-link :to="{ name: 'Patient', params: { id: patient.id } }">
-        <h3>{{ patient.title }}</h3>
+        <h3 class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">{{ patient.title }}</h3>
       </router-link>
     </div>
   </div>
@@ -38,14 +38,14 @@ export default {
 
 <style scoped>
 .patient h3 {
-  background: rgb(82, 225, 132);
+  background: rgb(5,150, 105);
   padding: 50px;
   border-radius: 10px;
   margin: 10px auto;
   /* max-width: 50 px; */
   width: 26%;
   cursor: pointer;
-  color: #444;
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;

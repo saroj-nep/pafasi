@@ -1,10 +1,10 @@
 <template>
 <div>
-  <div class="container">
+  <div class=" border-emerald-600 border-4 shadow-md h-fit shadow-emerald-600 mr-5 pl-5 pr-5 border-t-8 ">
     <div class="row">
       <div class="col-sm-12">
         <div>
-          <h1> {{title}}</h1>
+          <h1><strong> {{title}}</strong></h1>
           <h2> {{subtitle}}</h2>
           <h3>Total Noten: {{ notes.length }}</h3>
           <div class="form">
