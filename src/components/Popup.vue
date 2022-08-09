@@ -1,7 +1,7 @@
 <template>
   <div class="popup">
     <div class="popup-inner">
-     <button class="popup-close" @click="TogglePopup()"><img class="h-8 w-15" src="../../src/assets/return.png" alt="Workflow" />zurück zum Hauptmenü</button>
+     <button class="popup-close" @click="TogglePopup()"><img class="h-8 w-15" src="../../src/assets/return.png" alt="Workflow" />zurück zum vorigen Menü </button>
      <!-- <br><br><br> -->
      <slot />
     </div>

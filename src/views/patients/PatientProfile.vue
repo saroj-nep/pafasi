@@ -48,7 +48,7 @@
 
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="() => TogglePopup('anamneseTrigger')">
-          Anamnese
+          ausführlichere Anamnese führen
          </button>
 
           <Popup v-if="popupTriggers.anamneseTrigger" :TogglePopup="() => TogglePopup('anamneseTrigger')">

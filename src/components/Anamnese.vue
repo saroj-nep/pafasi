@@ -1,50 +1,390 @@
 <template>
   <div>
-    <div class="grid grid-cols-3 gap-2">
-      <div v-for="option in anamnese_options" :key="option.anamnese_id" class="patient">
-      
-          <h3>{{ option.question }}</h3>
-      
-      </div>
-    </div>
+    <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten </strong> </h1><br>
+    <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('beschreibenTrigger')">
+         Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)
+         </button>
+
+          <Popup v-if="popupTriggers.beschreibenTrigger" :TogglePopup="() => TogglePopup('beschreibenTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Beschreiben />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+  
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('akutesTrigger')">
+            akutes Ereignis?/Aenderung der Lebensumstaende?
+          </button>
+
+          <Popup v-if="popupTriggers.akutesTrigger" :TogglePopup="() => TogglePopup('akutesTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Akutes />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('medikTrigger')">
+          Medikamentenanamnese
+          </button>
+
+          <Popup v-if="popupTriggers.medikTrigger" :TogglePopup="() => TogglePopup('medikTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Medikamen />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('gewohnTrigger')">
+          Gewohnheiten, Lebensstil (sport, Ernaehrung,...))
+         </button>
+
+          <Popup v-if="popupTriggers.gewohnTrigger" :TogglePopup="() => TogglePopup('gewohnTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Gewohn />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+        
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('nikotinTrigger')">
+           Nikotin, Alkohol, Drogen?
+         </button>
+
+          <Popup v-if="popupTriggers.nikotinTrigger" :TogglePopup="() => TogglePopup('nikotinTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Nikotin />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('allergienTrigger')">
+          Allergien
+         </button>
+
+          <Popup v-if="popupTriggers.allergienTrigger" :TogglePopup="() => TogglePopup('allergienTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Allergin />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('vegetativeTrigger')">
+          vegetative Anamnese (Appetit, Schlaf, Verdauung etc))
+         </button>
+
+          <Popup v-if="popupTriggers.vegetativeTrigger" :TogglePopup="() => TogglePopup('vegetativeTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Vegetative />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('gynoTrigger')">
+          Gynokologische/Urologische/Sexualanamnese
+         </button>
+
+          <Popup v-if="popupTriggers.gynoTrigger" :TogglePopup="() => TogglePopup('gynoTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Gyno />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+        <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('psycheTrigger')">
+          Psyche
+         </button>
+
+          <Popup v-if="popupTriggers.psycheTrigger" :TogglePopup="() => TogglePopup('psycheTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Psyche />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+          
+         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+            @click="() => TogglePopup('familienTrigger')">
+          Familien- und Sozialanamnese (Beruf, Wohnsituation)
+         </button>
+
+          <Popup v-if="popupTriggers.familienTrigger" :TogglePopup="() => TogglePopup('familienTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 20rem; overflow: auto">
+                <Familien />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
   </div>
 </template>
 
 <script>
+import Popup from '@/components/Popup.vue';
+import { ref } from 'vue';
+import Notepad from '@/components/Notepad.vue';
+import Anamnese from '@/components/Anamnese.vue';
+import Patientenakte from '@/components/Patientenakte.vue';
+import Untersuchen from '@/components/Untersuchen.vue';
+import Labaratory from '@/components/Labaratory.vue';
+import Facharzt from '@/components/Facharzt.vue';
+import Submit from '@/components/Submit.vue';
+import Beschreiben from './Anamnese/Beschreiben.vue';
+import Akutes from './Anamnese/Akutes.vue';
+import Medikamen from './Anamnese/Medikamen.vue';
+import Nikotin from './Anamnese/Nikotin.vue';
+import Allergin from './Anamnese/Allergin.vue';
+import Gyno from './Anamnese/Gyno.vue';
+import Psyche from './Anamnese/Psyche.vue';
+import Gewohn from './Anamnese/Gewohn.vue';
+import Vegetative from './Anamnese/vegetative.vue';
+import Familien from './Anamnese/Familien.vue';
+
 export default {
+ 
   data() {
     return {
-      anamnese_options: []
+      
+      showTooltip: false,
+      showNotepad: false
+    };
+  },
+  setup() {
+    const popupTriggers = ref({
+      buttonTrigger: false
+    })
+    const TogglePopup = (trigger) => {
+      console.log(trigger, 'trigger')
+      popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+    }
+    return {
+      Popup,
+      popupTriggers,
+      TogglePopup
     }
   },
-  mounted() {
-    fetch('http://localhost:3000/anamnese_options') //json server to be replaced by database later
-      .then(res => res.json())
-      .then(data => this.anamnese_options = data)
-      .catch(err => console.log(err.message))
-
-  }
+  
+  components: { Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit, Beschreiben, Akutes, Medikamen, Nikotin, Allergin, Gyno, Psyche, Gewohn, Vegetative, Familien }
 }
-
 </script>
 
 <style scoped>
-.patient h3 {
-  background: #e6e6e6;
+
+.button {
+  background: black;
+  color: white;
   padding: 20px;
   border-radius: 10px;
-  margin: 10px auto;
-  max-width: 20 px;
-    /* width: 50%; */
+  margin: 5px auto;
+  width:400px;
+  /* width: 20%; */
   cursor: pointer;
-  color: #444
+  /* color: #444   */
+}
+.submitbutton{
+  background: #be123c;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px auto;
+  width:400px;
+  /* width: 20%; */
+  cursor: pointer;
+  /* color: #444   */
+}
+.h1{
+ font-size: large; 
 }
 
-.patient h3:hover {
-  background: rgb(39, 190, 107)
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
 }
 
-.patient a {
-  text-decoration: none
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 </style>
