@@ -3,10 +3,9 @@
     <div class="grid grid-cols-4 gap-2">
       
        
-          <h2>einen blick in die Patientenakte werfenn</h2>
+          <h2>Urologie</h2>
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-        <div v-for="option in patientenakte_options" :key="option.id" class="patient">
-           <h3>{{ option.answer }}</h3></div>
+        <h3>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es wurde ein Anstieg des PSA auf 6,0ng/ml festgestellt, sodass von einer ossären Metastasierung in die Wirbelsäule auszugehen ist. Wir haben Hr. Schneider in die onkologische Klinik überwiesen, wo seine Weiterbehandlung koordiniert werden soll.</h3>
            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="">
              Copy to Notepad

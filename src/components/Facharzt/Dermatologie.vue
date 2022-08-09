@@ -3,10 +3,9 @@
     <div class="grid grid-cols-4 gap-2">
       
        
-          <h2>einen blick in die Patientenakte werfenn</h2>
+          <h2>Dermatologie</h2>
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-        <div v-for="option in patientenakte_options" :key="option.id" class="patient">
-           <h3>{{ option.answer }}</h3></div>
+        <h3>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3>
            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="">
              Copy to Notepad

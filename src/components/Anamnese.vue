@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten </strong> </h1><br>
+     <div class="sticky top-0 bg-emerald-600">
+
+    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten  </strong> </h1>
+    </div>
+    
     <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="() => TogglePopup('beschreibenTrigger')">
          Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)

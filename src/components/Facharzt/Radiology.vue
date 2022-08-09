@@ -3,10 +3,9 @@
     <div class="grid grid-cols-4 gap-2">
       
        
-          <h2>einen blick in die Patientenakte werfenn</h2>
+          <h2>Radiologie</h2>
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-        <div v-for="option in patientenakte_options" :key="option.id" class="patient">
-           <h3>{{ option.answer }}</h3></div>
+        <h3>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es zeigen sich unscharf begrenzte, inhomogene hyperdense Areale (Sklerosierungen) im Bereich der WK L2 - S1. Unter Berücksichtigung der Patientenvorgeschichte könnte es sich hierbei um osteoblastische Metastasen im Rahmen der Prostata-CA handeln. Zusätzlich sind Deckplatteneinbrüche des LWK 5 zu erkennen. Diese deuten auf eine Wirbelkörperfraktur ohne Instabilitätskriterien hin.</h3>
            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="">
              Copy to Notepad

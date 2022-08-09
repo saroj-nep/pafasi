@@ -1,14 +1,5 @@
 {
 
-
-  "users": [
-    {
-      "username":"test",
-      "password":"test"
-    }
-
-  ],
-   
   "patients": [
     {
      "id":"1",
@@ -186,7 +177,6 @@
 
 "submit_options":[
 {"submit_id":"1","question": "Arbeitsdiagnose", "answer": ""},
-{"submit_id":"2","economy":"0","safety":"100", "question":"Rettungsdienst rufen und Notfallmaßnahmen ergreifen"},
 {"submit_id":"3","economy":"1","safety":"100","question":"keine Verabreden"},
 {"submit_id":"4","economy":"0","safety":"0","question":"bei Verschechterung"},
 {"submit_id":"5","economy":"0","safety":"50","question":"in 2 Tagen"},

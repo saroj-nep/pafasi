@@ -42,10 +42,12 @@
           </div>
         </div>
         <div>
-          <h1 class="h1" style="margin-top: 20px;margin-top: 20px; margin-left:400px;"> <strong>Was werden Sie als
-              nächstes tun? </strong> </h1><br>
+          <div class="sticky top-0 bg-emerald-600">
 
-
+    <h1 class="h1 text-white" style="; margin-left:400px;"> <strong>Was werden Sie als
+              nächstes tun? </strong> </h1>
+    </div>
+<br><br>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="() => TogglePopup('anamneseTrigger')">
           ausführlichere Anamnese führen
