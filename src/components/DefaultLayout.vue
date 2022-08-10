@@ -109,8 +109,8 @@ import {computed} from 'vue';
 
 
 const navigation = [
-   { name: 'Dashboard', href: '/main', current: false },
-   { name: "Wartezimmer",href: '/warte', current: false } ,
+   { name: 'Dashboard', href: '#', current: false },
+   { name: "Wartezimmer",href: '#', current: false } ,
   { name: "Anleitung",href: '#' , current: false } ,
 ]
 const userNavigation = [
