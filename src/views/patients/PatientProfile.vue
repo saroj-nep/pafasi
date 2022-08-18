@@ -64,7 +64,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;  ; overflow: auto">
                 <Anamnese />
               </div>
               <div class="col-span-1">
@@ -90,7 +90,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;   overflow: auto">
                 <Untersuchen />
               </div>
               <div >
@@ -117,7 +117,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;  overflow: auto">
                 <Patientenakte />
               </div>
               <div class="col-span-1">
@@ -144,7 +144,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;  overflow: auto">
                 <Labaratory />
               </div>
               <div class="col-span-1">
@@ -170,7 +170,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;  overflow: auto">
                 <Facharzt />
               </div>
               <div class="col-span-1">
@@ -196,7 +196,7 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="height: 40rem;  overflow: auto">
                 <Submit />
               </div>
               <div class="col-span-1">
@@ -263,7 +263,7 @@ export default {
     }
   },
   mounted() {
-    fetch("http://localhost:3000/patients/" + this.id) //json server to be replaced by database later
+    fetch("https://database-pafasi.herokuapp.com/patients/" + this.id) //json server to be replaced by database later
       .then(res => res.json())
       .then(data => this.patient = data)
       .catch(err => console.log(err.message));

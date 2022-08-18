@@ -1256,9 +1256,8 @@
       "answer": ""
     }
   ],
-  "economy_counters": [{
-    "values":[],
-    "sum":""  }
+  "economy_counters": [
+    
   ],
   "safety_counters": [],
   "time_counters": [

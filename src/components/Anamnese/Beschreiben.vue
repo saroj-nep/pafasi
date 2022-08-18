@@ -20,6 +20,41 @@
 <script>
 
 
+export default{
+mounted() {
+ fetch('https://database-pafasi.herokuapp.com/satisfaction_counters', {
+    
+    method: "POST",
+    headers: {
+         "content-type":"application/json"
+    },
+    body: JSON.stringify(
+            {"values":[1] }
+    )
+    })
+fetch('https://database-pafasi.herokuapp.com/time_counters', {
+    
+    method: "POST",
+    headers: {
+         "content-type":"application/json"
+    },
+    body: JSON.stringify(
+            {"values":[2] }
+    )
+    })
+
+    fetch('https://database-pafasi.herokuapp.com/economy_counters', {
+    
+    method: "POST",
+    headers: {
+         "content-type":"application/json"
+    },
+    body: JSON.stringify(
+            {"values":[1] }
+    )
+    })
+  }
+}
 </script>
 
 <style scoped>

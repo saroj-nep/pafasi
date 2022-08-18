@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    fetch('http://localhost:3000/patients') //json server to be replaced by database later
+    fetch('https://database-pafasi.herokuapp.com/patients') //json server to be replaced by database later
       .then(res => res.json())
       .then(data => this.patients = data)
       .catch(err => console.log(err.message))

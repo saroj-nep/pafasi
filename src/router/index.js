@@ -27,7 +27,7 @@ const routes = [
 
   {
     path: '/main', name:'MainPageView', component:MainPageView,  meta: {
-      title: "Main",
+      title: "MainpageView",
     },
   },
   {
@@ -40,7 +40,9 @@ const routes = [
   },
  
   {
-    path: '/patients/:id',name: 'Patient',component: Patient, props:true
+    path: '/patients/:id',name: 'Patient',component: Patient, props:true, meta: {
+      title: "Patient ",
+    },
   },
   
   
@@ -59,6 +61,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  mode: 'hash'
 })
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;

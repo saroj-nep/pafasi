@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="form" @submit="checkLogin">
+  <form action="" class="form" @submit="checkLogin" method="POST">
     <div class="errorLogin disable">
       <p class="errorLogin__text" id="errorMsg">
         Ihre E-Mail und/oder Ihr Passwort sind falsch.
