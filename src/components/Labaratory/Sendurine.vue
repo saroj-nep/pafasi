@@ -93,7 +93,7 @@ export default {
     }
   },
   
-  components: { Notepad, Popup }
+  components: { Notepad, Popup, Nextday }
 }
 
 

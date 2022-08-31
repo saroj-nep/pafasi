@@ -19,41 +19,7 @@
 
 <script>
 
-export default{
-mounted() {
- fetch('http://localhost:3000/satisfaction_counters', {
-    
-    method: "POST",
-    headers: {
-         "content-type":"application/json"
-    },
-    body: JSON.stringify(
-            {"values":[0] }
-    )
-    })
-fetch('http://localhost:3000/time_counters', {
-    
-    method: "POST",
-    headers: {
-         "content-type":"application/json"
-    },
-    body: JSON.stringify(
-            {"values":[2] }
-    )
-    })
 
-    fetch('http://localhost:3000/economy_counters', {
-    
-    method: "POST",
-    headers: {
-         "content-type":"application/json"
-    },
-    body: JSON.stringify(
-            {"values":[0] }
-    )
-    })
-  }
-}
 
 </script>
 

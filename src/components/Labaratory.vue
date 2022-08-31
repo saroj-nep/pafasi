@@ -8,7 +8,7 @@
     <br>
     <br>
        <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('bloodTrigger')">
+            @click.prevent="TogglePopup('bloodTrigger')">
          Blutentnahme
          </button>
 
@@ -34,7 +34,7 @@
           </Popup>
   
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('urineTrigger')">
+          @click.prevent="TogglePopup('urineTrigger')">
             Urindiagnostik
           </button>
 
@@ -61,7 +61,7 @@
 
           
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('stoolTrigger')">
+          @click.prevent="TogglePopup('stoolTrigger')">
           Stuhlprobe
           </button>
 
@@ -73,10 +73,39 @@
               <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
               <div v-else class="tooltiptext">Notizblock anzeigen</div>
             </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+            <div class="grid grid-cols-3 gap-2" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 style="max-height: 20rem; overflow: auto">
                 <Stool />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+
+
+        
+
+          <button style="margin-right: 50px; margin-left: 100px" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+           @click="() => TogglePopup('nextdayTrigger')">
+           Ergebnisse des bestellten Tests
+         </button>
+
+          <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="max-height: 10%; overflow: auto">
+                <Nextday />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -96,7 +125,7 @@ import Notepad from '@/components/Notepad.vue';
 import Blood from "./Labaratory/Blood.vue";
 import Urine from "./Labaratory/Urine.vue";
 import Stool from "./Labaratory/Stool.vue";
-
+import Nextday from './Labaratory/Nextday.vue';
 
 export default {
  
@@ -107,6 +136,12 @@ export default {
       showNotepad: false
     };
   },
+
+
+
+
+
+
   setup() {
     const popupTriggers = ref({
       buttonTrigger: false
@@ -122,18 +157,30 @@ export default {
     }
   },
   
-  components: {Urine,Stool,Blood, Notepad, Popup }
+  components: {Urine,Stool,Blood, Notepad, Popup, Nextday }
 }
 </script>
 
 <style scoped>
-
+.submitbutton{
+  background: #be123c;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px auto;
+  min-height: 50px;
+  
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
+  /* color: #444   */
+}
 .button {
   background: black;
   color: white;
   padding: 20px;
   border-radius: 10px;
-  margin: 5px auto;
+  margin: 10px auto;
   width:200px;
   /* width: 20%; */
   cursor: pointer;

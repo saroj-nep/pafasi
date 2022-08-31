@@ -43,18 +43,14 @@ export default {
         .querySelector(`.dots__dot[data-slide="${slide}"]`)
         .classList.add("dots__dot--active");
     },
-    goToSlide(slide) {
-      this.$refs.allSlides.forEach((s, i) => {
-        s.style.transform = `translateX(${100 * (i - slide)}%)`;
-      });
-    },
+  
     nextSlide() {
       if (this.currSlide === this.urls.length - 1) {
         this.currSlide = 0;
       } else {
         this.currSlide++;
       }
-      this.goToSlide(this.currSlide);
+     
       this.activeDot(this.currSlide);
     },
     createDots() {
@@ -71,21 +67,19 @@ export default {
     dotsClickEvent(e) {
       if (e.target.classList.contains("dots__dot")) {
         const { slide } = e.target.dataset;
-        this.goToSlide(slide);
+       
         this.activeDot(slide);
       }
     },
     init() {
-      this.goToSlide(this.currSlide);
+      
       this.createDots();
       this.activeDot(this.currSlide);
     },
 
     slider() {
       this.init();
-      setInterval(() => {
-        this.$refs.rigthBtn.click();
-      }, 5000);
+     
     },
   },
   mounted() {

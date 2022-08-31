@@ -1,39 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainPageView from '../views/MainPageView.vue'
+import Main from '../views/MainPageView.vue'
 import EinleitungView from '../views/EinleitungView.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
 import Login from '../views/LoginPage.vue'
 import Patient from '../views/patients/PatientProfile.vue'
 import ErrorPage from "@/views/ErrorPage.vue"
-
+import store from '@/store'
 
 const routes = [
  { path: "/",
-  name: "home",
-  component: Login,
-  meta: {
-    title: "Login ",
-  },
+  redirect:'/login',
+  component: Main,
+  meta: { requiresAuth: true }
 },
+
+{path:'/main', name:'Main', component:Main,},
+
 {
   path: "/login",
-  name: "login",
+  name: "Login",
   component: Login,
-  meta: {
-    title: "Login ",
-  },
+  meta: {isGuest: true},
 },
   
-
-  {
-    path: '/main', name:'MainPageView', component:MainPageView,  meta: {
-      title: "MainpageView",
-    },
-  },
-  {
-    path: '/warte',name: 'Wartezimmer',component: Wartezimmer, meta: {
-      title: "Wartezimmer",
-    },
+ {
+    path: '/warte',name: 'Wartezimmer',component: Wartezimmer,
   },
   {
     path: '/anlei',name: 'EinleitungView',component: EinleitungView
@@ -59,13 +50,19 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
-  mode: 'hash'
-})
+ 
+});
+
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  next();
+  if (to.meta.requiresAuth && !store.state.user.token) {
+    next({ name: "Login" });
+  } else if (store.state.user.token && to.meta.isGuest) {
+    next({ name: "Main" });
+  } else {
+    next();
+  }
 });
 
 export default router

@@ -3,9 +3,9 @@
     <div class="sticky top-0 bg-emerald-600">
     <h1 class="h1 text-white" style=";"> <strong>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten: </strong> </h1>
     </div>
-   
+    <form action="" class="form" method="POST">
    <button style="margin-top: 50px;margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('augenTrigger')">
+   @click.prevent="augencounter(),TogglePopup('augenTrigger')">
          Augenheilkunde
          </button>
 
@@ -31,7 +31,7 @@
           </Popup>
   
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('chiruTrigger')">
+            @click.prevent="chirucounter(),TogglePopup('chiruTrigger')">
             Chirurgie (ambulant)
           </button>
 
@@ -58,7 +58,7 @@
 
           
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('dermaTrigger')">
+            @click.prevent="dermacounter(), TogglePopup('dermaTrigger')">
           Dermatologie
           </button>
 
@@ -85,7 +85,7 @@
 
           
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('gynaTrigger')">
+            @click.prevent="gynacounter(),TogglePopup('gynaTrigger')">
           Gynäkologie
          </button>
 
@@ -111,7 +111,7 @@
           </Popup>
         
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('halsTrigger')">
+            @click.prevent="halscounter(), TogglePopup('halsTrigger')">
            Hals-Nasen-Ohrenheilkunde
          </button>
 
@@ -137,7 +137,7 @@
           </Popup>
 
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('kardioTrigger')">
+            @click.prevent="kardiocounter(),TogglePopup('kardioTrigger')">
           Innere Medizin: Kardiologie
          </button>
 
@@ -164,7 +164,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('gastroTrigger')">
+            @click.prevent="gastrocounter(), TogglePopup('gastroTrigger')">
           Innere Medizin - Gastroenterologie
          </button>
 
@@ -191,7 +191,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('pulmoTrigger')">
+            @click.prevent="pulmocounter(), TogglePopup('pulmoTrigger')">
           Innere Medizin - Pulmologie
          </button>
 
@@ -218,7 +218,7 @@
 
           
         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('nephroTrigger')">
+            @click.prevent="nephrocounter(), TogglePopup('nephroTrigger')">
           Innere Medizin - Nephrologie
          </button>
 
@@ -245,7 +245,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('onkoTrigger')">
+            @click.prevent="onkocounter(), TogglePopup('onkoTrigger')">
           Innere Medizin - Hämato-/Onkologie
          </button>
 
@@ -270,7 +270,7 @@
             </div>
           </Popup>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('endoTrigger')">
+            @click.prevent="endocounter(),TogglePopup('endoTrigger')">
           Innere Medizin - Endokrinologie
          </button>
 
@@ -296,7 +296,7 @@
           </Popup>
 
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('neurochirurgieTrigger')">
+            @click.prevent="neurochirucounter(), TogglePopup('neurochirurgieTrigger')">
           Neurochirurgie
          </button>
 
@@ -321,7 +321,7 @@
             </div>
           </Popup>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('neuroTrigger')">
+            @click.prevent="neurocounter(), TogglePopup('neuroTrigger')">
           Neurologie
          </button>
 
@@ -346,7 +346,7 @@
             </div>
           </Popup>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('orthoTrigger')">
+            @click.prevent="orthocounter(),TogglePopup('orthoTrigger')">
           Orthopädie
          </button>
 
@@ -371,7 +371,7 @@
             </div>
           </Popup>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('padiTrigger')">
+            @click.prevent="padicounter(), TogglePopup('padiTrigger')">
           Pädiatrie
          </button>
 
@@ -396,7 +396,7 @@
             </div>
           </Popup>
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('psychiTrigger')">
+            @click.prevent="psychicounter(),TogglePopup('psychiTrigger')">
           Psychiatrie/Psychosomatik
          </button>
 
@@ -422,7 +422,7 @@
           </Popup>
 
             <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('radioTrigger')">
+            @click.prevent="radiocounter(),TogglePopup('radioTrigger')">
           Radiologie
          </button>
 
@@ -448,7 +448,7 @@
           </Popup>
 
             <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('uroTrigger')">
+            @click.prevent="urocounter(),TogglePopup('uroTrigger')">
           Urologie
          </button>
 
@@ -472,6 +472,7 @@
               </div>
             </div>
           </Popup>
+          </form>
   </div>
 </template>
 
@@ -497,19 +498,486 @@ import Psychiatre from './Facharzt/Psychiatre.vue';
 import Pulmo from './Facharzt/Pulmo.vue';
 import Radiology from './Facharzt/Radiology.vue';
 import Urology from './Facharzt/Urology.vue';
-
+import axios from "axios";
 
 
 
 export default {
- 
+  name:"Facharzts",
   data() {
-    return {
+    return {counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       
       showTooltip: false,
       showNotepad: false
     };
   },
+  methods: {
+    augencounter() {
+      var data = new FormData();
+  
+     
+      data.append("satisfaction",1);
+      data.append("time",129600);
+      
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+chirucounter() {
+      var data = new FormData();
+  
+    
+      data.append("satisfaction",1);
+      data.append("time",43200);
+      
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+dermacounter() {
+      var data = new FormData();
+  
+     
+      data.append("satisfaction",1);
+      data.append("time",129600);
+     
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gynacounter() {
+      var data = new FormData();
+  
+   
+      data.append("satisfaction",1);
+      data.append("time",43200);
+    
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+halscounter() {
+      var data = new FormData();
+  
+    
+      data.append("satisfaction",1);
+      data.append("time",129600);
+      
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+kardiocounter() {
+      var data = new FormData();
+  
+      data.append("satisfaction",1);
+      data.append("time",259200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gastrocounter() {
+      var data = new FormData();
+  
+     
+      data.append("satisfaction",1);
+      data.append("time",172800);
+      
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+pulmocounter() {
+      var data = new FormData();
+  
+   
+      data.append("satisfaction",1);
+      data.append("time",216000);
+      
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+nephrocounter() {
+      var data = new FormData();
+  
+     
+      data.append("satisfaction",1);
+      data.append("time",259200);
+  
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+onkocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",302400);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    endocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",345600);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    neurochirucounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",129600);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    neurocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",43200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    orthocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",43200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    padicounter() {
+      var data = new FormData();
+  
+      data.append("satisfaction",1);
+      data.append("time",43200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    psychicounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",259200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    radiocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",43200);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    urocounter() {
+      var data = new FormData();
+  
+      
+      data.append("satisfaction",1);
+      data.append("time",43200);
+   
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+
+
+
+  },
+
+
+
+
+
+
+
   setup() {
     const popupTriggers = ref({
       buttonTrigger: false

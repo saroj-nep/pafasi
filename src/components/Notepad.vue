@@ -3,6 +3,7 @@
   <div class=" border-emerald-600 border-4 shadow-md h-fit shadow-emerald-600 mr-5 pl-5 pr-5 border-t-8 ">
     <div class="row">
       <div class="col-sm-12">
+        <form>
         <div>
           <h1><strong> {{title}}</strong></h1>
           <h2> {{subtitle}}</h2>
@@ -10,72 +11,131 @@
           <div class="form">
             <div class="form-group">
               <label>Titel der Notiz:     </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="note.title" required>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="note.title" required >
             </div>
             <div class="form-group">
               <label>Beschreibung :     </label>
-              <textarea rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="note.text" required></textarea>
+              <textarea rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="note.text" required ></textarea>
             </div>
             <div class="flex flex-row  justify-center items-center">
-            <button class="btn btn-primary " @click="addNote">Notiz speichern</button>
+            <button class="btn btn-primary " @click.prevent="addNote()">Notiz speichern</button>
             </div>
-            <div class="alert alert-danger text-center text-red-500" role="alert" v-bind:class="{ active: isActive }">Alle Felder sind obligatorisch.</div>
+            <div class="alert alert-danger text-center text-red-500" role="alert" v-if="isActive='true'"  >Alle Felder sind obligatorisch.</div>
           </div>
           <div class="row">
-            <div class="col-sm-6 note" v-for="(note, index) in notes" :key="note.id">
-              <div class="card">
-                <button class="close" @click="removeNote(index)">&times;</button>
-                <div class="card-block">
-                  <h4 class="card-title text-white">{{note.title}}</h4>
+            <div class="flex flex-row  justify-center items-center">
+            <button class="btn btn-primary  " @click.prevent="allNotes()">gespeicherte Notizen anzeigen</button>
+            <button class="btn btn-primary" @click.prevent="removeNote()">alle Notizen löschen</button>
+           </div>
+            <div class="col-sm-6 note" v-for="note in notes"  >
+              <div v-if="note">
+              <div v-if="note" class="card">
+                
+                <div v-if="note" class="card-block">
+                  <h4  v-if="note" class="card-title text-white">{{note.title}}</h4>
                   <!-- <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6> -->
-                  <p class="card-text text-white">{{note.text}}</p>
+                  <p  v-if="note" class="card-text text-white">{{note.text}}</p>
+                  
                 </div>
-              </div>
+              </div></div>
             </div>
           </div>
         </div>
-      </div>
+      
+      </form></div>
     </div>
   </div>
 </div>
 </template>
 
 <script>
+
+import axios from "axios";
 export default({
-			
-			data(){return{
-				isActive: false,
+  name:"Notes",
+			data()
+      {return{
+        isActive: false,
+				
 				title: 'Noten zur Diagnose',
 				note: {
-					title: '',
-					text: ''
+					title: null,
+					text: null
 				},
-        notes: [
-          
-        ]
+        notes: []
 			}},
+      created(){this.allNotes()},
 			methods: {
+
+        
+       allNotes() {
+        
+
+    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getnotes",)
+    
+    .then((response) => {this.notes=response.data })
+  },
+
+
 				addNote() {
-					let {
-						text,
-						title
-					} = this.note
-					
-					if (this.note.text.length > 1 && this.note.title.length > 1) {
-						this.notes.push({
-							text,
-							title,
-							date: new Date(Date.now()).toLocaleString()
-						})
+          if (this.note.text.length > 1 && this.note.title.length > 1)
+					{
+          var data = new FormData();
+  
+      data.append("notetitle", this.note.title);
+      data.append("notetext", this.note.text);
+      axios
+        .post(
+          // "./Api/api.php?action=login",
+           "http://localhost/patient-simulator/src/Api/api.php?action=addnote",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+            
+          } else {
+            console.log("Success", res.data.message);
             this.isActive = false;
             this.note.text = "";
             this.note.title = "";
-					} else {
-						this.isActive = true;
-					}
-				},
-				removeNote(index) {
-					this.notes.splice(index, 1)
+            this.allNotes()
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+				}
+        else{this.isActive = true;}
+      
+      },
+
+				removeNote() { 
+          var data = new FormData();
+  
+  data.append("notetitle", this.note.title);
+  data.append("notetext", this.note.text);
+  axios
+    .post(
+      // "./Api/api.php?action=login",
+       "http://localhost/patient-simulator/src/Api/api.php?action=removenote",
+      data
+    )
+    .then(res => {
+      if (res.data.error) {
+        console.log("Error", res.data);
+        alert(res.data.message);
+      } else {
+        console.log("Success", res.data.message);
+        this.allNotes()
+      
+      }
+    })
+    .catch(err => {
+      console.log("Error", err);
+    });
+					
 				}
 			}
 		})
@@ -133,7 +193,6 @@ p.card-text { margin: 25px 0px 0px 0px; }
   box-shadow: 0px 2px 3px rgb(5, 150, 105);
   }
 .alert { display: none; }
-.active { display: block; }
 .col-sm-12 > div {
   
   margin: auto; }

@@ -10,7 +10,7 @@
           gehen Sie zum nächsten Tag, um die Ergebnisse zu erhalten
          </button>
 
-          <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
+         <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
@@ -20,10 +20,14 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
+                style="max-height: 10%; overflow: auto">
                 <Nextday />
               </div>
-              
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
             </div>
           </Popup>
 
@@ -70,7 +74,7 @@ export default {
     }
   },
   
-  components: { Notepad, Popup }
+  components: { Notepad, Popup, Nextday }
 }
 
 

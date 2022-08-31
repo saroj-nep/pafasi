@@ -11,16 +11,17 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a 
-                v-for="item in navigation" :key="item.name" :href="item.href" 
-                :class="[item.current ? 'bg-gray-900 text-white' : 
+                <router-link
+                v-for="item in navigation" :key="item.name" :to="item.to" 
+                :class="[this.$route.name === item.to.name
+                      ? ''
+                       : 
                 'font-bold text-white  hover:bg-gray-700 hover:text-white', 
                 'px-3 py-2 rounded-md text-sm font-medium']" 
-                v-bind:style=" (route.name === item.name) ? 'background: black' : 'border: none;' "
-                :aria-current="item.current ? 'page' : undefined"
+               
                 >
                 {{ item.name }}
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -38,9 +39,17 @@
                 </div>
                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                   <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
-                      <a :href="item.href" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{ item.name }}</a>
-                    </MenuItem>
+                     <form action="" class="form" method="POST">
+                     <MenuItem v-slot="{}">
+                      <a
+                        @click=onlogout();
+                        :class="[
+                          'block px-4 py-2 text-sm text-gray-700 cursor-pointer',
+                        ]"
+                        >Ausloggen</a
+                      >
+                    </MenuItem> 
+                   </form> 
                   </MenuItems>
                 </transition>
               </Menu>
@@ -59,8 +68,21 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+          <router-link
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.to"
+            active-class="bg-gray-900 text-white"
+            :class="[
+              this.$route.name === item.to.name
+                ? ''
+                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+              'block px-3 py-2 rounded-md text-base font-medium',
+            ]"
+            >{{ item.name }}
+          </router-link>
         </div>
+       
         <div class="pt-4 pb-3 border-t border-gray-700">
           <div class="flex items-center px-5">
             <div class="flex-shrink-0">
@@ -73,7 +95,14 @@
             
           </div>
           <div class="mt-3 px-2 space-y-1">
-            <DisclosureButton v-for="item in userNavigation" :key="item.name" as="a" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">{{ item.name }}</DisclosureButton>
+            <form action="" class="form" method="POST">
+            <DisclosureButton
+              as="a"
+              @click.prevent=onlogout();
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 cursor-pointer"
+              >Ausloggen
+            </DisclosureButton>
+            </form>
           </div>
         </div>
       </DisclosurePanel>
@@ -98,26 +127,86 @@
   </div>
 </template>
 
-<script setup>
+<script >
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 import { useRoute, useRouter } from 'vue-router';
 import {computed} from 'vue';
-    const route = useRoute();
-  //   console.log('setup', route.name)
-  //  const path = computed(() => route)
+import { useStore } from 'vuex';
+import axios from "axios";
 
 
-const navigation = [
-   { name: 'Dashboard', href: '#', current: false },
-   { name: "Wartezimmer",href: '#', current: false } ,
-  { name: "Anleitung",href: '#' , current: false } ,
+
+ const navigation = [
+   { name: 'Dashboard', to: {name:"Main"} },
+   { name: "Wartezimmer", to: {name:"Wartezimmer"} } ,
+   { name: "Anleitung",to: {name:"EinleitungView"} } ,
 ]
-const userNavigation = [
-  
-  { name: 'Ausloggen', href: '/', current: false },
-];
 
+export default{ 
+  name:"Headers",
+   data() {
+    return {
+      User: {
+        email: null,
+        password: null
+      },}},
+   components: {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    BellIcon,
+    MenuIcon,
+    XIcon,
+    Notification,
+  },
+  methods: {
+    onlogout() {
+      var data = new FormData();
+
+      axios
+        .post(
+          // "./Api/api.php?action=logout",
+          "http://localhost/patient-simulator/src/Api/api.php?action=logout",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            
+            this.$router.push("/login");
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    }, 
+  
+setup() {
+    const store = useStore();
+    const router = useRouter();
+    
+  
+    // store.dispatch("getUser");
+
+    return {
+      user: computed(() => store.state.user.data),
+      navigation,
+      logout,
+    };
+   
+  }
+
+  }}
+
+ 
 
 
 </script>

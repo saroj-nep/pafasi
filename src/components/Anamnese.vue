@@ -5,10 +5,10 @@
     <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten  </strong> </h1>
     </div>
     <br>
-
+    <form action="" class="form" method="POST">
     <div class="grid grid-cols-2  gap-2">
     <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('beschreibenTrigger')">
+           @click.prevent="beschreibencounter(),TogglePopup('beschreibenTrigger')">
          Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)
          </button>
 
@@ -32,11 +32,12 @@
               </div>
             </div>
           </Popup>
-  
+          <form action="" class="form" method="POST">
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('akutesTrigger')">
+            @click.prevent="akutescounter(),TogglePopup('akutesTrigger')">
             akutes Ereignis?/Aenderung der Lebensumstaende?
           </button>
+            </form>
 
           <Popup v-if="popupTriggers.akutesTrigger" :TogglePopup="() => TogglePopup('akutesTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
@@ -61,7 +62,7 @@
 
           
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('medikTrigger')">
+           @click.prevent="medikamencounter(),TogglePopup('medikTrigger')">
           Medikamentenanamnese
           </button>
 
@@ -88,7 +89,7 @@
 
           
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('gewohnTrigger')">
+            @click.prevent="gewohncounter(),TogglePopup('gewohnTrigger')">
           Gewohnheiten, Lebensstil (sport, Ernaehrung,...))
          </button>
 
@@ -114,7 +115,7 @@
           </Popup>
         
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('nikotinTrigger')">
+            @click.prevent="nikotincounter(),TogglePopup('nikotinTrigger')">
            Nikotin, Alkohol, Drogen?
          </button>
 
@@ -140,7 +141,7 @@
           </Popup>
 
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('allergienTrigger')">
+            @click.prevent="allergincounter(),TogglePopup('allergienTrigger')">
           Allergien
          </button>
 
@@ -167,7 +168,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('vegetativeTrigger')">
+            @click.prevent="vegetativecounter(),TogglePopup('vegetativeTrigger')">
           vegetative Anamnese (Appetit, Schlaf, Verdauung etc))
          </button>
 
@@ -194,7 +195,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('gynoTrigger')">
+           @click.prevent="gynocounter(),TogglePopup('gynoTrigger')">
           Gynokologische/Urologische/Sexualanamnese
          </button>
 
@@ -221,7 +222,7 @@
 
           
         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('psycheTrigger')">
+            @click.prevent="psychecounter(),TogglePopup('psycheTrigger')">
           Psyche
          </button>
 
@@ -248,7 +249,7 @@
 
           
          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="() => TogglePopup('familienTrigger')">
+            @click.prevent="familiencounter(),TogglePopup('familienTrigger')">
           Familien- und Sozialanamnese (Beruf, Wohnsituation)
          </button>
 
@@ -273,6 +274,7 @@
             </div>
           </Popup>
           </div>
+          </form>
   </div>
 </template>
 
@@ -296,16 +298,279 @@ import Psyche from './Anamnese/Psyche.vue';
 import Gewohn from './Anamnese/Gewohn.vue';
 import Vegetative from './Anamnese/vegetative.vue';
 import Familien from './Anamnese/Familien.vue';
+import axios from "axios";
+
 
 export default {
- 
+ name:"Anamneses",
   data() {
-    return {
+    return {counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       
       showTooltip: false,
       showNotepad: false
     };
   },
+
+ methods: {
+    akutescounter() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",0.3);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+allergincounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",0.3);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+beschreibencounter() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",2);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+familiencounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",1);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gewohncounter() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",1);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gynocounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",2);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+medikamencounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",1);
+      data.append("time",0.5);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+nikotincounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",1);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+psychecounter() {
+      var data = new FormData();
+  
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",1);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+vegetativecounter() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",2);
+      data.append("safety",0);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+  },
+
+
+
   setup() {
     const popupTriggers = ref({
       buttonTrigger: false

@@ -33,7 +33,7 @@
 </ul>
 
 <button class="submitbutton"
-            @click="() => TogglePopup('sendTrigger')">
+@click.prevent="urinecounter() , TogglePopup('sendTrigger')">
          Abschicken
 </button>
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
@@ -66,18 +66,51 @@ import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
 import Sendblood from './Sendblood.vue';
 import Sendurine from './Sendurine.vue';
-
+import axios from "axios";
 
 
 export default {
- 
+  name:"Urines",
   data() {
-    return {
+    return {counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       
       showTooltip: false,
       showNotepad: false
     };
   },
+  methods: {
+    
+    urinecounter() {
+          var data = new FormData();
+      
+        
+          data.append("satisfaction",0);
+          data.append("time",5);
+          
+          axios
+            .post(
+              // "./Api/api.php?action=countervariable",
+              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              data
+            )
+            .then(res => {
+              if (res.data.error) {
+                console.log("Error", res.data);
+                alert(res.data.message);
+              } else {
+                console.log("Success", res.data.message);
+              }
+            })
+            .catch(err => {
+              console.log("Error", err);
+            });
+        },
+    },
   setup() {
     const popupTriggers = ref({
       buttonTrigger: false

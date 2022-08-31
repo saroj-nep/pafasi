@@ -1,13 +1,12 @@
-<template>
-  <!-- eslint-disable -->
- <!-- prettier-ignore -->
-  
+<template>  <!-- eslint-disable -->
+  <!-- prettier-ignore -->
+
               <form action="" class="form" method="POST">
                 
                   <div class="form__group">
                     <label for="User" class="form__label">Studenten-E-Mail:</label>
                     <input
-                      type="text"
+                      type="email"
                       placeholder="@stud.uni-saarland.de"
                       id="User"
                       class="form__input valid"
@@ -22,7 +21,7 @@
                      </div>
                      <input
                       type="password"
-                      placeholder="*****"
+                      placeholder="*********"
                       class="form__input valid"
                       name="password"
                       v-model="User.password"
@@ -47,6 +46,8 @@
 </template>
 <script>
 import axios from "axios";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "Home",
   data() {
@@ -54,17 +55,23 @@ export default {
       User: {
         email: null,
         password: null
-      }
+      },
+  computed: {
+    ...mapGetters(["getToken", "getUserId"])}
+    
     };
   },
   methods: {
     onLogin() {
       var data = new FormData();
+    
+      
       data.append("email", this.User.email);
       data.append("password", this.User.password);
       axios
         .post(
-          "http://localhost/patient-simulator/src/Api/api.php?action=login",
+          // "./Api/api.php?action=login",
+           "http://localhost/patient-simulator/src/Api/api.php?action=login",
           data
         )
         .then(res => {
@@ -73,7 +80,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-           
+            
             this.$router.push("/main");
           }
         })
