@@ -16,6 +16,7 @@
     "json-server": "^0.4.2",
     "querystring-es3": "^0.2.1",
     "vue": "^3.2.13",
+    "vue-custom-scrollbar": "^1.4.4",
     "vue-router": "^4.0.3",
     "vue-session": "^1.0.0",
     "vue-sessionstorage": "^1.0.0",

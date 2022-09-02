@@ -1,100 +1,19 @@
-
 <template>
-  <div>
+  <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " > <strong>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten  </strong> </h1>
+    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen' sehen möchten  </strong> </h1>
     </div>
     <br>
-    <br>
-       <button style="margin-right: 50px; margin-left:100px" color="#42b983" class="button"
-            @click.prevent="TogglePopup('bloodTrigger')">
-         Blutentnahme
-         </button>
-
-          <Popup v-if="popupTriggers.bloodTrigger" :TogglePopup="() => TogglePopup('bloodTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                >
-                <Blood />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-  
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-          @click.prevent="TogglePopup('urineTrigger')">
-            Urindiagnostik
-          </button>
-
-          <Popup v-if="popupTriggers.urineTrigger" :TogglePopup="() => TogglePopup('urineTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                >
-                <Urine />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-          @click.prevent="TogglePopup('stoolTrigger')">
-          Stuhlprobe
-          </button>
-
-          <Popup v-if="popupTriggers.stoolTrigger" :TogglePopup="() => TogglePopup('stoolTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-2" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                >
-                <Stool />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
+    
 
 
-        
+        <div class="flex  justify-center ">
+        <button  class="button"
+           @click.prevent="TogglePopup('kopfTrigger')">
+         Kopf/Hals         </button>
 
-         <br> <button style="margin-right: 50px; margin-left:100px" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-           @click="() => TogglePopup('nextdayTrigger')">
-           Ergebnisse des bestellten Tests
-         </button>
-
-          <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
+          <Popup v-if="popupTriggers.kopfTrigger" :TogglePopup="() => TogglePopup('kopfTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
@@ -105,7 +24,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                >
-                <TotalNextday />
+                <Kopf />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -114,21 +33,131 @@
               </div>
             </div>
           </Popup>
-    </div>
- 
+         
+          <button class="button"
+            @click.prevent="TogglePopup('rumpfTrigger')">
+            Rumpf
+          </button>
+            
+
+          <Popup v-if="popupTriggers.rumpfTrigger" :TogglePopup="() => TogglePopup('rumpfTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                >
+                <Rumpf/>
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+ <button class="button"
+            @click.prevent="TogglePopup('obereTrigger')">
+            obere Extremität
+          </button>
+        
+
+          <Popup v-if="popupTriggers.obereTrigger" :TogglePopup="() => TogglePopup('obereTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                >
+                <Obere/>
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+           <button  color="#42b983" class="button"
+            @click.prevent="TogglePopup('untereTrigger')">
+           untere Extremität
+          </button>
+            
+
+          <Popup v-if="popupTriggers.untereTrigger" :TogglePopup="() => TogglePopup('untereTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                >
+                <Untere/>
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+           <button class="button"
+            @click.prevent="TogglePopup('genitalTrigger')">
+            Genital- und Glutealregion
+          </button>
+            
+
+          <Popup v-if="popupTriggers.genitalTrigger" :TogglePopup="() => TogglePopup('genitalTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                >
+                <Genital/>
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+          
+         
+         
+          </div> 
+         
+  </div>
 </template>
 
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Blood from "./Labaratory/Blood.vue";
-import Urine from "./Labaratory/Urine.vue";
-import Stool from "./Labaratory/Stool.vue";
-import TotalNextday from './Labaratory/TotalNextday.vue';
+import Kopf from '@/components/Untersuchen/Kopf.vue';
+import Rumpf from '@/components/Untersuchen/Rumpf.vue';
+import Obere from '@/components/Untersuchen/Obere.vue';
+import Untere from '@/components/Untersuchen/Untere.vue';
+import Genital from '@/components/Untersuchen/Genital.vue';
 
 export default {
- 
+ name:"Untersuchens",
   data() {
     return {
       
@@ -136,7 +165,6 @@ export default {
       showNotepad: false
     };
   },
-
 
 
 
@@ -157,36 +185,34 @@ export default {
     }
   },
   
-  components: {Urine,Stool,Blood, Notepad, Popup, TotalNextday }
+  components: { Popup, Notepad, Kopf,Rumpf,Obere,Untere,Genital}
 }
 </script>
 
 <style scoped>
-.submitbutton{
-  background: #be123c;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px auto;
-  min-height: 50px;
-  width:200px;
-  cursor: pointer;
-  align-self: center;
-  justify-self: center;
-  /* color: #444   */
-}
+
 .button {
   background: black;
   color: white;
   padding: 20px;
   border-radius: 10px;
-  margin: 10px auto;
-  width:200px;
+  margin:10px ;
+
+ 
+  cursor: pointer;
+ 
+}
+.submitbutton{
+  background: #be123c;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px auto;
+  width:400px;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
-
 .h1{
  font-size: large; 
 }

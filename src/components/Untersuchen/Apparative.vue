@@ -1,44 +1,39 @@
-
 <template>
-  <div>
+  <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " > <strong>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten  </strong> </h1>
+    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten : </strong> </h1>
     </div>
     <br>
-    <br>
-       <button style="margin-right: 50px; margin-left:100px" color="#42b983" class="button"
-            @click.prevent="TogglePopup('bloodTrigger')">
-         Blutentnahme
-         </button>
+    
 
-          <Popup v-if="popupTriggers.bloodTrigger" :TogglePopup="() => TogglePopup('bloodTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                >
-                <Blood />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-  
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-          @click.prevent="TogglePopup('urineTrigger')">
-            Urindiagnostik
+
+       <div class="flex justify-center ">
+        <button id="inspektionquestion"  class="button"
+           @click.prevent="displayInspektion();">
+         Körpertemperatur messen </button>
+
+         
+          <button id="nasequestion" class="button"
+            @click.prevent="displayNase();">
+          Blutzucker messen
           </button>
+             
+          <button id="halsquestion" class="button"
+            @click.prevent="displayHals();">
+          Blutdruck messen
+          </button>
+         
+          </div>
+ <div class="flex  justify-center ">
+       
+           <button  color="#42b983" class="button"
+            @click.prevent="TogglePopup('untereTrigger')">
+          Sonografie durchführen
+          </button>
+            
 
-          <Popup v-if="popupTriggers.urineTrigger" :TogglePopup="() => TogglePopup('urineTrigger')">
+          <Popup v-if="popupTriggers.untereTrigger" :TogglePopup="() => TogglePopup('untereTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
@@ -49,7 +44,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 >
-                <Urine />
+                <Sonography/>
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -58,43 +53,40 @@
               </div>
             </div>
           </Popup>
+           <button class="button"
+            @click.prevent="TogglePopup('genitalTrigger')">
+           EKG durchführen lassen
+          </button>
+            
 
+          <Popup v-if="popupTriggers.genitalTrigger" :TogglePopup="() => TogglePopup('genitalTrigger')">
+            <div class="tooltip" style="float: right; cursor: pointer">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                >
+                <Ekg/>
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
           
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-          @click.prevent="TogglePopup('stoolTrigger')">
-          Stuhlprobe
+              <button class="button"
+            @click.prevent="TogglePopup('genitalTrigger')">
+           Lungenfunktionstest durchführen lassen
           </button>
+            
 
-          <Popup v-if="popupTriggers.stoolTrigger" :TogglePopup="() => TogglePopup('stoolTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-2" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                >
-                <Stool />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-
-        
-
-         <br> <button style="margin-right: 50px; margin-left:100px" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-           @click="() => TogglePopup('nextdayTrigger')">
-           Ergebnisse des bestellten Tests
-         </button>
-
-          <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
+          <Popup v-if="popupTriggers.genitalTrigger" :TogglePopup="() => TogglePopup('genitalTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
@@ -104,8 +96,8 @@
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-               >
-                <TotalNextday />
+                >
+                <Lung/>
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -114,21 +106,26 @@
               </div>
             </div>
           </Popup>
-    </div>
- 
+          
+         
+          </div> 
+     <h3 id="inspektionanswer" style="display:none"> 37.2 °C</h3> 
+         <h3 id="naseanswer" style="display:none">125 mg/dl</h3> 
+       <h3 id="halsanswer" style="display:none">135/80 mmHg</h3>       
+  </div>
 </template>
 
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Blood from "./Labaratory/Blood.vue";
-import Urine from "./Labaratory/Urine.vue";
-import Stool from "./Labaratory/Stool.vue";
-import TotalNextday from './Labaratory/TotalNextday.vue';
+import Sonography from '@/components/Untersuchen/Sonography.vue';
+import Ekg from '@/components/Untersuchen/Ekg.vue';
+import Lung from '@/components/Untersuchen/Lung.vue';
+
 
 export default {
- 
+ name:"Untersuchens",
   data() {
     return {
       
@@ -136,8 +133,43 @@ export default {
       showNotepad: false
     };
   },
+methods:{
+displayInspektion(){  if (inspektionanswer.style.display !== "none") {
+        inspektionanswer.style.display = "none";
+        inspektionquestion.style.opacity="1";
+      } else {
+        inspektionanswer.style.display = "block";
+        inspektionquestion.style.opacity="0.5";
+        nasequestion.style.opacity="1";
+        naseanswer.style.display = "none";
+        halsquestion.style.opacity="1";
+        halsanswer.style.display = "none";
+       
+      }},
+displayNase(){  if (naseanswer.style.display !== "none") {
+        naseanswer.style.display = "none";
+        nasequestion.style.opacity="1";
+      } else {
+        naseanswer.style.display = "block";
+        nasequestion.style.opacity="0.5";
+        inspektionanswer.style.display = "none";
+        inspektionquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        halsanswer.style.display = "none";
+      }},
+displayHals(){  if (halsanswer.style.display !== "none") {
+        halsanswer.style.display = "none";
+        halsquestion.style.opacity="1";
+      } else {
+        halsanswer.style.display = "block";
+        halsquestion.style.opacity="0.5";
+        inspektionanswer.style.display = "none";
+        inspektionquestion.style.opacity="1";
+        nasequestion.style.opacity="1";
+        naseanswer.style.display = "none";
+      }},
 
-
+},
 
 
 
@@ -157,36 +189,47 @@ export default {
     }
   },
   
-  components: {Urine,Stool,Blood, Notepad, Popup, TotalNextday }
+  components: { Popup, Notepad,Sonography, Ekg, Lung}
 }
 </script>
 
 <style scoped>
-.submitbutton{
-  background: #be123c;
-  color: white;
+h3 {
+  background:rgb(39, 190, 107);
   padding: 20px;
   border-radius: 10px;
   margin: 10px auto;
-  min-height: 50px;
-  width:200px;
+;
+    /* width: 50%; */
   cursor: pointer;
-  align-self: center;
-  justify-self: center;
-  /* color: #444   */
+  color: #444
+}
+
+h3:hover {
+  background: rgb(39, 190, 107)
 }
 .button {
   background: black;
   color: white;
   padding: 20px;
   border-radius: 10px;
-  margin: 10px auto;
-  width:200px;
+  margin:10px ;
+
+ 
+  cursor: pointer;
+ 
+}
+.submitbutton{
+  background: #be123c;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 5px auto;
+  width:400px;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
-
 .h1{
  font-size: large; 
 }

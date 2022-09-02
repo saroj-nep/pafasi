@@ -27,7 +27,7 @@
             <button class="btn btn-primary  " @click.prevent="allNotes()">gespeicherte Notizen anzeigen</button>
             <button class="btn btn-primary" @click.prevent="removeNote()">alle Notizen löschen</button>
            </div>
-            <div class="col-sm-6 note" v-for="note in notes"  >
+            <div class="col-sm-6 note" v-for="note in notes"  v-if="note" >
               <div v-if="note">
               <div v-if="note" class="card">
                 
@@ -68,7 +68,7 @@ export default({
 			methods: {
 
         
-       allNotes() {
+    allNotes() {
         
 
     axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getnotes",)

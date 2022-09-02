@@ -1,53 +1,108 @@
 <template>
-<div>
-<div class="border-4">
+<div style="height:80vh; overflow:auto">
+
   <div class="sticky top-0 bg-emerald-600">
-    <h1 class="h1 text-white" style=";"> Die von Ihnen angeforderten Laborwerte werden veranlasst. Das Labor meldet die Ergebnisse der Urin-Kultur in der Regel in 2 Tagen zurück (d.h. nach dem Ende der heutigen Präsentation). Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten machen wollen. </h1>
+  <h1 class="h1 text-white">Die von Ihnen angeforderten Laborergebnisse werden veranlasst. Wenn Sie eine Urinkultur angefordert haben, wird das Labor die Ergebnisse der Urinkultur in der Regel innerhalb von 2 Tagen (d. h. nach dem Ende der heutigen Präsentation) zurückmelden. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun wollen. </h1>
     </div>
    
            <!-- <br><button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click="">
              Copy to Notepad
-         </button> -->         
-         <div class= "grid grid-cols-3 content-center justify-items-center ">
+        </button> -->  
+        <br>      
+  <div >
+  <table   class="border-separate border-spacing-8 border border-emerald-500 " v-for="urine in urines">
+    <thead class="sticky bg-emerald-200 top-20">
+      <tr>
+        <th class="border border-emerald-600 " >Auswahl </th>
+        <th class="border border-emerald-600 ">Parameter</th>
+        <th class="border border-emerald-600 ">Befund</th>
+        <th class="border border-emerald-600 " >Normbereich</th>
       
-          <h2 class="w-200 h-20 " id="urine_options1_title"> U-Stix</h2> 
-          <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-           <h3 id="urine_options1_result"> </h3>
+      </tr>
+    </thead>
+    <tbody v-if="urine.stix==1"  class="border border-emerald-600  "  >
+      <tr class="border border-emerald-600 ">
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">U-Stix</td>
+        <td></td>
+        <td></td>
+        <td></td>
+       
+      </tr>
+      <tr style="text-align: center;">
+        <td></td>
+        <td >Erythrozyten</td>
+        <td >-</td>
+        <td>-</td>
+       
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>Leukozyten</td>
+        <td>-</td>
+        <td>-</td>
+       
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>Nitrit</td>
+        <td>-</td>
+        <td>-</td>
+        
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>Protein</td>
+        <td>-</td>
+        <td>-</td>
+       
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>pH</td>
+        <td>5</td>
+        <td>&lt;6</td>
+        
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>Glucose</td>
+        <td>-</td>
+
+        <td>&lt;30 mg/dl</td>
+      </tr>
+      <tr style="text-align: center">
+        <td></td>
+        <td>Ketone</td>
+        <td>-</td>
+     
+        <td>-</td>
+      </tr>
+    </tbody>
+    <tbody  v-if="urine.sediment==1">
+      <tr>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
+       
+        <td>Standardbefund:</td>
+        <td>Keine Bakterien Keine Leukozyten- oder Eiweiß-Zylinder.</td>
+      </tr>
+      
+      
+
+    </tbody>
+    </table>
+         </div>   
           
-          <h2 class="w-200 h-20 " id="urine_options1_title"> Urin-Sediment </h2> 
-          <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-           <h3 id="urine_options1_result"> Unauffälliger Mikroskopiebefund. Keine Bakterien, keine Leukozyten- oder Eiweiß-Zylinder.</h3>
-          
-          
-           </div>
-       </div>
+         
+      
  
-           
-<br><br>
-<div class= "grid grid-cols-2" >
+<div class= "flex justify-center" >
 
-            <button style=""  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-           @click="() => TogglePopup('nextdayTrigger')">
-          2 Tage auslassen, um die Ergebnisse zu erhalten
+    <button style=""  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+           @click="allurines()">
+          die heutigen Ergebnisse abrufen
          </button>
-
-          <Popup v-if="popupTriggers.nextdayTrigger" :TogglePopup="() => TogglePopup('nextdayTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Nextday />
-              </div>
-              
-            </div>
-          </Popup>
+            
 
          <button style=""  type="button" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             @click="goToEvents()">
@@ -55,8 +110,8 @@
          </button>
 </div>
         
-      </div>
-   
+      
+     </div>
   
 </template>
 
@@ -64,20 +119,35 @@
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Nextday from './Nextday.vue';
+
+import axios from "axios";
 
 export default {
- methods: {
-        goToEvents: function () {
-            location.href = "/patients/1";
-        }},
+   name:"Allurines",
+ 
   data() {
     return {
-      
+      urines: [],
       showTooltip: false,
       showNotepad: false
     };
   },
+  
+  methods: {
+    allurines() {
+        
+
+    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=geturine",)
+    
+    .then((response) => {this.urines=response.data })
+    
+  },
+
+
+
+        goToEvents: function () {
+            location.href = "/patients/1";
+        }},
   setup() {
     const popupTriggers = ref({
       buttonTrigger: false
@@ -93,7 +163,7 @@ export default {
     }
   },
   
-  components: { Notepad, Popup, Nextday }
+  components: { Notepad, Popup }
 }
 
 
@@ -145,11 +215,11 @@ h2:hover {
 .submitbutton{
   background: #be123c;
   color: white;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   margin: 5px auto;
-  min-height: 50px;
-  width: 80%; 
+  
+  
   cursor: pointer;
   /* color: #444   */
 }
