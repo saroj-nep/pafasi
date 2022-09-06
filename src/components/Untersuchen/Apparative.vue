@@ -10,17 +10,17 @@
 
        <div class="flex justify-center ">
         <button id="inspektionquestion"  class="button"
-           @click.prevent="displayInspektion();">
+           @click.prevent="counterInspektion();displayInspektion();">
          Körpertemperatur messen </button>
 
          
           <button id="nasequestion" class="button"
-            @click.prevent="displayNase();">
+            @click.prevent="counterNase();displayNase();">
           Blutzucker messen
           </button>
              
           <button id="halsquestion" class="button"
-            @click.prevent="displayHals();">
+            @click.prevent="counterHals();displayHals();">
           Blutdruck messen
           </button>
          
@@ -28,7 +28,7 @@
  <div class="flex  justify-center ">
        
            <button  color="#42b983" class="button"
-            @click.prevent="TogglePopup('untereTrigger')">
+            @click.prevent="counterSono();TogglePopup('untereTrigger')">
           Sonografie durchführen
           </button>
             
@@ -44,7 +44,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 >
-                <Sonography/>
+                <Sonography />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -54,7 +54,7 @@
             </div>
           </Popup>
            <button class="button"
-            @click.prevent="TogglePopup('genitalTrigger')">
+            @click.prevent="counterEKG();TogglePopup('genitalTrigger')">
            EKG durchführen lassen
           </button>
             
@@ -70,7 +70,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 >
-                <Ekg/>
+                <Ekg />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -81,12 +81,12 @@
           </Popup>
           
               <button class="button"
-            @click.prevent="TogglePopup('genitalTrigger')">
+            @click.prevent="counterLung();TogglePopup('genitTrigger')">
            Lungenfunktionstest durchführen lassen
           </button>
             
 
-          <Popup v-if="popupTriggers.genitalTrigger" :TogglePopup="() => TogglePopup('genitalTrigger')">
+          <Popup v-if="popupTriggers.genitTrigger" :TogglePopup="() => TogglePopup('genitTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
@@ -97,7 +97,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 >
-                <Lung/>
+                <Lung />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -109,9 +109,9 @@
           
          
           </div> 
-     <h3 id="inspektionanswer" style="display:none"> 37.2 °C</h3> 
+         <h3 id="inspektionanswer" style="display:none"> 37.2 °C</h3> 
          <h3 id="naseanswer" style="display:none">125 mg/dl</h3> 
-       <h3 id="halsanswer" style="display:none">135/80 mmHg</h3>       
+        <h3 id="halsanswer" style="display:none">135/80 mmHg</h3>       
   </div>
 </template>
 
@@ -122,18 +122,177 @@ import Notepad from '@/components/Notepad.vue';
 import Sonography from '@/components/Untersuchen/Sonography.vue';
 import Ekg from '@/components/Untersuchen/Ekg.vue';
 import Lung from '@/components/Untersuchen/Lung.vue';
-
+import axios from 'axios';
 
 export default {
  name:"Untersuchens",
   data() {
     return {
-      
+      counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       showTooltip: false,
       showNotepad: false
     };
   },
 methods:{
+    counterInspektion() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",0);
+      data.append("time",0.3);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    counterNase() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",0);
+      data.append("time",1);
+       data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+   
+    counterHals() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",0);
+      data.append("time",1);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    counterSono() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",1);
+      data.append("time",1);
+     data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    counterEKG() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",1);
+      data.append("time",10);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    counterLung() {
+      var data = new FormData();
+  
+      data.append("economy",0);
+      data.append("satisfaction",0);
+      data.append("time",10);
+     data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+
 displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         inspektionanswer.style.display = "none";
         inspektionquestion.style.opacity="1";

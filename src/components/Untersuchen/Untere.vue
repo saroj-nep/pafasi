@@ -10,24 +10,24 @@
 
         <div class="flex justify-center ">
         <button id="inspektionquestion"  class="button"
-           @click.prevent="displayInspektion();">
+           @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
           <button id="nasequestion" class="button"
-            @click.prevent="displayNase();">
+           @click.prevent="counterNase();displayNase();">
             Prüfung der Beweglichkeit
           </button>
             
            <button id="mundquestion" class="button"
-            @click.prevent="displayMund();">
+                  @click.prevent="counterMund();displayMund();">
             neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
         
 
       
            <button  id="ohrenquestion" class="button"
-            @click.prevent="displayOhren();">
+            @click.prevent="counterOhren();displayOhren();">
            Prüfung der peripheren Durchblutung
           </button>
             </div>
@@ -52,11 +52,17 @@ import Rumpf from '@/components/Untersuchen/Rumpf.vue';
 import Obere from '@/components/Untersuchen/Obere.vue';
 import Untere from '@/components/Untersuchen/Untere.vue';
 import Genital from '@/components/Untersuchen/Genital.vue';
+import axios from 'axios';
 
 export default {
  name:"Untersuchens",
   data() {
-    return {
+    return {counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       
       showTooltip: false,
       showNotepad: false
@@ -64,6 +70,111 @@ export default {
   },
 
 methods:{
+   counterInspektion() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",0.5);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    counterNase() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",2);
+       data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+   
+    counterMund() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",5);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    counterOhren() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",1.5);
+     data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+
+
 displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         inspektionanswer.style.display = "none";
         inspektionquestion.style.opacity="1";

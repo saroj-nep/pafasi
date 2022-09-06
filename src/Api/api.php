@@ -61,7 +61,7 @@ if($action=='addusers'){
 
 }
 if($action=='logout'){
-	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -119,9 +119,21 @@ if($action=='countervariable'){
 	$safety=$_POST['safety'];
 	$satisfaction=$_POST['satisfaction'];
 	$time=$_POST['time'];
-	
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' at '.$steptime.'.\r\n';
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= `safety-counter`+$safety,`satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='0'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -138,7 +150,9 @@ if($action=='facharztvariable'){
 	
 	$satisfaction=$_POST['satisfaction'];
 	$time=$_POST['time'];
-	
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' at '.$steptime.'.\r\n';
 	 
 	$sql="UPDATE `users` SET `counter`=`counter`+1 , `satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
 	$result=$conn->query($sql);
@@ -149,7 +163,15 @@ if($action=='facharztvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
+     	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,'$stepandtime')  WHERE `user`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
 }
 if($action=='addnote'){
 
@@ -176,7 +198,7 @@ if($action=='getnotes'){
 	$userData=array();
 	if($num >0){
 		while($row=$result->fetch_assoc()){
-			array_push($userData,$row);
+			array_push($userData,$row,);
 		}
 	
         $res=$userData;
@@ -204,7 +226,24 @@ if($action=='removenote'){
 	}
 
 }
+if($action=='getsteps'){
+	$sql="SELECT steps FROM `user_history` WHERE user=0 ";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
 
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
 if($action=='sendblood'){
 
 	
@@ -240,6 +279,8 @@ if($action=='sendblood'){
 	}
 
 }
+
+
 if($action=='getblood'){
 	$sql="SELECT * FROM `bluten_options`";
 	$result=$conn->query($sql);
@@ -354,8 +395,72 @@ if($action=='getuserinfo'){
 	}
 	
 }
+if($action=='sendsubmit'){
 
+	
+	$diagnose=$_POST['diagnose'];
+	$ambulance=$_POST['ambulance'];
+	$hospital=$_POST['hospital'];
+	$noappointment=$_POST["noappointment"];
+	$twodays=$_POST["twodays"];
+	$fourweeks=$_POST["fourweeks"];
+	$badappointment=$_POST["badappointment"];
+	$fivedays=$_POST["fivedays"];
+	$ausstellen=$_POST["ausstellen"];
+	$rezept=$_POST["rezept"];
+	$rezepttext=$_POST["rezepttext"];
+	
+	
+	 
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext' WHERE `user`='0';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
 
+}
+if($action=='submitvariable'){
+
+	
+	
+	$safety=$_POST["safety"];
+	$economy=$_POST["economy"];
+	
+	 
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter` WHERE `user-id`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+}
+if($action=='rezeptvariable'){
+
+	
+	
+
+	$economy=$_POST["economy"];
+	
+	 
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `user-id`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+}
 $conn -> close();
 header("Content-type: application/json");
 echo json_encode($res);

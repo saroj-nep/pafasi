@@ -1,7 +1,7 @@
 <template>
        <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " style=""> <strong>Klicken Sie auf das Bild, in dem Sie das Ergebnis der Lungenfunktionstest  sehen möchten   </strong> </h1>
+    <h1 class="h1 text-white " style=""> <strong>Klicken Sie auf das Bild, in dem Sie das Ergebnis der Lungenfunktionstes sehen möchten   </strong> </h1>
     </div>
     <br>
     <div class="flex  gap-10 0">

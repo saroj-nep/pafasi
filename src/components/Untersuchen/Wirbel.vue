@@ -10,17 +10,17 @@
 
         <div class="flex justify-center ">
         <button id="inspektionquestion"  class="button"
-           @click.prevent="displayInspektion();">
+           @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
           <button id="nasequestion" class="button"
-            @click.prevent="displayNase();">
+        @click.prevent="counterNase();displayNase();">
           Funktionsuntersuchung
           </button>
              
           <button id="halsquestion" class="button"
-            @click.prevent="displayHals();">
+         @click.prevent="counterHals();displayHals();">
           Halswirbelsäule
           </button>
          
@@ -35,12 +35,17 @@
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-
+import axios from 'axios';
 
 export default {
  name:"Untersuchens",
   data() {
-    return {
+    return { counters: {
+        safety: null,
+        satisfaction: null,
+        time: null,
+        economy: null
+      },
       
       showTooltip: false,
       showNotepad: false
@@ -48,6 +53,82 @@ export default {
   },
 
 methods:{
+   counterInspektion() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",0.2);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    counterNase() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",1.5);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+     counterHals() {
+      var data = new FormData();
+  
+      data.append("economy",1);
+      data.append("satisfaction",1);
+      data.append("time",0.2);
+      data.append("safety",100);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
 displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         inspektionanswer.style.display = "none";
         inspektionquestion.style.opacity="1";

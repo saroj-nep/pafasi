@@ -248,7 +248,8 @@ export default {
         safety: null,
         satisfaction: null,
         time: null,
-        economy: null
+        economy: null,
+        step:""
       },
       patient: null,
       showTooltip: false,
@@ -263,6 +264,7 @@ methods: {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben einen Blick in die Patientenakte geworfen")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
