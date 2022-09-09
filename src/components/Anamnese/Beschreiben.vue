@@ -5,11 +5,9 @@
             <h2 id="anamnese_option1_question"> Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...) </h2>
            <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
            <h3 id="anamnese_option1_answer"> Schmerzlokalisation: Patient weist auf lumbalen Bereich mit Ausstrahlung ins linke Bein, Dauer: er habe ja immer Rückenschmerzen, aber so schlimm sei es seit dem vergangenen Wochenende </h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
-          
+           
+           
+           
        
       </div>
     

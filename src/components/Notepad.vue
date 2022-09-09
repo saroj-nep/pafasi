@@ -29,15 +29,15 @@
             <button class="btn btn-primary  " @click.prevent="allNotes()">gespeicherte Notizen anzeigen</button>
             <button class="btn btn-primary" @click.prevent="removeNote()">alle Notizen löschen</button>
            </div>
-          <form method="GET">
-            <div class="col-sm-6 note" v-for="note in notes"   >
-              <div v-if="note">
-              <div v-if="note" class="card">
+          <form >
+            <div class="col-sm-6 note" v-for="notey in notes"   >
+              <div >
+              <div v-if="notey" class="card">
                 
-                <div v-if="note" class="card-block">
-                  <h4  v-if="note" class="card-title text-white">{{note.title}}</h4>
+                <div v-if="notey" class="card-block">
+                  <h4   class="card-title text-white">{{notey.title}}</h4>
                   <!-- <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6> -->
-                  <p  v-if="note" class="card-text text-white">{{note.text}}</p>
+                  <p  class="card-text text-white">{{notey.text}}</p>
                   
                 </div>
               </div></div>

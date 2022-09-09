@@ -113,7 +113,57 @@ $sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0
         $res['message']="Somthing Went Wrong";
 	}
 }
+if($action=='logout'){
+	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="User logged out Successfully";
+		$counter=0;
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="DELETE FROM notepad WHERE user=0";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="Note deleted Successfully";
+	
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+$sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0,`glucose`=0, `fetts`= 0,`eisen`=0, `leber`= 0,`pankreas`=0, `niere`= 0,`elektrolyte`=0, `schild`= 0,`herz`=0, `bvitamin`= 0,`ldh`=0, `harn`= 0,`psa`=0, `hcg`= 0, `serum`= 0 WHERE `user-id`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
 
+	$sql="UPDATE `urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+	$sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE `user`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
 if($action=='countervariable'){
 
 	
@@ -125,7 +175,7 @@ if($action=='countervariable'){
 	$steptime=date('Y-m-d H:i:s');
 	$stepandtime=$step.' um '.$steptime.'.';
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+'$economy' ,`counter`=`counter`+'1' ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+'$safety'),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+'$satisfaction' ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+'$time' WHERE `user-id`='0'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -195,6 +245,24 @@ if($action=='addnote'){
 
 if($action=='getnotes'){
 	$sql="SELECT * FROM `notepad`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row,);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
+if($action=='getcounters'){
+	$sql="SELECT `economy-sum` as `economy`, `safety-sum` as `safety`, `satisfaction-sum` as `satisfaction`, `time-counter` as `time` FROM `users`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();

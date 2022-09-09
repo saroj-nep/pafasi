@@ -5,10 +5,8 @@
             <h2 id="anamnese_option5_question"> Nikotin, Alkohol, Drogen?</h2>
           <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
           <h3 id="anamnese_option5_answer"> Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint</h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
+          
+           
           
        
       </div>

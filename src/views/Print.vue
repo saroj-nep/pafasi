@@ -2,6 +2,32 @@
   <div>
     <form id="form1">
     <div id="text" class="">
+      <h1>Ihre Disgnoseergebnisse</h1>
+      <div v-for = " c in counters " >
+<table   class=" border-separate border-spacing-8 border border-emerald-500" >
+    <thead class="sticky bg-emerald-200 top-0">
+      <tr>
+        <th ></th>
+        <th class="border border-emerald-600 ">Wirtschaftlichkeit (von 100%)</th>
+        <th class="border border-emerald-600 ">Patientensicherheit (von 100%)</th>
+        <th class="border border-emerald-600 " >Gesamte Diagnosezeit (in Minuten)</th>
+        <th class="border border-emerald-600 "> Bewertung der Patientenzufriedenheit (von 100%)</th>
+      </tr>
+    </thead>
+    <tbody  class="border border-emerald-600 "  >
+      
+      <tr>
+        <td></td>
+        <td >{{c.economy}}</td>
+        <td>{{c.safety}}</td>
+        <td>{{c.time}}</td>
+        <td>{{c.satisfaction}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+  </div>
+
         <h1>Diagnose-Logs</h1><br><br>
       <div v-for="step in stepsmodified"  >
                 
@@ -32,11 +58,45 @@
      data()
       {return{		
         steps: [],
-        stepsmodified:[]
+        stepsmodified:[],
+        counters:[]
 			}},
-       created(){this.allSteps();},
+       created(){this.allSteps();this.allCounters();},
 			methods: {
 
+        emptydiagnosis(){
+          var data= new FormData();
+          axios
+        .post(
+          // "./Api/api.php?action=login",
+           "./Api/api.php?action=emptydiagnosis",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+            
+          } else {
+            console.log("Success", res.data.message);
+            this.$router.push("/warte");
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+				},
+        
+      
+
+       
+ 
+        allCounters(){
+            axios.get( "./Api/api.php?action=getcounters",)
+    
+    .then((response) => {this.counters=response.data;} )
+  },
+      
         
     stepsmodify(){
          var a =Object.values(this.steps);
@@ -64,6 +124,7 @@
       printWindow.document.write('</body></html>');
       printWindow.document.close();
       printWindow.print();
+      this.emptydiagnosis();
     }}}
   </script>
  <style scoped>

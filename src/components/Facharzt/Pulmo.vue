@@ -6,10 +6,7 @@
           <h2>Innere Medizin - Pulmology</h2>
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
         <h3>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
+          
           
       </div>
     </div>

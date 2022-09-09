@@ -1,7 +1,7 @@
 <template>  <!-- eslint-disable -->
   <!-- prettier-ignore -->
 
-              <form action="" class="form" method="">
+              <form action="" class="form" method="POST">
                 
                   <div class="form__group">
                     <label for="User" class="form__label">Studenten-E-Mail:</label>
@@ -68,7 +68,6 @@ export default {
       
       data.append("email", this.User.email);
       data.append("password", this.User.password);
-       data.append("economy", 1);
       axios
         .post(
           // "./Api/api.php?action=login",

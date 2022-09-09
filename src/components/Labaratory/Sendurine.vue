@@ -146,7 +146,7 @@ export default {
 
 
         goToEvents: function () {
-            location.href = "/patients/1";
+              this.$router.push("/warte");
         }},
   setup() {
     const popupTriggers = ref({

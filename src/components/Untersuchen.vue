@@ -82,7 +82,7 @@ export default {
     return {
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
 

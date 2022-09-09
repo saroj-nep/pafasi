@@ -5,10 +5,7 @@
           <h2 id="anamnese_option8_question">Gynokologische/Urologische/Sexualanamnese</h2>
           <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
           <h3 id="anamnese_option8_answer"> Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz </h3>
-           <button style="margin-right: 50px; margin-left: 50px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
+         
           
        
       </div>

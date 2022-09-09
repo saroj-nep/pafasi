@@ -25,7 +25,7 @@ import Notepad from '@/components/Notepad.vue';
 export default {
  methods: {
         goToEvents: function () {
-            location.href = "/patients/1";
+              this.$router.push("/warte");
         }},
   data() {
     return {

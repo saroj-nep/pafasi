@@ -6,10 +6,7 @@
           <h2>Innere Medizin - Hämato-/Onkologie</h2>
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
         <h3>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik geschickt.</h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
+          
           
       </div>
     </div>

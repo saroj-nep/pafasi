@@ -132,7 +132,7 @@ export default {
         saafety:null
       },
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
 

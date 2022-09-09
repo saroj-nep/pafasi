@@ -254,7 +254,7 @@ export default {
       },
       patient: null,
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
 methods: {

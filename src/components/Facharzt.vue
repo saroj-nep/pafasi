@@ -513,7 +513,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
   methods: {

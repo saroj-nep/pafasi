@@ -5,11 +5,7 @@
             <h2 id="anamnese_option7_question">vegetative Anamnese (Appetit, Schlaf, Verdauung etc))</h2>
            <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
            <h3 id="anamnese_option7_answer">er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts (die Hitz) hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.  </h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
-          
+         
        
       </div>
     

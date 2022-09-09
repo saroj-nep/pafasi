@@ -5,10 +5,8 @@
            <h2 id="anamnese_option10_question">Familien- und Sozialanamnese (Beruf, Wohnsituation) </h2>
           <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
           <h3 id="anamnese_option10_answer"> Pensionierter Lehrer. Lebt mit seiner Ehefrau in einem Einfamilienhaus in ruhiger Wohngegend, zwei erwachsene Kinder </h3>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
+
+          
           
        
       </div>

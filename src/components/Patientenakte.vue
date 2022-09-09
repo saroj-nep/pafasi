@@ -7,11 +7,8 @@
         <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
         <div v-for="option in patientenakte_options" :key="option.id" class="patient">
            <h3>{{ option.answer }}</h3></div>
-           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click="">
-             Copy to Notepad
-         </button>
-          
+         
+           
       </div>
     </div>
   
