@@ -171,7 +171,7 @@ export default{
       axios
         .post(
           // "./Api/api.php?action=logout",
-          "http://localhost/patient-simulator/src/Api/api.php?action=logout",
+          "./Api/api.php?action=logout",
           data
         )
         .then(res => {

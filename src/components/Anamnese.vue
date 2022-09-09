@@ -7,11 +7,11 @@
     <br>
     <form action="" class="form" method="POST">
     <div class="grid grid-cols-2  gap-2">
-    <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-           @click.prevent="beschreibencounter(),TogglePopup('beschreibenTrigger')">
-         Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)
-         </button>
-
+    
+    <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"  @click.prevent="beschreibencounter(),TogglePopup('beschreibenTrigger')"
+          
+        >Beschreiben</button>
+    
           <Popup v-if="popupTriggers.beschreibenTrigger" :TogglePopup="() => TogglePopup('beschreibenTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
@@ -32,12 +32,12 @@
               </div>
             </div>
           </Popup>
-          <form action="" class="form" method="POST">
+         
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
             @click.prevent="akutescounter(),TogglePopup('akutesTrigger')">
             akutes Ereignis?/Aenderung der Lebensumstaende?
           </button>
-            </form>
+          
 
           <Popup v-if="popupTriggers.akutesTrigger" :TogglePopup="() => TogglePopup('akutesTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
@@ -310,24 +310,26 @@ export default {
         time: null,
         economy: null
       },
-      
+      step:'',
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true,
+  
     };
   },
 
  methods: {
-    akutescounter() {
+ akutescounter() {
       var data = new FormData();
   
       data.append("economy",1);
       data.append("satisfaction",1);
       data.append("time",0.3);
       data.append("safety",0);
+      data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -349,10 +351,11 @@ allergincounter() {
       data.append("satisfaction",0);
       data.append("time",0.3);
       data.append("safety",0);
+      data.append("step","Sie haben akutes Allergin unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -370,14 +373,15 @@ allergincounter() {
 beschreibencounter() {
       var data = new FormData();
   
-      data.append("economy",1);
-      data.append("satisfaction",1);
-      data.append("time",2);
+      data.append("economy",-0.5);
+      data.append("satisfaction",0);
+      data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -399,10 +403,11 @@ familiencounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -424,10 +429,11 @@ gewohncounter() {
       data.append("satisfaction",1);
       data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -449,10 +455,11 @@ gynocounter() {
       data.append("satisfaction",0);
       data.append("time",2);
       data.append("safety",0);
+      data.append("step","Sie haben Gynokologische/Urologische/Sexualanamnese unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -474,10 +481,11 @@ medikamencounter() {
       data.append("satisfaction",1);
       data.append("time",0.5);
       data.append("safety",0);
+      data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -499,10 +507,11 @@ nikotincounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -524,10 +533,11 @@ psychecounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
+      data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -549,10 +559,11 @@ vegetativecounter() {
       data.append("satisfaction",1);
       data.append("time",2);
       data.append("safety",0);
+      data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

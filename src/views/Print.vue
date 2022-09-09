@@ -1,6 +1,7 @@
 <template>
+  <div>
     <form id="form1">
-    <div id="text">
+    <div id="text" class="">
         <h1>Diagnose-Logs</h1><br><br>
       <div v-for="step in stepsmodified"  >
                 
@@ -14,6 +15,7 @@
     </div>
       <button type="button"  id="btnPrint" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click="btnPrint();" >Print your diagnosis </button>
     </form>
+    </div>
 </template>
 
   
@@ -48,7 +50,7 @@
     allSteps() {
         
 
-    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getsteps",)
+    axios.get( "./Api/api.php?action=getsteps",)
     
     .then((response) => {this.steps=response.data;this.stepsmodify(); } )
   },

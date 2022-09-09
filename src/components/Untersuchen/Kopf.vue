@@ -85,7 +85,8 @@ export default {
         safety: null,
         satisfaction: null,
         time: null,
-        economy: null
+        economy: null,
+        step:''
       },
      
       
@@ -103,10 +104,11 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.1);
       data.append("safety",100);
+      data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Kopf angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -129,10 +131,11 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.1);
        data.append("safety",100);
+       data.append("step","Sie haben Nase Untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -155,10 +158,11 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.3);
       data.append("safety",100);
+      data.append("step","Sie haben Mund/Mundhoele/Rachen untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -180,10 +184,11 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.2);
      data.append("safety",100);
+     data.append("step","Sie haben Ohren untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -205,10 +210,12 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.1);
        data.append("safety",100);
+       data.append("step","Sie haben Lymphknoten abtasten unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -230,10 +237,12 @@ export default {
       data.append("satisfaction",0);
       data.append("time",0.2);
      data.append("safety",100);
+     data.append("step","Sie haben Schilddrüse untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -255,10 +264,12 @@ export default {
       data.append("satisfaction",1);
       data.append("time",0.2);
       data.append("safety",100);
+      data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -280,10 +291,12 @@ export default {
       data.append("satisfaction",0);
       data.append("time",3.5);
       data.append("safety",100);
+      data.append("step","Sie haben orientierende neurologische Untersuchung / Funktionsprüfung unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

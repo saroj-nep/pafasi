@@ -6,6 +6,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 	header('Access-Control-Allow-Origin: *');
 	header('Access-Control-Allow-Credentials: true');
 	header('Access-Control-Max-Age: 1000');
+	header('Content-type:application/json;charset=utf-8');
 }
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 	if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
@@ -41,6 +42,7 @@ if($action=='login'){
         $res['error']=true;
         $res['message']="Your Login email or Password is invalid";
     }
+	
 }
 if($action=='addusers'){
 
@@ -121,7 +123,7 @@ if($action=='countervariable'){
 	$time=$_POST['time'];
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
-	$stepandtime=$step.' at '.$steptime.'.\r\n';
+	$stepandtime=$step.' um '.$steptime.'.';
 	 
 	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
 	$result=$conn->query($sql);
@@ -152,7 +154,7 @@ if($action=='facharztvariable'){
 	$time=$_POST['time'];
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
-	$stepandtime=$step.' at '.$steptime.'.\r\n';
+	$stepandtime=$step.' um '.$steptime.'.';
 	 
 	$sql="UPDATE `users` SET `counter`=`counter`+1 , `satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
 	$result=$conn->query($sql);
@@ -429,7 +431,9 @@ if($action=='submitvariable'){
 	
 	$safety=$_POST["safety"];
 	$economy=$_POST["economy"];
-	
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
 	 
 	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter` WHERE `user-id`='0'";
 	$result=$conn->query($sql);
@@ -440,7 +444,15 @@ if($action=='submitvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
+	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='0'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
 }
 if($action=='rezeptvariable'){
 

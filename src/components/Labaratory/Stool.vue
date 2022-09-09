@@ -101,7 +101,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "http://localhost/patient-simulator/src/Api/api.php?action=sendstool",
+           "./Api/api.php?action=sendstool",
           data
         )
         .then(res => {
@@ -131,11 +131,12 @@ export default {
          if (c.checked==1) {
           data.append("satisfaction",0);
           data.append("time",2880);
+          data.append("step","Sie haben einen Untersuchung auf Parasiten fur Stuhlprobe beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {
@@ -152,11 +153,12 @@ export default {
           else if (b.checked==1){
           data.append("satisfaction",0);
           data.append("time",2880);
+          data.append("step","Sie haben einen Stuhlkultur  beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {
@@ -173,11 +175,12 @@ export default {
              else if (a.checked==1){
           data.append("satisfaction",0);
           data.append("time",1440);
+          data.append("step","Sie haben einen  Stuhlprobe beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {

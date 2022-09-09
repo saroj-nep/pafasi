@@ -228,7 +228,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "http://localhost/patient-simulator/src/Api/api.php?action=sendblood",
+           "./Api/api.php?action=sendblood",
           data
         )
         .then(res => {
@@ -272,7 +272,7 @@ export default {
      axios
        .post(
          // "./Api/api.php?action=login",
-          "http://localhost/patient-simulator/src/Api/api.php?action=sendblood",
+          "./Api/api.php?action=sendblood",
          data
        )
        .then(res => {
@@ -297,11 +297,12 @@ export default {
      
       data.append("satisfaction",1);
       data.append("time",1440);
+      data.append("step","Sie haben einen Bluttest beantragt");
       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {

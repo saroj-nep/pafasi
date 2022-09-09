@@ -132,7 +132,8 @@ export default {
         safety: null,
         satisfaction: null,
         time: null,
-        economy: null
+        economy: null,
+        step:''
       },
       showTooltip: false,
       showNotepad: false
@@ -146,10 +147,11 @@ methods:{
       data.append("satisfaction",0);
       data.append("time",0.3);
       data.append("safety",100);
+      data.append("step","Sie haben Körpertemperatur messen unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -172,10 +174,11 @@ methods:{
       data.append("satisfaction",0);
       data.append("time",1);
        data.append("safety",100);
+        data.append("step","Sie haben Blutzucker  messen unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -198,10 +201,11 @@ methods:{
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",100);
+       data.append("step","Sie haben Blutdruk messen unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -223,10 +227,11 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",1);
      data.append("safety",100);
+      data.append("step","Sie haben Sonografie durchführen unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -248,10 +253,11 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",10);
       data.append("safety",100);
+       data.append("step","Sie haben EKG durchführen unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -272,11 +278,12 @@ methods:{
       data.append("economy",0);
       data.append("satisfaction",0);
       data.append("time",10);
-     data.append("safety",100);
+      data.append("safety",100);
+      data.append("step","Sie haben Lungenfunktionstest durchführen  unter Apparative Untersuchen angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

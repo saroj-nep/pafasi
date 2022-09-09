@@ -101,7 +101,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "http://localhost/patient-simulator/src/Api/api.php?action=sendurine",
+           "./Api/api.php?action=sendurine",
           data
         )
         .then(res => {
@@ -129,11 +129,12 @@ export default {
          if (c.checked==1) {
           data.append("satisfaction",0);
           data.append("time",2880);
+          data.append("step","Sie haben die Urinkultur beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {
@@ -150,11 +151,12 @@ export default {
           else if (b.checked==1){
           data.append("satisfaction",0);
           data.append("time",10);
+          data.append("step","Sie haben die Urin-Sediment beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {
@@ -171,11 +173,12 @@ export default {
              else if (a.checked==1){
           data.append("satisfaction",0);
           data.append("time",5);
+          data.append("step","Sie haben die U-Stix fur Urintest beantragt");
           
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=facharztvariable",
               data
             )
             .then(res => {

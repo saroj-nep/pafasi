@@ -523,11 +523,12 @@ export default {
      
       data.append("satisfaction",1);
       data.append("time",129600);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Augenheilkunde");
       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -548,11 +549,12 @@ chirucounter() {
     
       data.append("satisfaction",1);
       data.append("time",43200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Chirurgie (ambulant)");
       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -573,11 +575,12 @@ dermacounter() {
      
       data.append("satisfaction",1);
       data.append("time",129600);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Dermatologie");
      
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -598,11 +601,12 @@ gynacounter() {
    
       data.append("satisfaction",1);
       data.append("time",43200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Gynäkologie");
     
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -623,11 +627,12 @@ halscounter() {
     
       data.append("satisfaction",1);
       data.append("time",129600);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Hals-Nasen-Ohrenheilkunde");
       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -647,11 +652,12 @@ kardiocounter() {
   
       data.append("satisfaction",1);
       data.append("time",259200);
+     data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin: Kardiologie"); 
    
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -672,11 +678,12 @@ gastrocounter() {
      
       data.append("satisfaction",1);
       data.append("time",172800);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Gastroenterologie");
       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -697,11 +704,11 @@ pulmocounter() {
    
       data.append("satisfaction",1);
       data.append("time",216000);
-      
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Pulmologie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -722,11 +729,12 @@ nephrocounter() {
      
       data.append("satisfaction",1);
       data.append("time",259200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Nephrologie");
   
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -747,11 +755,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",302400);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Hämato-/Onkologie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -772,11 +780,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",345600);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Endokrinologie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -797,11 +805,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",129600);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurochirurgie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -822,11 +830,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurologie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -847,11 +855,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Orthopädie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -871,11 +879,11 @@ onkocounter() {
   
       data.append("satisfaction",1);
       data.append("time",43200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Pädiatrie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -896,11 +904,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",259200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Psychiatrie/Psychosomatik");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -921,11 +929,11 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Radiologie");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -946,12 +954,12 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Urologie");
    
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=facharztvariable",
           data
         )
         .then(res => {

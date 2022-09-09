@@ -3,12 +3,14 @@
   <div class=" border-emerald-600 border-4 shadow-md h-fit shadow-emerald-600 mr-5 pl-5 pr-5 border-t-8 ">
     <div class="row">
       <div class="col-sm-12">
-        <form>
+       
         <div>
+        <form action="GET">
           <h1><strong> {{title}}</strong></h1>
           <h2> {{subtitle}}</h2>
           <h3>Total Noten: {{ notes.length }}</h3>
-          <div class="form">
+        </form>
+          <form action="POST"><div class="form">
             <div class="form-group">
               <label>Titel der Notiz:     </label>
               <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" v-model="note.title" required >
@@ -21,13 +23,14 @@
             <button class="btn btn-primary " @click.prevent="addNote()">Notiz speichern</button>
             </div>
             <div class="alert alert-danger text-center text-red-500" role="alert" v-if="isActive='true'"  >Alle Felder sind obligatorisch.</div>
-          </div>
+          </div></form>
           <div class="row">
             <div class="flex flex-row  justify-center items-center">
             <button class="btn btn-primary  " @click.prevent="allNotes()">gespeicherte Notizen anzeigen</button>
             <button class="btn btn-primary" @click.prevent="removeNote()">alle Notizen löschen</button>
            </div>
-            <div class="col-sm-6 note" v-for="note in notes"  v-if="note" >
+          <form method="GET">
+            <div class="col-sm-6 note" v-for="note in notes"   >
               <div v-if="note">
               <div v-if="note" class="card">
                 
@@ -39,10 +42,11 @@
                 </div>
               </div></div>
             </div>
+            </form>
           </div>
         </div>
       
-      </form></div>
+     </div>
     </div>
   </div>
 </div>
@@ -71,7 +75,7 @@ export default({
     allNotes() {
         
 
-    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getnotes",)
+    axios.get( "./Api/api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data })
   },
@@ -87,7 +91,7 @@ export default({
       axios
         .post(
           // "./Api/api.php?action=login",
-           "http://localhost/patient-simulator/src/Api/api.php?action=addnote",
+           "./Api/api.php?action=addnote",
           data
         )
         .then(res => {
@@ -119,7 +123,7 @@ export default({
   axios
     .post(
       // "./Api/api.php?action=login",
-       "http://localhost/patient-simulator/src/Api/api.php?action=removenote",
+       "./Api/api.php?action=removenote",
       data
     )
     .then(res => {

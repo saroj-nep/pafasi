@@ -40,7 +40,8 @@ export default {
         safety: null,
         satisfaction: null,
         time: null,
-        economy: null
+        economy: null,
+        step:''
       },
       
       showTooltip: false,
@@ -56,10 +57,11 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",0.5);
       data.append("safety",100);
+      data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -81,11 +83,12 @@ methods:{
       data.append("economy",0);
       data.append("satisfaction",1);
       data.append("time",2);
-       data.append("safety",100);
+      data.append("safety",100);
+      data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

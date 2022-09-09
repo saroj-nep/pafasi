@@ -77,10 +77,11 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",0.5);
       data.append("safety",100);
+      data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -102,11 +103,12 @@ methods:{
       data.append("economy",1);
       data.append("satisfaction",1);
       data.append("time",2);
-       data.append("safety",100);
+      data.append("safety",100);
+      data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -129,10 +131,11 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",5);
       data.append("safety",100);
+      data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -154,10 +157,12 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",1.5);
      data.append("safety",100);
+     data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
+
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

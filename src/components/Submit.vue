@@ -88,14 +88,20 @@
          </button>
    <Popup v-if="popupTriggers.printtrigger" :TogglePopup="() => TogglePopup('printtrigger')">
             
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-               >
-                <PrintVue />
+                style="max-height: 40rem; overflow: auto">
+                <Print />
               </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
               
              
-            </div>
+           
           </Popup>
         </form>
 
@@ -111,6 +117,7 @@ import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
 import axios from 'axios';
 import PrintVue from '@/views/Print.vue';
+import Print from '@/views/Print.vue';
 
 export default {
  name:"Submits",
@@ -187,7 +194,7 @@ sendvalue() {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "http://localhost/patient-simulator/src/Api/api.php?action=sendsubmit",
+           "./Api/api.php?action=sendsubmit",
           data
         )
         .then(res => {
@@ -213,7 +220,7 @@ submitrezept(){
      axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=rezeptvariable",
+          "./Api/api.php?action=rezeptvariable",
           data
         )
         .then(res => {
@@ -265,13 +272,13 @@ else if (f.checked==true){data.append("safety",70);
 else if (g.checked==true){data.append("safety",20);
                      data.append("economy",0 ) 
 }
-
+ data.append("step",'Sie haben Ihre Diagnose eingereicht')
   
 
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=submitvariable",
+          "./Api/api.php?action=submitvariable",
           data
         )
         .then(res => {
@@ -303,7 +310,7 @@ setup() {
     }
   },
   
-  components: { Popup, Notepad, PrintVue}
+  components: { Popup, Notepad, PrintVue, Print }
 }
 
 </script>

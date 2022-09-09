@@ -954,7 +954,7 @@
     allbloods() {
         
 
-    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getblood",)
+    axios.get( "./Api/api.php?action=getblood",)
     
     .then((response) => {this.bloods=response.data })
     
@@ -962,7 +962,7 @@
     allurines() {
         
 
-    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=geturine",)
+    axios.get( "./Api/api.php?action=geturine",)
     
     .then((response) => {this.urines=response.data })
     
@@ -970,7 +970,7 @@
     allstools() {
         
 
-    axios.get( "http://localhost/patient-simulator/src/Api/api.php?action=getstool",)
+    axios.get( "./Api/api.php?action=getstool",)
     
     .then((response) => {this.stools=response.data })
     

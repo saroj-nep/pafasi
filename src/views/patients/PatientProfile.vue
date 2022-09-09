@@ -49,7 +49,7 @@
               nächstes tun? </strong> </h1>
     </div>
 <br><br>
-
+         
           <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('anamneseTrigger')">
             ausführlichere Anamnese führen
@@ -102,11 +102,12 @@
             </div>
           </Popup>
 
-          
-          <button method ="POST" style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+         
+          <button method="POST" style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="patientenaktecounter(),TogglePopup('patientenakteTrigger')">
-           einen Blick in die Patientenakte werfenn
-          </button>
+          einen Blick in die Patientenakte werfenn</button>
+        
+ 
           
           <Popup v-if="popupTriggers.patientenakteTrigger" :TogglePopup="() => TogglePopup('patientenakteTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
@@ -208,7 +209,7 @@
             </div>
           </Popup>
 
-        
+
 
         </div>
       </div>
@@ -259,7 +260,7 @@ export default {
 methods: {
     patientenaktecounter() {
       var data = new FormData();
-  
+      
       data.append("economy",1);
       data.append("satisfaction",0);
       data.append("time",1);
@@ -268,7 +269,7 @@ methods: {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "http://localhost/patient-simulator/src/Api/api.php?action=countervariable",
+          "./Api/api2.php?action=countervariable",
           data
         )
         .then(res => {
