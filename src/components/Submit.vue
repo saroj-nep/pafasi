@@ -190,7 +190,7 @@ sendvalue() {
       data.append("rezept",i.checked);
       data.append("rezepttext",j);
       data.append("diagnose",k);
-  
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -216,7 +216,8 @@ submitrezept(){
   var data = new FormData();
  const h = document.querySelector('#checkbox1');
   if (h.checked==1){
-                     data.append("economy",1 ) 
+                     data.append("economy",1 ) ;
+                     data.append("onlineuser",localStorage.email);
      axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -272,7 +273,9 @@ else if (f.checked==true){data.append("safety",70);
 else if (g.checked==true){data.append("safety",20);
                      data.append("economy",0 ) 
 }
- data.append("step",'Sie haben Ihre Diagnose eingereicht')
+ data.append("step",'Sie haben Ihre Diagnose eingereicht');
+ data.append("onlineuser",localStorage.email);
+
   
 
  axios

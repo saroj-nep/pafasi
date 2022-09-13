@@ -251,7 +251,9 @@ export default {
         time: null,
         economy: null,
         step:""
+       
       },
+      
       patient: null,
       showTooltip: false,
       showNotepad: true
@@ -266,10 +268,11 @@ methods: {
       data.append("time",1);
       data.append("safety",0);
       data.append("step","Sie haben einen Blick in die Patientenakte geworfen")
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api2.php?action=countervariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {

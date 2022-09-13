@@ -7,8 +7,6 @@
         <div>
         <form action="GET">
           <h1><strong> {{title}}</strong></h1>
-          <h2> {{subtitle}}</h2>
-          <h3>Total Noten: {{ notes.length }}</h3>
         </form>
           <form action="POST"><div class="form">
             <div class="form-group">
@@ -30,12 +28,12 @@
             <button class="btn btn-primary" @click.prevent="removeNote()">alle Notizen löschen</button>
            </div>
           <form >
-            <div class="col-sm-6 note" v-for="notey in notes"   >
+            <div class="col-sm-6 note" v-for="notey in notes"  >
               <div >
-              <div v-if="notey" class="card">
+              <div v-if="notey.user===email" class="card">
                 
                 <div v-if="notey" class="card-block">
-                  <h4   class="card-title text-white">{{notey.title}}</h4>
+                  <h4  class="card-title text-white">{{notey.title}}</h4>
                   <!-- <h6 class="card-subtitle mb-2 text-muted">{{note.date}}</h6> -->
                   <p  class="card-text text-white">{{notey.text}}</p>
                   
@@ -60,7 +58,7 @@ export default({
 			data()
       {return{
         isActive: false,
-				
+				email:localStorage.email,
 				title: 'Noten zur Diagnose',
 				note: {
 					title: null,
@@ -88,6 +86,7 @@ export default({
   
       data.append("notetitle", this.note.title);
       data.append("notetext", this.note.text);
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -120,6 +119,7 @@ export default({
   
   data.append("notetitle", this.note.title);
   data.append("notetext", this.note.text);
+  data.append("onlineuser",localStorage.email);
   axios
     .post(
       // "./Api/api.php?action=login",

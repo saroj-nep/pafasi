@@ -59,6 +59,7 @@ methods:{
       data.append("time",0.3);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion und Palpation unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -85,7 +86,8 @@ methods:{
       data.append("satisfaction",1);
       data.append("time",0.5);
        data.append("safety",100);
-       data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
+      data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
+    data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",

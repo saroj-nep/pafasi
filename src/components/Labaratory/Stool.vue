@@ -97,6 +97,7 @@ export default {
       data.append("stoolprobe", a.checked);
       data.append("stoolculture", b.checked);
       data.append("untersuchen", c.checked);
+      data.append("onlineuser",localStorage.email);
      
       axios
         .post(
@@ -132,6 +133,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",2880);
           data.append("step","Sie haben einen Untersuchung auf Parasiten fur Stuhlprobe beantragt");
+          data.append("onlineuser",localStorage.email);
           
           axios
             .post(
@@ -154,7 +156,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",2880);
           data.append("step","Sie haben einen Stuhlkultur  beantragt");
-          
+          data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",
@@ -176,7 +178,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",1440);
           data.append("step","Sie haben einen  Stuhlprobe beantragt");
-          
+          data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",

@@ -105,6 +105,7 @@ export default {
       data.append("time",0.1);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -132,7 +133,8 @@ export default {
       data.append("time",0.1);
        data.append("safety",100);
        data.append("step","Sie haben Nase Untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-      axios
+     data.append("onlineuser",localStorage.email);
+       axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=countervariable",
@@ -159,6 +161,7 @@ export default {
       data.append("time",0.3);
       data.append("safety",100);
       data.append("step","Sie haben Mund/Mundhoele/Rachen untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -185,7 +188,8 @@ export default {
       data.append("time",0.2);
      data.append("safety",100);
      data.append("step","Sie haben Ohren untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-      axios
+     data.append("onlineuser",localStorage.email);
+     axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=countervariable",
@@ -211,7 +215,8 @@ export default {
       data.append("time",0.1);
        data.append("safety",100);
        data.append("step","Sie haben Lymphknoten abtasten unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-      axios
+     data.append("onlineuser",localStorage.email);
+       
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -238,7 +243,7 @@ export default {
       data.append("time",0.2);
      data.append("safety",100);
      data.append("step","Sie haben Schilddrüse untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-      axios
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -265,7 +270,7 @@ export default {
       data.append("time",0.2);
       data.append("safety",100);
       data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-      axios
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -292,7 +297,7 @@ export default {
       data.append("time",3.5);
       data.append("safety",100);
       data.append("step","Sie haben orientierende neurologische Untersuchung / Funktionsprüfung unter Nicht Apparative Untersuchen: Kopf angekreuzt")
-     
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",

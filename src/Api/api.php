@@ -44,126 +44,83 @@ if($action=='login'){
     }
 	
 }
-if($action=='addusers'){
+if($action=='online'){
+    $email=$_POST['email'];
+	$logintime=date('Y-m-d H:i:s');
 
+    $sql="INSERT INTO `onlineusers`( `email`, `logintime`) VALUES('$email', '$logintime')";
+    $result=$conn->query($sql);
+    $num=mysqli_num_rows($result);
 	
-	$email=$_POST['email'];
-	$password=$_POST['password'];
-	
-	 
-	$sql="INSERT INTO `users`( `email`, `password`) VALUES('$email','$password')";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="User Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
-
 }
 if($action=='logout'){
-	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
+ 
+	$onlineuser=$_POST['onlineuser'];
+
+	$sql="DELETE FROM onlineusers WHERE email='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
-        $res['message']="User logged out Successfully";
-		$counter=0;
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
-	$sql="DELETE FROM notepad WHERE user=0";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="Note deleted Successfully";
+        $res['message']="User removed Successfully";
 	
 	}else{
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-$sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0,`glucose`=0, `fetts`= 0,`eisen`=0, `leber`= 0,`pankreas`=0, `niere`= 0,`elektrolyte`=0, `schild`= 0,`herz`=0, `bvitamin`= 0,`ldh`=0, `harn`= 0,`psa`=0, `hcg`= 0, `serum`= 0 WHERE `user-id`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
 
-	$sql="UPDATE `urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
 
-	$sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE `user`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
-}
-if($action=='logout'){
-	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="User logged out Successfully";
-		$counter=0;
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
-	$sql="DELETE FROM notepad WHERE user=0";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="Note deleted Successfully";
+
+// 	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `user-id`='0'";
+// 	$result=$conn->query($sql);
+// 	if($result===true){
+// 		$res['error']=false;
+//         $res['message']="User logged out Successfully";
+// 		$counter=0;
+// 	}else{
+// 		$res['error']=true;
+//         $res['message']="Somthing Went Wrong";
+// 	}
+// 	$sql="DELETE FROM notepad WHERE user=0";
+// 	$result=$conn->query($sql);
+// 	if($result===true){
+// 		$res['error']=false;
+//         $res['message']="Note deleted Successfully";
 	
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
-$sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0,`glucose`=0, `fetts`= 0,`eisen`=0, `leber`= 0,`pankreas`=0, `niere`= 0,`elektrolyte`=0, `schild`= 0,`herz`=0, `bvitamin`= 0,`ldh`=0, `harn`= 0,`psa`=0, `hcg`= 0, `serum`= 0 WHERE `user-id`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
+// 	}else{
+// 		$res['error']=true;
+//         $res['message']="Somthing Went Wrong";
+// 	}
+// $sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0,`glucose`=0, `fetts`= 0,`eisen`=0, `leber`= 0,`pankreas`=0, `niere`= 0,`elektrolyte`=0, `schild`= 0,`herz`=0, `bvitamin`= 0,`ldh`=0, `harn`= 0,`psa`=0, `hcg`= 0, `serum`= 0 WHERE `user-id`='0'";
+// 	$result=$conn->query($sql);
+// 	if($result===true){
+// 		$res['error']=false;
+//         $res['message']="variables Added Successfully";
+// 	}else{
+// 		$res['error']=true;
+//         $res['message']="Somthing Went Wrong";
+// 	}
 
-	$sql="UPDATE `urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
+// 	$sql="UPDATE `urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='0'";
+// 	$result=$conn->query($sql);
+// 	if($result===true){
+// 		$res['error']=false;
+//         $res['message']="variables Added Successfully";
+// 	}else{
+// 		$res['error']=true;
+//         $res['message']="Somthing Went Wrong";
+// 	}
 
-	$sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE `user`='0'";
-	$result=$conn->query($sql);
-	if($result===true){
-		$res['error']=false;
-        $res['message']="variables Added Successfully";
-	}else{
-		$res['error']=true;
-        $res['message']="Somthing Went Wrong";
-	}
+// 	$sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE `user`='0'";
+// 	$result=$conn->query($sql);
+// 	if($result===true){
+// 		$res['error']=false;
+//         $res['message']="variables Added Successfully";
+// 	}else{
+// 		$res['error']=true;
+//         $res['message']="Somthing Went Wrong";
+// 	}
 }
+
 if($action=='countervariable'){
 
 	
@@ -174,8 +131,9 @@ if($action=='countervariable'){
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
 	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST['onlineuser'];
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+'$economy' ,`counter`=`counter`+'1' ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+'$safety'),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+'$satisfaction' ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+'$time' WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+'$economy' ,`counter`=`counter`+'1' ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+'$safety'),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+'$satisfaction' ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+'$time' WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -185,7 +143,7 @@ if($action=='countervariable'){
         $res['message']="Somthing Went Wrong";
 	}
 
-	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='0'";
+	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -205,8 +163,9 @@ if($action=='facharztvariable'){
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
 	$stepandtime=$step.' um '.$steptime.'.';
-	 
-	$sql="UPDATE `users` SET `counter`=`counter`+1 , `satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `user-id`='0'";
+	$onlineuser=$_POST['onlineuser'];
+
+	$sql="UPDATE `users` SET `counter`=`counter`+1 , `satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -215,7 +174,7 @@ if($action=='facharztvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-     	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,'$stepandtime')  WHERE `user`='0'";
+     	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,'$stepandtime')  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -230,9 +189,9 @@ if($action=='addnote'){
 	
 	$notetitle=$_POST['notetitle'];
 	$notetext=$_POST['notetext'];
-	
+	$onlineuser=$_POST['onlineuser'];
 	 
-	$sql="INSERT INTO `notepad`( `user`,`title`, `text`) VALUES('0','$notetitle','$notetext')";
+	$sql="INSERT INTO `notepad`( `user`,`title`, `text`) VALUES('$onlineuser','$notetitle','$notetext')";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -244,7 +203,7 @@ if($action=='addnote'){
 }
 
 if($action=='getnotes'){
-	$sql="SELECT * FROM `notepad`";
+	$sql="SELECT * FROM `notepad` ";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -262,7 +221,7 @@ if($action=='getnotes'){
 	
 }
 if($action=='getcounters'){
-	$sql="SELECT `economy-sum` as `economy`, `safety-sum` as `safety`, `satisfaction-sum` as `satisfaction`, `time-counter` as `time` FROM `users`";
+	$sql="SELECT `economy-sum` as `economy`, `safety-sum` as `safety`, `satisfaction-sum` as `satisfaction`, `time-counter` as `time`, `email` as `email`  FROM `users`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -283,8 +242,9 @@ if($action=='removenote'){
 
 	$notetitle=$_POST['notetitle'];
 	$notetext=$_POST['notetext'];
+    $onlineuser=$_POST['onlineuser'];
 
-	$sql="DELETE FROM notepad WHERE user=0";
+	$sql="DELETE FROM notepad WHERE user='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -297,7 +257,7 @@ if($action=='removenote'){
 
 }
 if($action=='getsteps'){
-	$sql="SELECT steps FROM `user_history` WHERE user=0 ";
+	$sql="SELECT * FROM `user_history` ";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -336,9 +296,10 @@ if($action=='sendblood'){
 	$psa=$_POST["bloodpsa"];
 	$hcg=$_POST["bloodhcg"];
 	$serum=$_POST["bloodserum"];
+	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `bluten_options` SET `kleines`=$kleines, `grosses`= $grosses,`gerin`=$gerin, `entz`= $entz,`glucose`=$glucose, `fetts`= $fetts,`eisen`=$eisen, `leber`= $leber,`pankreas`=$pankreas, `niere`= $niere,`elektrolyte`=$elektrolyte, `schild`= $schild,`herz`=$herz, `bvitamin`= $bvitamin,`ldh`=$ldh, `harn`= $harn,`psa`=$psa, `hcg`= $hcg, `serum`= $serum WHERE `user-id`='0'";
+	$sql="UPDATE `bluten_options` SET `kleines`=$kleines, `grosses`= $grosses,`gerin`=$gerin, `entz`= $entz,`glucose`=$glucose, `fetts`= $fetts,`eisen`=$eisen, `leber`= $leber,`pankreas`=$pankreas, `niere`= $niere,`elektrolyte`=$elektrolyte, `schild`= $schild,`herz`=$herz, `bvitamin`= $bvitamin,`ldh`=$ldh, `harn`= $harn,`psa`=$psa, `hcg`= $hcg, `serum`= $serum WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -393,10 +354,10 @@ if($action=='sendurine'){
 	$stix=$_POST['urinstix'];
 	$sediment=$_POST['urinsediment'];
 	$kultur=$_POST['urinkultur'];
-	
+	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `urin_options` SET `stix`=$stix, `sediment`= $sediment, `kultur`= $kultur WHERE `user`='0'";
+	$sql="UPDATE `urin_options` SET `stix`=$stix, `sediment`= $sediment, `kultur`= $kultur WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -432,10 +393,10 @@ if($action=='sendstool'){
 	$probe=$_POST['stoolprobe'];
 	$culture=$_POST['stoolculture'];
 	$untersuchen=$_POST['untersuchen'];
-	
+	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `stuhl_options` SET `probe`=$probe, `kultur`= $culture, `untersuchung`= $untersuchen WHERE `user`='0'";
+	$sql="UPDATE `stuhl_options` SET `probe`=$probe, `kultur`= $culture, `untersuchung`= $untersuchen WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -479,10 +440,10 @@ if($action=='sendsubmit'){
 	$ausstellen=$_POST["ausstellen"];
 	$rezept=$_POST["rezept"];
 	$rezepttext=$_POST["rezepttext"];
-	
+	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext' WHERE `user`='0';";
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext' WHERE `user`='$onlineuser';";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -502,8 +463,9 @@ if($action=='submitvariable'){
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
 	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST["onlineuser"];
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter` WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter` WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -512,7 +474,7 @@ if($action=='submitvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='0'";
+	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -528,9 +490,10 @@ if($action=='rezeptvariable'){
 	
 
 	$economy=$_POST["economy"];
+	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `user-id`='0'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `user-id`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;

@@ -46,7 +46,7 @@
 </template>
 <script>
 import axios from "axios";
-import { mapActions, mapGetters } from "vuex";
+
 
 export default {
   name: "Home",
@@ -56,12 +56,40 @@ export default {
         email: null,
         password: null
       },
-  computed: {
-    ...mapGetters(["getToken", "getUserId"])}
+  }
     
-    };
+    
   },
   methods: {
+    Online(){
+      var data = new FormData();
+    
+      
+      data.append("email", this.User.email);
+      localStorage.email=this.User.email;
+     
+      axios
+        .post(
+          // "./Api/api.php?action=login",
+           "./Api/api.php?action=online",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+
     onLogin() {
       var data = new FormData();
     
@@ -80,7 +108,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-            
+            this.Online();
             this.$router.push("/main");
           }
         })

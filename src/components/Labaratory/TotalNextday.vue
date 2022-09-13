@@ -4,7 +4,9 @@
     <div class=" bg-emerald-600">
  <h1 class="h1 text-white " > <strong>Ergebnisse der Blutuntersuchung </strong> </h1>
 </div><br><br>
-<table   class=" border-separate border-spacing-8 border border-emerald-500" v-for="blood in bloods">
+<div v-for="blood in bloods">
+<div v-if="blood.user===email">
+<table   class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th  class="border border-emerald-600 " >Auswahl </th>
@@ -777,13 +779,16 @@
       </tr>
     </tbody>
   </table><br><br>
+</div>
+</div>
   </div>
   <div >
     <div class=" bg-emerald-600">
  <h1 class="h1 text-white " > <strong>Ergebnisse des Urintests  </strong> </h1>
 </div><br><br>
-
-   <table class=" border-separate border-spacing-8 border border-emerald-500 " v-for="urine in urines">
+<div v-for="urine in urines">
+<div v-if="urine.user===email">
+   <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th class="border border-emerald-600 " >Auswahl </th>
@@ -863,13 +868,16 @@
 
     </tbody>
     </table><br><br>
-    
+    </div>
+</div>
 </div>
 <div >
      <div class=" bg-emerald-600">
  <h1 class="h1 text-white " > <strong>Ergebnisse des Stuhltests </strong> </h1>
 </div><br><br>
-      <table class=" border-separate border-spacing-8 border border-emerald-500 " v-for="stool in stools">
+<div v-for="stool in stools">
+<div v-if="stool.user===email">
+      <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th class="border border-emerald-600 " >Auswahl </th>
@@ -927,6 +935,8 @@
     </table>
     </div>
   </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -945,7 +955,8 @@
           urines:[],
           stools:[],
           showTooltip: false,
-          showNotepad: false
+          showNotepad: false,
+          email:localStorage.email,
         };
       },
     

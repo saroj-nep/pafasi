@@ -225,6 +225,7 @@ export default {
       data.append("bloodpsa", q.checked);
       data.append("bloodhcg",r.checked);
       data.append("bloodserum",s.checked);
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -269,6 +270,7 @@ export default {
      data.append("bloodpsa", 0);
      data.append("bloodhcg",0);
      data.append("bloodserum",0);
+     data.append("onlineuser",localStorage.email);
      axios
        .post(
          // "./Api/api.php?action=login",
@@ -298,6 +300,7 @@ export default {
       data.append("satisfaction",1);
       data.append("time",1440);
       data.append("step","Sie haben einen Bluttest beantragt");
+      data.append("onlineuser",localStorage.email);
       
       axios
         .post(

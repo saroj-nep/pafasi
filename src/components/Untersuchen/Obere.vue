@@ -78,6 +78,7 @@ methods:{
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: obere Extremität angekreuzt");
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -105,7 +106,8 @@ methods:{
       data.append("time",2);
        data.append("safety",100);
         data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
-      axios
+     data.append("onlineuser",localStorage.email);
+        axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=countervariable",
@@ -132,7 +134,8 @@ methods:{
       data.append("time",3);
       data.append("safety",100);
        data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
-      axios
+     data.append("onlineuser",localStorage.email); 
+       axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=countervariable",
@@ -158,6 +161,7 @@ methods:{
       data.append("time",1);
      data.append("safety",100);
       data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
+    data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",

@@ -167,7 +167,10 @@ export default{
   methods: {
     onlogout() {
       var data = new FormData();
-
+      
+     data.append("onlineuser", localStorage.email);
+     localStorage.email='';
+     
       axios
         .post(
           // "./Api/api.php?action=logout",

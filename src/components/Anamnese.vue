@@ -324,7 +324,8 @@ export default {
       data.append("satisfaction",1);
       data.append("time",0.3);
       data.append("safety",0);
-      data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -350,7 +351,8 @@ allergincounter() {
       data.append("satisfaction",0);
       data.append("time",0.3);
       data.append("safety",0);
-      data.append("step","Sie haben akutes Allergin unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben akutes Allergin unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -376,7 +378,8 @@ beschreibencounter() {
       data.append("satisfaction",1);
       data.append("time",2);
       data.append("safety",0);
-      data.append("step","Sie haben Beschreiben Sie Ihre Symptome genauer! unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Beschreiben Sie Ihre Symptome genauer! unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -402,7 +405,8 @@ familiencounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
-      data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -428,7 +432,8 @@ gewohncounter() {
       data.append("satisfaction",1);
       data.append("time",1);
       data.append("safety",0);
-      data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -455,6 +460,7 @@ gynocounter() {
       data.append("time",2);
       data.append("safety",0);
       data.append("step","Sie haben Gynokologische/Urologische/Sexualanamnese unter ausführlichere Anamnese angekreuzt")
+       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -480,7 +486,8 @@ medikamencounter() {
       data.append("satisfaction",1);
       data.append("time",0.5);
       data.append("safety",0);
-      data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -506,7 +513,8 @@ nikotincounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
-      data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -532,7 +540,8 @@ psychecounter() {
       data.append("satisfaction",0);
       data.append("time",1);
       data.append("safety",0);
-      data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -558,7 +567,8 @@ vegetativecounter() {
       data.append("satisfaction",1);
       data.append("time",2);
       data.append("safety",0);
-      data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt")
+      data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",

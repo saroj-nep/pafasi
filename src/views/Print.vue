@@ -2,8 +2,9 @@
   <div>
     <form id="form1">
     <div id="text" class="">
-      <h1>Ihre Disgnoseergebnisse</h1>
+      <h1 class="sticky bg-emerald-200 top-0" >Ihre Diagnoseergebnisse</h1>
       <div v-for = " c in counters " >
+        <div v-if="c.email===email">
 <table   class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
@@ -26,19 +27,38 @@
      
     </tbody>
   </table>
+</div>
   </div>
-
-        <h1>Diagnose-Logs</h1><br><br>
-      <div v-for="step in stepsmodified"  >
+<br>
+        <h1 class="sticky bg-emerald-200 top-0">Ihr Diagnose-Logs</h1>
+         <div v-for = " step in steps " >
+        <div v-if="step.user===email">
+      
                 
-                <div v-if="step" class="card-block">
-                   
-                  <p class="card-text">{{step}}</p>
-                  
-                </div>
-              
-            </div>
+  <table   class=" border-separate border-spacing-8 border border-emerald-500" >
+    <thead class="sticky bg-emerald-200 top-0">
+      <tr>
+        <th ></th>
+        <th ></th>
+        <th ></th>
+       
+      </tr>
+    </thead>
+    <tbody v-for="i in stepsmodified" class="border border-emerald-600 "  >
+      
+      <tr>
+        <td></td>
+        <td ></td>
+        <td  >{{i}}</td>
+        
+      </tr>
+     
+    </tbody></table>
+              </div>
+            
+        </div>
     </div>
+    
       <button type="button"  id="btnPrint" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click="btnPrint();" >Print your diagnosis </button>
     </form>
     </div>
@@ -59,7 +79,8 @@
       {return{		
         steps: [],
         stepsmodified:[],
-        counters:[]
+        counters:[],
+        email:localStorage.email,
 			}},
        created(){this.allSteps();this.allCounters();},
 			methods: {
@@ -100,9 +121,11 @@
         
     stepsmodify(){
          var a =Object.values(this.steps);
+         console.log(a);
          var b=JSON.stringify(a)
-         var c= b.slice(11,-3)
-        this.stepsmodified=c.split(".");
+         var c = b.split(",").pop();
+         var d=c.slice(9,-3);
+        this.stepsmodified=d.split(".");
             
     console.log(b);
 
@@ -112,7 +135,7 @@
 
     axios.get( "./Api/api.php?action=getsteps",)
     
-    .then((response) => {this.steps=response.data;this.stepsmodify(); } )
+    .then((response) => {this.steps=response.data; this.stepsmodify(); } )
   },
       btnPrint() {
 

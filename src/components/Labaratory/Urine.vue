@@ -97,7 +97,7 @@ export default {
       data.append("urinstix", a.checked);
       data.append("urinsediment", b.checked);
       data.append("urinkultur", c.checked);
-     
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -130,7 +130,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",2880);
           data.append("step","Sie haben die Urinkultur beantragt");
-          
+          data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",
@@ -152,7 +152,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",10);
           data.append("step","Sie haben die Urin-Sediment beantragt");
-          
+          data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",
@@ -174,7 +174,7 @@ export default {
           data.append("satisfaction",0);
           data.append("time",5);
           data.append("step","Sie haben die U-Stix fur Urintest beantragt");
-          
+          data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",

@@ -524,7 +524,7 @@ export default {
       data.append("satisfaction",1);
       data.append("time",129600);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Augenheilkunde");
-      
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -550,7 +550,7 @@ chirucounter() {
       data.append("satisfaction",1);
       data.append("time",43200);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Chirurgie (ambulant)");
-      
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -576,7 +576,7 @@ dermacounter() {
       data.append("satisfaction",1);
       data.append("time",129600);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Dermatologie");
-     
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -602,7 +602,7 @@ gynacounter() {
       data.append("satisfaction",1);
       data.append("time",43200);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Gynäkologie");
-    
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -628,7 +628,7 @@ halscounter() {
       data.append("satisfaction",1);
       data.append("time",129600);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Hals-Nasen-Ohrenheilkunde");
-      
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -653,7 +653,7 @@ kardiocounter() {
       data.append("satisfaction",1);
       data.append("time",259200);
      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin: Kardiologie"); 
-   
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -679,7 +679,7 @@ gastrocounter() {
       data.append("satisfaction",1);
       data.append("time",172800);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Gastroenterologie");
-      
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -705,6 +705,7 @@ pulmocounter() {
       data.append("satisfaction",1);
       data.append("time",216000);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Pulmologie");
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -730,7 +731,7 @@ nephrocounter() {
       data.append("satisfaction",1);
       data.append("time",259200);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Nephrologie");
-  
+  data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -755,7 +756,8 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",302400);
-   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Hämato-/Onkologie");
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Hämato-/Onkologie");
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -774,14 +776,15 @@ onkocounter() {
           console.log("Error", err);
         });
     },
-    endocounter() {
+endocounter() {
       var data = new FormData();
   
       
       data.append("satisfaction",1);
       data.append("time",345600);
-   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Endokrinologie");
-      axios
+       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Endokrinologie");
+      data.append("onlineuser",localStorage.email);
+       axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=facharztvariable",
@@ -806,6 +809,7 @@ onkocounter() {
       data.append("satisfaction",1);
       data.append("time",129600);
    data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurochirurgie");
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -831,6 +835,7 @@ onkocounter() {
       data.append("satisfaction",1);
       data.append("time",43200);
    data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurologie");
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -856,6 +861,7 @@ onkocounter() {
       data.append("satisfaction",1);
       data.append("time",43200);
    data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Orthopädie");
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -880,6 +886,7 @@ onkocounter() {
       data.append("satisfaction",1);
       data.append("time",43200);
    data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Pädiatrie");
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -905,6 +912,7 @@ onkocounter() {
       data.append("satisfaction",1);
       data.append("time",259200);
    data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Psychiatrie/Psychosomatik");
+   data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -929,7 +937,8 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Radiologie");
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Radiologie");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -954,7 +963,8 @@ onkocounter() {
       
       data.append("satisfaction",1);
       data.append("time",43200);
-   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Urologie");
+     data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Urologie");
+     data.append("onlineuser",localStorage.email);
    
       axios
         .post(

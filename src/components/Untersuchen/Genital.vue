@@ -57,6 +57,7 @@ methods:{
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Genital- und Glutealregion angekreuzt");
+     data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -84,6 +85,7 @@ methods:{
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben digital rektale Untersuchung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
