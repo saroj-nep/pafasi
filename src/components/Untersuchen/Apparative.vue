@@ -136,7 +136,7 @@ export default {
         step:''
       },
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
 methods:{

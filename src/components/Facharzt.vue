@@ -4,475 +4,117 @@
     <h1 class="h1 text-white" style=";"> <strong>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten: </strong> </h1>
     </div>
     <form action="" class="form" method="POST">
-   <button style="margin-top: 50px;margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-   @click.prevent="augencounter(),TogglePopup('augenTrigger')">
+   <div style="margin-top:50px" class="grid grid-cols-3  gap-2">
+
+   <button id="augenquestion" color="#42b983" class="button"
+   @click.prevent="augencounter(),displayAugen();">
          Augenheilkunde
          </button>
 
-          <Popup v-if="popupTriggers.augenTrigger" :TogglePopup="() => TogglePopup('augenTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Augen />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-  
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="chirucounter(),TogglePopup('chiruTrigger')">
+    <button id="chiruquestion"  color="#42b983" class="button"
+            @click.prevent="chirucounter(),displayChiru();">
             Chirurgie (ambulant)
           </button>
 
-          <Popup v-if="popupTriggers.chiruTrigger" :TogglePopup="() => TogglePopup('chiruTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Chirurgie />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="dermacounter(), TogglePopup('dermaTrigger')">
+    <button id="dermaquestion" color="#42b983" class="button"
+            @click.prevent="dermacounter(), displayDerma();">
           Dermatologie
           </button>
-
-          <Popup v-if="popupTriggers.dermaTrigger" :TogglePopup="() => TogglePopup('dermaTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Dermatologie />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
           
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="gynacounter(),TogglePopup('gynaTrigger')">
+    <button id="gynaquestion"  color="#42b983" class="button"
+            @click.prevent="gynacounter(),displayGyna();">
           Gynäkologie
          </button>
-
-          <Popup v-if="popupTriggers.gynaTrigger" :TogglePopup="() => TogglePopup('gynaTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Gyna />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-        
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="halscounter(), TogglePopup('halsTrigger')">
+  
+    <button id="halsquestion"  color="#42b983" class="button"
+            @click.prevent="halscounter(), displayHals();">
            Hals-Nasen-Ohrenheilkunde
          </button>
 
-          <Popup v-if="popupTriggers.halsTrigger" :TogglePopup="() => TogglePopup('halsTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Hals />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="kardiocounter(),TogglePopup('kardioTrigger')">
+   <button id="kardioquestion"  color="#42b983" class="button"
+            @click.prevent="kardiocounter(),displayKardio();">
           Innere Medizin: Kardiologie
          </button>
-
-          <Popup v-if="popupTriggers.kardioTrigger" :TogglePopup="() => TogglePopup('kardioTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Kardio />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="gastrocounter(), TogglePopup('gastroTrigger')">
+         
+   <button id="gastroquestion"  color="#42b983" class="button"
+            @click.prevent="gastrocounter(), displayGastro();">
           Innere Medizin - Gastroenterologie
          </button>
-
-          <Popup v-if="popupTriggers.gastroTrigger" :TogglePopup="() => TogglePopup('gastroTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Gastro />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="pulmocounter(), TogglePopup('pulmoTrigger')">
+         
+   <button id="pulmoquestion"  color="#42b983" class="button"
+            @click.prevent="pulmocounter(), displayPulmo();">
           Innere Medizin - Pulmologie
          </button>
-
-          <Popup v-if="popupTriggers.pulmoTrigger" :TogglePopup="() => TogglePopup('pulmoTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Pulmo />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-        <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="nephrocounter(), TogglePopup('nephroTrigger')">
+         
+   <button id="nephroquestion"  color="#42b983" class="button"
+            @click.prevent="nephrocounter(),displayNephro();">
           Innere Medizin - Nephrologie
          </button>
-
-          <Popup v-if="popupTriggers.nephroTrigger" :TogglePopup="() => TogglePopup('nephroTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Nephro />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          
-         <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="onkocounter(), TogglePopup('onkoTrigger')">
+         
+  <button id="onkoquestion"  color="#42b983" class="button"
+            @click.prevent="onkocounter(), displayOnko();">
           Innere Medizin - Hämato-/Onkologie
          </button>
 
-          <Popup v-if="popupTriggers.onkoTrigger" :TogglePopup="() => TogglePopup('onkoTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Onko />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="endocounter(),TogglePopup('endoTrigger')">
+  <button id="endoquestion" color="#42b983" class="button"
+            @click.prevent="endocounter(),displayEndo();">
           Innere Medizin - Endokrinologie
          </button>
 
-          <Popup v-if="popupTriggers.endoTrigger" :TogglePopup="() => TogglePopup('endoTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Endo />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="neurochirucounter(), TogglePopup('neurochirurgieTrigger')">
+  <button id="neurochiruquestion"  color="#42b983" class="button"
+            @click.prevent="neurochirucounter(),displayNeurochiru();">
           Neurochirurgie
          </button>
 
-          <Popup v-if="popupTriggers.neurochirurgieTrigger" :TogglePopup="() => TogglePopup('neurochirurgieTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Neurochirur />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="neurocounter(), TogglePopup('neuroTrigger')">
+
+   <button id="neuroquestion" color="#42b983" class="button"
+            @click.prevent="neurocounter(), displayNeuro();">
           Neurologie
          </button>
 
-          <Popup v-if="popupTriggers.neuroTrigger" :TogglePopup="() => TogglePopup('neuroTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Neuro />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="orthocounter(),TogglePopup('orthoTrigger')">
+   <button id="orthoquestion"  color="#42b983" class="button"
+            @click.prevent="orthocounter(),displayOrtho();">
           Orthopädie
          </button>
 
-          <Popup v-if="popupTriggers.orthoTrigger" :TogglePopup="() => TogglePopup('orthoTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Ortho />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="padicounter(), TogglePopup('padiTrigger')">
+    <button id="padiquestion" color="#42b983" class="button"
+            @click.prevent="padicounter(), displayPadi();">
           Pädiatrie
          </button>
-
-          <Popup v-if="popupTriggers.padiTrigger" :TogglePopup="() => TogglePopup('padiTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Padiatre />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="psychicounter(),TogglePopup('psychiTrigger')">
+  
+     <button id="psychiquestion" color="#42b983" class="button"
+            @click.prevent="psychicounter(),displayPsychi();">
           Psychiatrie/Psychosomatik
          </button>
 
-          <Popup v-if="popupTriggers.psychiTrigger" :TogglePopup="() => TogglePopup('psychiTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Psychiatre />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="radiocounter(),TogglePopup('radioTrigger')">
+     <button id="radioquestion" color="#42b983" class="button"
+            @click.prevent="radiocounter(),displayRadio();">
           Radiologie
          </button>
 
-          <Popup v-if="popupTriggers.radioTrigger" :TogglePopup="() => TogglePopup('radioTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Radiology />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-
-            <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
-            @click.prevent="urocounter(),TogglePopup('uroTrigger')">
+     <button id="uroquestion"  color="#42b983" class="button"
+            @click.prevent="urocounter(),displayUro();">
           Urologie
          </button>
-
-          <Popup v-if="popupTriggers.uroTrigger" :TogglePopup="() => TogglePopup('uroTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
-              <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
-            </div>
-            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
-              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
-                style="max-height: 20rem; overflow: auto">
-                <Urology />
-              </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
-            </div>
-          </Popup>
-          </form>
+        </div>  </form>
+    <h3 id="augenanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="chiruanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="dermaanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="endoanswer"   style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="gastroanswer" style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde. </h3> 
+    <h3 id="gynaanswer"   style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="halsanswer"   style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="kardioanswer" style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="nephroanswer" style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="neuroanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="neurochiruanswer" style="display:none">Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik überwiesen.</h3> 
+    <h3 id="onkoanswer"   style="display:none">Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik geschickt.</h3> 
+    <h3 id="orthoanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="padianswer"   style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="psychianswer" style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="pulmoanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
+    <h3 id="radioanswer"  style="display:none">Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es zeigen sich unscharf begrenzte, inhomogene hyperdense Areale (Sklerosierungen) im Bereich der WK L2 - S1. Unter Berücksichtigung der Patientenvorgeschichte könnte es sich hierbei um osteoblastische Metastasen im Rahmen der Prostata-CA handeln. Zusätzlich sind Deckplatteneinbrüche des LWK 5 zu erkennen. Diese deuten auf eine Wirbelkörperfraktur ohne Instabilitätskriterien hin.</h3> 
+    <h3 id="uroanswer"    style="display:none">Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es wurde ein Anstieg des PSA auf 6,0ng/ml festgestellt, sodass von einer ossären Metastasierung in die Wirbelsäule auszugehen ist. Wir haben Hr. Schneider in die onkologische Klinik überwiesen, wo seine Weiterbehandlung koordiniert werden soll.</h3> 
   </div>
 </template>
 
@@ -480,24 +122,6 @@
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Augen from './Facharzt/Augen.vue';
-import Chirurgie from './Facharzt/Chirurgie.vue';
-import Dermatologie from './Facharzt/Dermatologie.vue';
-import Endo from './Facharzt/Endo.vue';
-import Gastro from './Facharzt/Gastro.vue';
-import Gyna from './Facharzt/Gyna.vue';
-import Hals from './Facharzt/Hals.vue';
-import Kardio from './Facharzt/Kardio.vue';
-import Nephro from './Facharzt/Nephro.vue';
-import Neuro from './Facharzt/Neuro.vue';
-import Neurochirur from './Facharzt/Neurochirur.vue';
-import Onko from './Facharzt/Onko.vue';
-import Ortho from './Facharzt/Ortho.vue';
-import Padiatre from './Facharzt/Padiatre.vue';
-import Psychiatre from './Facharzt/Psychiatre.vue';
-import Pulmo from './Facharzt/Pulmo.vue';
-import Radiology from './Facharzt/Radiology.vue';
-import Urology from './Facharzt/Urology.vue';
 import axios from "axios";
 
 
@@ -517,7 +141,735 @@ export default {
     };
   },
   methods: {
-    augencounter() {
+ displayAugen(){  if (augenanswer.style.display !== "none") {
+        augenanswer.style.display = "none";
+        augenquestion.style.opacity="1";
+      } else {
+        augenanswer.style.display = "block";
+        augenquestion.style.opacity="0.5";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+         onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+
+
+      }},
+displayChiru(){  if (chiruanswer.style.display !== "none") {
+        chiruanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+      } else {
+        chiruanswer.style.display = "block";
+        chiruquestion.style.opacity="0.5";
+         augenanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        augenquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayDerma(){  if (dermaanswer.style.display !== "none") {
+        dermaanswer.style.display = "none";
+        dermaquestion.style.opacity="1";
+
+      } else {
+        dermaanswer.style.display = "block";
+        dermaquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+       augenanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayEndo(){  if (endoanswer.style.display !== "none") {
+        endoanswer.style.display = "none";
+        endoquestion.style.opacity="1";
+      } else {
+        endoanswer.style.display = "block";
+        endoquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayGastro(){  if (gastroanswer.style.display !== "none") {
+        gastroanswer.style.display = "none";
+        gastroquestion.style.opacity="1";
+      } else {
+        gastroanswer.style.display = "block";
+        gastroquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayGyna(){  if (gynaanswer.style.display !== "none") {
+        gynaanswer.style.display = "none";
+         gynaquestion.style.opacity="1";
+      } else {
+       augenanswer.style.display = "none";
+        augenquestion.style.opacity="1";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="0.5";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "block";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayHals(){  if (halsanswer.style.display !== "none") {
+        halsanswer.style.display = "none";
+        halsquestion.style.opacity="1";
+      } else {
+        halsanswer.style.display = "block";
+        halsquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+       augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayKardio(){  if (kardioanswer.style.display !== "none") {
+        kardioanswer.style.display = "none";
+         kardioquestion.style.opacity="1";
+      } else {
+        kardioanswer.style.display = "block";
+        kardioquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+       augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+displayNephro(){  if (nephroanswer.style.display !== "none") {
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+      } else {
+        nephroanswer.style.display = "block";
+        nephroquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+displayNeuro(){  if (neuroanswer.style.display !== "none") {
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+      } else {
+        neuroanswer.style.display = "block";
+        neuroquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+        chiruquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+displayNeurochiru(){  if (neurochiruanswer.style.display !== "none") {
+        neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+
+      } else {
+        neurochiruanswer.style.display = "block";
+        neurochiruquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+       augenanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+       
+      }},
+displayOnko(){  if (onkoanswer.style.display !== "none") {
+        onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+      } else {
+        onkoanswer.style.display = "block";
+        onkoquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+        orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayOrtho(){  if (orthoanswer.style.display !== "none") {
+        orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+      } else {
+        orthoanswer.style.display = "block";
+        orthoquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+        padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayPadi(){  if (padianswer.style.display !== "none") {
+        padianswer.style.display = "none";
+         padiquestion.style.opacity="1";
+      } else {
+       augenanswer.style.display = "none";
+        augenquestion.style.opacity="1";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        padiquestion.style.opacity="0.5";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        padianswer.style.display = "block";
+        halsanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+        psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayPsychi(){  if (psychianswer.style.display !== "none") {
+        psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+      } else {
+        psychianswer.style.display = "block";
+        psychiquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+       augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+        pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }},
+displayPulmo(){  if (pulmoanswer.style.display !== "none") {
+        pulmoanswer.style.display = "none";
+         pulmoquestion.style.opacity="1";
+      } else {
+        pulmoanswer.style.display = "block";
+        pulmoquestion.style.opacity="0.5";
+          chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+       augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+displayRadio(){  if (radioanswer.style.display !== "none") {
+        radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+      } else {
+        radioanswer.style.display = "block";
+        radioquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        chiruquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+        neuroanswer.style.display = "none";
+        neuroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+displayUro(){  if (uroanswer.style.display !== "none") {
+        uroanswer.style.display = "none";
+        uroquestion.style.opacity="1";
+      } else {
+        uroanswer.style.display = "block";
+        uroquestion.style.opacity="0.5";
+        chiruanswer.style.display = "none";
+        dermaanswer.style.display = "none";
+        endoanswer.style.display = "none";
+        gastroanswer.style.display = "none";
+        gynaanswer.style.display = "none";
+        halsanswer.style.display = "none";
+        augenanswer.style.display = "none";
+        kardioanswer.style.display = "none";
+        nephroanswer.style.display = "none";
+        nephroquestion.style.opacity="1";
+        chiruquestion.style.opacity="1";
+        kardioquestion.style.opacity="1";
+        dermaquestion.style.opacity="1";
+        endoquestion.style.opacity="1";
+        halsquestion.style.opacity="1";
+        gynaquestion.style.opacity="1";
+        augenquestion.style.opacity="1";
+        gastroquestion.style.opacity="1";
+          onkoanswer.style.display = "none";
+        onkoquestion.style.opacity="1";
+         orthoanswer.style.display = "none";
+        orthoquestion.style.opacity="1";
+         padianswer.style.display = "none";
+        padiquestion.style.opacity="1";
+         psychianswer.style.display = "none";
+        psychiquestion.style.opacity="1";
+         pulmoanswer.style.display = "none";
+        pulmoquestion.style.opacity="1";
+         radioanswer.style.display = "none";
+        radioquestion.style.opacity="1";
+         neurochiruanswer.style.display = "none";
+        neurochiruquestion.style.opacity="1";
+      }}, 
+
+augencounter() {
       var data = new FormData();
   
      
@@ -802,7 +1154,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    neurochirucounter() {
+neurochirucounter() {
       var data = new FormData();
   
       
@@ -828,7 +1180,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    neurocounter() {
+neurocounter() {
       var data = new FormData();
   
       
@@ -854,7 +1206,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    orthocounter() {
+orthocounter() {
       var data = new FormData();
   
       
@@ -880,7 +1232,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    padicounter() {
+padicounter() {
       var data = new FormData();
   
       data.append("satisfaction",1);
@@ -905,7 +1257,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    psychicounter() {
+psychicounter() {
       var data = new FormData();
   
       
@@ -931,7 +1283,7 @@ endocounter() {
           console.log("Error", err);
         });
     },
-    radiocounter() {
+radiocounter() {
       var data = new FormData();
   
       
@@ -1011,19 +1363,33 @@ endocounter() {
     }
   },
   
-  components: {Augen, Popup, Notepad, Augen, Chirurgie, Dermatologie, Endo, Gastro, Gyna,Hals,Kardio,Nephro, Neuro, Neurochirur, Onko, Ortho, Padiatre,Psychiatre,Urology,Radiology, Pulmo }
+  components: { Popup, Notepad}
 }
 </script>
 
 <style scoped>
 
+h3 {
+  background:rgb(39, 190, 107);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px auto;
+;
+    /* width: 50%; */
+  cursor: pointer;
+  color: #444
+}
+
+h3:hover {
+  background: rgb(39, 190, 107)
+}
 .button {
   background: black;
   color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   margin: 5px auto;
-  width:200px;
+  width:300px;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

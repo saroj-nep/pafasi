@@ -2,9 +2,9 @@
 
   <div>
     <Header />
-    <div v-for="patient in patients" :key="patient.id" class="patient">
-      <router-link :to="{ name: 'Patient', params: { id: patient.id } }">
-        <h3 class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">{{ patient.title }}</h3>
+    <div class="patient">
+      <router-link :to="{ name: 'Patient' }">
+        <h3 class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">Hr. Wolfgang Schneider</h3>
       </router-link>
     </div>
   </div>

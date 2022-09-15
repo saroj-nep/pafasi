@@ -120,6 +120,81 @@ if($action=='logout'){
 //         $res['message']="Somthing Went Wrong";
 // 	}
 }
+if($action=='emptydiagnosis'){
+ 
+
+$onlineuser=$_POST['onlineuser'];
+	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+ 	if($result===true){
+		$res['error']=false;
+        $res['message']="Variables reset";
+		$counter=0;
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="DELETE FROM `notepad` WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="Note deleted Successfully";
+	
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+$sql="UPDATE `bluten_options` SET `kleines`=0, `grosses`= 0,`gerin`=0, `entz`= 0,`glucose`=0, `fetts`= 0,`eisen`=0, `leber`= 0,`pankreas`=0, `niere`= 0,`elektrolyte`=0, `schild`= 0,`herz`=0, `bvitamin`= 0,`ldh`=0, `harn`= 0,`psa`=0, `hcg`= 0, `serum`= 0 WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+$sql="UPDATE `urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+$sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+	$sql="UPDATE `submit_options` SET `ambulance`=0,`hospital`=0,`noappointment`=0,`badappointment`=0,`twodays`=0,`fivedays`=0,`fourweeks`=0,`ausstellen`=0,`rezept`=0,`diagnosis`='0',`rezeptext`='0' WHERE `user`='$onlineuser';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+	$sql="DELETE FROM `user_history` WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+
 
 if($action=='countervariable'){
 
@@ -143,7 +218,7 @@ if($action=='countervariable'){
         $res['message']="Somthing Went Wrong";
 	}
 
-	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='$onlineuser'";
+	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -174,7 +249,7 @@ if($action=='facharztvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-     	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,'$stepandtime')  WHERE `user`='$onlineuser'";
+     	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -308,7 +383,6 @@ if($action=='sendblood'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
 }
 
 
@@ -366,7 +440,7 @@ if($action=='sendurine'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
+	
 }
 if($action=='getstool'){
 	$sql="SELECT * FROM `stuhl_options`";
@@ -394,7 +468,7 @@ if($action=='sendstool'){
 	$culture=$_POST['stoolculture'];
 	$untersuchen=$_POST['untersuchen'];
 	$onlineuser=$_POST["onlineuser"];
-	
+
 	 
 	$sql="UPDATE `stuhl_options` SET `probe`=$probe, `kultur`= $culture, `untersuchung`= $untersuchen WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
@@ -405,6 +479,7 @@ if($action=='sendstool'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
+	
 
 }
 
@@ -452,7 +527,7 @@ if($action=='sendsubmit'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
+    	
 }
 if($action=='submitvariable'){
 
@@ -474,7 +549,8 @@ if($action=='submitvariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-	$sql="UPDATE `user_history` SET `steps`=CONCAT(`steps`,+'','$stepandtime')  WHERE `user`='$onlineuser'";
+	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -493,7 +569,7 @@ if($action=='rezeptvariable'){
 	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `user-id`='$onlineuser'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -503,6 +579,24 @@ if($action=='rezeptvariable'){
         $res['message']="Somthing Went Wrong";
 	}
 
+}
+if($action=='getpatient'){
+	$sql="SELECT * FROM `patients`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
 }
 $conn -> close();
 header("Content-type: application/json");

@@ -26,13 +26,13 @@ import Notepad from '@/components/Notepad.vue';
 export default {
  methods: {
         goToEvents: function () {
-         this.$router.push("/warte");
+          document. location. reload()
         }},
   data() {
     return {
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true
     };
   },
   setup() {

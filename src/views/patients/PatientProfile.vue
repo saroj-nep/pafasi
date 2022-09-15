@@ -1,6 +1,6 @@
 <template>
 <Header />
-  <div v-if="patient">
+  <div >
 
     <!-- <div class="grid grid-cols-4 gap-4">
   <div>01</div>
@@ -25,9 +25,9 @@
             <div class="flex content-start  ">
               <img src= "../../assets/Schneider.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
           </div>
-            <div><h1><strong>  {{ patient.title }}</strong></h1></div>
-              <div>Alter: {{ patient.age }}</div>
-              <div>Gesclecht: {{ patient.sex }}</div>
+            <div><h1><strong> Hr. Wolfgang Schneider</strong></h1></div>
+              <div>Alter: 78</div>
+              <div>Gesclecht: Männlich</div>
            
            
           </div>
@@ -35,7 +35,7 @@
             <!-- Should be replaced by a widget -->
             <h3 style=""><strong>Fallbeschreibung</strong></h3>
             <br>
-            <p style="border-radius: 5px">{{ patient.details }}</p>
+            <p style="border-radius: 5px">Herr Wolfgang Schneider, leicht adipöser EZ, AZ gut. Herr Schneider bewegt sich schwerfällig, leicht gebeugt und leicht humpelnd durchs Zimmer, stützt sich stöhnend auf Ihrem Schreibtisch ab, als er sich hinsetzt. Auf die Frage, was ihm fehle: „Es ist das Kreuz! Ich kann mich bald nicht mehr bewegen! Der Herr Dr. Weber, der hatte mir immer diese Kortisonspritzen gegeben. Bitte, können Sie das bei mir wieder machen? Das ist das Einzige was bei mir hilft. Sie wissen ja, mit den alten Knochen da hat man nur Probleme!“.</p>
             <!-- </div> -->
             <!-- <div class="column left"> -->
             <!-- </div> -->
@@ -243,7 +243,7 @@ import Header from '@/components/DefaultLayout.vue';
 import axios from "axios";
 export default {
   name:"Patient1",
-  props: ["id"],
+
   data() {
     return {counters: {
         safety: null,
@@ -253,7 +253,7 @@ export default {
         step:""
        
       },
-      
+      patients:[],
       patient: null,
       showTooltip: false,
       showNotepad: true
@@ -303,9 +303,9 @@ methods: {
     }
   },
   mounted() {
-    fetch("https://database-pafasi.herokuapp.com/patients/" + this.id) //json server to be replaced by database later
+    fetch("https://database-pafasi.herokuapp.com/patients/") //json server to be replaced by database later
       .then(res => res.json())
-      .then(data => this.patient = data)
+      .then(data => this.patients = data)
       .catch(err => console.log(err.message));
   },
   components: {Header,  Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit }

@@ -9,7 +9,7 @@
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th ></th>
-        <th class="border border-emerald-600 ">Wirtschaftlichkeit (von 100%)</th>
+        <th class="border border-emerald-600 ">Wirtschaftlichkeit (Höchstwert 100)</th>
         <th class="border border-emerald-600 ">Patientensicherheit (von 100%)</th>
         <th class="border border-emerald-600 " >Gesamte Diagnosezeit (in Minuten)</th>
         <th class="border border-emerald-600 "> Bewertung der Patientenzufriedenheit (von 100%)</th>
@@ -31,26 +31,25 @@
   </div>
 <br>
         <h1 class="sticky bg-emerald-200 top-0">Ihr Diagnose-Logs</h1>
-         <div v-for = " step in steps " >
-        <div v-if="step.user===email">
+         <div  >
+        <div >
       
                 
   <table   class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
-        <th ></th>
-        <th ></th>
-        <th ></th>
        
+        <th class="border border-emerald-600 ">Diagnose Step</th>
+        <th class="border border-emerald-600 ">Zeit</th>
+
       </tr>
     </thead>
-    <tbody v-for="i in stepsmodified" class="border border-emerald-600 "  >
+    <tbody v-for = " step in steps " class="border border-emerald-600 "  >
       
-      <tr>
-        <td></td>
-        <td ></td>
-        <td  >{{i}}</td>
-        
+      <tr v-if="step.user===email">
+       
+        <td >{{step.steps}}</td>
+         <td >{{step.steptime}}</td>
       </tr>
      
     </tbody></table>
@@ -87,6 +86,7 @@
 
         emptydiagnosis(){
           var data= new FormData();
+          data.append("onlineuser",localStorage.email);
           axios
         .post(
           // "./Api/api.php?action=login",
@@ -121,13 +121,13 @@
         
     stepsmodify(){
          var a =Object.values(this.steps);
-         console.log(a);
+         
          var b=JSON.stringify(a)
          var c = b.split(",").pop();
          var d=c.slice(9,-3);
         this.stepsmodified=d.split(".");
             
-    console.log(b);
+   
 
     },            
     allSteps() {

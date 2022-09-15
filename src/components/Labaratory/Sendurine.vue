@@ -1,7 +1,7 @@
 <template>
 <div style="height:80vh; overflow:auto">
 
-  <div class="sticky top-0 bg-emerald-600">
+  <div class=" bg-emerald-600">
   <h1 class="h1 text-white">Die von Ihnen angeforderten Laborergebnisse werden veranlasst. Wenn Sie eine Urinkultur angefordert haben, wird das Labor die Ergebnisse der Urinkultur in der Regel innerhalb von 2 Tagen (d. h. nach dem Ende der heutigen Präsentation) zurückmelden. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun wollen. </h1>
     </div>
    
@@ -10,9 +10,10 @@
              Copy to Notepad
         </button> -->  
         <br>      
-  <div >
-  <table   class="border-separate border-spacing-8 border border-emerald-500 " v-for="urine in urines">
-    <thead class="sticky bg-emerald-200 top-20">
+ <div v-for="urine in urines">
+<div v-if="urine.user===email">
+   <table class=" border-separate border-spacing-8 border border-emerald-500 " >
+    <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th class="border border-emerald-600 " >Auswahl </th>
         <th class="border border-emerald-600 ">Parameter</th>
@@ -84,14 +85,23 @@
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
        
         <td>Standardbefund:</td>
-        <td>Keine Bakterien Keine Leukozyten- oder Eiweiß-Zylinder.</td>
+        <td>Unauffälliger Mikroskopiebefund. Keine Bakterien Keine Leukozyten- oder Eiweiß-Zylinder.</td>
+      </tr>
+    </tbody>
+    <tbody  v-if="urine.kultur==1">
+      <tr>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Kultur</td>
+       
+        <td>Standardbefund:</td>
+        <td>Kein Nachweis antimikrobieller Substanzen. Leukozyten im Urin Negativ. Gesamtkeimzahl &lt;10³ KBE/ml. Folglich kein Anhalt auf Infektion.</td>
       </tr>
       
       
 
     </tbody>
-    </table>
-         </div>   
+    </table><br><br>
+    </div>
+</div> 
           
          
       
@@ -129,7 +139,8 @@ export default {
     return {
       urines: [],
       showTooltip: false,
-      showNotepad: false
+      showNotepad: true,
+      email:localStorage.email,
     };
   },
   
@@ -146,7 +157,7 @@ export default {
 
 
         goToEvents: function () {
-              this.$router.push("/warte");
+              document. location. reload()
         }},
   setup() {
     const popupTriggers = ref({

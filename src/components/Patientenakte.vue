@@ -1,36 +1,22 @@
 <template>
   <div>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="sticky top-0 bg-emerald-600">
+    <h1 class="h1 text-white" style=";"> <strong>Hier ist das Ergebnis Ihrer Anfrage:    'einen blick in die Patientenakte werfenn'</strong> </h1>
+    </div>
+    <div style="margin-top:50px">
       
-       
-          <h2>einen blick in die Patientenakte werfenn</h2>
-        <img class="w-20 h-20 self-center justify-self-center" src="@/assets/arrow.png" alt=""/>
-        <div v-for="option in patientenakte_options" :key="option.id" class="patient">
-           <h3>{{ option.answer }}</h3></div>
-         
-           
+    <ul class='marker:text-green list-outside list-disc ml-6'>
+  <li>72J., 1,70cm groß</li>
+  <li>letzte Vorstellung vor ca. ½ Jahr wegen eingewachsenem Großzehennagel rechts</li>
+  <li>regelmäßig Folgeverordnung ASS 100 und Atorvastatin bei KHK</li>
+  <li>Prostata-CA vor 7 Jahren, radikale Prostatektomie, T2b N1 M0 R0, Gleason 6</li>
+  <li>Z.n. Myokardinfarkt (STEMI) vor 4 Jahren, 2 Stents</li>
+  <li>Diskusprolaps L3/4, L4/5 seit vielen Jahren bekannt</li>
+   </ul>
       </div>
     </div>
   
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      patientenakte_options: []
-    }
-  },
-  mounted() {
-    fetch('https://database-pafasi.herokuapp.com/patientenakte_options') //json server to be replaced by database later
-      .then(res => res.json())
-      .then(data => this.patientenakte_options = data)
-      .catch(err => console.log(err.message))
-
-  }
-}
-
-</script>
 
 <style scoped>
 h3 {

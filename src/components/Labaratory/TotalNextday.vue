@@ -861,7 +861,18 @@
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
        
         <td>Standardbefund:</td>
-        <td>Keine Bakterien Keine Leukozyten- oder Eiweiß-Zylinder.</td>
+        <td>Unauffälliger Mikroskopiebefund. Keine Bakterien, keine Leukozyten- oder Eiweiß-Zylinder.</td>
+      </tr>
+      
+      
+
+    </tbody>
+     <tbody  v-if="urine.kultur==1">
+      <tr>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Kultur</td>
+       
+        <td>Standardbefund:</td>
+        <td>Kein Nachweis antimikrobieller Substanzen. Leukozyten im Urin Negativ. Gesamtkeimzahl &lt;10³ KBE/ml. Folglich kein Anhalt auf Infektion.</td>
       </tr>
       
       
@@ -955,7 +966,7 @@
           urines:[],
           stools:[],
           showTooltip: false,
-          showNotepad: false,
+          showNotepad: true,
           email:localStorage.email,
         };
       },
