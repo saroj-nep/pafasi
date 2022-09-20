@@ -34,7 +34,7 @@
                 <div>
                   <MenuButton class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full" src= "../../src/assets/avatar.svg" alt="" />
+                    <img class="h-8 w-8 rounded-full" src= "../../src/assets/avatar.png" alt="" />
                   </MenuButton>
                 </div>
                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
@@ -114,7 +114,7 @@
       </div>
     </header> -->
     <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div >
         
         <div class="px-4 py-6 sm:px-0">
           <!-- <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" >
