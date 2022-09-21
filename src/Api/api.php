@@ -313,13 +313,31 @@ if($action=='getcounters'){
 	}
 	
 }
-if($action=='removenote'){
+if($action=='removenotes'){
 
 	$notetitle=$_POST['notetitle'];
 	$notetext=$_POST['notetext'];
     $onlineuser=$_POST['onlineuser'];
 
 	$sql="DELETE FROM notepad WHERE user='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="Note deleted Successfully";
+	
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+}
+if($action=='removenote'){
+
+	$notetitle=$_POST['notetitle'];
+    $onlineuser=$_POST['onlineuser'];
+	$ndate=$_POST['ndate'];
+
+	$sql="DELETE FROM notepad WHERE user='$onlineuser' AND title='$notetitle' AND `date`='$ndate'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;

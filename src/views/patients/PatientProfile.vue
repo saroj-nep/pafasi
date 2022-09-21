@@ -27,13 +27,13 @@
           </div>
             <div><h1><strong> Hr. Wolfgang Schneider</strong></h1></div>
               <div>Alter: 78</div>
-              <div>Gesclecht: Männlich</div>
+              <div>Geshclecht: Männlich</div>
            
            
           </div>
           <div class="fallbeschreibung" style="width: 75%">
             <!-- Should be replaced by a widget -->
-            <h3 style=""><strong>Fallbeschreibung</strong></h3>
+            <h3 style="font-size: 20px; "><strong><b>Fallbeschreibung</b></strong></h3>
             <br>
             <p style="border-radius: 5px">Herr Wolfgang Schneider, leicht adipöser EZ, AZ gut. Herr Schneider bewegt sich schwerfällig, leicht gebeugt und leicht humpelnd durchs Zimmer, stützt sich stöhnend auf Ihrem Schreibtisch ab, als er sich hinsetzt. Auf die Frage, was ihm fehle: „Es ist das Kreuz! Ich kann mich bald nicht mehr bewegen! Der Herr Dr. Weber, der hatte mir immer diese Kortisonspritzen gegeben. Bitte, können Sie das bei mir wieder machen? Das ist das Einzige was bei mir hilft. Sie wissen ja, mit den alten Knochen da hat man nur Probleme!“.</p>
             <!-- </div> -->
@@ -43,10 +43,10 @@
         </div>
         <br>
         <div>
-          <div class="sticky top-0 bg-emerald-600 mx-10">
+          <div class="sticky top-0 text-center bg-emerald-600 mx-10">
 
-    <h1 class="h1 text-white" style="; margin-left:400px;"> <strong>Was werden Sie als
-              nächstes tun? </strong> </h1>
+    <h1 class="h1 text-white text-center" > <strong><b>Was werden Sie als
+              nächstes tun? </b></strong> </h1>
     </div>
 <br><br>
          
