@@ -1,7 +1,7 @@
 
 <template>
 
-  <div class="min-h-full" >
+  <div class="min-h-full sticky top-0" >
     <Disclosure as="nav" class="bg-emerald-600 sticky top-0" v-slot="{ open }">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -116,7 +116,7 @@
     <main>
       <div >
         
-        <div class="px-4 py-6 sm:px-0">
+        <div class="px-4 py-3 sm:px-0">
           <!-- <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" >
            
            </div> -->

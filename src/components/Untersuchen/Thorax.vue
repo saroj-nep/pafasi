@@ -1,28 +1,28 @@
 <template>
   <div class="grid grid-cols-1 gap-2">
-     <div class="sticky top-0 bg-emerald-600">
+     <div class="bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Thorax' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Thorax' sehen möchten. </b> </h1>
     </div>
     <br>
     
 
 
         <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
           @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterNase();displayNase();">
            Auskultation & Perkussion
           </button>
             
          
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 12/min, Herzspitzenstoß regelrecht tastbar</h3> 
-         <h3 id="naseanswer" style="display:none">Herz:  rhythmisch, leises, bandförmiges Systolikum mit p.m. im 5. ICR links medioclaviculär, Fortleitung in Axilla, Herzfrequenz ca. 68/min, leichte Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit</h3> 
+        <h3 id="inspektionanswer" style="display:none"> Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 12/min, Herzspitzenstoß regelrecht tastbar.</h3> 
+         <h3 id="naseanswer" style="display:none">Herz:  Rhythmisch, leises, bandförmiges Systolikum mit p.m. im 5. ICR links medioclaviculär, Fortleitung in Axilla, Herzfrequenz ca. 68/min, leichte Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit.</h3> 
           
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -167,14 +167,17 @@ h3:hover {
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;

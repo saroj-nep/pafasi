@@ -2,8 +2,8 @@
    <div style="height:80vh; overflow:auto">
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
-    <h1 class="h1 text-white" style=";"> <strong>Stuhlprobe </strong> </h1>
-   <br> <h1 class="h1 text-white" style=";">man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Stuhlprobe </b> </h1>
+   <br> <h1 style="font-size:1.5em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
     </div>
     <br>
 
@@ -33,17 +33,17 @@
     </div>
 </ul>
 
-<button class="submitbutton"
+<button class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="sendValue(); stoolcounter(); TogglePopup('sendTrigger')">
          Abschicken
 </button>
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
-            <div class="tooltip" style="float: right; cursor: pointer">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false" style="width: 30px" />
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" style="width: 50px" v-else />
+             <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
+              <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
+              <img src="../../assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
               <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext">Notizblock anzeigen</div>
+              <div v-else class="tooltiptext" >Notizblock anzeigen</div>
             </div>
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
@@ -82,7 +82,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
   methods: {  
@@ -233,16 +233,42 @@ h3 {
   color: rgb(255, 255, 255)
 }
 .submitbutton{
-  background: #be123c;
+   background: #be123c;
   color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px auto;
-  
-  width:20%; 
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
  
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+ visibility: hidden;
+  width: 500%;
+  background-color: rgb(97, 96, 96);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  right:0
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
 </style>

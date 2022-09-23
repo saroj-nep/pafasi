@@ -1,21 +1,23 @@
 <template>
-       <div class="sticky top-0 bg-emerald-600">
+       <div class="bg-emerald-600">
 
-    <h1 class="h1 text-white " style=""> <strong>Klicken Sie auf das Bild, in dem Sie das Ergebnis der Lungenfunktionstes sehen möchten   </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Klicken Sie auf das Bild, in dem Sie das Ergebnis der Lungenfunktionstest sehen möchten.   </b> </h1>
     </div>
     <br>
-    <div class="flex  gap-10 0">
-    
-    <img src="@/assets/sonography.png" alt="Workplace" usemap="#workmap"> 
+    <div class="grid grid-cols-2 gap-10">
+    <div>
+    <img class=" " src="@/assets/sonography.png"  alt="Workplace" usemap="#workmap"> 
     <map name="workmap">
-  <area shape="circle" coords="240,303,20"  @click="sonography3();">
- <area shape="circle" coords="296,253,20"  @click="sonography2();">
-  <area shape="circle" coords="189,252,20"  @click="sonography1();">
+  <area shape="circle" coords="180,226,20"  @click="sonography3();">
+ <area shape="circle" coords="222,189,20"  @click="sonography2();">
+  <area shape="circle" coords="140,189,20"  @click="sonography1();">
 </map>
-
-<img id="img1" style="display:none ; width:100%; height:100%" src="@/assets/sonography1.png" alt="sonography1">
-<img id="img2" style="display:none ;width:100%; height:100%" src="@/assets/sonography2.jpg" alt="sonography2">
-<img id="img3" style="display:none;width:100%; height:100%;" src="@/assets/sonography3.jpg" alt="sonography3">
+</div>
+<div style="align-content: right;" >
+<img id="img1" class="image2" style="display:none ; align-self: right;"   src="@/assets/sonography1.png" alt="sonography1">
+<img id="img2" class="image2" style="display:none;align-self: right;;"  src="@/assets/sonography2.jpg" alt="sonography2">
+<img id="img3" class="image2" style="display:none; align-self: right;"  src="@/assets/sonography3.jpg" alt="sonography3">
+</div>
 </div>
 
 </template>
@@ -57,3 +59,17 @@ sonography3() {  if (img3.style.display !== "none") {
        
       }}}}
 </script>
+<style scoped>
+
+.image{
+  max-width: 100%;
+  max-height:100%;
+
+}
+.image2{
+  width: 70%;
+  height:70%;
+
+}
+
+</style>

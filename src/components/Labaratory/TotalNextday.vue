@@ -2,7 +2,7 @@
   <div style="height:80vh; overflow:auto">
     <div >
     <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <strong>Ergebnisse der Blutuntersuchung </strong> </h1>
+ <h1 class="h1 text-white " > <b>Ergebnisse der Blutuntersuchung</b> </h1>
 </div><br><br>
 <div v-for="blood in bloods">
 <div v-if="blood.user===email">
@@ -784,7 +784,7 @@
   </div>
   <div >
     <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <strong>Ergebnisse des Urintests  </strong> </h1>
+ <h1 class="h1 text-white " > <b>Ergebnisse des Urintests </b> </h1>
 </div><br><br>
 <div v-for="urine in urines">
 <div v-if="urine.user===email">
@@ -884,7 +884,7 @@
 </div>
 <div >
      <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <strong>Ergebnisse des Stuhltests </strong> </h1>
+ <h1 class="h1 text-white " > <b>Ergebnisse des Stuhltests </b> </h1>
 </div><br><br>
 <div v-for="stool in stools">
 <div v-if="stool.user===email">
@@ -966,7 +966,7 @@
           urines:[],
           stools:[],
           showTooltip: false,
-          showNotepad: true,
+          showNotepad: false,
           email:localStorage.email,
         };
       },

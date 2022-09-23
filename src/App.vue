@@ -29,4 +29,13 @@ export default{
 
 <style>
 @import "@/style/main.scss";
+#app {
+
+
+
+font-size: 99%;
+line-height: 99%; 
+
+}
+
 </style>

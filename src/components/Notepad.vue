@@ -6,9 +6,9 @@
        
         <div>
         <form action="GET">
-          <h1><strong> {{title}}</strong></h1>
-           <div id="savealert" style="display:none" class="text-center text-green-500" >Ihre Notiz wurde erfolgreich gespeichert.</div>    
-          <div id="inputalert" style="display:none" class="text-center text-red-500" >!! alle Eingabefelder sind obligatorisch !!</div>
+          <h1><b> {{title}}</b></h1>
+           <h1 id="savealert" style="display:none" class="text-center text-green-500" >Ihre Notiz wurde erfolgreich gespeichert.</h1>    
+          <h1 id="inputalert" style="display:none" class="text-center text-red-500" >!! alle Eingabefelder sind obligatorisch !!</h1>
         </form>
           <form action="POST"><div class="form">
             <div class="form-group">
@@ -20,7 +20,7 @@
               <textarea id="inputtext" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="note.text" required ></textarea>
             </div>
             <div class="flex flex-row  justify-center items-center">
-            <button color="#42b983" class="btn btn-primary shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl " @click.prevent="addNote()">Notiz speichern</button>
+            <button color="#42b983" class="patient btn-primary shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl " @click.prevent="addNote()"><h5 style="font: size 1.5em;">Notiz speichern</h5></button>
            
            
            </div></div></form>
@@ -56,6 +56,8 @@
 <script>
 
 import axios from "axios";
+
+
 export default({
   name:"Notes",
 			data()
@@ -66,14 +68,28 @@ export default({
 					title: '',
 					text: ''
 				},
-        notes: []
+        notes: [],
+        timer:null
+      
 			}},
-      created(){this.allNotes()},
+      created(){
+      this.timer = setInterval(() => {
+    this.allNotes()
+  }, 500)},
+      beforeDestroy() {
+  clearInterval(this.timer)
+}, 
 			methods: 
       
+
       {
 
+
+        
+
+
         saveNotealert(){
+          const savealert = document.getElementById('savealert');
  savealert.style.display = 'block'
 setTimeout(function() {
 
@@ -114,7 +130,7 @@ setTimeout(function() {
         
     allNotes() {
         
-
+   
     axios.get( "./Api/api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data })
@@ -122,8 +138,10 @@ setTimeout(function() {
 
 
 				addNote() {
-          
-
+           const savealert = document.getElementById('savealert');
+           const inputalert = document.getElementById('inputalert');
+           const inputtitle = document.getElementById('inputtitle');
+           const inputtext= document.getElementById('inputtext');
           if (this.note.text.length > 0 && this.note.title.length > 0)
 					{
             inputalert.style.display='none';
@@ -212,15 +230,22 @@ body {
   border: 10px;
   padding: 20px; 
  }
-button.btn { 
-	display: block; 
-	padding: 5px  20px;
-	font-family: 'Ubuntu', sans-serif;
-	margin: 15px 40px 20px 20px;
-  width: 50%;
-	box-shadow: 0px 1px 3px rgb(76, 68, 68);
-	border: none; 
-	border-radius: 2px; }
+.patient {
+  background: rgb(5,150,105);
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
+  margin-bottom: 3%;
+  color: white;
+  padding:1%;
+  border-radius: 20px;
+
+  width:40%;
+  /* width: 20%; */
+  cursor: pointer;
+  /* color: #444   */
+  
+}
 h1 { 
   text-align: center; 
   margin: 15px 0px; }

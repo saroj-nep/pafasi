@@ -1,100 +1,100 @@
 <template>
   <div>
     <div class="sticky top-0 bg-emerald-600">
-    <h1 class="h1 text-white" style=";"> <strong>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten: </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten. </b> </h1>
     </div>
     <form action="" class="form" method="POST">
    <div style="margin-top:50px" class="grid grid-cols-3  gap-2">
 
-   <button id="augenquestion" color="#42b983" class="button"
+   <button id="augenquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
    @click.prevent="augencounter(),displayAugen();">
-         Augenheilkunde
+          <h6 style="font-size:1em;">Augenheilkunde</h6>
          </button>
 
-    <button id="chiruquestion"  color="#42b983" class="button"
+    <button id="chiruquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="chirucounter(),displayChiru();">
-            Chirurgie (ambulant)
+             <h6 style="font-size:1em;">Chirurgie (ambulant)</h6>
           </button>
 
-    <button id="dermaquestion" color="#42b983" class="button"
+    <button id="dermaquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="dermacounter(), displayDerma();">
-          Dermatologie
+           <h6 style="font-size:1em;">Dermatologie</h6>
           </button>
           
-    <button id="gynaquestion"  color="#42b983" class="button"
+    <button id="gynaquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="gynacounter(),displayGyna();">
-          Gynäkologie
+          <h6 style="font-size:1em;">Gynäkologie</h6>
          </button>
   
-    <button id="halsquestion"  color="#42b983" class="button"
+    <button id="halsquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="halscounter(), displayHals();">
-           Hals-Nasen-Ohrenheilkunde
+           <h6 style="font-size:1em;">Hals-Nasen-Ohrenheilkunde</h6>
          </button>
 
-   <button id="kardioquestion"  color="#42b983" class="button"
+   <button id="kardioquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="kardiocounter(),displayKardio();">
-          Innere Medizin: Kardiologie
+           <h6 style="font-size:1em;">Innere Medizin: Kardiologie</h6>
          </button>
          
-   <button id="gastroquestion"  color="#42b983" class="button"
+   <button id="gastroquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="gastrocounter(), displayGastro();">
-          Innere Medizin - Gastroenterologie
+           <h6 style="font-size:1em;">Innere Medizin - Gastroenterologie</h6>
          </button>
          
-   <button id="pulmoquestion"  color="#42b983" class="button"
+   <button id="pulmoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="pulmocounter(), displayPulmo();">
-          Innere Medizin - Pulmologie
+          <h6 style="font-size:1em;"> Innere Medizin - Pulmologie</h6>
          </button>
          
-   <button id="nephroquestion"  color="#42b983" class="button"
+   <button id="nephroquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="nephrocounter(),displayNephro();">
-          Innere Medizin - Nephrologie
+           <h6 style="font-size:1em;">Innere Medizin - Nephrologie</h6>
          </button>
          
-  <button id="onkoquestion"  color="#42b983" class="button"
+  <button id="onkoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="onkocounter(), displayOnko();">
-          Innere Medizin - Hämato-/Onkologie
+          <h6 style="font-size:1em;">Innere Medizin - Hämato-/Onkologie</h6>
          </button>
 
-  <button id="endoquestion" color="#42b983" class="button"
+  <button id="endoquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="endocounter(),displayEndo();">
-          Innere Medizin - Endokrinologie
+          <h6 style="font-size:1em;">Innere Medizin - Endokrinologie</h6>
          </button>
 
-  <button id="neurochiruquestion"  color="#42b983" class="button"
+  <button id="neurochiruquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="neurochirucounter(),displayNeurochiru();">
-          Neurochirurgie
+           <h6 style="font-size:1em;">Neurochirurgie</h6>
          </button>
 
 
-   <button id="neuroquestion" color="#42b983" class="button"
+   <button id="neuroquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="neurocounter(), displayNeuro();">
-          Neurologie
+          <h6 style="font-size:1em;">Neurologie</h6>
          </button>
 
-   <button id="orthoquestion"  color="#42b983" class="button"
+   <button id="orthoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="orthocounter(),displayOrtho();">
-          Orthopädie
+          <h6 style="font-size:1em;"> Orthopädie</h6>
          </button>
 
-    <button id="padiquestion" color="#42b983" class="button"
+    <button id="padiquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="padicounter(), displayPadi();">
-          Pädiatrie
+          <h6 style="font-size:1em;">Pädiatrie</h6>
          </button>
   
-     <button id="psychiquestion" color="#42b983" class="button"
+     <button id="psychiquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="psychicounter(),displayPsychi();">
-          Psychiatrie/Psychosomatik
+          <h6 style="font-size:1em;">Psychiatrie/Psychosomatik</h6>
          </button>
 
-     <button id="radioquestion" color="#42b983" class="button"
+     <button id="radioquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="radiocounter(),displayRadio();">
-          Radiologie
+          <h6 style="font-size:1em;"> Radiologie</h6>
          </button>
 
-     <button id="uroquestion"  color="#42b983" class="button"
+     <button id="uroquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="urocounter(),displayUro();">
-          Urologie
+          <h6 style="font-size:1em;"> Urologie</h6>
          </button>
         </div>  </form>
     <h3 id="augenanswer"  style="display:none">Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</h3> 
@@ -137,7 +137,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
   methods: {

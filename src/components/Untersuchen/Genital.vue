@@ -2,27 +2,27 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Genital- und Glutealregion' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Genital- und Glutealregion' sehen möchten.  </b> </h1>
     </div>
     <br>
     
 
 
         <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
              @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
          @click.prevent="counterNase();displayNase();">
            digital rektale Untersuchung
           </button>
             
          
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen, geschlechtstypisches Behaarungsmuster, kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
-         <h3 id="naseanswer" style="display:none">kein Hervortreten von Schleimhaut, Analreflex normal auslösbar, normaler Sphinktertonus, Schleimhaut gleichmäßig, weich und verschieblich, keine Raumforderungen, keine Schmerzauslösung, kein Blut am Fingerling. keine Prostata tastbar, keine Schmerzen</h3> 
+        <h3 id="inspektionanswer" style="display:none">Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen, geschlechtstypisches Behaarungsmuster, kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
+         <h3 id="naseanswer" style="display:none">Kein Hervortreten von Schleimhaut, Analreflex normal auslösbar, normaler Sphinktertonus, Schleimhaut gleichmäßig, weich und verschieblich, keine Raumforderungen, keine Schmerzauslösung, kein Blut am Fingerling. keine Prostata tastbar, keine Schmerzen.</h3> 
           
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -170,14 +170,17 @@ h3:hover {
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;

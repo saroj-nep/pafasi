@@ -2,7 +2,7 @@
   <div>
     <div>
       
-          <h2>Die von Ihnen angeforderten Laborwerte werden veranlasst. Die Ergebnis-Rückmeldung vom Labor erfolgt üblicherweise am nächsten Tag (d.h. nach Beendigung der heutigen Vorstellung). Fahren Sie nun fort mit dem, was Sie heute mit Ihrem Patienten noch tun möchten.</h2>
+          <h2 style="font-size:1.5em; " class="h1 text-white text-left" >Die von Ihnen angeforderten Laborwerte werden veranlasst. Die Ergebnis-Rückmeldung vom Labor erfolgt üblicherweise am nächsten Tag (d.h. nach Beendigung der heutigen Vorstellung). Fahren Sie nun fort mit dem, was Sie heute mit Ihrem Patienten noch tun möchten.</h2>
          <div class= "flex justify-center">
             
 
@@ -31,7 +31,7 @@ export default {
     return {
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
   setup() {
@@ -71,16 +71,15 @@ h2 {
 
 
 .button {
-  background: #be123c;
+ background: #be123c;
   color: white;
- 
-  border-radius: 10px;
- align-self: center;
-  height:50%;
- padding:20px;
-  margin-bottom: 100px;
-  margin-top:80px;
- 
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }

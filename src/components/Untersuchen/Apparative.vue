@@ -2,24 +2,24 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten : </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten. </b> </h1>
     </div>
     <br>
     
 
 
        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterInspektion();displayInspektion();">
          Körpertemperatur messen </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterNase();displayNase();">
           Blutzucker messen
           </button>
              
-          <button id="halsquestion" class="button"
+          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterHals();displayHals();">
           Blutdruck messen
           </button>
@@ -27,7 +27,7 @@
           </div>
  <div class="flex  justify-center ">
        
-           <button  color="#42b983" class="button"
+           <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterSono();TogglePopup('untereTrigger')">
           Sonografie durchführen
           </button>
@@ -53,7 +53,7 @@
               </div>
             </div>
           </Popup>
-           <button class="button"
+           <button class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterEKG();TogglePopup('genitalTrigger')">
            EKG durchführen lassen
           </button>
@@ -80,7 +80,7 @@
             </div>
           </Popup>
           
-              <button class="button"
+              <button class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterLung();TogglePopup('genitTrigger')">
            Lungenfunktionstest durchführen lassen
           </button>
@@ -136,7 +136,7 @@ export default {
         step:''
       },
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 methods:{
@@ -382,14 +382,17 @@ h3:hover {
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;
@@ -413,9 +416,9 @@ h3:hover {
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
+ visibility: hidden;
+  width: 500%;
+  background-color: rgb(97, 96, 96);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -424,27 +427,11 @@ h3:hover {
   /* Position the tooltip */
   position: absolute;
   z-index: 100;
+  right:0
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 100;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 </style>

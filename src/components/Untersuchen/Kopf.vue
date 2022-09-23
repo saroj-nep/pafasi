@@ -2,68 +2,68 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Kopf' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Kopf' sehen möchten.  </b> </h1>
     </div>
     <br>
     
 
 
         <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterNase();displayNase();">
             Nase untersuchen
           </button>
             
-           <button id="mundquestion" class="button"
+           <button id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterMund();displayMund();">
-            Mund/Mundhöhle/Rachen untersuchen
+            Mund/Mundhöhle/ Rachen untersuchen
           </button>
         
 
       
-           <button  id="ohrenquestion" class="button"
+           <button  id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOhren();displayOhren();">
            Ohren untersuchen
           </button>
             </div>
              <div class="flex justify-center ">
 
-           <button id="lymphquestion" class="button"
+           <button id="lymphquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterLymph();displayLymph();">
            Lymphknoten abtasten
           </button>
             
 
          
-          <button id="schildquestion" class="button"
+          <button id="schildquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterSchild();displaySchild();">
            Schilddrüse untersuchen
           </button>
             
 
         
-          <button id="halsquestion" class="button"
+          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterHals();displayHals();">
            Halswirbelsäule
           </button>
-          <button id="orientquestion" class="button"
+          <button id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOrient();displayOrient();">
-           orientierende neurologische Untersuchung / Funktionsprüfung
+           Orientierende neurologische Untersuchung / Funktionsprüfung
           </button>
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Gesichtshaut rosig, mehrere Lentigines seniles (Altersflecken) auf Schläfen, Stirn und Kopfhaut, lichtes weißes Haar mit androgetischem Haarausfall an Stirn und Scheitel, Augen normal geöffnet, keine Ptosis, Pupillen seitengleich groß, Skleren und Konjunktiven nicht gerötet, Trigeminus-Druckpunkte nicht schmerzhaft, Schädelknochen palpatorisch o.p.B, Halsvenen nicht gestaut</h3> 
-         <h3 id="naseanswer" style="display:none">Nasenrücken gerade, fest, keine Nasenseptumdeviation, kein Hämatom, keine Epistaxis</h3> 
-          <h3 id="mundanswer" style="display:none"> Lippen trocken, blass, keine Bläschen, keine Rhagarden, Mundöffnung gut durchführbar, Zähne: an mehreren Backenzähnen Brücken, 1 fehlender Backenzahn unten rechts, Munschleimhaut feucht, rosig, o.p.B, Rachenmandeln nicht vergrößert, keine Rötung, keine Beläge</h3> 
-           <h3 id="ohrenanswer" style="display:none">Ohrmuschel o.p.B., Gehörgänge bds reizlos, teilverlegt durch Cerumen, Trommelfelle bds. intakt, nicht gerötet</h3> 
-            <h3 id="lymphanswer" style="display:none">bds. wenige leicht verschiebliche, weiche LK retroaurikulär tastbar</h3> 
-             <h3 id="schildanswer" style="display:none"> keine Struma, keine Knoten, beweglich</h3> 
-              <h3 id="halsanswer" style="display:none"> Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus</h3> 
-              <h3 id="orientanswer" style="display:none"> alle Hirnnerven o.p.B.</h3> 
+        <h3 id="inspektionanswer" style="display:none"> Gesichtshaut rosig, mehrere Lentigines seniles (Altersflecken) auf Schläfen, Stirn und Kopfhaut, lichtes weißes Haar mit androgetischem Haarausfall an Stirn und Scheitel, Augen normal geöffnet, keine Ptosis, Pupillen seitengleich groß, Skleren und Konjunktiven nicht gerötet, Trigeminus-Druckpunkte nicht schmerzhaft, Schädelknochen palpatorisch o.p.B, Halsvenen nicht gestaut.</h3> 
+         <h3 id="naseanswer" style="display:none">Nasenrücken gerade, fest, keine Nasenseptumdeviation, kein Hämatom, keine Epistaxis.</h3> 
+          <h3 id="mundanswer" style="display:none"> Lippen trocken, blass, keine Bläschen, keine Rhagarden, Mundöffnung gut durchführbar, Zähne: an mehreren Backenzähnen Brücken, 1 fehlender Backenzahn unten rechts, Munschleimhaut feucht, rosig, o.p.B, Rachenmandeln nicht vergrößert, keine Rötung, keine Beläge.</h3> 
+           <h3 id="ohrenanswer" style="display:none">Ohrmuschel o.p.B., Gehörgänge bds reizlos, teilverlegt durch Cerumen, Trommelfelle bds. intakt, nicht gerötet.</h3> 
+            <h3 id="lymphanswer" style="display:none">Bds. wenige leicht verschiebliche, weiche LK retroaurikulär tastbar.</h3> 
+             <h3 id="schildanswer" style="display:none"> Keine Struma, keine Knoten, beweglich.</h3> 
+              <h3 id="halsanswer" style="display:none"> Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3> 
+              <h3 id="orientanswer" style="display:none">Alle Hirnnerven o.p.B.</h3> 
   </div>
 </template>
 
@@ -91,7 +91,7 @@ export default {
      
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -526,14 +526,17 @@ h3:hover {
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;

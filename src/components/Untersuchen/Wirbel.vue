@@ -1,33 +1,33 @@
 <template>
   <div class="grid grid-cols-1 gap-2">
-     <div class="sticky top-0 bg-emerald-600">
+     <div class=" bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Wirbel' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Wirbel' sehen möchten.  </b> </h1>
     </div>
     <br>
     
 
 
         <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
         @click.prevent="counterNase();displayNase();">
           Funktionsuntersuchung
           </button>
              
-          <button id="halsquestion" class="button"
+          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
          @click.prevent="counterHals();displayHals();">
           Halswirbelsäule
           </button>
          
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> adipöser EZ, gebeugte Haltung, Muskelverhärtungen paravertebral v.a. lumbal, WS-Klopfschmerz</h3> 
-         <h3 id="naseanswer" style="display:none">Ante-, Retro-, Lateroflexion sowie Rotation mit erheblichen Schmerzen verbunden, bei Vorbeugung kein Hinweis auf ausgeprägte Skoliose, kein Vorlaufphänomen. Der Patient gibt Schmerzen beim Vorbeugen sowie Hochkommen an, Rüttelschmerz fraglich positiv, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite, kein Meningismus</h3> 
-       <h3 id="halsanswer" style="display:none">Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus</h3>    
+        <h3 id="inspektionanswer" style="display:none">Adipöser EZ, gebeugte Haltung, Muskelverhärtungen paravertebral v.a. lumbal, WS-Klopfschmerz.</h3> 
+         <h3 id="naseanswer" style="display:none">Ante-, Retro-, Lateroflexion sowie Rotation mit erheblichen Schmerzen verbunden, bei Vorbeugung kein Hinweis auf ausgeprägte Skoliose, kein Vorlaufphänomen. Der Patient gibt Schmerzen beim Vorbeugen sowie Hochkommen an, Rüttelschmerz fraglich positiv, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite, kein Meningismus.</h3> 
+       <h3 id="halsanswer" style="display:none">Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3>    
   </div>
 </template>
 
@@ -211,14 +211,17 @@ h3:hover {
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;

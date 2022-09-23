@@ -1,7 +1,7 @@
 <template>
   <div>
      <div class="sticky top-0 bg-emerald-600">
-    <h1 class="h1 text-white" style=";"> <strong>Heutige Vorstellung beenden und (be-)handeln </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Heutige Vorstellung beenden und (be-)handeln. </b> </h1>
     </div>
     <br>
 
@@ -82,7 +82,7 @@
            
         </div>
 
-<button type="submit" id="submitbutton" style="margin-right: 50px; margin-left: 100px"  class="submitbutton"
+<button type="submit" id="submitbutton" style="margin-right: 50px; margin-left: 100px"  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="checkRadio(); ">
          Patienten verabschieden
          </button>
@@ -132,7 +132,7 @@ export default {
         saafety:null
       },
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -331,13 +331,15 @@ h3 {
   color: rgb(255, 255, 255)
 }
 .submitbutton{
-  background: #be123c;
+   background: #be123c;
   color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px auto;
-  
-  width: 50%; 
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }

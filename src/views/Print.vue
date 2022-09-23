@@ -152,13 +152,14 @@
   </script>
  <style scoped>
  .button {
-  background: black;
+   background: #be123c;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 5px auto;
-  width:400px;
-  min-height: 0px;
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

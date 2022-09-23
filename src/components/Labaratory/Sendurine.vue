@@ -2,7 +2,7 @@
 <div style="height:80vh; overflow:auto">
 
   <div class=" bg-emerald-600">
-  <h1 class="h1 text-white">Die von Ihnen angeforderten Laborergebnisse werden veranlasst. Wenn Sie eine Urinkultur angefordert haben, wird das Labor die Ergebnisse der Urinkultur in der Regel innerhalb von 2 Tagen (d. h. nach dem Ende der heutigen Präsentation) zurückmelden. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun wollen. </h1>
+  <h1 style="font-size:1.5em; " class="h1 text-white text-center" >Die von Ihnen angeforderten Laborergebnisse werden veranlasst. Wenn Sie eine Urinkultur angefordert haben, wird das Labor die Ergebnisse der Urinkultur in der Regel innerhalb von 2 Tagen (d. h. nach dem Ende der heutigen Präsentation) zurückmelden. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun wollen. </h1>
     </div>
    
            <!-- <br><button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
@@ -139,7 +139,7 @@ export default {
     return {
       urines: [],
       showTooltip: false,
-      showNotepad: true,
+      showNotepad: false,
       email:localStorage.email,
     };
   },
@@ -212,26 +212,55 @@ h2:hover {
   background: rgb(234, 25, 39)
 }
 .button {
-  background: black;
+   background: black;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
   color: white;
- 
-  border-radius: 10px;
- align-self: center;
-  height:50%;
-  width: 20%; 
-  min-width: 100px;
+  padding: 2%;
+  border-radius: 20px;
+
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
 .submitbutton{
-  background: #be123c;
+ background: #be123c;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 5px auto;
-  
-  
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+ visibility: hidden;
+  width: 500%;
+  background-color: rgb(97, 96, 96);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  right:0
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 </style>

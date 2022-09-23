@@ -1,74 +1,74 @@
 <template>
   <div class="" >
-     <div class="sticky top-0 bg-emerald-600">
+     <div class=" bg-emerald-600">
 
-    <h1 class="h1 text-white" > <strong>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten.  </b> </h1>
     </div>
     <br>
     <form action="" class="form" method="POST">
     <div class="grid grid-cols-3  gap-2">
-    <button id="beschreibenquestion"  color="#42b983" class="button"
+    <button id="beschreibenquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="beschreibencounter(),displayBeschreiben();">
-         Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)
+          <h6 style="font-size:1em;">Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)</h6>
          </button>
 
-    <button id="akutesquestion"   color="#42b983" class="button"
+    <button id="akutesquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="akutescounter(),displayAkutes();">
-            akutes Ereignis?/Aenderung der Lebensumstaende?
+             <h6 style="font-size:1em;">akutes Ereignis?/Aenderung der Lebensumstaende?</h6>
           </button>
              
-    <button id="medikamenquestion" color="#42b983" class="button"
+    <button id="medikamenquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="medikamencounter(),displayMedikamen();">
-          Medikamentenanamnese
+           <h6 style="font-size:1em; ">Medikamentenanamnese</h6>
           </button>
           
-    <button id="gewohnquestion"  color="#42b983" class="button"
+    <button id="gewohnquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="gewohncounter(),displayGewohn();">
-          Gewohnheiten, Lebensstil (sport, Ernaehrung,...))
+           <h6 style="font-size:1em; ">Gewohnheiten, Lebensstil (sport, Ernaehrung,...))</h6>
          </button>
         
-    <button id="nikotinquestion" color="#42b983" class="button"
+    <button id="nikotinquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="nikotincounter(),displayNikotin();">
-           Nikotin, Alkohol, Drogen?
+            <h6 style="font-size:1em; ">Nikotin, Alkohol, Drogen?</h6>
          </button>
 
-    <button id="allerginquestion"  color="#42b983" class="button"
+    <button id="allerginquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="allergincounter(),displayAllergin();">
-          Allergien
+           <h6 style="font-size:1em; ">Allergien</h6>
          </button>
           
-    <button id="vegetativequestion"  color="#42b983" class="button"
+    <button id="vegetativequestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="vegetativecounter(),displayVegetative();">
-          vegetative Anamnese (Appetit, Schlaf, Verdauung etc))
+           <h6 style="font-size:1em; ">vegetative Anamnese (Appetit, Schlaf, Verdauung etc))</h6>
          </button>
           
-     <button id="gynoquestion"  color="#42b983" class="button"
+     <button id="gynoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="gynocounter(),displayGyno();">
-          Gynokologische/Urologische/Sexualanamnese
+           <h6 style="font-size:1em; white-space: pre-wrap; ">Gynokologische/ Urologische/ Sexualanamnese</h6>
          </button>
           
-    <button id="psychequestion" color="#42b983" class="button"
+    <button id="psychequestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="psychecounter(),displayPsyche();">
-          Psyche
+           <h6 style="font-size:1em; ">Psyche</h6>
          </button>
          
-     <button id="familienquestion"   color="#42b983" class="button"
+     <button id="familienquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="familiencounter(),displayFamilien();">
-          Familien- und Sozialanamnese (Beruf, Wohnsituation)
+           <h6 style="font-size:1em; ">Familien- und Sozialanamnese (Beruf, Wohnsituation)</h6>
          </button>
 
           </div>
           </form>
-    <h3 id="akutesanswer" style="display:none"> Er habe ja immer Rückenschmerzen, aber so schlimm sei es seit der Gartenarbeit am Wochenende. Auf genaueres Nachfragen: kein Sturz, hat Unkraut gerupft, ruckartig bewegt, was den Schmerz ausgelöst hatte</h3> 
-    <h3 id="allerginanswer" style="display:none">keine Bekannt</h3> 
-    <h3 id="beschreibenanswer" style="display:none">  Schmerzlokalisation: Patient weist auf lumbalen Bereich mit Ausstrahlung ins linke Bein, Dauer: er habe ja immer Rückenschmerzen, aber so schlimm sei es seit dem vergangenen Wochenende </h3> 
-    <h3 id="familienanswer" style="display:none">Pensionierter Lehrer. Lebt mit seiner Ehefrau in einem Einfamilienhaus in ruhiger Wohngegend, zwei erwachsene Kinder</h3> 
-    <h3 id="gewohnanswer" style="display:none">  kein Sport </h3> 
-    <h3 id="gynoanswer" style="display:none"> Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz</h3> 
-    <h3 id="medikamenanswer" style="display:none"> ASS 100, Atorvastatin</h3> 
-    <h3 id="nikotinanswer" style="display:none">Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint</h3> 
-    <h3 id="psycheanswer" style="display:none"> Patient ist nikotiniert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.</h3> 
-    <h3 id="vegetativeanswer" style="display:none">er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts (die Hitz) hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.</h3> 
+    <h3 id="akutesanswer" style="display:none"> Er habe ja immer Rückenschmerzen, aber so schlimm sei es seit der Gartenarbeit am Wochenende. Auf genaueres Nachfragen: kein Sturz, hat Unkraut gerupft, ruckartig bewegt, was den Schmerz ausgelöst hatte.</h3> 
+    <h3 id="allerginanswer" style="display:none">Keine Bekannt.</h3> 
+    <h3 id="beschreibenanswer" style="display:none">Schmerzlokalisation: Patient weist auf lumbalen Bereich mit Ausstrahlung ins linke Bein, Dauer: er habe ja immer Rückenschmerzen, aber so schlimm sei es seit dem vergangenen Wochenende.</h3> 
+    <h3 id="familienanswer" style="display:none">Pensionierter Lehrer. Lebt mit seiner Ehefrau in einem Einfamilienhaus in ruhiger Wohngegend, zwei erwachsene Kinder.</h3> 
+    <h3 id="gewohnanswer" style="display:none">Kein Sport.</h3> 
+    <h3 id="gynoanswer" style="display:none">Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz.</h3> 
+    <h3 id="medikamenanswer" style="display:none">ASS 100, Atorvastatin.</h3> 
+    <h3 id="nikotinanswer" style="display:none">Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint.</h3> 
+    <h3 id="psycheanswer" style="display:none">Patient ist nikotiniert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.</h3> 
+    <h3 id="vegetativeanswer" style="display:none">Er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts (die Hitz) hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.</h3> 
   </div>
 </template>
 
@@ -91,7 +91,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -654,37 +654,28 @@ h3 {
   cursor: pointer;
   color: #444
 }
+h6{
+ white-space: pre-wrap;
+}
 
 h3:hover {
   background: rgb(39, 190, 107)
 }
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 10px;
-  border-radius: 10px;
-  width:300px;
-  margin: 5px auto;
-  
-  min-height: 0px;
+  padding: 5%;
+  border-radius: 20px;
+
+  width:85%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
-.submitbutton{
-  background: #be123c;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 5px auto;
-  width:400px;
-  /* width: 20%; */
-  cursor: pointer;
-  /* color: #444   */
-}
-.h1{
- font-size: large; 
-}
+
 
 .tooltip {
   position: relative;

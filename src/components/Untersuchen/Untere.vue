@@ -1,32 +1,32 @@
 <template>
   <div class="grid grid-cols-1 gap-2">
-     <div class="sticky top-0 bg-emerald-600">
+     <div class="bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: untere Extremität' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: untere Extremität' sehen möchten. </b> </h1>
     </div>
     <br>
     
 
 
         <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button"
+        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button"
+          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterNase();displayNase();">
             Prüfung der Beweglichkeit
           </button>
             
-           <button id="mundquestion" class="button"
+           <button id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
                   @click.prevent="counterMund();displayMund();">
             neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
         
 
       
-           <button  id="ohrenquestion" class="button"
+           <button  id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOhren();displayOhren();">
            Prüfung der peripheren Durchblutung
           </button>
@@ -35,10 +35,10 @@
 
           
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, Atrophien oder Faszikulationen; keine Nagelveränderungen; keine Fußdeformitäten; Beckenstand gerade, keine Beinlängendifferenz; keine trophischen Störungen, Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek. Schmerzausstrahlung bis lateralem Fußrand linker Fuß</h3> 
-        <h3 id="naseanswer" style="display:none">normale und beschwerdefreie Beweglichkeit in Hüft-, Knie- und Fußgelenken</h3> 
+        <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, Atrophien oder Faszikulationen; keine Nagelveränderungen; keine Fußdeformitäten; Beckenstand gerade, keine Beinlängendifferenz; keine trophischen Störungen, Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek. Schmerzausstrahlung bis lateralem Fußrand linker Fuß.</h3> 
+        <h3 id="naseanswer" style="display:none">Normale und beschwerdefreie Beweglichkeit in Hüft-, Knie- und Fußgelenken.</h3> 
         <h3 id="mundanswer" style="display:none">Sensibilität: Hypästhesien links dorsal und lateral, Rest o.p.B.. Tonus unauffällig. Muskelkraft bei Kniestreckung (M. quadriceps (L4)) bds gleich, bei Plantar- und Dorsalflexion des Fußes und der Großzehen (L5/S1) li &lt;re, Kraftgrad 4/5. Reflexe: Patellarsehnenreflex (PSR) bds regelrecht, Achillessehnenreflex (ASR) links abgeschwächt, Babinski bds. negativ. Beinvorhalteversuch(Anwinkeln im 90° Winkel): kein Absinken. Knie-Hacke-Versuch zielsicher, Romberg- und Unterberger-Versuch unauffällig. Einbeinstand etwas wackelig aufgrund der einsetzenden Rückenschmerzen, Fersen- und Zehenspitzengang wackelig, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite. Rütteltest fraglich positiv.</h3> 
-        <h3 id="ohrenanswer" style="display:none">beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, keine trophischen Störungen, leichte Strömungsgeräusche über den Femoralisarterien bds., Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek.</h3> 
+        <h3 id="ohrenanswer" style="display:none">Beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, keine trophischen Störungen, leichte Strömungsgeräusche über den Femoralisarterien bds., Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek.</h3> 
            
   </div>
 </template>
@@ -65,7 +65,7 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -279,17 +279,19 @@ displayOhren(){  if (ohrenanswer.style.display !== "none") {
 
 h3:hover {
   background: rgb(39, 190, 107)
-}
-.button {
+}.button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin:10px ;
+  padding: 2%;
+  border-radius: 20px;
 
- 
+  width:85%;
+  /* width: 20%; */
   cursor: pointer;
- 
+  /* color: #444   */
 }
 .submitbutton{
   background: #be123c;

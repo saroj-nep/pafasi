@@ -1,13 +1,13 @@
 
 <template>
   <div>
-     <div class="sticky top-0 bg-emerald-600">
+     <div class="bg-emerald-600">
 
-    <h1 class="h1 text-white " > <strong>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten.  </b> </h1>
     </div>
     <br>
     <br>
-       <button style="margin-right: 50px; margin-left:100px" color="#42b983" class="button"
+       <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="TogglePopup('bloodTrigger')">
          Blutentnahme
          </button>
@@ -33,7 +33,7 @@
             </div>
           </Popup>
   
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+          <button color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
           @click.prevent="TogglePopup('urineTrigger')">
             Urindiagnostik
           </button>
@@ -60,7 +60,7 @@
           </Popup>
 
           
-         <br> <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+          <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
           @click.prevent="TogglePopup('stoolTrigger')">
           Stuhlprobe
           </button>
@@ -89,7 +89,7 @@
 
         
 
-         <br> <button style="margin-right: 50px; margin-left:100px" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+          <button  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
            @click="() => TogglePopup('nextdayTrigger')">
            Ergebnisse des bestellten Tests
          </button>
@@ -165,23 +165,25 @@ export default {
 .submitbutton{
   background: #be123c;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px auto;
-  min-height: 50px;
-  width:200px;
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
+  /* width: 20%; */
   cursor: pointer;
-  align-self: center;
-  justify-self: center;
   /* color: #444   */
 }
 .button {
-  background: black;
+background: black;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px auto;
-  width:200px;
+  padding: 2%;
+  border-radius: 20px;
+  margin-right: 5%;
+  margin-left:10%;
+  margin-top:1%;
+  width:30%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
@@ -198,9 +200,9 @@ export default {
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
+ visibility: hidden;
+  width: 500%;
+  background-color: rgb(97, 96, 96);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -209,27 +211,11 @@ export default {
   /* Position the tooltip */
   position: absolute;
   z-index: 100;
+  right:0
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 100;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 </style>

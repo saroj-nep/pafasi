@@ -2,12 +2,12 @@
   <div class="" >
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 class="h1 text-white " style=";"> <strong>Wählen Sie aus, was Sie für 'Untersuchen' sehen möchten  </strong> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Untersuchen' sehen möchten.   </b></h1>
     </div>
     <br>
     <form action="" class="form" method="POST">
     <div class="flex justify-center">
-    <button  color="#42b983" class="button"
+    <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="TogglePopup('beschreibenTrigger')">
          nicht-apparative körperliche Untersuchung
          </button>
@@ -32,12 +32,12 @@
               </div>
             </div>
           </Popup>
-          <form action="" class="form" method="POST">
-          <button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
+         
+          <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="TogglePopup('akutesTrigger')">
             apparative Untersuchungen
           </button>
-            </form>
+           
 
           <Popup v-if="popupTriggers.akutesTrigger" :TogglePopup="() => TogglePopup('akutesTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">
@@ -82,7 +82,7 @@ export default {
     return {
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
 
@@ -113,27 +113,19 @@ export default {
 
 .button {
   background: black;
+  margin-right: 5%;
+  margin-left:1%;
+  margin-top:1%;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px ;
-  
-  min-height: 0px;
+  padding: 2%;
+  border-radius: 20px;
+
+  width:50%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
 }
-.submitbutton{
-  background: #be123c;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 5px auto;
-  width:400px;
-  /* width: 20%; */
-  cursor: pointer;
-  /* color: #444   */
-}
+
 .h1{
  font-size: large; 
 }
@@ -145,9 +137,9 @@ export default {
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
+ visibility: hidden;
+  width: 500%;
+  background-color: rgb(97, 96, 96);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -156,27 +148,11 @@ export default {
   /* Position the tooltip */
   position: absolute;
   z-index: 100;
+  right:0
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 100;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 </style>
