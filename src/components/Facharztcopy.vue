@@ -1,11 +1,10 @@
 <template>
- <div  style="height:80vh; overflow:auto" >
-  <div class="grid grid-cols-1 gap-2">
+  <div>
     <div class="sticky top-0 bg-emerald-600">
     <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten. </b> </h1>
     </div>
-  <br>
-   <div  class="grid grid-cols-1 gap-2 " >
+  
+   <div style="margin-top:50px" class="grid grid-cols-3  gap-2">
   
 <div >
 <ul  class="w-400  text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -131,9 +130,9 @@
 
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
               <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
-              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+              <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
-              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
+              <img src="../../assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
               <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
               <div v-else class="tooltiptext" >Notizblock anzeigen</div>
             </div>
@@ -151,7 +150,6 @@
           </Popup>
     </div>
   </div>
-  </div>
  
 </template>
 
@@ -159,7 +157,7 @@
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Sendblood from '@/components/Labaratory/Sendblood.vue';
+import Sendblood from './Sendblood.vue';
 import axios from "axios";
 
 
@@ -282,7 +280,6 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       data.append("radio", q.checked);
       data.append("uro",r.checked);
       data.append("onlineuser",localStorage.email);
-      console.log(data)
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -757,12 +754,12 @@ h3 {
 .submitbutton{
   background: #be123c;
   color: white;
-  padding: 1%;
+  padding: 2%;
   border-radius: 20px;
   margin-right: 5%;
   margin-left:10%;
   margin-top:1%;
-  width:20%;
+  width:30%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

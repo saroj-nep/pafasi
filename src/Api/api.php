@@ -367,6 +367,24 @@ if($action=='getsteps'){
 	}
 	
 }
+if($action=='getnotess'){
+	$sql="SELECT * FROM `notepad` ";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
 if($action=='sendblood'){
 
 	
@@ -402,7 +420,40 @@ if($action=='sendblood'){
         $res['message']="Somthing Went Wrong";
 	}
 }
+if($action=='senddoctors'){
 
+	
+	$augen=$_POST['augen'];
+	$chiru=$_POST['chiru'];
+	$derma=$_POST['derma'];
+	$gyna=$_POST["gyna"];
+	$hals=$_POST["hals"];
+	$kardio=$_POST["kardio"];
+	$gastro=$_POST["gastro"];
+	$pulmo=$_POST["pulmo"];
+	$nephro=$_POST["nephro"];
+	$onko=$_POST["onko"];
+	$endo=$_POST["endo"];
+	$neurochiru=$_POST["neurochiru"];
+    $neuro=$_POST["neuro"];
+	$ortho=$_POST["ortho"];
+	$padi=$_POST["padi"];
+	$psychi=$_POST["psychi"];
+	$radio=$_POST["radio"];
+	$uro=$_POST["uro"];
+	$onlineuser=$_POST["onlineuser"];
+	
+	 
+	$sql="UPDATE `doctor_option` SET `augen`=$augen,`chiru`=$chiru,`derma`=$derma,`gyna`=$gyna,`hals`=$hals,`kardio`=$kardio,`gastro`=$gastro,`pulmo`=$pulmo,`nephro`=$nephro,`onko`=$onko,`endo`=$endo,`neurochiru`=$neurochiru,`neuro`=$neuro,`ortho`=$ortho,`padi`=$padi,`psychi`=$psychi,`radio`=$radio,`uro`=$uro WHERE  `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
 
 if($action=='getblood'){
 	$sql="SELECT * FROM `bluten_options`";

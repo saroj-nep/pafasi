@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="sticky top-0 bg-emerald-600">
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Hier ist das Ergebnis Ihrer Anfrage:    'einen blick in die Patientenakte werfenn'.</b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Der Patientenakte können Sie Folgendes entnehmen: </b> </h1>
     </div>
     <div style="margin-top:50px">
       

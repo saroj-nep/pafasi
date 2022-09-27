@@ -33,8 +33,8 @@ export default{
 
 
 
-font-size: 99%;
-line-height: 99%; 
+
+
 
 }
 

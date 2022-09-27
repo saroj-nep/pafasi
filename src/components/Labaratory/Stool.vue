@@ -15,19 +15,19 @@
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input id="vue-checkbox1" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlprobe</label>
+            <label for="vue-checkbox1" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlprobe</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input id="vue-checkbox2" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlkultur</label>
+            <label for="react-checkbox2" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlkultur</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input id="vue-checkbox3" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Untersuchung auf Parasiten</label>
+            <label for="vue-checkbox3" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Untersuchung auf Parasiten</label>
         </div>
     </li>
     </div>
@@ -82,17 +82,34 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      stools:[]
     };
   },
+   created(){
+this.showvalue();
+ },
   methods: {  
+    showvalue(){
+      console.log(localStorage.probe)
+    setTimeout(function(){
+if (localStorage.probe == "true") { document.getElementById('vue-checkbox1').checked = true; } else { document.getElementById('vue-checkbox1').checked = false; }
+if (localStorage.culture == "true") { document.getElementById('vue-checkbox2').checked = true; } else { document.getElementById('vue-checkbox2').checked = false; }
+if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').checked = true; } else { document.getElementById('vue-checkbox3').checked = false; }
+
+}, 500);    
+
+},
 		sendValue() {
          
           var data = new FormData();
           const a = document.querySelector('#vue-checkbox1');
           const b = document.querySelector('#vue-checkbox2');
           const c = document.querySelector('#vue-checkbox3');
-         
+
+         localStorage.setItem("probe", document.getElementById("vue-checkbox1").checked);
+         localStorage.setItem("culture", document.getElementById("vue-checkbox2").checked);
+         localStorage.setItem("suchen", document.getElementById("vue-checkbox3").checked);
 
       data.append("stoolprobe", a.checked);
       data.append("stoolculture", b.checked);

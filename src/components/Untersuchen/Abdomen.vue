@@ -155,18 +155,18 @@ displayNase(){  if (naseanswer.style.display !== "none") {
 
 <style scoped>
  h3 {
-  background:rgb(39, 190, 107);
+  background: rgb(5,150,105);
   padding: 20px;
   border-radius: 10px;
   margin: 10px auto;
 ;
     /* width: 50%; */
   cursor: pointer;
-  color: #444
+  color: rgb(255, 255, 255)
 }
 
 h3:hover {
-  background: rgb(39, 190, 107)
+  background: rgb(5,150,105)
 }
 .button {
   background: black;

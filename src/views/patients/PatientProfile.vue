@@ -30,7 +30,7 @@
           </div>
             <div><h1><b> Hr. Wolfgang Schneider</b></h1></div>
               <div>Alter: 78</div>
-              <div>Geshclecht: Männlich</div>
+              <div>Geschlecht: Männlich</div>
            
            
           </div>
@@ -49,7 +49,7 @@
           <div class=" text-center bg-emerald-600 mx-5">
 
     <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Was werden Sie als
-              nächstes tun? </b> </h1>
+              Nächstes tun? </b> </h1>
     </div>
 <br>
          
@@ -62,7 +62,7 @@
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
               <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
-              <img src="../../assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
+              <img src="../../assets/Expand.png"  alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
               <div v-if="showNotepad" class="tooltiptext">Notizblock ausblenden</div>
               <div v-else class="tooltiptext" >Notizblock anzeigen</div>
             </div>
@@ -162,7 +162,7 @@
         
          <button color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click="() => TogglePopup('facharztTrigger')">
-            <h3 style="font-size:1em;">Facharzt</h3>
+            <h3 style="font-size:1em;">eine Überweisung zum Facharzt ausstellen</h3>
          </button>
 
           <Popup v-if="popupTriggers.facharztTrigger" :TogglePopup="() => TogglePopup('facharztTrigger')">
@@ -366,17 +366,19 @@ methods: {
 .tooltip {
   position: relative;
   display: inline-block;
+ 
   /* border-bottom: 1px dotted black; */
 }
 
 .tooltip .tooltiptext {
  visibility: hidden;
-  width: 500%;
-  background-color: rgb(97, 96, 96);
+  width: 400%;
+  background-color: rgba(0, 0, 0, 0.689);
   color: #fff;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  font-size: small;
+  padding: 1px 0;
+
 
   /* Position the tooltip */
   position: absolute;
@@ -386,6 +388,7 @@ methods: {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  
 }
 
 </style>

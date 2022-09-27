@@ -2,7 +2,8 @@
 
   <div class="popup  ">
     <div class="popup-inner     ">
-     <button class="popup-close" @click="TogglePopup()"><img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" /> </button>
+       
+     <button  class="popup-close" title="Zurück" @click="TogglePopup()" ><img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" /> </button>
      <!-- <br><br><br> -->
      <slot />
     </div>
@@ -10,9 +11,17 @@
 </template>
 
 <script>
+
+    
 export default {
     props: ['TogglePopup'],
-}
+   
+
+    }
+ 
+
+
+
 </script>
 
 <style scoped>
@@ -43,6 +52,12 @@ height: 100%;
 overflow-y: auto;
 
 /* margin-right: 400px; */
+}
+
+
+.popup-close:hover {
+  transition-delay: 1ms;
+  transition: opacity 10s;
 }
 </style>
 

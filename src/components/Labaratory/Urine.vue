@@ -81,10 +81,24 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      urines:[]
     };
   },
+
+  created(){
+this.showvalue();
+ },
   methods: {
+showvalue(){
+    setTimeout(function(){
+if (localStorage.stix == "true") { document.getElementById('vue-checkbox1').checked = true; } else { document.getElementById('vue-checkbox1').checked = false; }
+if (localStorage.sediment == "true") { document.getElementById('vue-checkbox2').checked = true; } else { document.getElementById('vue-checkbox2').checked = false; }
+if (localStorage.kultur == "true") { document.getElementById('vue-checkbox3').checked = true; } else { document.getElementById('vue-checkbox3').checked = false; }
+
+}, 500);    
+
+},
     
 		sendValue() {
          
@@ -93,6 +107,9 @@ export default {
           const b = document.querySelector('#vue-checkbox2');
           const c = document.querySelector('#vue-checkbox3');
          
+          localStorage.setItem("stix", document.getElementById("vue-checkbox1").checked);
+         localStorage.setItem("sediment", document.getElementById("vue-checkbox2").checked);
+         localStorage.setItem("kultur", document.getElementById("vue-checkbox3").checked);
 
       data.append("urinstix", a.checked);
       data.append("urinsediment", b.checked);

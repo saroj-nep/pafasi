@@ -2,7 +2,7 @@
   <div class="" >
      <div class=" bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'ausführlichere Anamnese führen' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche Fragen Sie Ihrer Patientin/ Ihrem Patienten stellen möchten:  </b> </h1>
     </div>
     <br>
     <form action="" class="form" method="POST">
@@ -14,7 +14,7 @@
 
     <button id="akutesquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="akutescounter(),displayAkutes();">
-             <h6 style="font-size:1em;">akutes Ereignis?/Aenderung der Lebensumstaende?</h6>
+             <h6 style="font-size:1em;">akutes Ereignis?/Änderung der Lebensumstände?</h6>
           </button>
              
     <button id="medikamenquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -24,7 +24,7 @@
           
     <button id="gewohnquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="gewohncounter(),displayGewohn();">
-           <h6 style="font-size:1em; ">Gewohnheiten, Lebensstil (sport, Ernaehrung,...))</h6>
+           <h6 style="font-size:1em; ">Gewohnheiten, Lebensstil (Sport, Ernährung,...))</h6>
          </button>
         
     <button id="nikotinquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -44,7 +44,7 @@
           
      <button id="gynoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="gynocounter(),displayGyno();">
-           <h6 style="font-size:1em; white-space: pre-wrap; ">Gynokologische/ Urologische/ Sexualanamnese</h6>
+           <h6 style="font-size:1em; white-space: pre-wrap; ">Gynäkologische / Urologische / Sexualanamnese</h6>
          </button>
           
     <button id="psychequestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -67,8 +67,8 @@
     <h3 id="gynoanswer" style="display:none">Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz.</h3> 
     <h3 id="medikamenanswer" style="display:none">ASS 100, Atorvastatin.</h3> 
     <h3 id="nikotinanswer" style="display:none">Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint.</h3> 
-    <h3 id="psycheanswer" style="display:none">Patient ist nikotiniert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.</h3> 
-    <h3 id="vegetativeanswer" style="display:none">Er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts (die Hitz) hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.</h3> 
+    <h3 id="psycheanswer" style="display:none">Patient ist orientiert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.</h3> 
+    <h3 id="vegetativeanswer" style="display:none">Er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts "die Hitz" hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.</h3> 
   </div>
 </template>
 
@@ -645,21 +645,21 @@ vegetativecounter() {
 
 <style scoped>
 h3 {
-  background:rgb(39, 190, 107);
+  background:rgb(5,150,105);
   padding: 20px;
   border-radius: 10px;
   margin: 10px auto;
 ;
     /* width: 50%; */
   cursor: pointer;
-  color: #444
+  color: rgb(255, 255, 255)
 }
 h6{
  white-space: pre-wrap;
 }
 
 h3:hover {
-  background: rgb(39, 190, 107)
+  background: rgb(5,150,105)
 }
 .button {
   background: black;

@@ -3,7 +3,7 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
     <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Blutentnahme </b> </h1>
-   <br> <h1 style="font-size:1.5em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
+   <br> <h1 style="font-size:1.2em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
     </div>
     <br>
 
@@ -129,10 +129,12 @@
     
     </div>
 </ul></div>
+<div class="flex flex-row  justify-center items-center">
 <button  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="bloodcounter() ;sendvalue(); TogglePopup('sendTrigger')">
          Abschicken
 </button>
+</div>
 
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
               <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
@@ -157,6 +159,7 @@
     </div>
   </div>
   </div>
+
 </template>
 
 <script>
@@ -178,11 +181,45 @@ export default {
       },
      
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      bloods:[],
+      
     };
   },
-
+created(){
+this.showvalue();
+ },
   methods: {
+   showvalue(){
+    setTimeout(function(){
+ if (localStorage.kleines == "true") { document.getElementById('vue-checkbox1').checked = true; } else { document.getElementById('vue-checkbox1').checked = false; }
+if (localStorage.grosses == "true") { document.getElementById('vue-checkbox2').checked = true; } else { document.getElementById('vue-checkbox2').checked = false; }
+if (localStorage.gerin == "true") { document.getElementById('vue-checkbox3').checked = true; } else { document.getElementById('vue-checkbox3').checked = false; }
+if (localStorage.entz == "true") { document.getElementById('vue-checkbox4').checked = true; } else { document.getElementById('vue-checkbox4').checked = false; }
+if (localStorage.glucose == "true") { document.getElementById('vue-checkbox5').checked = true; } else { document.getElementById('vue-checkbox5').checked = false; }
+if (localStorage.fetts == "true") { document.getElementById('vue-checkbox6').checked = true; } else { document.getElementById('vue-checkbox6').checked = false; }
+if (localStorage.eisen == "true") { document.getElementById('vue-checkbox7').checked = true; } else { document.getElementById('vue-checkbox7').checked = false; }
+if (localStorage.leber == "true") { document.getElementById('vue-checkbox8').checked = true; } else { document.getElementById('vue-checkbox8').checked = false; }
+if (localStorage.pankreas == "true") { document.getElementById('vue-checkbox9').checked = true; } else { document.getElementById('vue-checkbox9').checked = false; }
+if (localStorage.niere == "true") { document.getElementById('vue-checkbox10').checked = true; } else { document.getElementById('vue-checkbox10').checked = false; }
+if (localStorage.elektrolyte == "true") { document.getElementById('vue-checkbox11').checked = true; } else { document.getElementById('vue-checkbox11').checked = false; }
+if (localStorage.schild== "true") { document.getElementById('vue-checkbox12').checked = true; } else { document.getElementById('vue-checkbox12').checked = false; }
+if (localStorage.herz== "true") { document.getElementById('vue-checkbox13').checked = true; } else { document.getElementById('vue-checkbox13').checked = false; }
+if (localStorage.bvitamin == "true") { document.getElementById('vue-checkbox14').checked = true; } else { document.getElementById('vue-checkbox14').checked = false; }
+if (localStorage.ldh== "true") { document.getElementById('vue-checkbox15').checked = true; } else { document.getElementById('vue-checkbox15').checked = false; }
+if (localStorage.harn == "true") { document.getElementById('vue-checkbox16').checked = true; } else { document.getElementById('vue-checkbox16').checked = false; }
+if (localStorage.psa == "true") { document.getElementById('vue-checkbox17').checked = true; } else { document.getElementById('vue-checkbox17').checked = false; }
+if (localStorage.hcg == "true") { document.getElementById('vue-checkbox18').checked = true; } else { document.getElementById('vue-checkbox18').checked = false; }
+if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').checked = true; } else { document.getElementById('vue-checkbox19').checked = false; }
+}, 500);    
+
+
+
+
+
+
+  },
+
 		sendvalue() {
          
           var data = new FormData();
@@ -205,6 +242,33 @@ export default {
           const q = document.querySelector('#vue-checkbox17');
           const r = document.querySelector('#vue-checkbox18');
           const s = document.querySelector('#vue-checkbox19');
+
+         localStorage.setItem("kleines", document.getElementById("vue-checkbox1").checked);
+         localStorage.setItem("grosses", document.getElementById("vue-checkbox2").checked);
+         localStorage.setItem("gerin", document.getElementById("vue-checkbox3").checked);
+         localStorage.setItem("entz", document.getElementById("vue-checkbox4").checked);
+         localStorage.setItem("glucose", document.getElementById("vue-checkbox5").checked);
+         localStorage.setItem("fetts", document.getElementById("vue-checkbox6").checked);
+         localStorage.setItem("eisen", document.getElementById("vue-checkbox7").checked);
+         localStorage.setItem("leber", document.getElementById("vue-checkbox8").checked);
+         localStorage.setItem("pankreas", document.getElementById("vue-checkbox9").checked);
+         localStorage.setItem("niere", document.getElementById("vue-checkbox10").checked);
+         localStorage.setItem("elektrolyte", document.getElementById("vue-checkbox11").checked);
+         localStorage.setItem("schild", document.getElementById("vue-checkbox12").checked);
+         localStorage.setItem("herz", document.getElementById("vue-checkbox13").checked);
+         localStorage.setItem("bvitamin", document.getElementById("vue-checkbox14").checked);
+         localStorage.setItem("ldh", document.getElementById("vue-checkbox15").checked);
+         localStorage.setItem("harn", document.getElementById("vue-checkbox16").checked);
+         localStorage.setItem("psa", document.getElementById("vue-checkbox17").checked);
+         localStorage.setItem("hcg", document.getElementById("vue-checkbox18").checked);
+         localStorage.setItem("serum", document.getElementById("vue-checkbox19").checked);
+
+
+
+
+
+
+
 
       data.append("bloodkleines", a.checked);
       data.append("bloodgrosses", b.checked);

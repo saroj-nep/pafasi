@@ -26,7 +26,8 @@ import Notepad from '@/components/Notepad.vue';
 export default {
  methods: {
         goToEvents: function () {
-          document. location. reload()
+           document. location. reload()
+         
         }},
   data() {
     return {

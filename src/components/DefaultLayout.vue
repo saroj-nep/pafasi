@@ -7,7 +7,9 @@
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0">
+              <router-link :to="{ name: 'Main' }">
               <img class="h-8 w-15" src="../../src/assets/Pafasi-dashboard.png" alt="Workflow" />
+                </router-link>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -134,6 +136,7 @@ import { useRoute, useRouter } from 'vue-router';
 import {computed} from 'vue';
 import { useStore } from 'vuex';
 import axios from "axios";
+import Main from '@/views/MainPageView.vue'
 
 
 
@@ -163,6 +166,7 @@ export default{
     MenuIcon,
     XIcon,
     Notification,
+    Main
   },
   methods: {
     onlogout() {

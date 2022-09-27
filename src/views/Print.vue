@@ -2,11 +2,11 @@
   <div>
     <form id="form1">
     <div id="text" class="">
-      <h1 class="sticky bg-emerald-200 top-0" >Ihre Diagnoseergebnisse</h1>
+      <h1 class=" bg-emerald-200 top-0" >Ihre Diagnoseergebnisse</h1>
       <div v-for = " c in counters " >
         <div v-if="c.email===email">
-<table   class=" border-separate border-spacing-8 border border-emerald-500" >
-    <thead class="sticky bg-emerald-200 top-0">
+<table   class=" border-separate border-spacing-8 border border-emerald-500 justify-center align-center" >
+    <thead class="bg-emerald-200 top-0">
       <tr>
         <th ></th>
         <th class="border border-emerald-600 ">Wirtschaftlichkeit (Höchstwert 100)</th>
@@ -30,26 +30,27 @@
 </div>
   </div>
 <br>
-        <h1 class="sticky bg-emerald-200 top-0">Ihr Diagnose-Logs</h1>
+        <h1 class=" bg-emerald-200 top-0">Ihre gespeicherten Notizen</h1>
          <div  >
         <div >
       
                 
-  <table   class=" border-separate border-spacing-8 border border-emerald-500" >
-    <thead class="sticky bg-emerald-200 top-0">
+  <table style="white-space: pre-wrap;"  class=" border-separate border-spacing-8 border border-emerald-500 justify-center align-center" >
+    <thead class=" bg-emerald-200 top-0">
       <tr>
        
-        <th class="border border-emerald-600 ">Diagnose Step</th>
-        <th class="border border-emerald-600 ">Zeit</th>
-
+        <th class="border border-emerald-600 ">Titel der Notiz</th>
+        <th class="border border-emerald-600 ">Text notieren</th>
+         <th class="border border-emerald-600 ">Zeit</th>
       </tr>
     </thead>
-    <tbody v-for = " step in steps " class="border border-emerald-600 "  >
+    <tbody v-for = " note in notes " style="white-space: pre-wrap;" class="border border-emerald-600 "  >
       
-      <tr v-if="step.user===email">
+      <tr style="white-space: pre-wrap;" v-if="note.user===email">
        
-        <td >{{step.steps}}</td>
-         <td >{{step.steptime}}</td>
+        <td style="white-space: pre-wrap;">{{note.title}}</td>
+         <td style="white-space: pre-wrap;" >{{note.text}}</td>
+         <td >{{note.date}}</td>
       </tr>
      
     </tbody></table>
@@ -76,12 +77,12 @@
      name:"Prints",
      data()
       {return{		
-        steps: [],
+        notes: [],
         stepsmodified:[],
         counters:[],
         email:localStorage.email,
 			}},
-       created(){this.allSteps();this.allCounters();},
+       created(){this.allNotes();this.allCounters();},
 			methods: {
 
         emptydiagnosis(){
@@ -130,12 +131,12 @@
    
 
     },            
-    allSteps() {
+    allNotes() {
         
 
-    axios.get( "./Api/api.php?action=getsteps",)
+    axios.get( "./Api/api.php?action=getnotess",)
     
-    .then((response) => {this.steps=response.data; this.stepsmodify(); } )
+    .then((response) => {this.notes=response.data;  } )
   },
       btnPrint() {
 
@@ -147,7 +148,7 @@
       printWindow.document.write('</body></html>');
       printWindow.document.close();
       printWindow.print();
-      this.emptydiagnosis();
+      
     }}}
   </script>
  <style scoped>

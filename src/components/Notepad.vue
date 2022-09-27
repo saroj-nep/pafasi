@@ -6,9 +6,9 @@
        
         <div>
         <form action="GET">
-          <h1><b> {{title}}</b></h1>
+          <h1 style="font-size:large"><b> {{title}}</b></h1>
            <h1 id="savealert" style="display:none" class="text-center text-green-500" >Ihre Notiz wurde erfolgreich gespeichert.</h1>    
-          <h1 id="inputalert" style="display:none" class="text-center text-red-500" >!! alle Eingabefelder sind obligatorisch !!</h1>
+          <h1 id="inputalert" style="display:none" class="text-center text-red-500" >Alle Eingabefelder sind obligatorisch!</h1>
         </form>
           <form action="POST"><div class="form">
             <div class="form-group">
@@ -37,7 +37,7 @@
                 <button class="close" @click.prevent="removeNote(notey.title,notey.date)" ><h7  class=" text-right text-white">&times;</h7> </button>
                 <br><div v-if="notey" class="card-block">
                   <h4  class="card-title text-left text-white">{{notey.title}}</h4>
-                  <h6 class="card-subtitle mb-2 text-left text-muted ">{{notey.date}}</h6>
+                  <!-- <h6 class="card-subtitle mb-2 text-left text-muted ">{{notey.date}}</h6> -->
                   <p  style= " white-space: pre-wrap;" class="card-text text-white">{{notey.text}}</p>
                   
                 </div>
