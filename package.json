@@ -13,6 +13,7 @@
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "crypto-browserify": "^3.12.0",
+    "html2pdf.js": "^0.10.1",
     "jquery": "^3.6.1",
     "json-server": "^0.4.2",
     "normalize.css": "^8.0.1",
@@ -29,6 +30,7 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
+    "@types/jspdf": "^2.0.0",
     "@vicons/antd": "^0.12.0",
     "@vicons/carbon": "^0.12.0",
     "@vicons/fa": "^0.12.0",

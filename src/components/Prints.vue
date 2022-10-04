@@ -1,14 +1,8 @@
 <template>
-  <Header />
-  <div class="flex sticky top -0 align-center content-center justify-center justify-items-center justify-evenly place-content-center">
-      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click="btnWarte();" >Rückkehr ins Wartezimmer</button>
-      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click="btnPrint();" >Laden Sie Ihre Diagnoseergebnisse herunter</button>
-   </div>
-  <div class="ml-60 mr-60 mt-10 mb-20 border border-green-500">
-    
+  <div>
     <form id="form1">
     <div id="text" class="">
-      <h1 class=" bg-emerald-200 " >Ihre Diagnoseergebnisse</h1>
+      <h1 class=" bg-emerald-200 top-0" >Ihre Diagnoseergebnisse</h1>
       <div v-for = " c in counters " >
         <div v-if="c.email===email">
 <table   class=" border-separate border-spacing-8 border border-emerald-500 justify-center align-center" >
@@ -67,7 +61,9 @@
    
     </form>
     </div>
-     
+     <div>
+      <button type="button"  id="btnPrint" class="button  align-center content-center justify-center justify-items-center justify-evenly place-content-center btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click="btnPrint();" >Laden Sie Ihre Diagnoseergebnisse herunter</button>
+   </div>
 </template>
 
   
@@ -77,7 +73,7 @@
 
     import axios from "axios";
     import jQuery from "jquery";
-    import Header from '@/components/DefaultLayout.vue';
+   
 
      
     const $ = jQuery;
@@ -91,7 +87,7 @@
         counters:[],
         email:localStorage.email,
 			}},
-      components: {Header},
+      components: {},
        created(){this.allNotes();this.allCounters();},
 			methods: {
 
@@ -140,13 +136,7 @@
             
    
 
-    },   
-    btnWarte(){
-     this.$router.push({ name: 'Wartezimmer' })
-
-
-
-    },         
+    },            
     allNotes() {
         
 
@@ -169,14 +159,14 @@
   </script>
  <style scoped>
  .button {
-   background: rgb(202, 40, 7);
+   background: #be123c;
   color: white;
   padding: 1%;
   border-radius: 2%;
-  margin-right: 10%;
-  margin-left:10%;
+  margin-right: 40%;
+  margin-left:40%;
   margin-top:2%;
-  width:20%;
+  width:25%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

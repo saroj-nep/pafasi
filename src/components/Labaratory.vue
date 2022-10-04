@@ -88,7 +88,7 @@
 
 
         
-
+<!-- 
           <button  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
            @click="() => TogglePopup('nextdayTrigger')">
            Ergebnisse des bestellten Tests
@@ -113,7 +113,7 @@
                 </div>
               </div>
             </div>
-          </Popup>
+          </Popup> -->
     </div>
  
 </template>
@@ -181,9 +181,9 @@ background: black;
   padding: 2%;
   border-radius: 20px;
   margin-right: 5%;
-  margin-left:10%;
+  margin-left:5%;
   margin-top:1%;
-  width:30%;
+  width:20%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

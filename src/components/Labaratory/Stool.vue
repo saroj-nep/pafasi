@@ -3,7 +3,7 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
     <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Stuhlprobe </b> </h1>
-   <br> <h1 style="font-size:1.5em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
+   <br> <h1 style="font-size:1.2em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
     </div>
     <br>
 
@@ -32,11 +32,12 @@
     </li>
     </div>
 </ul>
-
+<div class="flex flex-row  justify-center items-center">
 <button class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="sendValue(); stoolcounter(); TogglePopup('sendTrigger')">
          Abschicken
 </button>
+</div>
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
               <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
@@ -252,12 +253,12 @@ h3 {
 .submitbutton{
    background: #be123c;
   color: white;
-  padding: 2%;
+  padding: 1%;
   border-radius: 20px;
   margin-right: 5%;
   margin-left:10%;
   margin-top:1%;
-  width:30%;
+  width:15%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

@@ -587,7 +587,7 @@ if($action=='sendsubmit'){
 	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext' WHERE `user`='$onlineuser';";
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext', `submitted`=1  WHERE `user`='$onlineuser';";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -651,6 +651,42 @@ if($action=='rezeptvariable'){
 }
 if($action=='getpatient'){
 	$sql="SELECT * FROM `patients`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
+if($action=='getdoctors'){
+	$sql="SELECT * FROM `doctor_option`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
+if($action=='getsubmit'){
+	$sql="SELECT * FROM `submit_options`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();

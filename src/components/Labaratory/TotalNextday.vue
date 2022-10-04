@@ -1,6 +1,10 @@
 <template>
   <div style="height:80vh; overflow:auto">
     <div >
+      <div class=" bg-emerald-600 justify-center">
+ <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Die Laborergebnisse, die Sie erhalten haben:</b> </h1>
+</div>
+<br>
     <div class=" bg-emerald-600">
  <h1 class="h1 text-white " > <b>Ergebnisse der Blutuntersuchung</b> </h1>
 </div><br><br>
@@ -947,14 +951,43 @@
     </div>
   </div>
   </div>
+  <div class="flex flex-row  justify-center items-center">
+   <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click="() => TogglePopup('beendenTrigger')">
+           <h3 style="font-size:1em;">Weiter</h3>
+   </button>
+   </div>
+
+         
+          <Popup v-if="popupTriggers.beendenTrigger" :TogglePopup="() => TogglePopup('beendenTrigger')">
+             <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
+              <div v-if="showNotepad" class="tooltiptext" style= " white-space: pre-wrap;">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext" style= " white-space: pre-wrap;">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="height: 40rem;  overflow: auto">
+               <Afterlab />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
   </div>
 </template>
 
 <script>
-    import Popup from '@/components/Popup.vue';
+    import Popup from '@/components/Popup2.vue';
     import { ref } from 'vue';
     import Notepad from '@/components/Notepad.vue';
    import axios from "axios";
+   import Afterlab from '@/components/Afterlab.vue';
   
 
     
@@ -1016,7 +1049,7 @@
         }
       },
       
-      components: {Notepad, Popup}
+      components: {Notepad, Popup, Afterlab}
     }
     </script>
     

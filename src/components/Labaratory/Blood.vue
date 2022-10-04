@@ -419,14 +419,14 @@ h3 {
   color: rgb(255, 255, 255)
 }
 .submitbutton{
-  background: #be123c;
+   background: #be123c;
   color: white;
-  padding: 2%;
+  padding: 1%;
   border-radius: 20px;
   margin-right: 5%;
   margin-left:10%;
   margin-top:1%;
-  width:30%;
+  width:15%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

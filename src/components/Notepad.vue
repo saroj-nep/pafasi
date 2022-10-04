@@ -90,7 +90,8 @@ export default({
 
         saveNotealert(){
           const savealert = document.getElementById('savealert');
- savealert.style.display = 'block'
+ savealert.style.display = 'none';
+ alert('Ihre Notiz wurde erfolgreich gespeichert.')
 setTimeout(function() {
 
   savealert.style.display = 'none'
@@ -163,7 +164,7 @@ setTimeout(function() {
           
           } else {
             console.log("Success", res.data.message);
-            this.saveNotealert();
+           alert('Ihre Notiz wurde erfolgreich gespeichert.')
             this.note.text = "";
             this.note.title = "";
             this.allNotes()
@@ -173,7 +174,7 @@ setTimeout(function() {
           console.log("Error", err);
         });
 				}
-        else{inputalert.style.display='block'; savealert.style.display='none';
+        else{inputalert.style.display='none'; savealert.style.display='none'; alert('Alle Eingabefelder sind obligatorisch!')
       }  
         
         if (this.note.title.length < 1)  {inputtitle.style.border=' 1px solid red'}

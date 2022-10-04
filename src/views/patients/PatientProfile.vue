@@ -192,23 +192,13 @@
          </button>
 
           <Popup v-if="popupTriggers.beendenTrigger" :TogglePopup="() => TogglePopup('beendenTrigger')">
-             <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
-              <img v-if="showNotepad" src="../../assets/Collapse.png" alt="" @mouseover="showTooltip = true"
-                @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
-              <img src="../../assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
-              <div v-if="showNotepad" class="tooltiptext" style= " white-space: pre-wrap;">Notizblock ausblenden</div>
-              <div v-else class="tooltiptext" style= " white-space: pre-wrap;">Notizblock anzeigen</div>
-            </div>
+            
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 style="height: 40rem;  overflow: auto">
-                <Submit />
+                <Sendsubmit />
               </div>
-              <div class="col-span-1">
-                <div v-if="showNotepad">
-                  <Notepad />
-                </div>
-              </div>
+             
             </div>
           </Popup>
 
@@ -241,7 +231,7 @@ import Patientenakte from '../../components/Patientenakte.vue';
 import Untersuchen from '../../components/Untersuchen.vue';
 import Labaratory from '../../components/Labaratory.vue';
 import Facharzt from '../../components/Facharzt.vue';
-import Submit from '../../components/Submit.vue';
+import Sendsubmit from '../../components/Sendsubmit.vue';
 import Header from '@/components/DefaultLayout.vue';
 // import Tooltip from '@/components/Tooltip.vue';
 import axios from "axios";
@@ -312,7 +302,7 @@ methods: {
       .then(data => this.patients = data)
       .catch(err => console.log(err.message));
   },
-  components: {Header,  Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Submit }
+  components: {Header,  Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Sendsubmit }
 }
 </script>
 <style scoped>

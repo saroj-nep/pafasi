@@ -6,6 +6,7 @@ import Login from '../views/LoginPage.vue'
 import Patient from '../views/patients/PatientProfile.vue'
 import ErrorPage from "@/views/ErrorPage.vue"
 import store from '@/store'
+import Print from '@/views/Print.vue'
 
 const routes = [
  { path: "/",
@@ -35,7 +36,9 @@ const routes = [
       title: "Patient ",
     },
   },
-  
+  {
+    path: '/print',name: 'Print',component: Print
+  },
   
   {
     path: "/:catchAll(.*)",
