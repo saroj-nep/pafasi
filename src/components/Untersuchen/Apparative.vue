@@ -2,32 +2,52 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten. </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten: </b> </h1>
     </div>
     <br>
     
 
 
-       <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="counterInspektion();displayInspektion();">
+       <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+
+        <button v-if="click.temperatur==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="displayInspektion();">
          Körpertemperatur messen </button>
 
+        <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="counterInspektion();displayInspektion();">
+         Körpertemperatur messen </button>
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="counterNase();displayNase();">
+          <button v-if="click.blutzucker==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayNase();">
           Blutzucker messen
           </button>
              
-          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="counterNase();displayNase();">
+          Blutzucker messen
+          </button>
+
+          <button v-if="click.blutdruck==1" id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayHals();">
+          Blutdruck messen
+          </button>
+
+          <button v-else id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterHals();displayHals();">
           Blutdruck messen
           </button>
-         
           </div>
- <div class="flex  justify-center ">
+         
+<div v-if="click.user==email"  class="flex justify-center ">
        
-           <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.sono==1"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="TogglePopup('untereTrigger')">
+          Sonografie durchführen
+          </button>
+
+           <button v-else  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterSono();TogglePopup('untereTrigger')">
           Sonografie durchführen
           </button>
@@ -53,7 +73,13 @@
               </div>
             </div>
           </Popup>
-           <button class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+
+           <button v-if="click.ekg==1" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="TogglePopup('genitalTrigger')">
+           EKG durchführen lassen
+          </button>
+
+          <button v-else class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterEKG();TogglePopup('genitalTrigger')">
            EKG durchführen lassen
           </button>
@@ -80,7 +106,13 @@
             </div>
           </Popup>
           
-              <button class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+              <button v-if="click.lung==1" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="TogglePopup('genitTrigger')">
+           Lungenfunktionstest durchführen lassen
+          </button>
+
+          
+              <button v-else class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterLung();TogglePopup('genitTrigger')">
            Lungenfunktionstest durchführen lassen
           </button>
@@ -107,12 +139,13 @@
             </div>
           </Popup>
           
-         
+         </div>
           </div> 
-         <h3 id="inspektionanswer" style="display:none"> 37.2 °C</h3> 
-         <h3 id="naseanswer" style="display:none">125 mg/dl</h3> 
-        <h3 id="halsanswer" style="display:none">135/80 mmHg</h3>       
+            
   </div>
+    <h3 id="inspektionanswer" style="display:none"> 37.2 °C</h3> 
+         <h3 id="naseanswer" style="display:none">125 mg/dl</h3> 
+        <h3 id="halsanswer" style="display:none">135/80 mmHg</h3>  
 </template>
 
 <script>
@@ -136,15 +169,28 @@ export default {
         step:''
       },
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      clickz:[],
+      email:localStorage.email,
     };
   },
-methods:{
+
+  created(){this.clicks(); },
+
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+      data.append("temperatur",1);
       data.append("time",0.3);
       data.append("safety",100);
       data.append("step","Sie haben Körpertemperatur messen unter Apparative Untersuchen angekreuzt");
@@ -161,6 +207,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -171,8 +218,9 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+      data.append("blutzucker",1);
       data.append("time",1);
        data.append("safety",100);
         data.append("step","Sie haben Blutzucker  messen unter Apparative Untersuchen angekreuzt");
@@ -189,6 +237,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -199,8 +248,9 @@ methods:{
     counterHals() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+      data.append("blutdruck",1);
       data.append("time",1);
       data.append("safety",100);
        data.append("step","Sie haben Blutdruk messen unter Apparative Untersuchen angekreuzt");
@@ -217,6 +267,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -226,8 +277,9 @@ methods:{
     counterSono() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("sono",1);
       data.append("time",1);
      data.append("safety",100);
       data.append("step","Sie haben Sonografie durchführen unter Apparative Untersuchen angekreuzt");
@@ -244,6 +296,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -253,8 +306,9 @@ methods:{
     counterEKG() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("ekg",1);
       data.append("time",10);
       data.append("safety",100);
        data.append("step","Sie haben EKG durchführen unter Apparative Untersuchen angekreuzt");
@@ -271,6 +325,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -280,8 +335,9 @@ methods:{
     counterLung() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+      data.append("lung",1);
       data.append("time",10);
       data.append("safety",100);
       data.append("step","Sie haben Lungenfunktionstest durchführen  unter Apparative Untersuchen angekreuzt");
@@ -298,6 +354,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {

@@ -8,7 +8,7 @@
             
 
          <button style=""  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-            @click="goToEvents()">
+            @click.prevent="goToEvents()">
         zum Hauptmenü gehen
          </button>
         </div>

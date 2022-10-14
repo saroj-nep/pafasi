@@ -14,126 +14,132 @@
     <div  class="grid grid-cols-4 gap-1 " >
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox1" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox1" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">kleines Blutbild</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox2" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox2" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">großes Blutbild</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox3" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox3" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Gerinnung</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox4" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox4" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Entzündungsparameter</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox5" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox5" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Glucosestoffwechsel</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox6" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <input @click="savevalue();" id="vue-checkbox6" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Fettstoffwechsel</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox7" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox7" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Eisenstoffwechsel</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox8" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox8" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Leber/Galle</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox9" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox9" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Pankreas</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox10" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox10" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Niere</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox11" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox11" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Elektrolyte</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox12" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox12" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Schilddrüse/Nebenschilddrüse</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox13" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox13" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Herz</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox14" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox14" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">B-Vitamine & Folsäure</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox15" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox15" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">LDH</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox16" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox16" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Harnsäure</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox17" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox17" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">PSA</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox18" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
+            <input @click="savevalue();" id="vue-checkbox18" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">beta-HCG</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox19" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input @click="savevalue();" id="vue-checkbox19" type="checkbox" value="1" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Serumelektrophorese</label>
         </div>
     </li>
     
     </div>
 </ul></div>
-<div class="flex flex-row  justify-center items-center">
-<button  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+<div v-for="click in clickz" >
+<div v-if="click.user==email" class="flex flex-row  justify-center items-center">
+<button v-if="click.blood==1"  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+@click.prevent="sendvalue(); TogglePopup('sendTrigger')">
+         Abschicken
+</button>
+<button v-else  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="bloodcounter() ;sendvalue(); TogglePopup('sendTrigger')">
          Abschicken
 </button>
+</div>
 </div>
 
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
@@ -183,16 +189,51 @@ export default {
       showTooltip: false,
       showNotepad: false,
       bloods:[],
+      clickz:[],
+      email:localStorage.email,
       
     };
   },
 created(){
-this.showvalue();
+this.showvalue();this.clicks();
  },
   methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
+
+    savevalue(){  localStorage.setItem("kleines", document.getElementById("vue-checkbox1").checked);
+         localStorage.setItem("grosses", document.getElementById("vue-checkbox2").checked);
+         localStorage.setItem("gerin", document.getElementById("vue-checkbox3").checked);
+         localStorage.setItem("entz", document.getElementById("vue-checkbox4").checked);
+         localStorage.setItem("glucose", document.getElementById("vue-checkbox5").checked);
+         localStorage.setItem("fetts", document.getElementById("vue-checkbox6").checked);
+         localStorage.setItem("eisen", document.getElementById("vue-checkbox7").checked);
+         localStorage.setItem("leber", document.getElementById("vue-checkbox8").checked);
+         localStorage.setItem("pankreas", document.getElementById("vue-checkbox9").checked);
+         localStorage.setItem("niere", document.getElementById("vue-checkbox10").checked);
+         localStorage.setItem("elektrolyte", document.getElementById("vue-checkbox11").checked);
+         localStorage.setItem("schild", document.getElementById("vue-checkbox12").checked);
+         localStorage.setItem("herz", document.getElementById("vue-checkbox13").checked);
+         localStorage.setItem("bvitamin", document.getElementById("vue-checkbox14").checked);
+         localStorage.setItem("ldh", document.getElementById("vue-checkbox15").checked);
+         localStorage.setItem("harn", document.getElementById("vue-checkbox16").checked);
+         localStorage.setItem("psa", document.getElementById("vue-checkbox17").checked);
+         localStorage.setItem("hcg", document.getElementById("vue-checkbox18").checked);
+         localStorage.setItem("serum", document.getElementById("vue-checkbox19").checked);
+
+
+
+
+    },
+
    showvalue(){
     setTimeout(function(){
- if (localStorage.kleines == "true") { document.getElementById('vue-checkbox1').checked = true; } else { document.getElementById('vue-checkbox1').checked = false; }
+if (localStorage.kleines == "true") { document.getElementById('vue-checkbox1').checked = true; } else { document.getElementById('vue-checkbox1').checked = false; }
 if (localStorage.grosses == "true") { document.getElementById('vue-checkbox2').checked = true; } else { document.getElementById('vue-checkbox2').checked = false; }
 if (localStorage.gerin == "true") { document.getElementById('vue-checkbox3').checked = true; } else { document.getElementById('vue-checkbox3').checked = false; }
 if (localStorage.entz == "true") { document.getElementById('vue-checkbox4').checked = true; } else { document.getElementById('vue-checkbox4').checked = false; }
@@ -360,8 +401,10 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
     bloodcounter() {
       var data = new FormData();
   
-     
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("blood",1);
+      data.append("safety",1);
       data.append("time",1440);
       data.append("step","Sie haben einen Bluttest beantragt");
       data.append("onlineuser",localStorage.email);
@@ -369,7 +412,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -378,6 +421,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {

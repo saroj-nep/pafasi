@@ -2,29 +2,37 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Thorax' sehen möchten. </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Thorax (Herz & Lunge)' sehen möchten. </b> </h1>
     </div>
     <br>
     
 
 
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+   <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+        <button v-if="click.thoraxinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          @click.prevent="displayInspektion();">
+         Inspektion und Palpation </button>
+          <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
           @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
-
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.thoraxauskultation==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayNase();">
+           Auskultation & Perkussion
+          </button>
+           <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterNase();displayNase();">
            Auskultation & Perkussion
           </button>
             
-         
+        </div>
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 12/min, Herzspitzenstoß regelrecht tastbar.</h3> 
-         <h3 id="naseanswer" style="display:none">Herz:  Rhythmisch, leises, bandförmiges Systolikum mit p.m. im 5. ICR links medioclaviculär, Fortleitung in Axilla, Herzfrequenz ca. 68/min, leichte Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit.</h3> 
+       
           
   </div>
+   <h3 id="inspektionanswer" style="display:none"> Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 12/min, Herzspitzenstoß regelrecht tastbar.</h3> 
+    <h3 id="naseanswer" style="display:none">Herz:  Rhythmisch, leises, bandförmiges Systolikum mit p.m. im 5. ICR links medioclaviculär, Fortleitung in Axilla, Herzfrequenz ca. 68/min, leichte Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit.</h3> 
 </template>
 
 <script>
@@ -45,16 +53,27 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+          clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
      counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("thoraxinspektion",1);
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
@@ -71,6 +90,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -81,8 +101,9 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("thoraxauskultation",1);
       data.append("time",2);
       data.append("safety",100);
       data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
@@ -99,6 +120,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {

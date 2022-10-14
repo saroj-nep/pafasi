@@ -1,16 +1,26 @@
 <template>
-  <div style="height:80vh; overflow:auto">
-    <div >
-      <div class=" bg-emerald-600 justify-center">
- <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Die Laborergebnisse, die Sie erhalten haben:</b> </h1>
+  <div >
+          <div>
+            <div class=" bg-emerald-600 justify-center">
+ <h1 style="font-size:1.5em;" class="h1 text-white text-center" > <b>{{tagz}}</b> </h1>
 </div>
-<br>
-    <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <b>Ergebnisse der Blutuntersuchung</b> </h1>
-</div><br><br>
+<span style="color:red"> {{spantext}}</span>
+<br><br>
+    
+      <div v-for="blood in bloods">
+<div v-if="blood.user===email">
+  <div class=" bg-emerald-600" v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.electrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.beta==1||blood.serum==1" >
+ <h1 class="h1 text-white " > <b>Ergebnisse der Blutuntersuchung:</b> </h1>
+ <br>
+ </div>
+ </div>
+</div>
+
 <div v-for="blood in bloods">
 <div v-if="blood.user===email">
-<table   class=" border-separate border-spacing-8 border border-emerald-500" >
+  <div  v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.electrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.beta==1||blood.serum==1" >
+<img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="bloodtag();">
+    <table  class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
         <th  class="border border-emerald-600 " >Auswahl </th>
@@ -782,16 +792,27 @@
         <td>11-22</td>
       </tr>
     </tbody>
-  </table><br><br>
-</div>
-</div>
+  </table>
+  
   </div>
-  <div >
-    <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <b>Ergebnisse des Urintests </b> </h1>
-</div><br><br>
+ 
+</div>
+   </div>
+ 
+
+    <div >
+      <div v-for="urine in urines">
+<div v-if="urine.user===email">
+  <div class=" bg-emerald-600" v-if="urine.stix==1||urine.sediment==1||urine.kultur==1">
+ <h1 class="h1 text-white " > <b>Ergebnisse des Urintests: </b> </h1>
+ <br>
+ </div>
+ </div>
+</div>
+</div>
 <div v-for="urine in urines">
 <div v-if="urine.user===email">
+  <div v-if="urine.stix==1||urine.sediment==1||urine.kultur==1">
    <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
@@ -802,7 +823,8 @@
       
       </tr>
     </thead>
-    <tbody v-if="urine.stix==1"  class="border border-emerald-600  "  >
+    <tbody v-if="urine.stix==1" class="border border-emerald-600  "  >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag1();">
       <tr class="border border-emerald-600 ">
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">U-Stix</td>
         <td></td>
@@ -860,7 +882,8 @@
         <td>-</td>
       </tr>
     </tbody>
-    <tbody  v-if="urine.sediment==1">
+    <tbody  v-if="urine.sediment==1" >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag2();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
        
@@ -871,7 +894,8 @@
       
 
     </tbody>
-     <tbody  v-if="urine.kultur==1">
+     <tbody  v-if="urine.kultur==1" >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag3();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Kultur</td>
        
@@ -884,14 +908,24 @@
     </tbody>
     </table><br><br>
     </div>
+  
+</div>
+ </div>
+ 
+
+     <div >
+      <div v-for="stool in stools">
+<div v-if="stool.user===email">
+  <div class=" bg-emerald-600" v-if="stool.probe==1||stool.kultur==1||stool.untersuchung==1">
+ <h1 class="h1 text-white " > <b>Ergebnisse des Stuhltests: </b> </h1>
+ <br>
+ </div>
+ </div>
 </div>
 </div>
-<div >
-     <div class=" bg-emerald-600">
- <h1 class="h1 text-white " > <b>Ergebnisse des Stuhltests </b> </h1>
-</div><br><br>
 <div v-for="stool in stools">
 <div v-if="stool.user===email">
+  <div v-if="stool.probe==1||stool.kultur==1||stool.untersuchung==1">
       <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
@@ -902,7 +936,8 @@
       
       </tr>
     </thead>
-    <tbody v-if="stool.probe==1"  class="border border-emerald-600  "  >
+    <tbody v-if="stool.probe==1" class="border border-emerald-600  "  >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag1();">
       <tr class="border border-emerald-600 ">
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Stuhlprobe</td>
         <td></td>
@@ -931,7 +966,8 @@
         <td>250-2500 µg/g</td>
      </tr>
     </tbody>
-    <tbody  v-if="stool.kultur==1">
+    <tbody  v-if="stool.kultur==1" >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag2();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Stuhlkulture</td>
        
@@ -939,7 +975,8 @@
         <td>Campylobacter, Shigellen, Salmonellen, Yersinien negativ.</td>
       </tr>
     </tbody>
-     <tbody  v-if="stool.untersuchung==1">
+     <tbody  v-if="stool.untersuchung==1" >
+      <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag3();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Untersuchung auf Parasiten</td>
        
@@ -948,16 +985,28 @@
       </tr>
     </tbody>
     </table>
-    </div>
   </div>
+   
+</div>
+   </div>
+ 
+   
   </div>
   <div class="flex flex-row  justify-center items-center">
-   <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('beendenTrigger')">
+   <button v-if="tagfinal==1||tagfinal==2||tagfinal==5" class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="() => TogglePopup('beendenTrigger')">
            <h3 style="font-size:1em;">Weiter</h3>
    </button>
+   <button v-else class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="() => TogglePopup('specialtiesTrigger')">
+           <h3 style="font-size:1em;">Weiter</h3>
+   </button>
+   <br>
    </div>
+    
+  
 
+         
          
           <Popup v-if="popupTriggers.beendenTrigger" :TogglePopup="() => TogglePopup('beendenTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
@@ -979,15 +1028,37 @@
               </div>
             </div>
           </Popup>
-  </div>
+          
+          <Popup v-if="popupTriggers.specialtiesTrigger" :TogglePopup="() => TogglePopup('specialtiesTrigger')">
+             <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
+              <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
+                @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
+              <img src="@/assets/Expand.png" alt="" @click="showNotepad = true" class="w-10 h-10" v-else />
+              <div v-if="showNotepad" class="tooltiptext" style= " white-space: pre-wrap;">Notizblock ausblenden</div>
+              <div v-else class="tooltiptext" style= " white-space: pre-wrap;">Notizblock anzeigen</div>
+            </div>
+            <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
+              <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
+                style="height: 40rem;  overflow: auto">
+               <Specialties />
+              </div>
+              <div class="col-span-1">
+                <div v-if="showNotepad">
+                  <Notepad />
+                </div>
+              </div>
+            </div>
+          </Popup>
+</div>
 </template>
 
 <script>
-    import Popup from '@/components/Popup2.vue';
-    import { ref } from 'vue';
-    import Notepad from '@/components/Notepad.vue';
+  import Popup from '@/components/Popup2.vue';
+  import Notepad from '@/components/Notepad.vue';
    import axios from "axios";
    import Afterlab from '@/components/Afterlab.vue';
+  import { ref } from 'vue';
+  import Specialties from '@/components/Facharzt/Specialties.vue' 
   
 
     
@@ -1001,11 +1072,52 @@
           showTooltip: false,
           showNotepad: false,
           email:localStorage.email,
+          tagz:'',
+          tagfinal:null,
+          tag1:null,
+          tag21:null,
+          tag22:null,
+          tag23:null,
+          tag31:null,
+          tag32:null,
+          tag33:null,
+          spantext:''
         };
       },
     
-    created(){this.allbloods();this.allurines();this.allstools()},
+    created(){this.allbloods();this.allurines();this.allstools(); this.tag(); },
+
     methods: {
+
+    bloodtag(){ this.tag1=1; this.tag();
+    },
+    urinetag1(){ this.tag21=5; this.tag();
+    },
+      urinetag2(){ this.tag22=5; this.tag();
+    },
+      urinetag3(){ this.tag23=2; this.tag();
+    },
+      stooltag1(){ this.tag31=1; this.tag();
+    },
+       stooltag2(){ this.tag32=2; this.tag();
+    },
+       stooltag3(){ this.tag33=2; this.tag();
+    },
+
+
+
+    tag(){
+
+     this.tagfinal=Math.max(this.tag1,this.tag21,this.tag22,this.tag23,this.tag31,this.tag32,this.tag33)
+  
+     if (this.tagfinal ==5)
+     {this.tagz='Die heutigen Laborergebnisse lauten wie folgt:'}
+     else if (this.tagfinal ==1)  {this.tagz='Am nächsten '+ this.tagfinal+ ' Tag erreichen Sie die Laborergebnisse:'; this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
+     else if (this.tagfinal ==2) {this.tagz='Am nächsten '+ this.tagfinal+ ' Tagen erreichen Sie die Laborergebnisse:';this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
+     else {this.tagz='Sie haben keine Labortests angeordnet. Bitte klicken Sie auf Weiter';
+    }
+    },
+
     allbloods() {
         
 
@@ -1029,6 +1141,7 @@
     
     .then((response) => {this.stools=response.data })
     
+    
   },
     },
     
@@ -1044,40 +1157,29 @@
         }
         return {
           Popup,
+      
           popupTriggers,
           TogglePopup
         }
       },
       
-      components: {Notepad, Popup, Afterlab}
+      components: {Notepad, Afterlab,Popup, Specialties}
     }
     </script>
     
     <style scoped>
-    .submitbutton{
-      background: #be123c;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 10px auto;
-      min-height: 50px;
-      
-      cursor: pointer;
-      align-self: center;
-      justify-self: center;
-      /* color: #444   */
-    }
-    .button {
-      background: black;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 10px auto;
-      width:200px;
-      /* width: 20%; */
-      cursor: pointer;
-      /* color: #444   */
-    }
+
+.button{
+   background: #be123c;
+  color: white;
+  padding: 1%;
+  border-radius: 10px;
+  margin-top:1%;
+  width:10%;
+  /* width: 20%; */
+  cursor: pointer;
+  /* color: #444   */
+}
     
     .h1{
      font-size: large; 

@@ -7,39 +7,62 @@
     <br>
     
 
-  <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="counterInspektion(); displayInspektion();">
+   <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+
+        <button v-if="click.obereinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent=" displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+        <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="counterInspektion(); displayInspektion();">
+         Inspektion und Palpation </button>
+
+          <button v-if="click.oberebeweg==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="displayNase();">
+            Prüfung der Beweglichkeit
+          </button>
+
+          <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterNase();displayNase();">
             Prüfung der Beweglichkeit
           </button>
             
-           <button id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.obereneurolog==1" id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+                  @click.prevent="displayMund();">
+            neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
+          </button>
+
+           <button v-else id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
                   @click.prevent="counterMund();displayMund();">
             neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
         
 
       
-           <button  id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.oberedurch==1" id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayOhren();">
+           Prüfung der peripheren Durchblutung
+          </button>
+
+            <button v-else id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOhren();displayOhren();">
            Prüfung der peripheren Durchblutung
           </button>
             </div>
+   </div>
              <div class="flex justify-center ">
 
           
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Arme gleichmäßig rosig, bds. keine Ödeme, Atrophien oder Faszikulationen, Hand- und Fingergelenke schmal, keine Nagelveränderungen, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm,  Fingergelenke nicht druckschmerzhaft beim Händedruck.</h3> 
+        
+           
+  </div>
+  <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Arme gleichmäßig rosig, bds. keine Ödeme, Atrophien oder Faszikulationen, Hand- und Fingergelenke schmal, keine Nagelveränderungen, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm,  Fingergelenke nicht druckschmerzhaft beim Händedruck.</h3> 
          <h3 id="naseanswer" style="display:none">Normale und beschwerdefreie Beweglichkeit in Schultergürtel, Ellenbogengelenk, Hand- und Fingergelenken.</h3> 
           <h3 id="mundanswer" style="display:none"> Sensibilität bds für alle Qualitäten intakt, grobe Kraft allseits KG 5/5, Feinmotilität allseits unauffällig, Tonus unauffällig, Armvorhalteversuch: kein Absinken, keine Pronation. Eudiadochokinese bds., Reflexe seitengleich mittellebhaft auslösbar, Finger-Nase-Versuch zielsicher, Rebound negativ.</h3> 
            <h3 id="ohrenanswer" style="display:none">Beide Arme gleichmäßig rosig, bds. keine Ödeme, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm.</h3> 
-           
-  </div>
 </template>
 
 <script>
@@ -64,17 +87,28 @@ export default {
         step:''
       },
       
-      showTooltip: false,
-      showNotepad: false
+   showTooltip: false,
+      showNotepad: false,
+          clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("obereinspektion",1);
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: obere Extremität angekreuzt");
@@ -91,6 +125,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -101,8 +136,9 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+       data.append("oberebeweg",1);
       data.append("time",2);
        data.append("safety",100);
         data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
@@ -119,6 +155,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {
@@ -129,8 +166,9 @@ methods:{
     counterMund() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+       data.append("obereneurolog",1);
       data.append("time",3);
       data.append("safety",100);
        data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
@@ -147,6 +185,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {
@@ -156,8 +195,9 @@ methods:{
     counterOhren() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+      data.append("oberedurch",1);
       data.append("time",1);
      data.append("safety",100);
       data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
@@ -174,6 +214,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {

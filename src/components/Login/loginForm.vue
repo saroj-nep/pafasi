@@ -59,6 +59,9 @@ export default {
   }
     
     
+  }, created(){
+    console.log(localStorage.email)
+    if (!(localStorage.email=='')){this.$router.push("/main");}
   },
   methods: {
     Online(){

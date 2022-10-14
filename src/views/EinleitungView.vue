@@ -2,14 +2,17 @@
    <Header />
 </template>
 <script>
-import Button from '.././components/ButtonComp' 
+
 import Header from '@/components/DefaultLayout'
 
 export default{
     name:'button',
     components:{
-        Button,
+
         Header
-    }
+    },
+      created(){ console.log(localStorage.email)
+    if (localStorage.email==''){this.$router.push("/login");}
+},
 }
 </script>

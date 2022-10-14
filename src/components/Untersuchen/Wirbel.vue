@@ -8,27 +8,43 @@
     
 
 
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+       <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+
+        <button v-if="click.wirbelinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent=" displayInspektion();">
+         Inspektion und Palpation </button>
+          <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
 
+
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.wirbelfunktion==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+        @click.prevent="displayNase();">
+          Funktionsuntersuchung
+          </button>
+            <button v-else  id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
         @click.prevent="counterNase();displayNase();">
           Funktionsuntersuchung
           </button>
              
-          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.wirbelhals==1" id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+         @click.prevent="displayHals();">
+          Halswirbelsäule
+          </button>
+            <button v-else id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
          @click.prevent="counterHals();displayHals();">
           Halswirbelsäule
           </button>
          
+          </div>
           </div> 
-        <h3 id="inspektionanswer" style="display:none">Adipöser EZ, gebeugte Haltung, Muskelverhärtungen paravertebral v.a. lumbal, WS-Klopfschmerz.</h3> 
+        
+  </div>
+  <h3 id="inspektionanswer" style="display:none">Adipöser EZ, gebeugte Haltung, Muskelverhärtungen paravertebral v.a. lumbal, WS-Klopfschmerz.</h3> 
          <h3 id="naseanswer" style="display:none">Ante-, Retro-, Lateroflexion sowie Rotation mit erheblichen Schmerzen verbunden, bei Vorbeugung kein Hinweis auf ausgeprägte Skoliose, kein Vorlaufphänomen. Der Patient gibt Schmerzen beim Vorbeugen sowie Hochkommen an, Rüttelschmerz fraglich positiv, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite, kein Meningismus.</h3> 
        <h3 id="halsanswer" style="display:none">Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3>    
-  </div>
 </template>
 
 <script>
@@ -49,15 +65,27 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad:true
+      showNotepad:true,
+           clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
+  
    counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
+     data.append("wirbelinspektion",1);
       data.append("satisfaction",1);
       data.append("time",0.2);
       data.append("safety",100);
@@ -75,6 +103,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+              this.clicks();
           }
         })
         .catch(err => {
@@ -85,7 +114,8 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
+      data.append("wirbelfunktion",1);
       data.append("satisfaction",1);
       data.append("time",1.5);
       data.append("safety",100);
@@ -103,6 +133,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -112,12 +143,13 @@ methods:{
      counterHals() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
+      data.append("wirbelhals",1);
       data.append("satisfaction",1);
       data.append("time",0.2);
       data.append("safety",100);
       data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Rumpf-Wirbelsauele angekreuzt")
-   data.append("onlineuser",localStorage.email);
+      data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
@@ -130,6 +162,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+              this.clicks();
           }
         })
         .catch(err => {

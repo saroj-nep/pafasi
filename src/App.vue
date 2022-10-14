@@ -5,7 +5,7 @@
 
 
 <script>
-// import { createDecipheriv } from 'crypto'
+
 import ButtonCompVue from './components/ButtonComp';
 
 
@@ -29,13 +29,5 @@ export default{
 
 <style>
 @import "@/style/main.scss";
-#app {
-
-
-
-
-
-
-}
 
 </style>

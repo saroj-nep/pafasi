@@ -9,7 +9,7 @@
     <div  v-if="submit.user==email">
       <div>
       
-      <h2>Arbeitsdiagnose: <span style="color:red"> (Pflichtfeld)</span></h2><textarea id="arbeits2" rows="4"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="submit.diagnosis" required ></textarea>
+      <h2>Arbeitsdiagnose: <span style="color:red"> (Pflichtfeld)</span></h2><textarea id="arbeits3" rows="4"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="submit.diagnosis" required ></textarea>
         </div>
     
     <br>
@@ -20,72 +20,72 @@
       <ul class="w-200 text-sm font-medium text-white bg-white rounded-lg border border-emerald-200 dark:bg-emerald-600 dark:border-gray-600 dark:text-white" >
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
            <div v-if="submit.ambulance==1" class="flex items-center pl-12">
-            <input id="list-radio-12"  type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required checked="true">
+            <input id="list-radio-13"  type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required checked="true">
             <label for="list-radio-license" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Rettungsdienst rufen und Notfallmaßnahmen ergreifen </label>
         </div>
       <div v-else class="flex items-center pl-12">
-            <input id="list-radio-12" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required >
+            <input id="list-radio-13" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required >
             <label for="list-radio-license" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Rettungsdienst rufen und Notfallmaßnahmen ergreifen </label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
          <div v-if="submit.hospital==1" class="flex items-center pl-12">
-            <input id="list-radio-22" checked="true" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-23" checked="true" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-id" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Krankenhauseinweisung</label>
         </div>
       <div v-else class="flex items-center pl-12">
-            <input id="list-radio-22" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-23" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-id" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Krankenhauseinweisung</label>
         </div>
     </li>
     <br><h2><strong><b><span style="font-size: 2.2ex; padding-left: 1%;">Wiedervorstellung:</span></b></strong></h2>
     <li class="w-full rounded-t-lg border-gray-200 dark:border-gray-600">
          <div v-if="submit.noappointment==1" class="flex items-center pl-12">
-            <input checked="true" id="list-radio-32" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input checked="true" id="list-radio-33" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-millitary" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">keine Verabreden</label>
         </div>
       <div v-else class="flex items-center pl-12">
-            <input id="list-radio-32" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-33" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-millitary" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">keine Verabreden</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="submit.badappointment==1" class="flex items-center pl-12">
-            <input checked="true" id="list-radio-42" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input checked="true" id="list-radio-43" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">bei Verschlechterung</label>
         </div>
       <div v-else class="flex items-center pl-12">
-            <input id="list-radio-42" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-43" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">bei Verschlechterung</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="submit.twodays==1" class="flex items-center pl-12">
-            <input checked="true" id="list-radio-52" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input checked="true" id="list-radio-53" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 2 Tagen</label>
         </div>
         <div v-else class="flex items-center pl-12">
-            <input id="list-radio-52" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-53" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 2 Tagen</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="submit.fivedays==1" class="flex items-center pl-12">
-            <input checked="true" id="list-radio-62" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input checked="true" id="list-radio-63" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 5 Tagen</label>
         </div>
         <div v-else class="flex items-center pl-12">
-            <input id="list-radio-62" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-63" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 5 Tagen</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="fourweeks" class="flex items-center pl-12">
-            <input checked="true" id="list-radio-72" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input checked="true" id="list-radio-73" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 4 Wochen</label>
         </div>
         <div v-else class="flex items-center pl-12">
-            <input id="list-radio-72" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
+            <input id="list-radio-73" type="radio" disabled value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required>
             <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">in 4 Wochen</label>
         </div>
     </li>
@@ -101,40 +101,40 @@
 <ul class="w-200 text-sm font-medium text-white bg-white rounded-lg border border-emerald-200 dark:bg-emerald-600 dark:border-gray-600 dark:text-white">
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="submit.ausstellen==1" class="flex items-center pl-12">
-            <input checked="true" id="ausstellencheck2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input checked="true" id="ausstellencheck3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">AU ausstellen</label>
         </div>
         <div v-else class="flex items-center pl-12">
-            <input id="ausstellencheck2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input id="ausstellencheck3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">AU ausstellen</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg  border-gray-200 dark:border-gray-600">
         <div v-if="submit.rezept==1" class="flex items-center pl-12">
-            <input checked="true" id="rezeptcheck2" type="checkbox" value="" @click="showRezept();" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input checked="true" id="rezeptcheck3" type="checkbox" value="" @click="showRezept();" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Rezept(e) und /oder Verordnungen ausstellen</label>
         </div>
         <div v-else class="flex items-center pl-12">
-            <input id="rezeptcheck2" type="checkbox" value="" @click="showRezept();" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
+            <input id="rezeptcheck3" type="checkbox" value="" @click="showRezept();" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
             <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Rezept(e) und /oder Verordnungen ausstellen</label>
         </div>
     </li>
     
     
 </ul>
-<div v-if="submit.rezept==1" id="rezept2" style="display:block" class="flex items-center pl-1">
+<div v-if="submit.rezept==1" id="rezept3" style="display:block" class="flex items-center pl-1">
             <label for="rezepttext" > Was verordnen Sie? <span style="color:red"> (Pflichtfeld)</span></label> 
-          <textarea id="rezepttext2" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="submit.rezeptext" ></textarea>
+          <textarea id="rezepttext3" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="submit.rezeptext" ></textarea>
            
         </div>
-        <div v-else id="rezept2" style="display:none" class="flex items-center pl-1">
+        <div v-else id="rezept3" style="display:none" class="flex items-center pl-1">
             <label for="rezepttext" > Was verordnen Sie? <span style="color:red"> (Pflichtfeld)</span></label> 
-          <textarea id="rezepttext2" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" >''</textarea>
+          <textarea id="rezepttext3" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" >''</textarea>
            
         </div>
         
 <div class="flex flex-row  justify-center items-center">
-<button type="submit" id="submitbutton2"  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+<button type="submit" id="submitbutton3"  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="checkRadio(); ">
          Patienten verabschieden
          </button>
@@ -150,7 +150,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 style="height: 40rem;  overflow: auto">
-                <Specialties />
+                <Print />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -175,11 +175,11 @@ import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
 import axios from 'axios';
-import Specialties from '@/components/Facharzt/Specialties.vue';
+import Print from '@/components/Prints.vue';
 
 
 export default {
- name:"Submits2",
+ name:"Submits3",
   data() {
     return {
       counters: {
@@ -192,8 +192,6 @@ export default {
       },
       showTooltip: false,
       showNotepad: false,
-      diagnosis2:'',
-      prescription2:'',
       submits:[],
       email:localStorage.email,
     };
@@ -211,21 +209,21 @@ methods:{
     axios.get( "./Api/api.php?action=getsubmit",)
     
     .then((response) => {this.submits=response.data;} )
-    alert('Dies ist Ihre ursprüngliche Diagnose. Bitte nehmen Sie Änderungen vor, wenn Sie möchten. Fahren Sie trotzdem fort.')
+    alert('Dies ist Ihre aktuelle Diagnose. Bitte nehmen Sie Änderungen vor, wenn Sie dies wünschen. Fahren Sie trotzdem fort.')
 
   },
     
   checkRadio(){
-          const a = document.querySelector('#list-radio-12');
-          const b = document.querySelector('#list-radio-22');
-          const c = document.querySelector('#list-radio-32');
-          const d = document.querySelector('#list-radio-42');
-          const e = document.querySelector('#list-radio-52');
-          const f = document.querySelector('#list-radio-62');
-          const g = document.querySelector('#list-radio-72');
-          const i = document.querySelector('#rezeptcheck2');
-          var j = document.getElementById('rezepttext2').value;
-          var k = document.getElementById('arbeits2').value;
+          const a = document.querySelector('#list-radio-13');
+          const b = document.querySelector('#list-radio-23');
+          const c = document.querySelector('#list-radio-33');
+          const d = document.querySelector('#list-radio-43');
+          const e = document.querySelector('#list-radio-53');
+          const f = document.querySelector('#list-radio-63');
+          const g = document.querySelector('#list-radio-73');
+          const i = document.querySelector('#rezeptcheck3');
+          var j = document.getElementById('rezepttext3').value;
+          var k = document.getElementById('arbeits3').value;
 
     
     if(!(k.length >0)){alert("Bitte schreiben Sie Ihre Arbeitsdiagnose. Dies ist ein Pflichtfeld..") } 
@@ -235,31 +233,31 @@ methods:{
   },
 showRezept()
 {  
-const a = document.querySelector('#rezeptcheck2');
+const a = document.querySelector('#rezeptcheck3');
 
 if (a.checked ==1) {
-rezept2.style.display = "block";
+rezept3.style.display = "block";
 
 }
-else {rezept2.style.display = "none";}
+else {rezept3.style.display = "none";}
 
 },
 
 sendvalue() {
          
           var data = new FormData();
-          const a = document.querySelector('#list-radio-12');
-          const b = document.querySelector('#list-radio-22');
-          const c = document.querySelector('#list-radio-32');
-          const d = document.querySelector('#list-radio-42');
-          const e = document.querySelector('#list-radio-52');
-          const f = document.querySelector('#list-radio-62');
-          const g = document.querySelector('#list-radio-72');
-          const h = document.querySelector('#ausstellencheck2');
-          const i = document.querySelector('#rezeptcheck2');
+          const a = document.querySelector('#list-radio-13');
+          const b = document.querySelector('#list-radio-23');
+          const c = document.querySelector('#list-radio-33');
+          const d = document.querySelector('#list-radio-43');
+          const e = document.querySelector('#list-radio-53');
+          const f = document.querySelector('#list-radio-63');
+          const g = document.querySelector('#list-radio-73');
+          const h = document.querySelector('#ausstellencheck3');
+          const i = document.querySelector('#rezeptcheck3');
           
-          var k = document.getElementById('arbeits2').value;
-      if (i.checked){ var j = document.getElementById('rezepttext2').value;}
+          var k = document.getElementById('arbeits3').value;
+      if (i.checked){ var j = document.getElementById('rezepttext3').value;}
       else {var j =''}
 
 
@@ -299,7 +297,7 @@ sendvalue() {
 
 submitrezept(){
   var data = new FormData();
- const h = document.querySelector('#ausstellencheck2');
+ const h = document.querySelector('#ausstellencheck3');
   if (h.checked==1){
                      data.append("economy",1 ) ;
                      data.append("onlineuser",localStorage.email);
@@ -326,19 +324,16 @@ submitrezept(){
 },    
 submitcounter(){
    var data = new FormData();
-          const a = document.querySelector('#list-radio-12');
-          const b = document.querySelector('#list-radio-22');
-          const c = document.querySelector('#list-radio-32');
-          const d = document.querySelector('#list-radio-42');
-          const e = document.querySelector('#list-radio-52');
-          const f = document.querySelector('#list-radio-62');
-          const g = document.querySelector('#list-radio-72');
+          const a = document.querySelector('#list-radio-13');
+          const b = document.querySelector('#list-radio-23');
+          const c = document.querySelector('#list-radio-33');
+          const d = document.querySelector('#list-radio-43');
+          const e = document.querySelector('#list-radio-53');
+          const f = document.querySelector('#list-radio-63');
+          const g = document.querySelector('#list-radio-73');
          
-          console.log(a.checked);
-
-
-
- if (b.checked==true){data.append("safety",100);
+          
+if (b.checked==true){data.append("safety",100);
                      
                      }
 else if (c.checked==true){data.append("safety",80);
@@ -346,8 +341,6 @@ else if (c.checked==true){data.append("safety",80);
                      }
 
 else if (e.checked==true){data.append("safety",80);
-                     
-
 }
  data.append("step",'Sie haben Ihre Diagnose eingereicht');
  data.append("onlineuser",localStorage.email);
@@ -357,7 +350,7 @@ else if (e.checked==true){data.append("safety",80);
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitvariable2",
+          "./Api/api.php?action=submitvariable3",
           data
         )
         .then(res => {
@@ -389,7 +382,7 @@ setup() {
     }
   },
   
-  components: { Popup, Notepad,Specialties}
+  components: { Popup, Notepad,Print}
 }
 
 </script>

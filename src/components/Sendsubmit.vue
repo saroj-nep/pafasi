@@ -8,7 +8,7 @@
         
 
          <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('beendenTrigger')">
+            @click.prevent="() => TogglePopup('beendenTrigger')">
            <h3 style="font-size:1em;">Ja, ich bin bereit, die heutige Prüfung abzuschließen.</h3>
          </button>
 
@@ -36,7 +36,7 @@
 
 
          <button style="font-size:1em;"  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-            @click="goToEvents()">
+            @click.prevent="goToEvents()">
           Nein! Zurück zum Hauptmenü.
          </button>
         </div>
@@ -116,5 +116,33 @@ h2 {
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+ 
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+ visibility: hidden;
+  width: 400%;
+  background-color: rgba(0, 0, 0, 0.689);
+  color: #fff;
+  text-align: center;
+  font-size: small;
+  padding: 1px 0;
+
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  right:0
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
 }
 </style>

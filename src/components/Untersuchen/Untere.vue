@@ -8,39 +8,62 @@
     
 
 
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="counterInspektion(); displayInspektion();">
+        <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+
+       <button v-if="click.untereinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent=" displayInspektion();">
          Inspektion und Palpation </button>
 
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+        <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="counterInspektion(); displayInspektion();">
+         Inspektion und Palpation </button>
+
+          <button v-if="click.unterebeweg==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="displayNase();">
+            Prüfung der Beweglichkeit
+          </button>
+
+          <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="counterNase();displayNase();">
             Prüfung der Beweglichkeit
           </button>
             
-           <button id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.untereneurolog==1" id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+                  @click.prevent="displayMund();">
+            neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
+          </button>
+
+           <button v-else id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
                   @click.prevent="counterMund();displayMund();">
             neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
         
 
       
-           <button  id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.unteredurch==1" id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayOhren();">
+           Prüfung der peripheren Durchblutung
+          </button>
+
+            <button v-else id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOhren();displayOhren();">
            Prüfung der peripheren Durchblutung
           </button>
+            </div>
             </div>
             <div class="flex justify-center ">
 
           
           </div> 
-        <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, Atrophien oder Faszikulationen; keine Nagelveränderungen; keine Fußdeformitäten; Beckenstand gerade, keine Beinlängendifferenz; keine trophischen Störungen, Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek. Schmerzausstrahlung bis lateralem Fußrand linker Fuß.</h3> 
+      
+           
+  </div>
+    <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, Atrophien oder Faszikulationen; keine Nagelveränderungen; keine Fußdeformitäten; Beckenstand gerade, keine Beinlängendifferenz; keine trophischen Störungen, Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek. Schmerzausstrahlung bis lateralem Fußrand linker Fuß.</h3> 
         <h3 id="naseanswer" style="display:none">Normale und beschwerdefreie Beweglichkeit in Hüft-, Knie- und Fußgelenken.</h3> 
         <h3 id="mundanswer" style="display:none">Sensibilität: Hypästhesien links dorsal und lateral, Rest o.p.B.. Tonus unauffällig. Muskelkraft bei Kniestreckung (M. quadriceps (L4)) bds gleich, bei Plantar- und Dorsalflexion des Fußes und der Großzehen (L5/S1) li &lt;re, Kraftgrad 4/5. Reflexe: Patellarsehnenreflex (PSR) bds regelrecht, Achillessehnenreflex (ASR) links abgeschwächt, Babinski bds. negativ. Beinvorhalteversuch(Anwinkeln im 90° Winkel): kein Absinken. Knie-Hacke-Versuch zielsicher, Romberg- und Unterberger-Versuch unauffällig. Einbeinstand etwas wackelig aufgrund der einsetzenden Rückenschmerzen, Fersen- und Zehenspitzengang wackelig, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite. Rütteltest fraglich positiv.</h3> 
         <h3 id="ohrenanswer" style="display:none">Beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, keine trophischen Störungen, leichte Strömungsgeräusche über den Femoralisarterien bds., Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek.</h3> 
-           
-  </div>
 </template>
 
 <script>
@@ -65,16 +88,27 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+          clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
    counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+       data.append("untereinspektion",1);
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
@@ -91,6 +125,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -101,8 +136,9 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+         data.append("unterebeweg",1);
       data.append("time",2);
       data.append("safety",100);
       data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
@@ -119,6 +155,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {
@@ -129,8 +166,9 @@ methods:{
     counterMund() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+       data.append("untereneurolog",1);
       data.append("time",5);
       data.append("safety",100);
       data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
@@ -147,6 +185,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {
@@ -156,11 +195,12 @@ methods:{
     counterOhren() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+         data.append("unteredurch",1);
       data.append("time",1.5);
      data.append("safety",100);
-     data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
+     data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios
         .post(
@@ -174,6 +214,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+             this.clicks();
           }
         })
         .catch(err => {

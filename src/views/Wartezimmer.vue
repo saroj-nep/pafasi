@@ -15,7 +15,7 @@
      </router-link>
     </div> 
       <div v-else class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl">
-      <router-link :to="{ name: 'Patient' }"> 
+      <router-link :to="{ name: 'Patientagain' }"> 
         <img src= "../assets/Schneider2.png" class="  w-45" alt="Patient Image"  />   
                 <br><h3 style="text-align: center" >Hr. Wolfgang Schneider</h3>
                     <h3 style="text-align: center" >Status: Geschlossen</h3>
@@ -71,7 +71,9 @@ Header
     submits:[],
     email:localStorage.email
     }},
-    created(){ this.getsubmit();
+    created(){  console.log(localStorage.email)
+    if (localStorage.email==''){this.$router.push("/login");}
+ this.getsubmit();
   },
   methods: {getsubmit(){
 

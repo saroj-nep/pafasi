@@ -124,7 +124,7 @@ if($action=='emptydiagnosis'){
  
 
 $onlineuser=$_POST['onlineuser'];
-	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`notepad-title`='',`notepad-text`='' WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-counter2`= '0',`safety-counter3`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`counter-safety`='0',`counter-safety2`='0',`counter-safety3`='0',`notepad-title`='',`notepad-text`='' WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
  	if($result===true){
 		$res['error']=false;
@@ -173,8 +173,8 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
-
-	$sql="UPDATE `submit_options` SET `ambulance`=0,`hospital`=0,`noappointment`=0,`badappointment`=0,`twodays`=0,`fivedays`=0,`fourweeks`=0,`ausstellen`=0,`rezept`=0,`diagnosis`='0',`rezeptext`='0' WHERE `user`='$onlineuser';";
+		 
+	$sql="UPDATE `doctor_option` SET `augen`=0,`chiru`=0,`derma`=0,`gyna`=0,`hals`=0,`kardio`=0,`gastro`=0,`pulmo`=0,`nephro`=0,`onko`=0,`endo`=0,`neurochiru`=0,`neuro`=0,`ortho`=0,`padi`=0,`psychi`=0,`radio`=0,`uro`=0 WHERE  `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -183,6 +183,27 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
+
+	$sql="UPDATE `submit_options` SET `ambulance`=0,`hospital`=0,`noappointment`=0,`badappointment`=0,`twodays`=0,`fivedays`=0,`fourweeks`=0,`ausstellen`=0,`rezept`=0,`diagnosis`='',`rezeptext`='',`submitted`='0', `labloop`='0', `doctorloop`='0'   WHERE `user`='$onlineuser';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+	$sql="UPDATE `isclicked` SET  `beschreiben`=0, `akutes`=0, `medikamen`=0, `gewohn`=0, `nikotin`=0, `allergien`=0, `vegetative`=0, `gyna`=0, `psyche`=0, `familien`=0,`patientenakte`=0,`kopfinspektion`=0,`kopfnase`=0,`kopfohren`=0,`kopfmund`=0,`kopfschild`=0,`kopflymph`=0,`kopfhals`=0,`kopforient`=0,`thoraxinspektion`=0,`thoraxauskultation`=0,`wirbelinspektion`=0,`wirbelhals`=0, `wirbelfunktion`=0, `abdomeninspektion`=0,`abdomenauskultation`=0, `obereinspektion`=0,`oberebeweg`=0,`obereneurolog`=0,`oberedurch`=0,`untereinspektion`=0,`unterebeweg`=0,`untereneurolog`=0,`unteredurch`=0, `genitalinspektion`=0,`genitalrektal`=0, `temperatur`=0,`blutzucker`=0,`blutdruck`=0,`sono`=0,`ekg`=0,`lung`=0, `blood`=0,`urine`=0,`stool`=0   WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
 
 	$sql="DELETE FROM `user_history` WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
@@ -200,15 +221,60 @@ if($action=='countervariable'){
 
 	
 	$economy=$_POST['economy'];
-	$safety=$_POST['safety'];
 	$satisfaction=$_POST['satisfaction'];
 	$time=$_POST['time'];
 	$step=$_POST['step'];
 	$steptime=date('Y-m-d H:i:s');
 	$stepandtime=$step.' um '.$steptime.'.';
 	$onlineuser=$_POST['onlineuser'];
+	$akutes=$_POST['akutes'];
+	$allergien=$_POST['allergien'];
+	$beschreiben=$_POST['beschreiben'];
+	$gyna=$_POST['gyna'];
+	$nikotin=$_POST['nikotin'];
+	$medikamen=$_POST['medikamen'];
+	$gewohn=$_POST['gewohn'];
+	$psyche=$_POST['psyche'];
+	$vegetative=$_POST['vegetative'];
+	$familien=$_POST['familien'];
+	$patientenakte=$_POST['patientenakte'];
+	$kopfinspektion=$_POST['kopfinspektion'];
+	$kopfnase=$_POST['kopfnase'];
+	$kopfmund=$_POST['kopfmund'];
+	$kopfohren=$_POST['kopfohren'];
+	$kopflymph=$_POST['kopflymph'];
+	$kopfschild=$_POST['kopfschild'];
+	$kopfhals=$_POST['kopfhals'];
+	$kopforient=$_POST['kopforient'];
+	$thoraxinspektion=$_POST['thoraxinspektion'];
+	$thoraxauskultation=$_POST['thoraxauskultation'];
+	$wirbelinspektion=$_POST['wirbelinspektion'];
+	$wirbelfunktion=$_POST['wirbelfunktion'];
+	$wirbelhals=$_POST['wirbelhals'];
+	$abdomeninspektion=$_POST['abdomeninspektion'];
+	$abdomenauskultation=$_POST['abdomenauskultation'];
+	$obereinspektion=$_POST['obereinspektion'];
+	$oberebeweg=$_POST['oberebeweg'];
+	$obereneurolog=$_POST['obereneurolog'];
+	$oberedurch=$_POST['oberedurch'];
+	$untereinspektion=$_POST['untereinspektion'];
+	$unterebeweg=$_POST['unterebeweg'];
+	$untereneurolog=$_POST['untereneurolog'];
+	$unteredurch=$_POST['unteredurch'];
+	$genitalinspektion=$_POST['genitalinspektion'];
+	$genitalrektal=$_POST['genitalrektal'];
+	$temperatur=$_POST['temperatur'];
+    $blutzucker=$_POST['blutzucker'];
+	$blutdruck=$_POST['blutdruck'];
+	$sono=$_POST['sono'];
+	$ekg=$_POST['ekg'];
+	$lung=$_POST['lung'];
+	$blood=$_POST['blood'];
+	$urine=$_POST['urine'];
+	$stool=$_POST['stool'];
+	
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+'$economy' ,`counter`=`counter`+'1' ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+'$safety'),`safety-sum` = `safety-counter`/ `counter`,`satisfaction-counter`= `satisfaction-counter`+'$satisfaction' ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+'$time' WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`,`satisfaction-counter`= `satisfaction-counter`+$satisfaction ,`satisfaction-sum`=  `satisfaction-counter`*100/`counter`,`time-counter`= `time-counter`+$time WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -217,6 +283,414 @@ if($action=='countervariable'){
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
+	 
+	$sql="UPDATE `isclicked` SET `akutes`=$akutes WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `beschreiben`=$beschreiben WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `allergien`=$allergien WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `familien`=$familien WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `gewohn`=$gewohn WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `vegetative`=$vegetative WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `nikotin`=$nikotin WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `psyche`=$psyche WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `gyna`=$gyna WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `medikamen`=$medikamen WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+			$sql="UPDATE `isclicked` SET `patientenakte`=$patientenakte WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+			$sql="UPDATE `isclicked` SET `kopfinspektion`=$kopfinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopfnase`=$kopfnase WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopfmund`=$kopfmund WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopfohren`=$kopfohren WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopfhals`=$kopfhals WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopfschild`=$kopfschild WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopforient`=$kopforient WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `kopflymph`=$kopflymph WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `thoraxinspektion`=$thoraxinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `thoraxauskultation`=$thoraxauskultation WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `wirbelinspektion`=$wirbelinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+   $sql="UPDATE `isclicked` SET `wirbelfunktion`=$wirbelfunktion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `wirbelhals`=$wirbelhals WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	
+	}
+	$sql="UPDATE `isclicked` SET `abdomeninspektion`=$abdomeninspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `abdomenauskultation`=$abdomenauskultation WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `obereinspektion`=$obereinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `oberebeweg`=$oberebeweg WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `obereneurolog`=$obereneurolog WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `oberedurch`=$oberedurch WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `untereinspektion`=$untereinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `unterebeweg`=$unterebeweg WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `untereneurolog`=$untereneurolog WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `unteredurch`=$unteredurch WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `genitalinspektion`=$genitalinspektion WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `genitalrektal`=$genitalrektal WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+    	$sql="UPDATE `isclicked` SET `temperatur`=$temperatur WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `blutzucker`=$blutzucker WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `blutdruck`=$blutdruck WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `sono`=$sono WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `ekg`=$ekg WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `lung`=$lung WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+		$sql="UPDATE `isclicked` SET `blood`=$blood WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `urine`=$urine WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="UPDATE `isclicked` SET `stool`=$stool WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	
 
 	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
 	$result=$conn->query($sql);
@@ -250,6 +724,32 @@ if($action=='facharztvariable'){
         $res['message']="Somthing Went Wrong";
 	}
      	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+if($action=='submitlabloop'){
+	$onlineuser=$_POST['onlineuser'];
+
+	$sql="UPDATE `submit_options` SET `labloop`=`labloop`+1  WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+if($action=='submitdoctorloop'){
+	$onlineuser=$_POST['onlineuser'];
+
+	$sql="UPDATE `submit_options` SET `doctorloop`=`doctorloop`+1  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -295,6 +795,25 @@ if($action=='getnotes'){
 	}
 	
 }
+if($action=='getclicks'){
+	$sql="SELECT * FROM `isclicked` ";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row,);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
+
 if($action=='getcounters'){
 	$sql="SELECT `economy-sum` as `economy`, `safety-sum` as `safety`, `satisfaction-sum` as `satisfaction`, `time-counter` as `time`, `email` as `email`  FROM `users`";
 	$result=$conn->query($sql);
@@ -570,7 +1089,63 @@ if($action=='getuserinfo'){
 	}
 	
 }
-if($action=='sendsubmit'){
+if($action=='sendsubmit1'){
+
+	
+	$diagnose=$_POST['diagnose'];
+	$ambulance=$_POST['ambulance'];
+	$hospital=$_POST['hospital'];
+	$noappointment=$_POST["noappointment"];
+	$twodays=$_POST["twodays"];
+	$fourweeks=$_POST["fourweeks"];
+	$badappointment=$_POST["badappointment"];
+	$fivedays=$_POST["fivedays"];
+	$ausstellen=$_POST["ausstellen"];
+	$rezept=$_POST["rezept"];
+	$rezepttext=$_POST["rezepttext"];
+	$onlineuser=$_POST["onlineuser"];
+	
+	 
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext'  WHERE `user`='$onlineuser';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+    	
+}
+if($action=='sendsubmit2'){
+
+	
+	$diagnose=$_POST['diagnose'];
+	$ambulance=$_POST['ambulance'];
+	$hospital=$_POST['hospital'];
+	$noappointment=$_POST["noappointment"];
+	$twodays=$_POST["twodays"];
+	$fourweeks=$_POST["fourweeks"];
+	$badappointment=$_POST["badappointment"];
+	$fivedays=$_POST["fivedays"];
+	$ausstellen=$_POST["ausstellen"];
+	$rezept=$_POST["rezept"];
+	$rezepttext=$_POST["rezepttext"];
+	$onlineuser=$_POST["onlineuser"];
+	
+	 
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext'  WHERE `user`='$onlineuser';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+    	
+}
+if($action=='sendsubmit3'){
 
 	
 	$diagnose=$_POST['diagnose'];
@@ -598,6 +1173,24 @@ if($action=='sendsubmit'){
 	}
     	
 }
+if($action=='sendsubmit4'){
+
+	
+
+	$onlineuser=$_POST["onlineuser"];
+	
+	 
+	$sql="UPDATE `submit_options` SET  `submitted`=1  WHERE `user`='$onlineuser';";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+    	
+}
 if($action=='submitvariable'){
 
 	
@@ -609,7 +1202,70 @@ if($action=='submitvariable'){
 	$stepandtime=$step.' um '.$steptime.'.';
 	$onlineuser=$_POST["onlineuser"];
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter` WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`counter-safety`=`counter-safety`+1,`economy-sum`=  `economy-counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter-safety` WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+
+if($action=='submitvariable2'){
+
+	
+	
+	$safety=$_POST["safety"];
+	
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST["onlineuser"];
+	 
+	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety2`=`counter-safety2`+1 , `safety-counter2`= (`safety-counter2`+$safety),`safety-sum` = `safety-counter2`/ `counter-safety2` WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+if($action=='submitvariable3'){
+
+	
+	
+	$safety=$_POST["safety"];
+	
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST["onlineuser"];
+	 
+	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety3`=`counter-safety3`+1 , `safety-counter3`= (`safety-counter3`+$safety),`safety-sum` = `safety-counter3`/ `counter-safety3` WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -638,7 +1294,7 @@ if($action=='rezeptvariable'){
 	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter`*100/`counter` WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`economy-sum`=  `economy-counter` WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;

@@ -2,29 +2,38 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Genital- und Glutealregion' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Genital- und Glutealregion' sehen möchten :  </b> </h1>
     </div>
     <br>
     
 
 
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-             @click.prevent="counterInspektion(); displayInspektion();">
-         Inspektion und Palpation </button>
+        <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
 
+             <button v-if="click.genitalinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent=" displayInspektion();">
+         Inspektion und Palpation </button>
+ <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="counterInspektion(); displayInspektion();">
+         Inspektion und Palpation </button>
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-         @click.prevent="counterNase();displayNase();">
-           digital rektale Untersuchung
+          <button v-if="click.genitalrektal==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          @click.prevent="displayNase();">
+           Auskultation & Perkussion
+          </button>
+               <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          @click.prevent="counterNase();displayNase();">
+           Auskultation & Perkussion
           </button>
             
-         
+         </div>
           </div> 
-        <h3 id="inspektionanswer" style="display:none">Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen, geschlechtstypisches Behaarungsmuster, kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
+      
+  </div>
+    <h3 id="inspektionanswer" style="display:none">Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen, geschlechtstypisches Behaarungsmuster, kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
          <h3 id="naseanswer" style="display:none">Kein Hervortreten von Schleimhaut, Analreflex normal auslösbar, normaler Sphinktertonus, Schleimhaut gleichmäßig, weich und verschieblich, keine Raumforderungen, keine Schmerzauslösung, kein Blut am Fingerling. keine Prostata tastbar, keine Schmerzen.</h3> 
           
-  </div>
 </template>
 
 <script>
@@ -43,17 +52,28 @@ export default {
         economy: null
       },
       
-      showTooltip: false,
-      showNotepad: false
+   showTooltip: false,
+      showNotepad: false,
+          clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
   counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+        data.append("genitalinspektion",1);
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Genital- und Glutealregion angekreuzt");
@@ -70,6 +90,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -82,6 +103,7 @@ methods:{
   
       data.append("economy",0);
       data.append("satisfaction",0);
+      data.append("genitalrektal",1);
       data.append("time",0.5);
       data.append("safety",100);
       data.append("step","Sie haben digital rektale Untersuchung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
@@ -98,6 +120,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {

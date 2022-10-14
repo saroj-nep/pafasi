@@ -52,9 +52,11 @@
               Nächstes tun? </b> </h1>
     </div>
 <br>
-         
+
+        <div class="grid grid-cols-2" style="margin-left:2%">
+          <div class="grid">
           <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('anamneseTrigger')">
+            @click.prevent="() => TogglePopup('anamneseTrigger')">
            <h3 style="font-size:1em; "> ausführlichere Anamnese führen</h3>
           </button>
 
@@ -80,7 +82,7 @@
           </Popup>
   
           <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('untersuchenTrigger')">
+            @click.prevent="() => TogglePopup('untersuchenTrigger')">
             <h3 style="font-size:1em; ">Untersuchen</h3>
           </button>
 
@@ -105,12 +107,17 @@
             </div>
           </Popup>
 
-         
-          <button method="POST"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="patientenaktecounter(),TogglePopup('patientenakteTrigger')">
+         <div v-for="click in clickz" >
+          <div v-if="click.user==email">
+          <button v-if="click.patientenakte==1" method="POST"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="TogglePopup('patientenakteTrigger')">
            <h3 style="font-size:1em;">einen Blick in die Patientenakte werfen</h3></button>
         
- 
+          <button v-else method="POST"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="patientenaktecounter(),TogglePopup('patientenakteTrigger')">
+           <h3 style="font-size:1em;">einen Blick in die Patientenakte werfen</h3></button>
+        </div>
+        </div>
           
           <Popup v-if="popupTriggers.patientenakteTrigger" :TogglePopup="() => TogglePopup('patientenakteTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
@@ -133,9 +140,10 @@
             </div>
           </Popup>
 
-         
+         </div>
+         <div class="grid">
           <button color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('laboranordnungenTrigger')">
+            @click.prevent="() => TogglePopup('laboranordnungenTrigger')">
             <h3 style="font-size:1em;">Laboranordnungen</h3>
          </button>
 
@@ -161,7 +169,7 @@
           </Popup>
         
          <button color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('facharztTrigger')">
+            @click.prevent="() => TogglePopup('facharztTrigger')">
             <h3 style="font-size:1em;">eine Überweisung zum Facharzt ausstellen</h3>
          </button>
 
@@ -187,7 +195,7 @@
           </Popup>
 
          <button color="#42b983" class="submitbutton  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click="() => TogglePopup('beendenTrigger')">
+            @click.prevent="() => TogglePopup('beendenTrigger')">
            <h3 style="font-size:1em;">Heutige Vorstellung beenden und (be-)handeln</h3>
          </button>
 
@@ -201,7 +209,8 @@
              
             </div>
           </Popup>
-
+          </div>
+</div>
 
 
         </div>
@@ -248,19 +257,43 @@ export default {
        
       },
       patients:[],
+      clickz:[],
       patient: null,
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      email:localStorage.email
     };
   },
+  created(){ 
+    if (localStorage.email==''){this.$router.push("/login");}
+     this.clicks();
+      // this.pagereload();
+  
+  
+},
 methods: {
+
+ pagereload() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+},
+  clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+     console
+},
     patientenaktecounter() {
       var data = new FormData();
       
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",0);
+      data.append("patientenakte",1)
       data.append("time",1);
-      data.append("safety",0);
+      data.append("safety",1);
       data.append("step","Sie haben einen Blick in die Patientenakte geworfen")
       data.append("onlineuser",localStorage.email);
       axios
@@ -275,6 +308,7 @@ methods: {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -296,12 +330,7 @@ methods: {
       TogglePopup
     }
   },
-  mounted() {
-    fetch("https://database-pafasi.herokuapp.com/patients/") //json server to be replaced by database later
-      .then(res => res.json())
-      .then(data => this.patients = data)
-      .catch(err => console.log(err.message));
-  },
+ 
   components: {Header,  Popup, Notepad, Anamnese, Patientenakte, Untersuchen, Labaratory, Facharzt, Sendsubmit }
 }
 </script>
@@ -326,13 +355,13 @@ methods: {
   background: black;
   margin-right: 5%;
   margin-left:5%;
-  margin-top:1%;
+  margin-top:5%;
    
   color: white;
-  padding: 2%;
+  padding: 3%;
   border-radius: 20px;
 
-  width:40%;
+  width:80%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
@@ -340,13 +369,13 @@ methods: {
 .submitbutton{
   background: #be123c;
   color: white;
-  padding: 2%;
+  padding: 3%;
   border-radius: 20px;
   margin-right: 5%;
   margin-left:5%;
-  margin-top:1%;
+  margin-top:5%;
   
-  width:40%;
+  width:80%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

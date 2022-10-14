@@ -7,7 +7,7 @@
 
     <div >
       <div>
-      <h2>Arbeitsdiagnose: <span style="color:red"> (Pflichtfeld)</span></h2><textarea id="arbeits" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="diagnosis" required ></textarea>
+      <h2>Arbeitsdiagnose: <span style="color:red"> (Pflichtfeld)</span></h2><textarea  id="arbeits" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="diagnosis" required ></textarea>
       
     
     </div>
@@ -86,8 +86,8 @@
     
 </ul>
 <div id="rezept" style="display:none" class="flex items-center pl-1">
-            <label for="checkbox2" > Was verordnen Sie? <span style="color:red"> (Pflichtfeld)</span></label> 
-          <textarea id="rezepttext" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="prescription" required ></textarea>
+            <label for="rezepttext" > Was verordnen Sie? <span style="color:red"> (Pflichtfeld)</span></label> 
+          <textarea id="rezepttext" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="prescription" ></textarea>
            
         </div>
         
@@ -156,6 +156,7 @@ export default {
 
   
 methods:{
+
  
   checkRadio(){
           const a = document.querySelector('#list-radio-1');
@@ -171,7 +172,7 @@ methods:{
     if(!(this.diagnosis.length >0)){alert("Bitte schreiben Sie Ihre Arbeitsdiagnose. Dies ist ein Pflichtfeld..") } 
     else if (!(a.checked||b.checked||c.checked||d.checked||e.checked||f.checked||g.checked)==true){alert("wählen Sie mindestens eine Option für das weitere Vorgehen mit dem Patienten.") }
     else if(((i.checked==true) && (this.prescription.length ==0))){alert("Sie haben sich für die Ausstellung eines Rezepts entschieden. Bitte notieren Sie Ihre Rezept(e).") }      
-    else {this.submitcounter();this.sendvalue();alert("Danke Ihnen für die vollständige Diagnose.")}
+    else {this.submitcounter();this.rezeptcounter();this.sendvalue();alert("Danke Ihnen für die vollständige Diagnose.")}
   },
  showRezept()
 {  
@@ -200,6 +201,20 @@ sendvalue() {
           var j = document.getElementById('rezepttext').value;
           var k = document.getElementById('arbeits').value;
        
+       
+      // localStorage.setItem("arbeits", this.diagnosis);  
+      // localStorage.setItem("rettung", document.getElementById("list-radio-1").checked); 
+      // localStorage.setItem("kranken",document.getElementById("list-radio-2").checked); 
+      // localStorage.setItem("verabreden", document.getElementById("list-radio-3").checked); 
+      // localStorage.setItem("averschlechterung", document.getElementById("list-radio-4").checked);  
+      // localStorage.setItem("twotagen", document.getElementById("list-radio-5").checked); 
+      // localStorage.setItem("fivetagen", document.getElementById("list-radio-6").checked); 
+      // localStorage.setItem("fourwochen", document.getElementById("list-radio-7").checked); 
+      // localStorage.setItem("ausstellen", document.getElementById("ausstellen").checked); 
+      // localStorage.setItem("rezeptcheck", document.getElementById("rezeptcheck").checked); 
+      // localStorage.setItem("rezepttext",this.prescription); 
+       
+
 
       data.append("ambulance", a.checked);
       data.append("hospital", b.checked);
@@ -216,7 +231,7 @@ sendvalue() {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendsubmit",
+           "./Api/api.php?action=sendsubmit1",
           data
         )
         .then(res => {
@@ -234,16 +249,24 @@ sendvalue() {
         });
     },
 
-submitrezept(){
-  var data = new FormData();
- const h = document.querySelector('#ausstellencheck');
-  if (h.checked==1){
-                     data.append("economy",1 ) ;
-                     data.append("onlineuser",localStorage.email);
-     axios
+  rezeptcounter(){
+   var data = new FormData();
+          const a = document.querySelector('#rezeptcheck');
+          const b = document.querySelector('#ausstellencheck');        
+     
+
+if (a.checked==1){ if (b.checked==1){data.append("economy",3.125)} else {data.append("economy",6.25)}}
+else {if (b.checked==1){data.append("economy",-3.125)}}
+ data.append("safety",100)
+ data.append("step",'Sie haben Ihre Diagnose eingereicht');
+ data.append("onlineuser",localStorage.email);
+
+  
+
+ axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=rezeptvariable",
+          "./Api/api.php?action=submitvariable",
           data
         )
         .then(res => {
@@ -252,15 +275,13 @@ submitrezept(){
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-            
+           this.TogglePopup('labTrigger');
           }
         })
         .catch(err => {
           console.log("Error", err);
-        });                 
-                    
-                    }
-},    
+        });
+    }, 
 submitcounter(){
    var data = new FormData();
           const a = document.querySelector('#list-radio-1');
@@ -270,30 +291,31 @@ submitcounter(){
           const e = document.querySelector('#list-radio-5');
           const f = document.querySelector('#list-radio-6');
           const g = document.querySelector('#list-radio-7');
+          
          
-          console.log(a.checked);
+     
 
 if (a.checked==1){data.append("safety",100);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125) 
                      }
 
 else if (b.checked==true){data.append("safety",100);
-                     data.append("economy",1 ) 
+                     data.append("economy",6.25) 
                      }
 else if (c.checked==true){data.append("safety",0);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125 ) 
                      }
 else if (d.checked==true){data.append("safety",50);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125 ) 
                      }   
 else if (e.checked==true){data.append("safety",80);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125 ) 
                      }
 else if (f.checked==true){data.append("safety",70);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125 ) 
                      }
 else if (g.checked==true){data.append("safety",20);
-                     data.append("economy",0 ) 
+                     data.append("economy",-3.125) 
 }
  data.append("step",'Sie haben Ihre Diagnose eingereicht');
  data.append("onlineuser",localStorage.email);
@@ -364,5 +386,32 @@ h3 {
   /* color: #444   */
 }
  
+.tooltip {
+  position: relative;
+  display: inline-block;
+ 
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+ visibility: hidden;
+  width: 400%;
+  background-color: rgba(0, 0, 0, 0.689);
+  color: #fff;
+  text-align: center;
+  font-size: small;
+  padding: 1px 0;
+
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  right:0
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
+}
 
 </style>

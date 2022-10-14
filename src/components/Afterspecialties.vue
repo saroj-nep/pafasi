@@ -19,14 +19,13 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 style="height: 40rem;  overflow: auto">
-                <Specialties />
+                <Print />
               </div>
               <div class="col-span-1">
                
               </div>
             </div>
           </Popup2>
-
           <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="() => TogglePopup('krankenTrigger')">
            <h3 style="font-size:1em;">Patienten sofort kontaktieren und ins Krankenhaus einweisen</h3>
@@ -60,7 +59,7 @@
          </button>
 
          
-          <Popup2 v-if="popupTriggers.andernTrigger" :TogglePopup="() => TogglePopup('andernTrigger')">
+          <Popup v-if="popupTriggers.andernTrigger" :TogglePopup="() => TogglePopup('andernTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
@@ -71,7 +70,7 @@
             <div class="grid grid-cols-3 gap-4" style="margin-top: 20px;">
               <div v-bind:class="`${showNotepad ? 'col-span-2' : 'col-span-3'}`"
                 style="height: 40rem;  overflow: auto">
-               <Submit2 />
+               <Submit3 />
               </div>
               <div class="col-span-1">
                 <div v-if="showNotepad">
@@ -79,11 +78,12 @@
                 </div>
               </div>
             </div>
-          </Popup2>
+          </Popup>
 
-             <div v-for="lab in labloops">
-    <div  v-if="lab.user==email">
-         <button v-if="lab.labloop==0" style="font-size:1em;"  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+
+        <div v-for="doctor in doctorloops">
+    <div  v-if="doctor.user==email">
+         <button v-if="doctor.doctorloop==0" style="font-size:1em;"  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             @click.prevent="goToEvents()">
           Patienten nochmal einbestellen
          </button>
@@ -96,37 +96,35 @@
 </template>
 
 <script>
-
+import Popup from '@/components/Popup.vue';
 import Popup2 from '@/components/Popup2.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
 import Print from '@/components/Prints.vue';
-import Submit2 from '@/components/Submit2.vue';
-import Specialties from '@/components/Facharzt/Specialties.vue';
+import Submit3 from './Submit3.vue';
+import Specialties from './Facharzt/Specialties.vue';
 import axios from 'axios';
 
 
 
 
 export default {
-
-  created(){this.getlabloops()},
+      created(){this.getdoctorloops()},
  methods: {
-
-        getlabloops(){
+    
+        getdoctorloops(){
             axios.get( "./Api/api.php?action=getsubmit",)
     
-    .then((response) => {this.labloops=response.data;} )
+    .then((response) => {this.doctorloops=response.data;} )
   },
-
-        goToEvents: function () {
+    goToEvents: function () {
 
           var data = new FormData();
            data.append("onlineuser",localStorage.email);
           axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitlabloop",
+          "./Api/api.php?action=submitdoctorloop",
           data
         )
         .then(res => {
@@ -142,18 +140,15 @@ export default {
           console.log("Error", err);
         });
     },
-          
-         
-        },
    
     
-   
+    },
   data() {
     return {
       
       showTooltip: false,
       showNotepad: false,
-      labloops:[],
+       doctorloops:[],
       email:localStorage.email
     };
   },
@@ -166,13 +161,13 @@ export default {
       popupTriggers.value[trigger] = !popupTriggers.value[trigger]
     }
     return {
-      Popup2,
+      Popup,
       popupTriggers,
       TogglePopup
     }
   },
   
-  components: { Notepad,Print, Popup2, Submit2, Specialties }
+  components: { Notepad, Popup, Print, Popup2, Submit3, Specialties }
 }
 
 
@@ -206,31 +201,45 @@ h2 {
   cursor: pointer;
   /* color: #444   */
 }
-.tooltip {
-  position: relative;
-  display: inline-block;
- 
-  /* border-bottom: 1px dotted black; */
-}
-
-.tooltip .tooltiptext {
- visibility: hidden;
-  width: 400%;
-  background-color: rgba(0, 0, 0, 0.689);
-  color: #fff;
-  text-align: center;
-  font-size: small;
-  padding: 1px 0;
-
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 100;
-  right:0
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  
-}
+ .tooltip {
+      position: relative;
+      display: inline-block;
+      /* border-bottom: 1px dotted black; */
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 100;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 100;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
 </style>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+
 import Main from '../views/MainPageView.vue'
 import EinleitungView from '../views/EinleitungView.vue'
 import Wartezimmer from '../views/Wartezimmer.vue'
@@ -7,6 +7,7 @@ import Patient from '../views/patients/PatientProfile.vue'
 import ErrorPage from "@/views/ErrorPage.vue"
 import store from '@/store'
 import Print from '@/views/Print.vue'
+import Patientagain from '@/views/patients/Patientagain.vue'
 
 const routes = [
  { path: "/",
@@ -37,6 +38,9 @@ const routes = [
     },
   },
   {
+    path: '/redodiagnosis',name: 'Patientagain', component: Patientagain
+  },
+  {
     path: '/print',name: 'Print',component: Print
   },
   
@@ -52,11 +56,12 @@ const routes = [
   
 ];
 
+import { createRouter, createWebHistory } from 'vue-router'
+
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
- 
-});
+})
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.state.user.token) {

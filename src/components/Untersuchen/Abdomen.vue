@@ -2,29 +2,39 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Abdomen' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf-Abdomen' sehen möchten :  </b> </h1>
     </div>
     <br>
     
 
 
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+
+   <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+
+        <button v-if="click.abdomeninspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent=" displayInspektion();">
+         Inspektion und Palpation </button>
+ <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterInspektion(); displayInspektion();">
          Inspektion und Palpation </button>
-
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.abdomenauskultation==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          @click.prevent="displayNase();">
+           Auskultation & Perkussion
+          </button>
+               <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
           @click.prevent="counterNase();displayNase();">
            Auskultation & Perkussion
           </button>
-            
          
           </div> 
-        <h3 id="inspektionanswer" style="display:none">Männliches Behaarungsmuster, keine patholog. Venenzeichnung, Prostatektomie-Narbe am Unterbauch, Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 2cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, Bauchhautreflexe in allen Etagen auslösbar, Rüttelschmerz fraglich positiv.</h3> 
+          </div>
+    
+  </div>
+      <h3 id="inspektionanswer" style="display:none">Männliches Behaarungsmuster, keine patholog. Venenzeichnung, Prostatektomie-Narbe am Unterbauch, Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 2cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, Bauchhautreflexe in allen Etagen auslösbar, Rüttelschmerz fraglich positiv.</h3> 
          <h3 id="naseanswer" style="display:none">Abdomen: rege Darmgeräusche in allen vier Quadranten, unterer Leberrand 1 Querfinger unterhalb des Rippenbogens.</h3> 
           
-  </div>
 </template>
 
 <script>
@@ -45,17 +55,27 @@ export default {
       },
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+          clickz:[],
+      email:localStorage.email,
     };
   },
+  created(){this.clicks(); },
 
-methods:{
+  methods: {
+    clicks(){
 
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+        data.append("abdomeninspektion",1);
       data.append("time",0.3);
       data.append("safety",100);
       data.append("step","Sie haben Inspektion und Palpation unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
@@ -72,6 +92,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -82,8 +103,9 @@ methods:{
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",1);
+      data.append("economy",6.25);
       data.append("satisfaction",1);
+        data.append("abdomenauskultation",1);
       data.append("time",0.5);
        data.append("safety",100);
       data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
@@ -100,6 +122,7 @@ methods:{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {

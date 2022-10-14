@@ -22,7 +22,9 @@ export default{
     components:{
         Button,
         Header
-    }
+    },
+    created(){ console.log(localStorage.email)
+    if (localStorage.email==''){this.$router.push("/login");}}
 }
 </script>
 

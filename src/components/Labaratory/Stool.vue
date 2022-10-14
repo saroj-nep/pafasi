@@ -14,29 +14,35 @@
     <div class="grid grid-cols-4 gap-1" >
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox1" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <input @click="savevalue();" id="vue-checkbox1" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
             <label for="vue-checkbox1" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlprobe</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox2" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <input @click="savevalue();" id="vue-checkbox2" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
             <label for="react-checkbox2" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlkultur</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
-            <input id="vue-checkbox3" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <input @click="savevalue();" id="vue-checkbox3" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
             <label for="vue-checkbox3" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Untersuchung auf Parasiten</label>
         </div>
     </li>
     </div>
 </ul>
-<div class="flex flex-row  justify-center items-center">
-<button class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+<div v-for="click in clickz" >
+<div v-if="click.user==email" class="flex flex-row  justify-center items-center">
+<button v-if="click.stool==1" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+@click.prevent="sendValue();  TogglePopup('sendTrigger')">
+         Abschicken
+</button>
+<button v-else class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="sendValue(); stoolcounter(); TogglePopup('sendTrigger')">
          Abschicken
 </button>
+</div>
 </div>
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
@@ -84,13 +90,31 @@ export default {
       
       showTooltip: false,
       showNotepad: false,
-      stools:[]
+      stools:[],
+      clickz:[],
+      email:localStorage.email,
+      
     };
   },
-   created(){
-this.showvalue();
+created(){
+this.showvalue();this.clicks();
  },
-  methods: {  
+  methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
+
+    savevalue(){
+         localStorage.setItem("probe", document.getElementById("vue-checkbox1").checked);
+         localStorage.setItem("culture", document.getElementById("vue-checkbox2").checked);
+         localStorage.setItem("suchen", document.getElementById("vue-checkbox3").checked);
+
+    },
+
     showvalue(){
       console.log(localStorage.probe)
     setTimeout(function(){
@@ -148,6 +172,9 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
          console.log(b.checked);
          console.log(c.checked);
          if (c.checked==1) {
+          data.append("economy",-3.125);
+          data.append("stool",1);
+              data.append("safety",1);
           data.append("satisfaction",0);
           data.append("time",2880);
           data.append("step","Sie haben einen Untersuchung auf Parasiten fur Stuhlprobe beantragt");
@@ -156,7 +183,7 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=countervariable",
               data
             )
             .then(res => {
@@ -165,12 +192,16 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
                 alert(res.data.message);
               } else {
                 console.log("Success", res.data.message);
+                this.clicks();
               }
             })
             .catch(err => {
               console.log("Error", err);
             });}
           else if (b.checked==1){
+             data.append("economy",-3.125);
+          data.append("stool",1);
+              data.append("safety",1);
           data.append("satisfaction",0);
           data.append("time",2880);
           data.append("step","Sie haben einen Stuhlkultur  beantragt");
@@ -178,7 +209,7 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=countervariable",
               data
             )
             .then(res => {
@@ -187,20 +218,24 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
                 alert(res.data.message);
               } else {
                 console.log("Success", res.data.message);
+                this.clicks();
               }
             })
             .catch(err => {
               console.log("Error", err);
             });}
              else if (a.checked==1){
+               data.append("economy",-3.125);
+          data.append("stool",1);
           data.append("satisfaction",0);
+              data.append("safety",1);
           data.append("time",1440);
           data.append("step","Sie haben einen  Stuhlprobe beantragt");
           data.append("onlineuser",localStorage.email);
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=facharztvariable",
+              "./Api/api.php?action=countervariable",
               data
             )
             .then(res => {
@@ -209,6 +244,7 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
                 alert(res.data.message);
               } else {
                 console.log("Success", res.data.message);
+                this.clicks();
               }
             })
             .catch(err => {

@@ -2,61 +2,99 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Kopf' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Kopf' sehen möchten:  </b> </h1>
     </div>
     <br>
     
 
-
-        <div class="flex justify-center ">
-        <button id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="counterInspektion(); displayInspektion();">
+   <div v-for="click in clickz">
+        <div v-if="click.user==email"  class="flex justify-center ">
+        <button v-if="click.kopfinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent=" displayInspektion();">
          Inspektion und Palpation </button>
 
+             <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           @click.prevent="counterInspektion(); displayInspektion();">
+         Inspektion und Palpation </button>
          
-          <button id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.kopfnase==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayNase();">
+            Nase untersuchen
+          </button>
+
+             <button v-else id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterNase();displayNase();">
             Nase untersuchen
           </button>
             
-           <button id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+           <button v-if="click.kopfmund==1" id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayMund();">
+            Mund/Mundhöhle/ Rachen untersuchen
+          </button>
+          <button v-else id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterMund();displayMund();">
             Mund/Mundhöhle/ Rachen untersuchen
           </button>
-        
 
       
-           <button  id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="counterOhren();displayOhren();">
+           <button v-if="click.kopfohren==1" id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayOhren();">
+           Ohren untersuchen
+          </button>
+           <button v-else id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="counterOhren(); displayOhren();">
            Ohren untersuchen
           </button>
             </div>
-             <div class="flex justify-center ">
 
-           <button id="lymphquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+             <div v-if="click.user==email"  class="flex justify-center ">
+
+           <button v-if="click.kopflymph==1" id="lymphquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayLymph();">
+           Lymphknoten abtasten
+          </button>
+
+           <button v-else id="lymphquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterLymph();displayLymph();">
            Lymphknoten abtasten
           </button>
             
 
          
-          <button id="schildquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.kopfschild==1" id="schildquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displaySchild();">
+           Schilddrüse untersuchen
+          </button>
+             
+          <button v-else id="schildquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterSchild();displaySchild();">
            Schilddrüse untersuchen
           </button>
-            
 
         
-          <button id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          <button v-if="click.kopfhals==1" id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent=";displayHals();">
+           Halswirbelsäule
+          </button>
+           <button v-else id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterHals();displayHals();">
            Halswirbelsäule
           </button>
-          <button id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="counterOrient();displayOrient();">
+
+          <button v-if="click.kopforient==1" id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="displayOrient();">
            Orientierende neurologische Untersuchung / Funktionsprüfung
           </button>
-          </div> 
-        <h3 id="inspektionanswer" style="display:none"> Gesichtshaut rosig, mehrere Lentigines seniles (Altersflecken) auf Schläfen, Stirn und Kopfhaut, lichtes weißes Haar mit androgetischem Haarausfall an Stirn und Scheitel, Augen normal geöffnet, keine Ptosis, Pupillen seitengleich groß, Skleren und Konjunktiven nicht gerötet, Trigeminus-Druckpunkte nicht schmerzhaft, Schädelknochen palpatorisch o.p.B, Halsvenen nicht gestaut.</h3> 
+
+        <button v-else id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+            @click.prevent="counterOrient();displayOrient();">
+           Orientierende neurologische Untersuchung / Funktionsprüfung
+          </button>  
+        </div> 
+          </div>
+       
+  </div>
+   <h3 id="inspektionanswer" style="display:none"> Gesichtshaut rosig, mehrere Lentigines seniles (Altersflecken) auf Schläfen, Stirn und Kopfhaut, lichtes weißes Haar mit androgetischem Haarausfall an Stirn und Scheitel, Augen normal geöffnet, keine Ptosis, Pupillen seitengleich groß, Skleren und Konjunktiven nicht gerötet, Trigeminus-Druckpunkte nicht schmerzhaft, Schädelknochen palpatorisch o.p.B, Halsvenen nicht gestaut.</h3> 
          <h3 id="naseanswer" style="display:none">Nasenrücken gerade, fest, keine Nasenseptumdeviation, kein Hämatom, keine Epistaxis.</h3> 
           <h3 id="mundanswer" style="display:none"> Lippen trocken, blass, keine Bläschen, keine Rhagarden, Mundöffnung gut durchführbar, Zähne: an mehreren Backenzähnen Brücken, 1 fehlender Backenzahn unten rechts, Munschleimhaut feucht, rosig, o.p.B, Rachenmandeln nicht vergrößert, keine Rötung, keine Beläge.</h3> 
            <h3 id="ohrenanswer" style="display:none">Ohrmuschel o.p.B., Gehörgänge bds reizlos, teilverlegt durch Cerumen, Trommelfelle bds. intakt, nicht gerötet.</h3> 
@@ -64,7 +102,6 @@
              <h3 id="schildanswer" style="display:none"> Keine Struma, keine Knoten, beweglich.</h3> 
               <h3 id="halsanswer" style="display:none"> Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3> 
               <h3 id="orientanswer" style="display:none">Alle Hirnnerven o.p.B.</h3> 
-  </div>
 </template>
 
 <script>
@@ -91,16 +128,27 @@ export default {
      
       
       showTooltip: false,
-      showNotepad: false
+      showNotepad: false,
+      clickz:[],
+      email:localStorage.email,
     };
   },
 
+  created(){this.clicks(); },
 
   methods: {
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
+       data.append("kopfinspektion",1);
       data.append("satisfaction",0);
       data.append("time",0.1);
       data.append("safety",100);
@@ -118,6 +166,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -128,7 +177,8 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
+       data.append("kopfnase",1);
       data.append("satisfaction",0);
       data.append("time",0.1);
        data.append("safety",100);
@@ -146,6 +196,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -156,7 +207,8 @@ export default {
     counterMund() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
+       data.append("kopfmund",1);
       data.append("satisfaction",0);
       data.append("time",0.3);
       data.append("safety",100);
@@ -174,6 +226,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -183,7 +236,8 @@ export default {
     counterOhren() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
+       data.append("kopfohren",1);
       data.append("satisfaction",0);
       data.append("time",0.2);
      data.append("safety",100);
@@ -201,6 +255,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -210,7 +265,8 @@ export default {
     counterLymph() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
+       data.append("kopflymph",1);
       data.append("satisfaction",0);
       data.append("time",0.1);
        data.append("safety",100);
@@ -229,6 +285,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -238,8 +295,9 @@ export default {
     counterSchild() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+       data.append("kopfschild",1);
       data.append("time",0.2);
      data.append("safety",100);
      data.append("step","Sie haben Schilddrüse untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
@@ -256,6 +314,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -265,8 +324,9 @@ export default {
     counterHals() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",1);
+       data.append("kopfhals",1);
       data.append("time",0.2);
       data.append("safety",100);
       data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Kopf angekreuzt")
@@ -283,6 +343,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -292,8 +353,9 @@ export default {
     counterOrient() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
+       data.append("kopforient",1);
       data.append("time",3.5);
       data.append("safety",100);
       data.append("step","Sie haben orientierende neurologische Untersuchung / Funktionsprüfung unter Nicht Apparative Untersuchen: Kopf angekreuzt")
@@ -310,6 +372,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.clicks();
           }
         })
         .catch(err => {
@@ -439,7 +502,7 @@ displayOhren(){  if (ohrenanswer.style.display !== "none") {
         mundquestion.style.opacity="1";
         halsquestion.style.opacity="1";
         schildquestion.style.opacity="1";
-        inspecktionquestion.style.opacity="1";
+        inspektionquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
       }},
