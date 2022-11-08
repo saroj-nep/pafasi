@@ -1,6 +1,6 @@
 <template>
 
-  <div class="popup  ">
+  <div class="popup h-screen ">
     <div class="popup-inner     ">
      
      <!-- <br><br><br> -->
@@ -27,7 +27,7 @@ export default {
   
   background: rgba(14, 13, 13, 0.479);
   border:2px solid rgb(5,150,105);
-  height:60rem;
+  height:95vh;
   align-self: center;
   justify-self: center;
   align-content: center;
@@ -37,10 +37,12 @@ export default {
 
 .popup-inner {
 background: #fff;
-padding: 50px ;
-left:10;
+padding-top:2% ;
+padding-left: 3%;
+padding-right: 3%;
 height: 100%;
 overflow-y: auto;
+
 
 /* margin-right: 400px; */
 }

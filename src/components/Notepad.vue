@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class=" border-emerald-600 border-4 shadow-md h-fit shadow-emerald-600 mr-5 pl-5 pr-5 border-t-8 ">
+  <div class=" border-emerald-600 border-4 rounded-lg shadow-md h-fit shadow-green-600 mr-5 pl-5 pr-5  ">
     <div class="row">
       <div class="col-sm-12">
        
@@ -15,10 +15,12 @@
               <label>Titel der Notiz:     </label>
               <input id="inputtitle" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" type="text" v-model="note.title" required >
             </div>
+          
             <div class="form-group">
-              <label>Beschreibung :     </label>
+              <label>Beschreibung:     </label>
               <textarea id="inputtext" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-green-900" v-model="note.text" required ></textarea>
             </div>
+            <br>
             <div class="flex flex-row  justify-center items-center">
             <button color="#42b983" class="patient btn-primary shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl " @click.prevent="addNote()"><h5 style="font: size 1.5em;">Notiz speichern</h5></button>
            
@@ -63,7 +65,7 @@ export default({
 			data()
       {return{
 				email:localStorage.email,
-				title: 'Noten zur Diagnose',
+				title: 'Notizen zur Diagnose',
 				note: {
 					title: '',
 					text: ''

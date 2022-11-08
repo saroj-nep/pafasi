@@ -12,6 +12,8 @@ import SliderContainer from "@/components/Login/SliderContainer.vue";
 export default {
   name: "Login",
   components: { LoginForm, SliderContainer },
+  created(){if (localStorage.email){this.$router.push("/main");}
+localStorage.rrload=false;}
 };
 </script>
 

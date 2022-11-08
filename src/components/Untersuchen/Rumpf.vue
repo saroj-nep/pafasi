@@ -2,7 +2,9 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Rumpf' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche nicht apparativen Untersuchungen am Rumpf Sie durchführen möchten.​
+
+​</b> </h1>
     </div>
     <br>
     
@@ -11,7 +13,7 @@
         <div class="flex  justify-center ">
         <button  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="TogglePopup('kopfTrigger')">
-        Thorax(Herz & Lunge)  </button>
+        Thorax (Herz & Lunge)  </button>
 
           <Popup v-if="popupTriggers.kopfTrigger" :TogglePopup="() => TogglePopup('kopfTrigger')">
             <div class="tooltip" style="float: right; cursor: pointer">

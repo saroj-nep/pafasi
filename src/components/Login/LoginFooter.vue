@@ -1,7 +1,8 @@
 <template>
   <div class="login">
     <img src="@/assets/Pafasi.png" alt="Pafasi logo" class="logo" />
-   <br><br><br> <h2 class="">Bitte loggen Sie sich mit Ihrem Studentenkonto ein </h2><br><br>
+   <div style="margin: 10px 0 10px 0;"></div> <h2 class="">Bitte loggen Sie sich mit Ihrem Studierendenkonto ein.</h2>
+ <div style="margin: 10px 0 10px 0;"></div>
     <LoginOptions />
     <LoginForm />
     
@@ -31,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/main.scss";
 .login {
-  grid-column: col-start 7 / full-end;
+  grid-column: col-start 6 / full-end;
   padding: 0 10rem;
   display: flex;
   flex-direction: column;

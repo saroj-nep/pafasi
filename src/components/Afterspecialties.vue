@@ -2,15 +2,15 @@
   
     <div class= "grid justify-center">
       <div class="bg-emerald-600">
-          <h2 style="font-size:1.2em; " class="h1 text-white text-center" >Was möchten Sie jetzt tun?</h2>
+          <h2 style="font-size:1.2em; " class="h1 text-white text-center" >Was möchten Sie jetzt tun? </h2>
       </div>
-          <br> <br><br><br> <div class= "grid grid-cols-2  gap-2">
+          <br> <br><br><br> <div class= "grid grid-cols-1  gap-2">
             
         
-
+         <div>
          <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="() => TogglePopup('nichtsTrigger')">
-           <h3 style="font-size:1em;">Nichts Weiter</h3>
+           Nichts
          </button>
 
          
@@ -26,11 +26,12 @@
               </div>
             </div>
           </Popup2>
-          <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+          </div>
+          <!-- <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="() => TogglePopup('krankenTrigger')">
-           <h3 style="font-size:1em;">Patienten sofort kontaktieren und ins Krankenhaus einweisen</h3>
+          Patientin/Patienten sofort kontaktieren und ins Krankhaus einweisen
          </button>
-
+          
          
           <Popup2 v-if="popupTriggers.krankenTrigger" :TogglePopup="() => TogglePopup('krankenTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
@@ -51,15 +52,15 @@
                 </div>
               </div>
             </div>
-          </Popup2>
-
+          </Popup2> -->
+          <div>
           <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="() => TogglePopup('andernTrigger')">
-           <h3 style="font-size:1em;">Arbeitsdiagnose ändern?</h3>
+       Arbeitsdiagnose ändern
          </button>
 
          
-          <Popup v-if="popupTriggers.andernTrigger" :TogglePopup="() => TogglePopup('andernTrigger')">
+          <Popup2 v-if="popupTriggers.andernTrigger" :TogglePopup="() => TogglePopup('andernTrigger')">
              <div class="tooltip" style="float: right; cursor: pointer ; margin-right: 1%;">
               <img v-if="showNotepad" src="@/assets/Collapse.png" alt="" @mouseover="showTooltip = true"
                 @mouseleave="showTooltip = false" @click="showNotepad = false"  class="w-10 h-10"/>
@@ -78,16 +79,17 @@
                 </div>
               </div>
             </div>
-          </Popup>
+          </Popup2>
 
 
-        <div v-for="doctor in doctorloops">
+        <!-- <div v-for="doctor in doctorloops">
     <div  v-if="doctor.user==email">
-         <button v-if="doctor.doctorloop==0" style="font-size:1em;"  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+         <button v-if="doctor.doctorloop==0"    class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="goToEvents()">
-          Patienten nochmal einbestellen
+          Patientin/Patienten nochmal einbestellen
          </button>
          </div>
+             </div> -->
              </div>
         </div>
       </div>
@@ -109,8 +111,32 @@ import axios from 'axios';
 
 
 export default {
-      created(){this.getdoctorloops()},
+      created(){this.currentpage(),this.getdoctorloops()},
  methods: {
+    currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",1);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
     
         getdoctorloops(){
             axios.get( "./Api/api.php?action=getsubmit",)
@@ -133,7 +159,8 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-             document. location. reload()
+            localStorage.currentpage='';
+            document. location. reload()
           }
         })
         .catch(err => {
@@ -193,10 +220,12 @@ h2 {
   color: white;
   padding: 5%;
   border-radius: 20px;
-  margin-right: 5%;
-  margin-left:10%;
+
+ 
   margin-top:5%;
-  width:70%;
+  width:100%;
+
+  
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

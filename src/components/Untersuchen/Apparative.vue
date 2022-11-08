@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Apparative Untersuchen' sehen möchten: </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche apparativen Untersuchungen Sie durchführen möchten.</b> </h1>
     </div>
     <br>
     
@@ -12,7 +12,7 @@
         <div v-if="click.user==email"  class="flex justify-center ">
 
         <button v-if="click.temperatur==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="displayInspektion();">
+           @click.prevent="countertimeInspektion();displayInspektion();">
          Körpertemperatur messen </button>
 
         <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -20,7 +20,7 @@
          Körpertemperatur messen </button>
          
           <button v-if="click.blutzucker==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayNase();">
+            @click.prevent="countertimeNase();displayNase();">
           Blutzucker messen
           </button>
              
@@ -30,7 +30,7 @@
           </button>
 
           <button v-if="click.blutdruck==1" id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayHals();">
+            @click.prevent="countertimeHals();displayHals();">
           Blutdruck messen
           </button>
 
@@ -43,7 +43,7 @@
 <div v-if="click.user==email"  class="flex justify-center ">
        
            <button v-if="click.sono==1"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="TogglePopup('untereTrigger')">
+            @click.prevent="countertimeSono();TogglePopup('untereTrigger')">
           Sonografie durchführen
           </button>
 
@@ -75,7 +75,7 @@
           </Popup>
 
            <button v-if="click.ekg==1" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="TogglePopup('genitalTrigger')">
+            @click.prevent="countertimeEKG();TogglePopup('genitalTrigger')">
            EKG durchführen lassen
           </button>
 
@@ -107,7 +107,7 @@
           </Popup>
           
               <button v-if="click.lung==1" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="TogglePopup('genitTrigger')">
+            @click.prevent="countertimeLung();TogglePopup('genitTrigger')">
            Lungenfunktionstest durchführen lassen
           </button>
 
@@ -185,6 +185,161 @@ export default {
     .then((response) => {this.clickz=response.data })
 
 },
+    countertimeInspektion() {
+      var data = new FormData();
+  
+      data.append("time",0.3);
+      data.append("step","Sie haben Körpertemperatur messen unter Apparative Untersuchen angekreuzt");
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    countertimeNase() {
+      var data = new FormData();
+  
+   
+      data.append("time",1);
+  
+        data.append("step","Sie haben Blutzucker  messen unter Apparative Untersuchen angekreuzt");
+     data.append("onlineuser",localStorage.email);
+        axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+   
+    countertimeHals() {
+      var data = new FormData();
+  
+      data.append("time",1);
+       data.append("step","Sie haben Blutdruk messen unter Apparative Untersuchen angekreuzt");
+     data.append("onlineuser",localStorage.email);
+       axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeSono() {
+      var data = new FormData();
+
+      data.append("time",1);
+      data.append("step","Sie haben Sonografie durchführen unter Apparative Untersuchen angekreuzt");
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeEKG() {
+      var data = new FormData();
+
+      data.append("time",10);
+       data.append("step","Sie haben EKG durchführen unter Apparative Untersuchen angekreuzt");
+     data.append("onlineuser",localStorage.email);
+       axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeLung() {
+      var data = new FormData();
+  
+
+      data.append("time",10);
+      data.append("step","Sie haben Lungenfunktionstest durchführen  unter Apparative Untersuchen angekreuzt");
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
     counterInspektion() {
       var data = new FormData();
   
@@ -363,10 +518,7 @@ export default {
     },
 
 
-displayInspektion(){  if (inspektionanswer.style.display !== "none") {
-        inspektionanswer.style.display = "none";
-        inspektionquestion.style.opacity="1";
-      } else {
+displayInspektion(){
         inspektionanswer.style.display = "block";
         inspektionquestion.style.opacity="0.5";
         nasequestion.style.opacity="1";
@@ -374,29 +526,23 @@ displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         halsquestion.style.opacity="1";
         halsanswer.style.display = "none";
        
-      }},
-displayNase(){  if (naseanswer.style.display !== "none") {
-        naseanswer.style.display = "none";
-        nasequestion.style.opacity="1";
-      } else {
+      },
+displayNase(){
         naseanswer.style.display = "block";
         nasequestion.style.opacity="0.5";
         inspektionanswer.style.display = "none";
         inspektionquestion.style.opacity="1";
         halsquestion.style.opacity="1";
         halsanswer.style.display = "none";
-      }},
-displayHals(){  if (halsanswer.style.display !== "none") {
-        halsanswer.style.display = "none";
-        halsquestion.style.opacity="1";
-      } else {
+      },
+displayHals(){
         halsanswer.style.display = "block";
         halsquestion.style.opacity="0.5";
         inspektionanswer.style.display = "none";
         inspektionquestion.style.opacity="1";
         nasequestion.style.opacity="1";
         naseanswer.style.display = "none";
-      }},
+      },
 
 },
 

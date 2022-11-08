@@ -1,24 +1,26 @@
 <template>
-
+ <div style="position: sticky" class="sticky top-0">
+<Header />
+</div>
   <div class="popup  ">
     <div class="popup-inner     ">
      
     <div class= "grid justify-center">
       
-          <h2 style="font-size:1.2em; " class="h1 text-white text-center" >Wollen Sie den Fall neu aufrollen? Ihre Diagnose und Notizen werden zurückgesetzt und können nicht mehr aufgerufen werden.</h2>
+          <h2 style="font-size:1.2em; " class="h1 text-white text-center" >Möchten Sie den Fall neu bearbeiten?​ Ihre Diagnose und Notizen werden zurückgesetzt und können nicht mehr aufgerufen werden.</h2>
          <div class= "flex justify-center">
             
         
 
          <button  class="button  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent=" goTopatient()">
-           <h3 style="font-size:1em;">Ja, ich möchte das Gehäuse neu gestalten.</h3>
+           <h3 style="font-size:1em;">Ja, ich möchte den Fall neu bearbeiten.</h3>
          </button>
 
 
          <button style="font-size:1em;"  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             @click.prevent="goTowaiting()">
-          Nein, bring mich zurück.
+          <h3 style="font-size:1em;"> Nein, ich möchte zurück in das Wartezimmer.</h3>
          </button>
         </div>
       </div>
@@ -31,8 +33,10 @@
 
 <script>
 import axios from 'axios';
+import Header from '@/components/DefaultLayout.vue';
 export default {
     props: ['TogglePopup'],
+    components:{Header},
       created(){ console.log(localStorage.email)
     if (localStorage.email==''){this.$router.push("/login");}
 },
@@ -104,6 +108,7 @@ export default {
          localStorage.psychi = "false";
          localStorage.radio = "false";
          localStorage.uro= "false";
+         localStorage.currentpage='';
         
             this.$router.push("/Schneider"); 
           }

@@ -124,6 +124,8 @@ if($action=='emptydiagnosis'){
  
 
 $onlineuser=$_POST['onlineuser'];
+    
+
 	$sql="UPDATE `users` SET `counter`='0',`economy-counter`='0' ,`economy-sum`='0' ,`safety-counter`= '0',`safety-counter2`= '0',`safety-counter3`= '0',`safety-sum`= '0',`satisfaction-counter`= '0' ,`satisfaction-sum`= '0' ,`time-counter`= '0',`counter-safety`='0',`counter-safety2`='0',`counter-safety3`='0',`notepad-title`='',`notepad-text`='' WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
  	if($result===true){
@@ -184,7 +186,7 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
         $res['message']="Somthing Went Wrong";
 	}
 
-	$sql="UPDATE `submit_options` SET `ambulance`=0,`hospital`=0,`noappointment`=0,`badappointment`=0,`twodays`=0,`fivedays`=0,`fourweeks`=0,`ausstellen`=0,`rezept`=0,`diagnosis`='',`rezeptext`='',`submitted`='0', `labloop`='0', `doctorloop`='0'   WHERE `user`='$onlineuser';";
+	$sql="UPDATE `submit_options` SET `ambulance`=0,`hospital`=0,`noappointment`=0,`badappointment`=0,`twodays`=0,`fivedays`=0,`fourweeks`=0,`ausstellen`=0,`rezept`=0,`diagnosis`='',`rezeptext`='',`submitted`=0,`wiedereinbestellen`=0, `labloop`=0, `doctorloop`=0   WHERE `user`='$onlineuser';";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -194,7 +196,36 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
         $res['message']="Somthing Went Wrong";
 	}
 
-	$sql="UPDATE `isclicked` SET  `beschreiben`=0, `akutes`=0, `medikamen`=0, `gewohn`=0, `nikotin`=0, `allergien`=0, `vegetative`=0, `gyna`=0, `psyche`=0, `familien`=0,`patientenakte`=0,`kopfinspektion`=0,`kopfnase`=0,`kopfohren`=0,`kopfmund`=0,`kopfschild`=0,`kopflymph`=0,`kopfhals`=0,`kopforient`=0,`thoraxinspektion`=0,`thoraxauskultation`=0,`wirbelinspektion`=0,`wirbelhals`=0, `wirbelfunktion`=0, `abdomeninspektion`=0,`abdomenauskultation`=0, `obereinspektion`=0,`oberebeweg`=0,`obereneurolog`=0,`oberedurch`=0,`untereinspektion`=0,`unterebeweg`=0,`untereneurolog`=0,`unteredurch`=0, `genitalinspektion`=0,`genitalrektal`=0, `temperatur`=0,`blutzucker`=0,`blutdruck`=0,`sono`=0,`ekg`=0,`lung`=0, `blood`=0,`urine`=0,`stool`=0   WHERE `user`='$onlineuser'";
+	$sql="UPDATE `isclicked` SET  `beschreiben`=0, `akutes`=0, `medikamen`=0, `gewohn`=0, `nikotin`=0, `allergien`=0, `vegetative`=0, `gyna`=0, `psyche`=0, `familien`=0,`patientenakte`=0,`kopfinspektion`=0,`kopfnase`=0,`kopfohren`=0,`kopfmund`=0,`kopfschild`=0,`kopflymph`=0,`kopfhals`=0,`kopforient`=0,`thoraxinspektion`=0,`thoraxauskultation`=0,`wirbelinspektion`=0,`wirbelhals`=0, `wirbelfunktion`=0, `abdomeninspektion`=0,`abdomenauskultation`=0, `obereinspektion`=0,`oberebeweg`=0,`obereneurolog`=0,`oberedurch`=0,`untereinspektion`=0,`unterebeweg`=0,`untereneurolog`=0,`unteredurch`=0, `genitalinspektion`=0,`genitalrektal`=0, `temperatur`=0,`blutzucker`=0,`blutdruck`=0,`sono`=0,`ekg`=0,`lung`=0, `blood`=0,`urine`=0,`stool`=0,`doctors`=0   WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+}
+
+if($action=='countertimevariable'){
+	$time=$_POST['time'];
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST['onlineuser'];
+	
+	$sql="UPDATE `users` SET `time-counter`= `time-counter`+$time WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+
+		$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -205,7 +236,50 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
 	}
 
 
-	$sql="DELETE FROM `user_history` WHERE `user`='$onlineuser'";
+}
+if($action=='currentpage'){
+
+	
+	$main=$_POST['main'];
+	$warte=$_POST['warte'];
+	$patient=$_POST['patient'];
+	$anamnese=$_POST['anamnese'];
+	$patientenakte=$_POST['patientenakte'];
+	$laboratory=$_POST['laboratory'];
+	$blood=$_POST['blood'];
+	$urine=$_POST['urine'];
+	$stool=$_POST['stool'];
+	$sendblood=$_POST['sendblood'];
+	$sendurine=$_POST['sendurine'];
+	$sendstool=$_POST['sendstool'];
+	$doctors=$_POST['doctors'];
+	$senddoctors=$_POST['senddoctors'];
+	$untersuchen=$_POST['untersuchen'];
+	$nicht=$_POST['nicht'];
+	$kopf=$_POST['kopf'];
+	$rumpf=$_POST['rumpf'];
+	$thorax=$_POST['thorax'];
+	$wirbel=$_POST['wirbel'];
+	$abdomen=$_POST['abdomen'];
+	$obere=$_POST['obere'];
+	$untere=$_POST['untere'];
+	$genital=$_POST['genital'];
+	$apparative=$_POST['apparative'];
+	$sono=$_POST['sono'];
+	$ekg=$_POST['ekg'];
+	$lungen=$_POST['lungen'];
+	$sendsubmit=$_POST['sendsubmit'];
+	$submit1=$_POST['submit1'];
+	$submit2=$_POST['submit2'];
+	$submit3=$_POST['submit3'];
+	$lab=$_POST['lab'];
+	$afterlab=$_POST['afterlab'];
+	$specialties=$_POST['specialties'];
+    $afterspecialties=$_POST['afterspecialties'];
+	$prints=$_POST['prints'];
+	$onlineuser=$_POST['onlineuser'];
+	 
+	$sql="UPDATE `currentpage` SET `main`=$main,`warte`=$warte, `patient`=$patient, `anamnese`=$anamnese, `patientenakte`=$patientenakte, `laboratory`=$laboratory, `blood`=$blood, `urine`=$urine, `stool`=$stool, `sendblood`=$sendblood, `sendurine`=$sendurine, `sendstool`=$sendstool, `doctors`=$doctors, `senddoctors`=$senddoctors, `untersuchen`=$untersuchen, `nicht`=$nicht, `kopf`=$kopf, `rumpf`=$rumpf, `thorax`=$thorax, `wirbel`=$wirbel, `abdomen`=$abdomen, `obere`=$obere, `untere`=$untere, `genital`=$genital, `apparative`=$apparative, `sono`=$sono, `ekg`=$ekg, `lungen`=$lungen, `sendsubmit`=$sendsubmit, `submit1`=$submit1, `lab`=$lab, `afterlab`=$afterlab, `specialties`=$specialties, `afterspecialties`=$afterspecialties, `submit2`=$submit2, `submit3`=$submit3, `prints`=$prints WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -214,6 +288,7 @@ $sql="UPDATE `stuhl_options` SET `probe`=0, `kultur`= 0, `untersuchung`= 0 WHERE
 		$res['error']=true;
         $res['message']="Somthing Went Wrong";
 	}
+	 
 }
 
 
@@ -733,6 +808,35 @@ if($action=='facharztvariable'){
         $res['message']="Somthing Went Wrong";
 	}
 }
+if($action=='facharzteconomyvariable'){
+
+	
+	
+	$economy=$_POST['economy'];
+	$doctors=$_POST['doctors'];
+	$onlineuser=$_POST['onlineuser'];
+
+	$sql="UPDATE `users` SET`economy-counter`=`economy-counter`+$economy ,`economy-sum`=  `economy-counter` WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+     $sql="UPDATE `isclicked` SET `doctors`=$doctors WHERE `user`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+
+
 if($action=='submitlabloop'){
 	$onlineuser=$_POST['onlineuser'];
 
@@ -795,6 +899,25 @@ if($action=='getnotes'){
 	}
 	
 }
+if($action=='getpagestatus'){
+	
+	$sql="SELECT * FROM `currentpage`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row,);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
 if($action=='getclicks'){
 	$sql="SELECT * FROM `isclicked` ";
 	$result=$conn->query($sql);
@@ -815,7 +938,7 @@ if($action=='getclicks'){
 }
 
 if($action=='getcounters'){
-	$sql="SELECT `economy-sum` as `economy`, `safety-sum` as `safety`, `satisfaction-sum` as `satisfaction`, `time-counter` as `time`, `email` as `email`  FROM `users`";
+	$sql="SELECT ROUND(`economy-sum`,2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `users`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -1070,7 +1193,24 @@ if($action=='sendstool'){
 	
 
 }
+if($action=='getusers'){
+	$sql="SELECT * FROM `users`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+		
+        $res=$userData;
 
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
 if($action=='getuserinfo'){
 	$sql="SELECT * FROM `usersdata`";
 	$result=$conn->query($sql);
@@ -1131,10 +1271,12 @@ if($action=='sendsubmit2'){
 	$ausstellen=$_POST["ausstellen"];
 	$rezept=$_POST["rezept"];
 	$rezepttext=$_POST["rezepttext"];
+	$wiedereinbestellen=$_POST["wiedereinbestellen"];
+	$labloop=$_POST["labloop"];
 	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext'  WHERE `user`='$onlineuser';";
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext',`wiedereinbestellen`=$wiedereinbestellen, `labloop`=$labloop  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -1159,10 +1301,12 @@ if($action=='sendsubmit3'){
 	$ausstellen=$_POST["ausstellen"];
 	$rezept=$_POST["rezept"];
 	$rezepttext=$_POST["rezepttext"];
+	$wiedereinbestellen=$_POST["wiedereinbestellen"];
+	$doctorloop=$_POST["doctorloop"];
 	$onlineuser=$_POST["onlineuser"];
 	
 	 
-	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext', `submitted`=1  WHERE `user`='$onlineuser';";
+	$sql="UPDATE `submit_options` SET `ambulance`=$ambulance,`hospital`=$hospital,`noappointment`=$noappointment,`badappointment`=$badappointment,`twodays`=$twodays,`fivedays`=$fivedays,`fourweeks`=$fourweeks,`ausstellen`=$ausstellen,`rezept`=$rezept,`diagnosis`='$diagnose',`rezeptext`='$rezepttext',`wiedereinbestellen`=$wiedereinbestellen,`doctorloop`=$doctorloop, `submitted`=1  WHERE `user`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -1191,6 +1335,39 @@ if($action=='sendsubmit4'){
 	}
     	
 }
+if($action=='submitrezeptvariable'){
+
+	
+	
+	
+	$economy=$_POST["economy"];
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST["onlineuser"];
+	 
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`economy-sum`=  `economy-counter` WHERE `email`='$onlineuser'";
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+	$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+
+
 if($action=='submitvariable'){
 
 	
@@ -1202,7 +1379,7 @@ if($action=='submitvariable'){
 	$stepandtime=$step.' um '.$steptime.'.';
 	$onlineuser=$_POST["onlineuser"];
 	 
-	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`counter-safety`=`counter-safety`+1,`economy-sum`=  `economy-counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = `safety-counter`/ `counter-safety` WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `economy-counter`=`economy-counter`+$economy ,`counter`=`counter`+1 ,`counter-safety`=`counter-safety`+1,`economy-sum`=  `economy-counter`,  `safety-counter`= (`safety-counter`+$safety),`safety-sum` = $safety WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -1234,7 +1411,7 @@ if($action=='submitvariable2'){
 	$stepandtime=$step.' um '.$steptime.'.';
 	$onlineuser=$_POST["onlineuser"];
 	 
-	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety2`=`counter-safety2`+1 , `safety-counter2`= (`safety-counter2`+$safety),`safety-sum` = `safety-counter2`/ `counter-safety2` WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety2`=`counter-safety2`+1 , `safety-counter2`= (`safety-counter2`+$safety),`safety-sum` = $safety WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -1265,7 +1442,7 @@ if($action=='submitvariable3'){
 	$stepandtime=$step.' um '.$steptime.'.';
 	$onlineuser=$_POST["onlineuser"];
 	 
-	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety3`=`counter-safety3`+1 , `safety-counter3`= (`safety-counter3`+$safety),`safety-sum` = `safety-counter3`/ `counter-safety3` WHERE `email`='$onlineuser'";
+	$sql="UPDATE `users` SET `counter`=`counter`+1 , `counter-safety3`=`counter-safety3`+1 , `safety-counter3`= (`safety-counter3`+$safety),`safety-sum` = $safety WHERE `email`='$onlineuser'";
 	$result=$conn->query($sql);
 	if($result===true){
 		$res['error']=false;
@@ -1285,6 +1462,25 @@ if($action=='submitvariable3'){
         $res['message']="Somthing Went Wrong";
 	}
 }
+
+if($action=='sendthesteps'){
+	$step=$_POST['step'];
+	$steptime=date('Y-m-d H:i:s');
+	$stepandtime=$step.' um '.$steptime.'.';
+	$onlineuser=$_POST["onlineuser"];
+
+$sql="INSERT INTO `user_history`( `user`,`steps`,`steptime`) VALUES('$onlineuser','$step','$steptime')";
+
+	$result=$conn->query($sql);
+	if($result===true){
+		$res['error']=false;
+        $res['message']="variables Added Successfully";
+	}else{
+		$res['error']=true;
+        $res['message']="Somthing Went Wrong";
+	}
+}
+
 if($action=='rezeptvariable'){
 
 	
@@ -1343,6 +1539,25 @@ if($action=='getdoctors'){
 }
 if($action=='getsubmit'){
 	$sql="SELECT * FROM `submit_options`";
+	$result=$conn->query($sql);
+	$num=mysqli_num_rows($result);
+	$userData=array();
+	if($num >0){
+		while($row=$result->fetch_assoc()){
+			array_push($userData,$row);
+		}
+	
+        $res=$userData;
+
+	}else{
+		$res['error']=false;
+        $res['message']="No Data Found!";
+	}
+	
+}
+if($action=='getdownloadstuff'){
+     $user = $_GET['user'];
+	$sql="SELECT * FROM `submit_options` WHERE `user`='$user' ";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();

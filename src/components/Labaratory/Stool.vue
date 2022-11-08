@@ -3,31 +3,31 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
     <h1 style="font-size:1.5em; " class="h1 text-white text-center" > <b>Stuhlprobe </b> </h1>
-   <br> <h1 style="font-size:1.2em; " class="h1 text-white text-left" >Man wählt aus der Liste aus, was man durchführen lassen möchte (Mehrfachauswahl möglich), dann muss ein Button "Abschicken" angeklickt werden, dann Info:  </h1>
+   <br> <h1 style="font-size:1.2em; " class="h1 text-white text-left" >Wählen Sie aus der Liste aus, was Sie durchführen lassen möchten (Mehrauswahl möglich). Klicken Sie danach auf "Abschicken". ​ </h1>
     </div>
     <br>
 
     <div class="grid grid-cols-1 gap-2" >
   
 
-<ul class="w-200 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+ <ul class="w-400 text-sm font-medium text-white rounded-lg border border-emerald-200 bg-emerald-600 dark:bg-emerald-600 dark:border-gray-600 dark:text-white" >
     <div class="grid grid-cols-4 gap-1" >
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox1" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="vue-checkbox1" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlprobe</label>
+            <label for="vue-checkbox1" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Stuhlprobe</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox2" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="react-checkbox2" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Stuhlkultur</label>
+            <label for="react-checkbox2" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Stuhlkultur</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox3" type="checkbox" value="" class="w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="vue-checkbox3" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Untersuchung auf Parasiten</label>
+            <label for="vue-checkbox3" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Untersuchung auf Parasiten</label>
         </div>
     </li>
     </div>
@@ -35,7 +35,7 @@
 <div v-for="click in clickz" >
 <div v-if="click.user==email" class="flex flex-row  justify-center items-center">
 <button v-if="click.stool==1" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-@click.prevent="sendValue();  TogglePopup('sendTrigger')">
+@click.prevent="stooltimecounter();sendValue();  TogglePopup('sendTrigger')">
          Abschicken
 </button>
 <button v-else class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -100,6 +100,29 @@ created(){
 this.showvalue();this.clicks();
  },
   methods: {
+      sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer hat Stuhltests angeordnet.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
     clicks(){
 
   axios.get( "./Api/api.php?action=getclicks",)
@@ -154,6 +177,7 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
             
           } else {
             console.log("Success", res.data.message);
+            this.sendthesteps();
             
           }
         })
@@ -162,15 +186,89 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
         });
     },
     
-
+stooltimecounter() {
+           var data = new FormData();
+          const a = document.querySelector('#vue-checkbox1');
+          const b = document.querySelector('#vue-checkbox2');
+          const c = document.querySelector('#vue-checkbox3');
+      
+         if (c.checked==1) {
+         
+          data.append("time",2880);
+          data.append("step","Sie haben einen Untersuchung auf Parasiten fur Stuhlprobe beantragt");
+          data.append("onlineuser",localStorage.email);
+          
+          axios
+            .post(
+              // "./Api/api.php?action=countervariable",
+              "./Api/api.php?action=countertimevariable",
+              data
+            )
+            .then(res => {
+              if (res.data.error) {
+                console.log("Error", res.data);
+                alert(res.data.message);
+              } else {
+                console.log("Success", res.data.message);
+                this.clicks();
+              }
+            })
+            .catch(err => {
+              console.log("Error", err);
+            });}
+          else if (b.checked==1){
+            
+          data.append("time",2880);
+          data.append("step","Sie haben einen Stuhlkultur  beantragt");
+          data.append("onlineuser",localStorage.email);
+          axios
+            .post(
+              // "./Api/api.php?action=countervariable",
+              "./Api/api.php?action=countertimevariable",
+              data
+            )
+            .then(res => {
+              if (res.data.error) {
+                console.log("Error", res.data);
+                alert(res.data.message);
+              } else {
+                console.log("Success", res.data.message);
+                this.clicks();
+              }
+            })
+            .catch(err => {
+              console.log("Error", err);
+            });}
+             else if (a.checked==1){
+             
+          data.append("time",1440);
+          data.append("step","Sie haben einen  Stuhlprobe beantragt");
+          data.append("onlineuser",localStorage.email);
+          axios
+            .post(
+              // "./Api/api.php?action=countervariable",
+              "./Api/api.php?action=countertimevariable",
+              data
+            )
+            .then(res => {
+              if (res.data.error) {
+                console.log("Error", res.data);
+                alert(res.data.message);
+              } else {
+                console.log("Success", res.data.message);
+                this.clicks();
+              }
+            })
+            .catch(err => {
+              console.log("Error", err);
+            });}
+        },
     stoolcounter() {
            var data = new FormData();
           const a = document.querySelector('#vue-checkbox1');
           const b = document.querySelector('#vue-checkbox2');
           const c = document.querySelector('#vue-checkbox3');
-         console.log(a.checked);
-         console.log(b.checked);
-         console.log(c.checked);
+      
          if (c.checked==1) {
           data.append("economy",-3.125);
           data.append("stool",1);

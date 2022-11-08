@@ -2,7 +2,7 @@
 <div style="height:80vh; overflow:auto">
 
   <div class=" bg-emerald-600">
-  <h1 style="font-size:1.5em; " class="h1 text-white text-center" >Die von Ihnen angeforderten Laborergebnisse werden veranlasst. Wenn Sie eine Urinkultur angefordert haben, wird das Labor die Ergebnisse der Urinkultur in der Regel innerhalb von 2 Tagen (d. h. nach dem Ende der heutigen Präsentation) zurückmelden. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun wollen. </h1>
+  <h1 style="font-size:1.2em; " class="h1 text-white text-center" >Die von Ihnen ausgewählten Laborwerte werden angefordert. Die Rückmeldung des Ergebnisses vom Labor erfolgt üblicherweise am nächsten Tag (d. h. nach Beendigung der heutigen Untersuchung). Fahren Sie nun mit der Untersuchung der Patientin/des Patienten fort.</h1>
     </div>
    
            <!-- <br><button style="margin-right: 50px; margin-left: 100px" color="#42b983" class="button"
@@ -99,26 +99,31 @@
 
     <button style=""  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
            @click="allurines()">
-          die heutigen Ergebnisse abrufen
+          Die heutigen Ergebnisse abrufen
          </button>
             
+   <button style=""  type="button" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+             @click.prevent=openlabaratory();>
+      Zum Menü Labor gehen
+         </button>
+         
 
          <button style=""  type="button" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             @click="goToEvents()">
-        zum Hauptmenü gehen
+        Zum Hauptmenü gehen
          </button>
 </div>
         
       
      </div>
-  
+
 </template>
 
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-
+import Labaratory from '@/components/Labaratory.vue';
 import axios from "axios";
 
 export default {
@@ -134,6 +139,14 @@ export default {
   },
   
   methods: {
+     openlabaratory(){
+
+    localStorage.currentpage='labaratory'
+       localStorage.labaratoryemail=localStorage.email
+    document. location. reload()
+         
+
+  },
     allurines() {
         
 
@@ -163,7 +176,7 @@ export default {
     }
   },
   
-  components: { Notepad, Popup }
+  components: {Labaratory, Notepad, Popup }
 }
 
 

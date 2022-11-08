@@ -8,14 +8,34 @@
     <div  v-if="submit.user==email">
 
    <div v-if="submit.submitted=='0'" class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">
-      <router-link :to="{ name: 'Patient' }"> 
+    
+    <router-link :to="{ name: 'Patient' }"> 
         <img src= "../assets/Schneider2.png" class="  w-45" alt="Patient Image"  />   
                 <br><h3 style="text-align: center" >Hr. Wolfgang Schneider</h3>
                     <h3 style="text-align: center" >Status: Offen</h3>
      </router-link>
+     
     </div> 
       <div v-else class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl">
-      <router-link :to="{ name: 'Patientagain' }"> 
+      <router-link v-if="submit.tutor=='0'" to="#"> 
+        <img src= "../assets/Schneider2.png" class="  w-45" alt="Patient Image"  />   
+                <br><h3 style="text-align: center" >Hr. Wolfgang Schneider</h3>
+                    <h3 style="text-align: center" >Status: Geschlossen</h3>
+                    <div v-for="submit in submits">
+    <div  v-if="submit.user==email">
+ <router-link :to="{ name: 'Print' }"> 
+   <div v-if="submit.submitted=='1'" id="Schneiderbutton" style= 'display:block' class="case ml-2 mr-5  btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">
+      
+        
+               <h3 style="text-align: center" >Fallergebnisse herunterladen</h3>
+        
+     
+    </div> 
+    </router-link>
+    </div>
+    </div>
+      </router-link>
+      <router-link v-else :to="{ name: 'Patient' }"> 
         <img src= "../assets/Schneider2.png" class="  w-45" alt="Patient Image"  />   
                 <br><h3 style="text-align: center" >Hr. Wolfgang Schneider</h3>
                     <h3 style="text-align: center" >Status: Geschlossen</h3>
@@ -48,7 +68,7 @@
        <div class="nopatient mr-6 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl">
       <router-link to=""> 
         
-        <br><h3 style="text-align: center" >demnächst</h3>
+        <br><h3 style="text-align: center" >Demnächst</h3>
       </router-link>
     </div>
 
@@ -69,13 +89,73 @@ Header
   data() {
     return {
     submits:[],
-    email:localStorage.email
+    email:localStorage.email,
+    pagez:[]
     }},
-    created(){  console.log(localStorage.email)
+    created(){  
     if (localStorage.email==''){this.$router.push("/login");}
+     this.pagestatus();
+    this.currentpage();
  this.getsubmit();
+ this.sendthesteps();
   },
-  methods: {getsubmit(){
+  methods:{
+       sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer ist auf der Seite des Wartezimmers gelandet.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+  pagestatus(){
+  
+  axios.get( "./Api/api.php?action=getpagestatus", {params: {
+    'user': localStorage.email,
+  }})
+    
+    .then((response) => {this.pagez=response.data })}
+    ,
+  
+  currentpage(){
+    // var data = new FormData();
+    //  data.append("main",0);
+    //  data.append("warte",1);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",0);
+    // data.append("onlineuser",localStorage.email);
+    //   axios
+    //     .post(
+    //       // "./Api/api.php?action=countervariable",
+    //       "./Api/api.php?action=currentpage",
+    //       data
+    //     )
+    //     .then(res => {
+    //       if (res.data.error) {
+    //         console.log("Error", res.data);
+    //         alert(res.data.message);
+    //       } else {
+    //         console.log("Success", res.data.message);
+      
+    //       }
+    //     })
+    //     .catch(err => {
+    //       console.log("Error", err);
+    //     });
+    },getsubmit(){
 
     axios.get( "./Api/api.php?action=getsubmit",)
     

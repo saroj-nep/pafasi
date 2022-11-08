@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="sticky top-0 bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: Kopf' sehen möchten:  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>  Wählen Sie aus, welche nicht apparativen Untersuchungen am Kopf Sie durchführen möchten.​​</b> </h1>
     </div>
     <br>
     
@@ -10,7 +10,7 @@
    <div v-for="click in clickz">
         <div v-if="click.user==email"  class="flex justify-center ">
         <button v-if="click.kopfinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent=" displayInspektion();">
+           @click.prevent=" countertimeInspektion();displayInspektion();">
          Inspektion und Palpation </button>
 
              <button v-else id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -18,7 +18,7 @@
          Inspektion und Palpation </button>
          
           <button v-if="click.kopfnase==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayNase();">
+            @click.prevent="countertimeNase();displayNase();">
             Nase untersuchen
           </button>
 
@@ -28,17 +28,17 @@
           </button>
             
            <button v-if="click.kopfmund==1" id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayMund();">
-            Mund/Mundhöhle/ Rachen untersuchen
+            @click.prevent="countertimeMund();displayMund();">
+            Mund/Mundhöhle/Rachen untersuchen
           </button>
           <button v-else id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterMund();displayMund();">
-            Mund/Mundhöhle/ Rachen untersuchen
+            Mund/Mundhöhle/Rachen untersuchen
           </button>
 
       
            <button v-if="click.kopfohren==1" id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayOhren();">
+            @click.prevent="countertimeOhren(); displayOhren();">
            Ohren untersuchen
           </button>
            <button v-else id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -50,7 +50,7 @@
              <div v-if="click.user==email"  class="flex justify-center ">
 
            <button v-if="click.kopflymph==1" id="lymphquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayLymph();">
+            @click.prevent="countertimeLymph();displayLymph();">
            Lymphknoten abtasten
           </button>
 
@@ -62,7 +62,7 @@
 
          
           <button v-if="click.kopfschild==1" id="schildquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displaySchild();">
+            @click.prevent="countertimeSchild();displaySchild();">
            Schilddrüse untersuchen
           </button>
              
@@ -73,7 +73,7 @@
 
         
           <button v-if="click.kopfhals==1" id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent=";displayHals();">
+            @click.prevent="countertimeHals();displayHals();">
            Halswirbelsäule
           </button>
            <button v-else id="halsquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
@@ -82,13 +82,13 @@
           </button>
 
           <button v-if="click.kopforient==1" id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayOrient();">
-           Orientierende neurologische Untersuchung / Funktionsprüfung
+            @click.prevent="countertimeOrient();displayOrient();">
+           Orientierende neurologische Untersuchung/Funktionsprüfung
           </button>
 
         <button v-else id="orientquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="counterOrient();displayOrient();">
-           Orientierende neurologische Untersuchung / Funktionsprüfung
+           Orientierende neurologische Untersuchung/Funktionsprüfung
           </button>  
         </div> 
           </div>
@@ -144,6 +144,210 @@ export default {
     .then((response) => {this.clickz=response.data })
 
 },
+    countertimeInspektion() {
+      var data = new FormData();
+  
+      data.append("time",0.1);
+      data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    countertimeNase() {
+      var data = new FormData();
+  
+      data.append("time",0.1);
+       data.append("step","Sie haben Nase Untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
+       axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+   
+    countertimeMund() {
+      var data = new FormData();
+
+      data.append("time",0.3);
+      data.append("step","Sie haben Mund/Mundhoele/Rachen untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeOhren() {
+      var data = new FormData();
+
+      data.append("time",0.2);
+     data.append("step","Sie haben Ohren untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
+     axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeLymph() {
+      var data = new FormData();
+  
+      data.append("time",0.1);
+       data.append("step","Sie haben Lymphknoten abtasten unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
+       
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeSchild() {
+      var data = new FormData();
+
+      data.append("time",0.2);
+     data.append("step","Sie haben Schilddrüse untersuchen unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeHals() {
+      var data = new FormData();
+
+      data.append("time",0.2);
+      data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeOrient() {
+      var data = new FormData();
+
+      data.append("time",3.5);
+      data.append("step","Sie haben orientierende neurologische Untersuchung / Funktionsprüfung unter Nicht Apparative Untersuchen: Kopf angekreuzt")
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
     counterInspektion() {
       var data = new FormData();
   
@@ -379,10 +583,7 @@ export default {
           console.log("Error", err);
         });
     },
-displayInspektion(){  if (inspektionanswer.style.display !== "none") {
-        inspektionanswer.style.display = "none";
-        inspektionquestion.style.opacity="1";
-      } else {
+displayInspektion(){ 
         inspektionanswer.style.display = "block";
         inspektionquestion.style.opacity="0.5";
         nasequestion.style.opacity="1";
@@ -399,11 +600,8 @@ displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         ohrenanswer.style.display = "none";
         schildanswer.style.display = "none";
         orientanswer.style.display = "none";
-      }},
-displayNase(){  if (naseanswer.style.display !== "none") {
-        naseanswer.style.display = "none";
-        nasequestion.style.opacity="1";
-      } else {
+      },
+displayNase(){ 
         naseanswer.style.display = "block";
         nasequestion.style.opacity="0.5";
          inspektionanswer.style.display = "none";
@@ -420,12 +618,8 @@ displayNase(){  if (naseanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
-displayMund(){  if (mundanswer.style.display !== "none") {
-        mundanswer.style.display = "none";
-        mundquestion.style.opacity="1";
-
-      } else {
+      },
+displayMund(){  
         mundanswer.style.display = "block";
         mundquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -442,11 +636,8 @@ displayMund(){  if (mundanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
-displayHals(){  if (halsanswer.style.display !== "none") {
-        halsanswer.style.display = "none";
-        halsquestion.style.opacity="1";
-      } else {
+      },
+displayHals(){ 
         halsanswer.style.display = "block";
         halsquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -463,11 +654,8 @@ displayHals(){  if (halsanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
-displayLymph(){  if (lymphanswer.style.display !== "none") {
-        lymphanswer.style.display = "none";
-        lymphquestion.style.opacity="1";
-      } else {
+      },
+displayLymph(){ 
         lymphanswer.style.display = "block";
         lymphquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -484,11 +672,8 @@ displayLymph(){  if (lymphanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         inspektionquestion.style.opacity="1";
-      }},
-displayOhren(){  if (ohrenanswer.style.display !== "none") {
-        ohrenanswer.style.display = "none";
-         ohrenquestion.style.opacity="1";
-      } else {
+      },
+displayOhren(){ 
         ohrenanswer.style.display = "block";
         ohrenquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -505,11 +690,8 @@ displayOhren(){  if (ohrenanswer.style.display !== "none") {
         inspektionquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
-displaySchild(){  if (schildanswer.style.display !== "none") {
-        schildanswer.style.display = "none";
-        schildquestion.style.opacity="1";
-      } else {
+      },
+displaySchild(){ 
         schildanswer.style.display = "block";
         schildquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -526,11 +708,8 @@ displaySchild(){  if (schildanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
         orientquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
-displayOrient(){  if (orientanswer.style.display !== "none") {
-        orientanswer.style.display = "none";
-         orientquestion.style.opacity="1";
-      } else {
+      },
+displayOrient(){ 
         orientanswer.style.display = "block";
         orientquestion.style.opacity="0.5";
           naseanswer.style.display = "none";
@@ -547,7 +726,7 @@ displayOrient(){  if (orientanswer.style.display !== "none") {
         ohrenquestion.style.opacity="1";
        inspektionquestion.style.opacity="1";
         lymphquestion.style.opacity="1";
-      }},
+      },
 
 },
 

@@ -18,14 +18,14 @@
     <tbody v-if="doctor.augen==1" class="border border-emerald-600 "  >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="augentag();">
       <tr class="border border-emerald-600 ">
-        <td class="bg-emerald-100 border border-emerald-600 ">Augenheilkunde</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Augenheilkunde</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
       </tr>
     </tbody>
     <tbody v-if="doctor.chiru==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="chirutag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Chirurgie (ambulant)</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Chirurgie (ambulant)</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
         
       </tr>
@@ -34,21 +34,21 @@
     <tbody v-if="doctor.derma==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="dermatag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Dermatologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Dermatologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
       </tr>
     </tbody>
     <tbody v-if="doctor.gyna==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="gynatag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Gynäkologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Gynäkologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
       </tr>
     </tbody>
     <tbody v-if="doctor.hals==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="halstag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Hals-Nasen-Ohrenheilkunde</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Hals-Nasen-Ohrenheilkunde</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
         
       </tr>
@@ -57,7 +57,7 @@
     <tbody v-if="doctor.kardio==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="kardiotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin: Kardiologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Innere Medizin: Kardiologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
        
       </tr>
@@ -65,7 +65,7 @@
     <tbody v-if="doctor.gastro==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="gastrotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin - Gastroenterologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Innere Medizin - Gastroenterologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
         
       </tr>
@@ -75,7 +75,7 @@
     <tbody v-if="doctor.pulmo==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="pulmotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin - Pulmologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Innere Medizin - Pulmologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
        
       </tr>
@@ -84,7 +84,7 @@
     <tbody v-if="doctor.nephro==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="nephrotag();">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin - Nephrologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Innere Medizin - Nephrologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
       </tr>
       
@@ -92,7 +92,7 @@
     <tbody v-if="doctor.onko==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="onkotag();">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin - Hämato-/Onkologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Innere Medizin - Hämato-/Onkologie</td>
         <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik geschickt.</td>
        
       </tr>
@@ -101,7 +101,7 @@
     <tbody v-if="doctor.endo==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="endotag();">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Innere Medizin - Endokrinologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Innere Medizin - Endokrinologie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
       </tr>
       
@@ -109,7 +109,7 @@
     <tbody v-if="doctor.neurochiru==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="neurochirutag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Neurochirurgie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Neurochirurgie</td>
         <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik überwiesen.</td> 
       </tr>
 
@@ -117,42 +117,42 @@
     <tbody v-if="doctor.neuro==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="neurotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Neurologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Neurologie</td>
         <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik überwiesen.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.ortho==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="orthotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Orthopädie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Orthopädie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.padi==1">
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="paditag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Pädiatrie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Pädiatrie</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.psychi==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="psychitag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Psychiatrie/Psychosomatik</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Psychiatrie/Psychosomatik</td>
         <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.radio==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="radiotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Radiologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Radiologie</td>
         <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es zeigen sich unscharf begrenzte, inhomogene hyperdense Areale (Sklerosierungen) im Bereich der WK L2 - S1. Unter Berücksichtigung der Patientenvorgeschichte könnte es sich hierbei um osteoblastische Metastasen im Rahmen der Prostata-CA handeln. Zusätzlich sind Deckplatteneinbrüche des LWK 5 zu erkennen. Diese deuten auf eine Wirbelkörperfraktur ohne Instabilitätskriterien hin. </td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.uro==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urotag();">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Urologie</td>
+        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Urologie</td>
         <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es wurde ein Anstieg des PSA auf 6,0ng/ml festgestellt, sodass von einer ossären Metastasierung in die Wirbelsäule auszugehen ist. Wir haben Hr. Schneider in die onkologische Klinik überwiesen, wo seine Weiterbehandlung koordiniert werden soll.</td> 
       </tr>
     </tbody>
@@ -248,8 +248,32 @@ import Prints from '../Prints.vue';
         };
       },
     
-    created(){this.alldoctors(); this.tag()},
+    created(){this.currentpage();this.alldoctors(); this.tag()},
     methods: {
+        currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",1);data.append("afterspecialties",0);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
 
          augentag(){ this.augentagz=3; this.tag();
     },
@@ -292,8 +316,8 @@ import Prints from '../Prints.vue';
     
      this.specialtizfinal=Math.max(this.augentagz,this.chirutagz,this.dermatagz,this.gynatagz,this.halstagz,this.kardiotagz,this.gastrotagz,this.nephrotagz,this.pulmotagz,this.onkotagz, this.endotagz, this.neurochirutagz,this.neurotagz,this.orthotagz, this.paditagz,this.psychitagz,this.radiotagz,this.urotagz)
     if (!(this.specialtizfinal ==0))
-     {this.specialtiz='Nach '+this.specialtizfinal+ ' Monaten werden Sie von den Fachärzten, an die Sie Ihre Patienten überwiesen haben, Briefe mit folgenden Antworten erhalten:';this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)' }
-    else {this.specialtiz='Sie haben für die Diagnose keine Fachärzte konsultiert. Bitte klicken Sie auf Weiter'}
+     {this.specialtiz='Nach '+this.specialtizfinal+ ' Monat(en) werden Sie von den Fachärzten, an die Sie Ihre Patienten überwiesen haben, Briefe mit folgenden Antworten erhalten:';this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)' }
+    else {this.specialtiz='Sie haben für die Diagnose keine Fachärzte konsultiert. Bitte klicken Sie auf Weiter.'}
    
  },
 

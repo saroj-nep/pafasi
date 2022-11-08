@@ -2,14 +2,14 @@
   <div>
     <div>
       
-          <h2 style="font-size:1.2em; " class="h1 text-white text-left" >Sie haben eine Überweisung an das Fachgebiet/die Fachgebiete ausgestellt. Das Ergebnis wird Ihnen in ein paar Wochen (nach Abschluss der heutigen Präsentation) zugeschickt. Fahren Sie nun mit dem fort, was Sie heute mit Ihrem Patienten tun möchten.</h2>
+          <h2 style="font-size:1.2em; " class="h1 text-white text-left" >Sie haben eine Überweisung an das Fachgebiet/die Fachgebiete ausgestellt. Das Ergebnis wird Ihnen in ein paar Wochen (nach Abschluss der heutigen Untersuchung) zugeschickt. Fahren Sie mit der Untersuchung der Patientin/des Patienten fort.​</h2>
          <div class= "flex justify-center">
             
             
 
          <button style=""  type="button" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             @click.prevent="goToEvents()">
-        zum Hauptmenü gehen
+        Zum Hauptmenü gehen
          </button>
         </div>
       </div>

@@ -13,17 +13,8 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <router-link
-                v-for="item in navigation" :key="item.name" :to="item.to" 
-                :class="[this.$route.name === item.to.name
-                      ? ''
-                       : 
-                'font-bold text-white  hover:bg-gray-700 hover:text-white', 
-                'px-3 py-2 rounded-md text-sm font-medium']" 
-               
-                >
-                {{ item.name }}
-                </router-link>
+                <router-link to="/main"><span class="bg-emerald-600 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hauptmenü</span></router-link>
+        <router-link to="/warte"><span class="bg-emerald-600 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Wartezimmer</span></router-link>
               </div>
             </div>
           </div>
@@ -70,19 +61,8 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <router-link
-            v-for="item in navigation"
-            :key="item.name"
-            :to="item.to"
-            active-class="bg-gray-900 text-white"
-            :class="[
-              this.$route.name === item.to.name
-                ? ''
-                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-              'block px-3 py-2 rounded-md text-base font-medium',
-            ]"
-            >{{ item.name }}
-          </router-link>
+        <router-link to="/main"><span class="text-white">Hauptmenü</span></router-link>
+        <router-link to="/warte"><span class="text-white">Wartezimmer</span></router-link>
         </div>
        
         <div class="pt-4 pb-3 border-t border-gray-700">
@@ -169,12 +149,39 @@ export default{
     Main
   },
   methods: {
+
+      sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer hat sich bei der Plattform ausgeloggt.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    
     onlogout() {
       var data = new FormData();
       
      data.append("onlineuser", localStorage.email);
-     localStorage.email='';
      
+     localStorage.currentpage=='';
+     localStorage.rrload=false;
+    
       axios
         .post(
           // "./Api/api.php?action=logout",
@@ -187,8 +194,11 @@ export default{
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-            
+             localStorage.currentpage=='';
+             this.sendthesteps();
+             localStorage.email='';
             this.$router.push("/login");
+
           }
         })
         .catch(err => {

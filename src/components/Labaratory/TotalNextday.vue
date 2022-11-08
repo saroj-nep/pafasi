@@ -10,7 +10,7 @@
       <div v-for="blood in bloods">
 <div v-if="blood.user===email">
   <div class=" bg-emerald-600" v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.electrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.beta==1||blood.serum==1" >
- <h1 class="h1 text-white " > <b>Ergebnisse der Blutuntersuchung:</b> </h1>
+ <h1 class="h1 text-white pl-2 " > <b>Ergebnisse der Blutuntersuchung: </b> </h1>
  <br>
  </div>
  </div>
@@ -23,16 +23,16 @@
     <table  class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
-        <th  class="border border-emerald-600 " >Auswahl </th>
-        <th class="border border-emerald-600 ">Parameter</th>
-        <th class="border border-emerald-600 ">Befund</th>
-        <th class="border border-emerald-600 " >Wert</th>
-        <th class="border border-emerald-600 ">Referenzbereich</th>
+        <th  class="px-2 py-2 border border-emerald-600 " >Auswahl </th>
+        <th class="px-2 py-2 border border-emerald-600 ">Parameter</th>
+        <th class="px-2 py-2 border border-emerald-600 ">Befund</th>
+        <th class="px-2 py-2 border border-emerald-600 " >Wert</th>
+        <th class="px-2 py-2 border border-emerald-600 ">Referenzbereich</th>
       </tr>
     </thead>
     <tbody v-if="blood.kleines==1" class="border border-emerald-600 "  >
       <tr class="border border-emerald-600 ">
-        <td class="bg-emerald-100 border border-emerald-600 ">Kleines Blutbild</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Kleines Blutbild</td>
         <td></td>
         <td></td>
         <td></td>
@@ -104,7 +104,7 @@
     </tbody>
     <tbody v-if="blood.grosses==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Großes Blutbild</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Großes Blutbild</td>
         <td></td>
         <td></td>
         <td></td>
@@ -182,28 +182,28 @@
       </tr>
       <tr>
         <td></td>
-        <td>stabkernige neutrophile Granulozyten</td>
+        <td>Stabkernige neutrophile Granulozyten</td>
         <td>%</td>
         <td>3,1</td>
         <td>0-5</td>
       </tr>
       <tr>
         <td></td>
-        <td>segmentkernige neutrophile Granulozyten</td>
+        <td>Segmentkernige neutrophile Granulozyten</td>
         <td>%</td>
         <td>61.9</td>
         <td>30-80</td>
       </tr>
       <tr>
         <td></td>
-        <td>eosinophile Granulozyten</td>
+        <td>Eosinophile Granulozyten</td>
         <td>%</td>
         <td>1,7</td>
         <td>0-6</td>
       </tr>
       <tr>
         <td></td>
-        <td>basophile Granulozyten</td>
+        <td>Basophile Granulozyten</td>
         <td>%</td>
         <td>0,1</td>
         <td>0-2</td>
@@ -226,7 +226,7 @@
     </tbody>
     <tbody v-if="blood.gerin==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Gerinnung</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Gerinnung</td>
         <td></td>
         <td></td>
         <td></td>
@@ -249,7 +249,7 @@
     </tbody>
     <tbody v-if="blood.entz==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Entzündungsparameter</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Entzündungsparameter</td>
         <td></td>
         <td></td>
         <td></td>
@@ -284,9 +284,9 @@
         <td>&lt;0,5</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.glucose==1">
+    <tbody style="text-align: center" v-if="blood.glucose==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Glucosestoffwechsel</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Glucosestoffwechsel</td>
         <td></td>
         <td></td>
         <td></td>
@@ -307,9 +307,9 @@
         <td>&lt;5,7</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.fetts==1">
+    <tbody style="text-align: center" v-if="blood.fetts==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Fettstoffwechsel</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Fettstoffwechsel</td>
         <td></td>
         <td></td>
         <td></td>
@@ -344,9 +344,9 @@
         <td>&lt;150</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.eisen==1">
+    <tbody style="text-align: center" v-if="blood.eisen==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Eisentoffwechsel</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Eisentoffwechsel</td>
         <td></td>
         <td></td>
         <td></td>
@@ -374,9 +374,9 @@
         <td>2,0-3,6</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.leber==1">
+    <tbody style="text-align: center" v-if="blood.leber==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Leber</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Leber</td>
         <td></td>
         <td></td>
         <td></td>
@@ -446,9 +446,9 @@
         <td>&lt;0,6</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.pankreas==1">
+    <tbody style="text-align: center" v-if="blood.pankreas==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Pancreas</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Pancreas</td>
         <td></td>
         <td></td>
         <td></td>
@@ -469,9 +469,9 @@
         <td>13-60</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.niere==1">
+    <tbody style="text-align: center" v-if="blood.niere==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Niere</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Niere</td>
         <td></td>
         <td></td>
         <td></td>
@@ -506,9 +506,9 @@
         <td>12-50</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.electrolyte==1">
+    <tbody style="text-align: center" v-if="blood.electrolyte==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Electrolyte</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Electrolyte</td>
         <td></td>
         <td></td>
         <td></td>
@@ -557,9 +557,9 @@
         <td>0,84-1,45</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.schild==1">
+    <tbody style="text-align: center" v-if="blood.schild==1">
       <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Schilddrüse/Nebenschildruese</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Schilddrüse/Nebenschildruese</td>
         <td></td>
         <td></td>
         <td></td>
@@ -602,14 +602,14 @@
       </tr>
       <tr>
         <td></td>
-        <td>ft3</td>
+        <td>fT3</td>
         <td>pg/ml</td>
         <td>3,45</td>
         <td>2,0-4,4</td>
       </tr>
       <tr>
         <td></td>
-        <td>ft4</td>
+        <td>fT4</td>
         <td>ng/ml</td>
         <td>1,61</td>
         <td>0,93-1,70</td>
@@ -636,9 +636,9 @@
         <td>&lt;100</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.herz==1">
+    <tbody style="text-align: center" v-if="blood.herz==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Herz</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Herz</td>
         <td></td>
         <td></td>
         <td></td>
@@ -673,10 +673,10 @@
         <td>72-182</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.bvitamin==1">
+    <tbody style="text-align: center" v-if="blood.bvitamin==1">
     <tr>
        
-        <td class="bg-emerald-100 border border-emerald-600 ">B-Vitamine & Folsäure</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">B-Vitamine & Folsäure</td>
         <td></td>
         <td></td>
         <td></td>
@@ -711,46 +711,46 @@
         <td>7-36</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.ldh==1">
+    <tbody style="text-align: center" v-if="blood.ldh==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">LDH</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">LDH</td>
         <td></td>
         <td>U/l</td>
         <td>155</td>
         <td>&lt;250</td>
       </tr>
     </tbody>
-    <tbody  v-if="blood.harn==1">
+    <tbody style="text-align: center" v-if="blood.harn==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">Harnsäure</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Harnsäure</td>
         <td></td>
         <td>mg/dl</td>
         <td>5,48</td>
         <td>&lt;7,0</td>
       </tr>
     </tbody>
-    <tbody  v-if="blood.psa==1">
+    <tbody style="text-align: center" v-if="blood.psa==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">PSA</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">PSA</td>
         <td></td>
         <td>ng/ml</td>
         <td>6,0</td>
         <td>&lt;4</td>
       </tr>
     </tbody>
-    <tbody  v-if="blood.beta==1">
+    <tbody style="text-align: center" v-if="blood.beta==1">
     <tr>
-        <td class="bg-emerald-100 border border-emerald-600 ">beta-HCG</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Beta-HCG</td>
         <td></td>
         <td>U/l</td>
         <td>0,5</td>
         <td>&lt;3</td>
       </tr>
     </tbody>
-    <tbody v-if="blood.serum==1">
+    <tbody style="text-align: center" v-if="blood.serum==1">
     <tr>
        
-        <td class="bg-emerald-100 border border-emerald-600 ">Serumelektrophorese</td>
+        <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Serumelektrophorese</td>
         <td></td>
         <td></td>
         <td></td>
@@ -804,7 +804,7 @@
       <div v-for="urine in urines">
 <div v-if="urine.user===email">
   <div class=" bg-emerald-600" v-if="urine.stix==1||urine.sediment==1||urine.kultur==1">
- <h1 class="h1 text-white " > <b>Ergebnisse des Urintests: </b> </h1>
+ <h1 class="h1 text-white pl-2 " > <b>Ergebnisse des Urintests: </b> </h1>
  <br>
  </div>
  </div>
@@ -816,17 +816,17 @@
    <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
-        <th class="border border-emerald-600 " >Auswahl </th>
-        <th class="border border-emerald-600 ">Parameter</th>
-        <th class="border border-emerald-600 ">Befund</th>
-        <th class="border border-emerald-600 " >Normbereich</th>
+        <th class="px-2 py-2 border border-emerald-600 " >Auswahl </th>
+        <th v-if="urine.stix==1"  class="px-2 py-2 border border-emerald-600 ">Parameter</th>
+        <th class="px-2 py-2 border border-emerald-600 ">Befund</th>
+        <th class="px-2 py-2 border border-emerald-600 " >Normbereich</th>
       
       </tr>
     </thead>
     <tbody v-if="urine.stix==1" class="border border-emerald-600  "  >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag1();">
       <tr class="border border-emerald-600 ">
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">U-Stix</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">U-Stix</td>
         <td></td>
         <td></td>
         <td></td>
@@ -885,9 +885,9 @@
     <tbody  v-if="urine.sediment==1" >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag2();">
       <tr>
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Urin-Sediment</td>
        
-        <td>Standardbefund:</td>
+        <td v-if="urine.stix==1"></td>
         <td>Unauffälliger Mikroskopiebefund. Keine Bakterien, keine Leukozyten- oder Eiweiß-Zylinder.</td>
       </tr>
       
@@ -897,16 +897,16 @@
      <tbody  v-if="urine.kultur==1" >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urinetag3();">
       <tr>
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Urin-Kultur</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Urin-Kultur</td>
        
-        <td>Standardbefund:</td>
+        <td v-if="urine.stix==1"></td>
         <td>Kein Nachweis antimikrobieller Substanzen. Leukozyten im Urin Negativ. Gesamtkeimzahl &lt;10³ KBE/ml. Folglich kein Anhalt auf Infektion.</td>
       </tr>
       
       
 
     </tbody>
-    </table><br><br>
+    </table>
     </div>
   
 </div>
@@ -917,7 +917,7 @@
       <div v-for="stool in stools">
 <div v-if="stool.user===email">
   <div class=" bg-emerald-600" v-if="stool.probe==1||stool.kultur==1||stool.untersuchung==1">
- <h1 class="h1 text-white " > <b>Ergebnisse des Stuhltests: </b> </h1>
+ <h1 class="h1 text-white pl-2 " > <b>Ergebnisse des Stuhltests: </b> </h1>
  <br>
  </div>
  </div>
@@ -929,17 +929,17 @@
       <table class=" border-separate border-spacing-8 border border-emerald-500 " >
     <thead class="sticky bg-emerald-200 top-0">
       <tr>
-        <th class="border border-emerald-600 " >Auswahl </th>
-        <th class="border border-emerald-600 ">Parameter</th>
-        <th class="border border-emerald-600 ">Befund</th>
-        <th class="border border-emerald-600 " >Normbereich</th>
+        <th class="px-2 py-2 border border-emerald-600 " >Auswahl </th>
+        <th v-if="stool.probe==1" class="px-2 py-2 border border-emerald-600 ">Parameter</th>
+        <th class="px-2 py-2 border border-emerald-600 ">Befund</th>
+        <th class="px-2 py-2 border border-emerald-600 " >Normbereich</th>
       
       </tr>
     </thead>
     <tbody v-if="stool.probe==1" class="border border-emerald-600  "  >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag1();">
       <tr class="border border-emerald-600 ">
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Stuhlprobe</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Stuhlprobe</td>
         <td></td>
         <td></td>
         <td></td>
@@ -969,19 +969,19 @@
     <tbody  v-if="stool.kultur==1" >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag2();">
       <tr>
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Stuhlkulture</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Stuhlkultur</td>
        
-        <td>Standardbefund:</td>
+        <td v-if="stool.probe==1"></td>
         <td>Campylobacter, Shigellen, Salmonellen, Yersinien negativ.</td>
       </tr>
     </tbody>
      <tbody  v-if="stool.untersuchung==1" >
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="stooltag3();">
       <tr>
-        <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 ">Untersuchung auf Parasiten</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Untersuchung auf Parasiten</td>
        
-        <td>Standardbefund:</td>
-        <td>kein Nachweis.</td>
+        <td v-if="stool.probe==1"></td>
+        <td>Kein Nachweis.</td>
       </tr>
     </tbody>
     </table>
@@ -1085,9 +1085,33 @@
         };
       },
     
-    created(){this.allbloods();this.allurines();this.allstools(); this.tag(); },
+    created(){this.currentpage();this.allbloods();this.allurines();this.allstools(); this.tag(); },
 
     methods: {
+        currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",1);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
 
     bloodtag(){ this.tag1=1; this.tag();
     },
@@ -1112,9 +1136,9 @@
   
      if (this.tagfinal ==5)
      {this.tagz='Die heutigen Laborergebnisse lauten wie folgt:'}
-     else if (this.tagfinal ==1)  {this.tagz='Am nächsten '+ this.tagfinal+ ' Tag erreichen Sie die Laborergebnisse:'; this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
-     else if (this.tagfinal ==2) {this.tagz='Am nächsten '+ this.tagfinal+ ' Tagen erreichen Sie die Laborergebnisse:';this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
-     else {this.tagz='Sie haben keine Labortests angeordnet. Bitte klicken Sie auf Weiter';
+     else if (this.tagfinal ==1)  {this.tagz='Nach '+ this.tagfinal+ ' Tag erreichen Sie die Laborergebnisse:'; this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
+     else if (this.tagfinal ==2) {this.tagz='Nach '+ this.tagfinal+ ' Tagen erreichen Sie die Laborergebnisse:';this.spantext='(Bitte beachten Sie die Schaltfläche am Ende des Berichts, um fortzufahren)'}
+     else {this.tagz='Sie haben keine Labortests angeordnet. Bitte klicken Sie auf Weiter.';
     }
     },
 
@@ -1175,6 +1199,7 @@
   padding: 1%;
   border-radius: 10px;
   margin-top:1%;
+  margin-bottom: 1%;
   width:10%;
   /* width: 20%; */
   cursor: pointer;

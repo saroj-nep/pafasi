@@ -2,9 +2,11 @@
   <!-- prettier-ignore -->
 
               <form action="" class="form" method="POST">
-                
+                 
                   <div class="form__group">
-                    <label for="User" class="form__label">Studenten-E-Mail:</label>
+                     <div class="linking">
+                    <label for="User" class="form__label">Studierenden-E-Mail:</label></div>
+                    <div style="margin: 10px 0 10px 0;"></div>
                     <input
                       type="email"
                       placeholder="@stud.uni-saarland.de"
@@ -19,6 +21,7 @@
       <div class="linking">
                     <label for="User" class="form__label">Kennwort:</label>
                      </div>
+                     <div style="margin: 10px 0 10px 0;"></div>
                      <input
                       type="password"
                       placeholder="*********"
@@ -61,16 +64,39 @@ export default {
     
   }, created(){
     console.log(localStorage.email)
-    if (!(localStorage.email=='')){this.$router.push("/main");}
+    if (localStorage.email){this.$router.push("/main");}
   },
   methods: {
+    sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Nutzer hat sich bei der Plattform eingeloggt.")
+      data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
     Online(){
       var data = new FormData();
     
       
       data.append("email", this.User.email);
       localStorage.email=this.User.email;
-     
+      localStorage.currentpage=='';
       axios
         .post(
           // "./Api/api.php?action=login",
@@ -83,6 +109,7 @@ export default {
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+            this.sendthesteps();
             
           
           }
@@ -112,6 +139,8 @@ export default {
           } else {
             console.log("Success", res.data.message);
             this.Online();
+         
+             
             this.$router.push("/main");
           }
         })

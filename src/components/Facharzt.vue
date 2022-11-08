@@ -2,134 +2,140 @@
  <div  style="height:80vh; overflow:auto" >
   <div class="grid grid-cols-1 gap-2">
     <div class="sticky top-0 bg-emerald-600">
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie den Facharzt aus, an den Sie den Patienten überweisen möchten. </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie die Fachärztin/den Facharzt aus, an den Sie die Patientin/den Patienten überweisen möchten.​</b> </h1>
     </div>
   
-  <h4 style="color:red">Wichtig: Sie können nur maximal 3 Spezialisten auswählen, an die Sie den Patienten überweisen. </h4>
+  <h4 style="color:red">Wichtig: Sie können nur maximal drei SpezialistInnen auswählen, an die Sie die Patientin/den Patienten überweisen.​</h4>
   <br>
    <div  class="grid grid-cols-1 gap-2 " >
   
 <div >
   <form  name="form_name" id="form_name">
-<ul  class="w-400  text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+ <ul class="w-400 text-sm font-medium text-white rounded-lg border border-emerald-200 bg-emerald-600 dark:bg-emerald-600 dark:border-gray-600 dark:text-white" >
     <div  class="grid grid-cols-4 gap-1 " >
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox1" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Augenheilkunde</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Augenheilkunde</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();"  id="vue-checkbox2" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Chirurgie (ambulant)</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Chirurgie (ambulant)</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox3" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Gynäkologie</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Gynäkologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox4" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Hals-Nasen-Ohrenheilkunde</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Hals-Nasen-Ohrenheilkunde</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox5" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin: Kardiologie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin: Kardiologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox6" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin - Gastroenterologie</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin - Gastroenterologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox7" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Eisenstoffwechsel</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Eisenstoffwechsel</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox8" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin - Pulmologie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin - Pulmologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox9" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin - Nephrologie</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin - Nephrologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox10" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin - Hämato-/Onkologie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin - Hämato-/Onkologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox11" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Innere Medizin - Endokrinologie</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Innere Medizin - Endokrinologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox12" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Neurochirurgie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Neurochirurgie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox13" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Neurologie</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Neurologie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox14" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Orthopädie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Orthopädie</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox15" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Pädiatrie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Pädiatrie</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox16" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" >
-            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Psychiatrie/Psychosomatik</label>
+            <label for="vue-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Psychiatrie/Psychosomatik</label>
         </div>
     </li>
     <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox17" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300"> Radiologie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white"> Radiologie</label>
         </div>
     </li>
       <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
         <div class="flex items-center pl-3">
             <input @click="savevalue();" id="vue-checkbox18" type="checkbox" name="check" class="check w-8 h-8 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"  >
-            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Urologie</label>
+            <label for="react-checkbox" class="py-3 ml-2 w-full text-sm font-medium text-white dark:text-white">Urologie</label>
         </div>
     </li>
  
     
     </div>
 </ul></form></div>
-<div class="flex flex-row  justify-center items-center">
-<button  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+<div v-for="click in clickz" >
+<div v-if="click.user==email" class="flex flex-row  justify-center items-center">
+<button v-if="click.doctors==1" class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
+@click.prevent="checkboxtimelimit(); ">
+         Abschicken
+</button>
+<button v-else  class="submitbutton btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
 @click.prevent="checkboxlimit(); ">
          Abschicken
 </button>
+</div>
 </div>
 
  <Popup v-if="popupTriggers.sendTrigger" :TogglePopup="() => TogglePopup('sendTrigger')">
@@ -180,13 +186,94 @@ export default {
       showTooltip: false,
       showNotepad: false,
       facharzts:[],
+      clickz:[],
+      email:localStorage.email,
       
     };
   },
-created(){
-this.showvalue();
+created(){ this.currentpage();
+this.showvalue();this.clicks() ; this.sendthesteps();
  },
+
   methods: {
+    sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer ist auf dem Facharzt-Menü gelandet.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+     sendthedoctorsteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer hat den Patientenfall zum Fachgebiet/die Fachgebiete ausgestellt.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    
+    currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",1);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    clicks(){
+
+  axios.get( "./Api/api.php?action=getclicks",)
+    
+    .then((response) => {this.clickz=response.data })
+
+},
 
     savevalue(){
          localStorage.setItem("augen", document.getElementById("vue-checkbox1").checked);
@@ -208,7 +295,29 @@ this.showvalue();
          localStorage.setItem("radio", document.getElementById("vue-checkbox17").checked);
          localStorage.setItem("uro", document.getElementById("vue-checkbox18").checked);
     },
+ checkboxtimelimit(){
+    var a = document.getElementsByName("check");
+    var n = 0;
+    var count;
+    for(count=0; count<a.length;count++){
+if(a[count].checked===true){
+n=n+1;
 
+}
+
+    }
+    if(n > 3){
+    event.preventDefault();
+alert('Sie können nur maximal 3 Spezialisten auswählen, an die Sie den Patienten überweisen. ')
+
+
+return false;
+
+    }
+    else {this.doctortimecounter() ;this.sendvalue(); this.TogglePopup('sendTrigger')}
+      
+      
+      },
     checkboxlimit(){
     var a = document.getElementsByName("check");
     var n = 0;
@@ -346,7 +455,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
             
           } else {
             console.log("Success", res.data.message);
-            
+            this.sendthedoctorsteps();
           }
         })
         .catch(err => {
@@ -354,6 +463,438 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
         });
     },
  
+    doctortimecounter() {
+      var data = new FormData();
+        const a = document.querySelector('#vue-checkbox1');
+          const b = document.querySelector('#vue-checkbox2');
+          const c = document.querySelector('#vue-checkbox3');
+          const d = document.querySelector('#vue-checkbox4');
+          const e = document.querySelector('#vue-checkbox5');
+          const f = document.querySelector('#vue-checkbox6');
+          const g = document.querySelector('#vue-checkbox7');
+          const h = document.querySelector('#vue-checkbox8');
+          const i = document.querySelector('#vue-checkbox9');
+          const j = document.querySelector('#vue-checkbox10');
+          const k = document.querySelector('#vue-checkbox11');
+          const l = document.querySelector('#vue-checkbox12');
+          const m = document.querySelector('#vue-checkbox13');
+          const n = document.querySelector('#vue-checkbox14');
+          const o = document.querySelector('#vue-checkbox15');
+          const p = document.querySelector('#vue-checkbox16');
+          const q = document.querySelector('#vue-checkbox17');
+          const r = document.querySelector('#vue-checkbox18');
+          const s = document.querySelector('#vue-checkbox19');
+     
+          if(a.checked==true){   
+      data.append("time",259200);
+     data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin: Kardiologie"); 
+   data.append("onlineuser",localStorage.email);
+  
+   axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+           if(b.checked==true){
+      
+      data.append("time",43200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Chirurgie (ambulant)");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+           }
+            if(c.checked==true){ 
+      data.append("time",129600);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Dermatologie");
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+             if(d.checked==true){  
+      data.append("time",43200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Gynäkologie");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+              if(e.checked==true){var data = new FormData();
+  
+    
+    
+      data.append("time",129600);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Hals-Nasen-Ohrenheilkunde");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+               if(f.checked==true){   
+      data.append("time",259200);
+     data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin: Kardiologie"); 
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                if(g.checked==true){ 
+      data.append("time",172800);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Gastroenterologie");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                 if(h.checked==true){  
+      data.append("time",216000);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Pulmologie");
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                  if(i.checked==true){  
+      data.append("time",259200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Nephrologie");
+  data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                   if(j.checked==true){  
+     
+      data.append("time",302400);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Hämato-/Onkologie");
+     data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                    if(k.checked==true){
+      data.append("time",345600);
+       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin - Endokrinologie");
+      data.append("onlineuser",localStorage.email);
+       axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                     if(l.checked==true){ 
+      data.append("time",129600);
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurochirurgie");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                      if(m.checked==true){ 
+      data.append("time",43200);
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Neurologie");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                       if(n.checked==true){ 
+      data.append("time",43200);
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Orthopädie");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                        if(o.checked==true){  
+      data.append("time",43200);
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Pädiatrie");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                         if(p.checked==true){ 
+    
+      data.append("time",259200);
+   data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Psychiatrie/Psychosomatik");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+        if(q.checked==true){
+      
+      data.append("time",43200);
+      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Radiologie");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                           if(r.checked==true){  
+      data.append("time",43200);
+     data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Urologie");
+     data.append("onlineuser",localStorage.email);
+   
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });}
+                           
+   
+      
+      },
 
 
     doctorcounter() {
@@ -378,7 +919,23 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
           const r = document.querySelector('#vue-checkbox18');
           const s = document.querySelector('#vue-checkbox19');
      
-          if(a.checked==true){   data.append("satisfaction",1);
+        data.append('economy',-3.125),
+        data.append("doctors",1);
+        data.append("onlineuser",localStorage.email);
+        axios.post("./Api/api.php?action=facharzteconomyvariable",data) .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+
+          if(a.checked==true){   
+      data.append("satisfaction",1);
       data.append("time",259200);
      data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Innere Medizin: Kardiologie"); 
    data.append("onlineuser",localStorage.email);
@@ -395,13 +952,15 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
+           
           }
         })
         .catch(err => {
           console.log("Error", err);
         });}
+
            if(b.checked==true){
-            data.append("satisfaction",1);
+      data.append("satisfaction",1);
       data.append("time",43200);
       data.append("step","Sie haben den Patienten an den Spezialisten empfohlen:Chirurgie (ambulant)");
       data.append("onlineuser",localStorage.email);
@@ -465,7 +1024,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
         .catch(err => {
           console.log("Error", err);
         });}
-              if(e.checked==true){var data = new FormData();
+              if(e.checked==true){
   
     
       data.append("satisfaction",1);
@@ -765,11 +1324,14 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
         })
         .catch(err => {
           console.log("Error", err);
-        });}
+        });
+      
+      }
                            
    
       
-      },},
+      
+     this.clicks();},},
 
   setup() {
     const popupTriggers = ref({

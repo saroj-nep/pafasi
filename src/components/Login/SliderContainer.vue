@@ -90,7 +90,7 @@ export default {
 <style lang="scss">
 @import "@/style/main.scss";
 .slider {
-  grid-column: full-start/col-end 6;
+  grid-column: full-start/col-end 5;
   background-color:rgb(5, 150, 105);
   width: 100%;
   height: 100%;

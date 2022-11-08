@@ -3,12 +3,12 @@
   <div>
      <div class="bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten.  </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Laboranordnungen' sehen möchten:  </b> </h1>
     </div>
     <br>
     <br>
        <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="TogglePopup('bloodTrigger')">
+            @click.prevent="TogglePopup('laboranordnungenTrigger');TogglePopup('bloodTrigger')">
          Blutentnahme
          </button>
 
@@ -34,7 +34,7 @@
           </Popup>
   
           <button color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-          @click.prevent="TogglePopup('urineTrigger')">
+          @click.prevent="TogglePopup('laboranordnungenTrigger');TogglePopup('urineTrigger')">
             Urindiagnostik
           </button>
 
@@ -61,7 +61,7 @@
 
           
           <button  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-          @click.prevent="TogglePopup('stoolTrigger')">
+          @click.prevent="TogglePopup('laboranordnungenTrigger'); TogglePopup('stoolTrigger')">
           Stuhlprobe
           </button>
 
@@ -126,6 +126,7 @@ import Blood from "./Labaratory/Blood.vue";
 import Urine from "./Labaratory/Urine.vue";
 import Stool from "./Labaratory/Stool.vue";
 import TotalNextday from './Labaratory/TotalNextday.vue';
+import axios from 'axios';
 
 export default {
  
@@ -133,11 +134,62 @@ export default {
     return {
       
       showTooltip: false,
-      showNotepad: true
+      showNotepad: false
     };
   },
-
-
+created(){
+  this.currentpage(); 
+  localStorage.currentpage='';
+  this.sendthesteps();},
+methods:{
+sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer ist auf dem Laboranordnungen-Menü gelandet.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",1);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+},
 
 
 

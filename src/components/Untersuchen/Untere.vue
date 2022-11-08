@@ -2,7 +2,7 @@
   <div class="grid grid-cols-1 gap-2">
      <div class="bg-emerald-600">
 
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, was Sie für 'Nicht Apparative Untersuchen: untere Extremität' sehen möchten. </b> </h1>
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche nicht apparativen Untersuchungen an der unteren Extremität Sie durchführen möchten.</b> </h1>
     </div>
     <br>
     
@@ -12,7 +12,7 @@
         <div v-if="click.user==email"  class="flex justify-center ">
 
        <button v-if="click.untereinspektion==1" id="inspektionquestion"  class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent=" displayInspektion();">
+           @click.prevent=" countertimeInspektion();displayInspektion();">
          Inspektion und Palpation </button>
 
          
@@ -21,7 +21,7 @@
          Inspektion und Palpation </button>
 
           <button v-if="click.unterebeweg==1" id="nasequestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="displayNase();">
+           @click.prevent="countertimeNase();displayNase();">
             Prüfung der Beweglichkeit
           </button>
 
@@ -31,19 +31,19 @@
           </button>
             
            <button v-if="click.untereneurolog==1" id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-                  @click.prevent="displayMund();">
-            neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
+                  @click.prevent="countertimeMund();displayMund();">
+            Neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
 
            <button v-else id="mundquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
                   @click.prevent="counterMund();displayMund();">
-            neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
+            Neurolog. Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität
           </button>
         
 
       
            <button v-if="click.unteredurch==1" id="ohrenquestion" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayOhren();">
+            @click.prevent="countertimeOhren();displayOhren();">
            Prüfung der peripheren Durchblutung
           </button>
 
@@ -103,6 +103,114 @@ export default {
     .then((response) => {this.clickz=response.data })
 
 },
+countertimeInspektion() {
+      var data = new FormData();
+  
+      data.append("time",0.5);
+    
+      data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
+   data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    countertimeNase() {
+      var data = new FormData();
+ 
+      data.append("time",2);
+
+      data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+             this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+   
+    countertimeMund() {
+      var data = new FormData();
+  
+    
+      data.append("time",5);
+
+      data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+             this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+    countertimeOhren() {
+      var data = new FormData();
+
+      data.append("time",1.5);
+
+     data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+             this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
    counterInspektion() {
       var data = new FormData();
   
@@ -224,10 +332,7 @@ export default {
 
 
 
-displayInspektion(){  if (inspektionanswer.style.display !== "none") {
-        inspektionanswer.style.display = "none";
-        inspektionquestion.style.opacity="1";
-      } else {
+displayInspektion(){
         inspektionanswer.style.display = "block";
         inspektionquestion.style.opacity="0.5";
         nasequestion.style.opacity="1";
@@ -237,11 +342,8 @@ displayInspektion(){  if (inspektionanswer.style.display !== "none") {
         mundanswer.style.display = "none";
         ohrenanswer.style.display = "none";
         
-      }},
-displayNase(){  if (naseanswer.style.display !== "none") {
-        naseanswer.style.display = "none";
-        nasequestion.style.opacity="1";
-      } else {
+      },
+displayNase(){
         naseanswer.style.display = "block";
         nasequestion.style.opacity="0.5";
         inspektionanswer.style.display = "none";
@@ -251,12 +353,8 @@ displayNase(){  if (naseanswer.style.display !== "none") {
         mundquestion.style.opacity="1";
         ohrenquestion.style.opacity="1";
         
-      }},
-displayMund(){  if (mundanswer.style.display !== "none") {
-        mundanswer.style.display = "none";
-        mundquestion.style.opacity="1";
-
-      } else {
+      },
+displayMund(){ 
         mundanswer.style.display = "block";
         mundquestion.style.opacity="0.5";
         naseanswer.style.display = "none";
@@ -266,11 +364,8 @@ displayMund(){  if (mundanswer.style.display !== "none") {
         inspektionquestion.style.opacity="1";
         ohrenquestion.style.opacity="1";
         
-      }},
-displayOhren(){  if (ohrenanswer.style.display !== "none") {
-        ohrenanswer.style.display = "none";
-        ohrenquestion.style.opacity="1";
-      } else {
+      },
+displayOhren(){ 
         ohrenanswer.style.display = "block";
         ohrenquestion.style.opacity="0.5";
         naseanswer.style.display = "none";
@@ -278,9 +373,9 @@ displayOhren(){  if (ohrenanswer.style.display !== "none") {
         inspektionanswer.style.display = "none";
         nasequestion.style.opacity="1";
         mundquestion.style.opacity="1";
-        inspecktionquestion.style.opacity="1";
+        inspektionquestion.style.opacity="1";
         
-      }},
+      },
 
 
 },

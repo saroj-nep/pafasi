@@ -1,110 +1,111 @@
 <template>
   <div  class="" >
+    <button  class="popup-close" title="Zurück" @click="hauptmenu()" ><img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" /> </button>
      <div class=" bg-emerald-600">
-
-    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche Fragen Sie Ihrer Patientin/ Ihrem Patienten stellen möchten:  </b> </h1>
+   
+    <h1 style="font-size:1.5em; " class="h1 text-white text-center" ><b>Wählen Sie aus, welche Fragen Sie Ihrer Patientin/Ihrem Patienten stellen möchten:  </b> </h1>
     </div>
     <br>
     <form action="" class="form" method="POST">
       <div v-for="click in clickz">
-    <div v-if="click.user==email" class="grid grid-cols-3  gap-2">
+    <div style="white-space: pre-wrap;" v-if="click.user==email" class="grid grid-cols-3  gap-1">
       
     <button v-if="click.beschreiben==1" id="beschreibenquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="displayBeschreiben();">
-          <h6 style="font-size:1em;">Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)</h6>
+           @click.prevent="beschreibentimecounter(),displayBeschreiben();">
+          <h6 style="font-size:1em; word-break: break-all;">Beschreiben Sie Ihre Symptome genauer (Charakter, Auslöser, Zeit, etc.).​</h6>
          </button>
     <button v-else id="beschreibenquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="beschreibencounter(),displayBeschreiben();">
-          <h6 style="font-size:1em;">Beschreiben Sie Ihre Symptome genauer! (Charakter, Auslösung, Zeit, ...)</h6>
+          <h6 style="font-size:1em; word-break: break-all;">Beschreiben Sie Ihre Symptome genauer (Charakter, Auslöser, Zeit, etc.).​</h6>
          </button>
 
     <button v-if="click.akutes==1" id="akutesquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayAkutes();">
-             <h6 style="font-size:1em;">akutes Ereignis?/Änderung der Lebensumstände?</h6>
+            @click.prevent="akutestimecounter(),displayAkutes();">
+             <h6 style="font-size:1em;word-break: break-all;">Akutes Ereignis oder Änderung der Lebensumstände?</h6>
           </button>
      <button v-else id="akutesquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="akutescounter(),displayAkutes();">
-             <h6 style="font-size:1em;">akutes Ereignis?/Änderung der Lebensumstände?</h6>
+             <h6 style="font-size:1em;word-break: break-all;">Akutes Ereignis oder Änderung der Lebensumstände?</h6>
           </button>
              
     <button v-if="click.medikamen==1" id="medikamenquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="displayMedikamen();">
-           <h6 style="font-size:1em; ">Medikamentenanamnese</h6>
+           @click.prevent="medikamentimecounter(),displayMedikamen();">
+           <h6 style="font-size:1em;word-break: break-all; ">Medikamentenanamnese</h6>
           </button>
 
     <button v-else id="medikamenquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="medikamencounter(),displayMedikamen();">
-           <h6 style="font-size:1em; ">Medikamentenanamnese</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Medikamentenanamnese</h6>
           </button>
 
     <button v-if="click.gewohn==1" id="gewohnquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayGewohn();">
-           <h6 style="font-size:1em; ">Gewohnheiten, Lebensstil (Sport, Ernährung,...))</h6>
+            @click.prevent="gewohntimecounter(),displayGewohn();">
+           <h6 style="font-size:1em;word-break: break-all; ">Gewohnheiten, Lebensstil (Sport, Ernährung, etc.)​</h6>
          </button>
 
    <button v-else id="gewohnquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="gewohncounter(),displayGewohn();">
-           <h6 style="font-size:1em; ">Gewohnheiten, Lebensstil (Sport, Ernährung,...))</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Gewohnheiten, Lebensstil (Sport, Ernährung, etc.)​</h6>
          </button>
         
     <button v-if="click.nikotin==1" id="nikotinquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayNikotin();">
-            <h6 style="font-size:1em; ">Nikotin, Alkohol, Drogen?</h6>
+            @click.prevent="nikotintimecounter(),displayNikotin();">
+            <h6 style="font-size:1em;word-break: break-all; ">Nikotin, Alkohol oder Drogen?​</h6>
          </button>
 
     <button v-else id="nikotinquestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="nikotincounter(),displayNikotin();">
-            <h6 style="font-size:1em; ">Nikotin, Alkohol, Drogen?</h6>
+            <h6 style="font-size:1em;word-break: break-all; ">Nikotin, Alkohol oder Drogen?​</h6>
          </button>
 
     <button v-if="click.allergien==1" id="allerginquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayAllergin();">
-           <h6 style="font-size:1em; ">Allergien</h6>
+            @click.prevent="allergintimecounter(),displayAllergin();">
+           <h6 style="font-size:1em;word-break: break-all; ">Allergien</h6>
          </button>
      <button v-else id="allerginquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="allergincounter(),displayAllergin();">
-           <h6 style="font-size:1em; ">Allergien</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Allergien</h6>
          </button>
           
     <button  v-if="click.vegetative==1"  id="vegetativequestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayVegetative();">
-           <h6 style="font-size:1em; ">vegetative Anamnese (Appetit, Schlaf, Verdauung etc))</h6>
+            @click.prevent="vegetativetimecounter(),displayVegetative();">
+           <h6 style="font-size:1em;word-break: break-all; ">Vegetative Anamnese (Appetit, Schlaf, Verdauung, etc.)</h6>
          </button>
 
     <button v-else id="vegetativequestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="vegetativecounter(),displayVegetative();">
-           <h6 style="font-size:1em; ">vegetative Anamnese (Appetit, Schlaf, Verdauung etc))</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Vegetative Anamnese (Appetit, Schlaf, Verdauung, etc.)</h6>
          </button>
           
      <button v-if="click.gyna==1" id="gynoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-           @click.prevent="displayGyno();">
-           <h6 style="font-size:1em; white-space: pre-wrap; ">Gynäkologische / Urologische / Sexualanamnese</h6>
+           @click.prevent="gynotimecounter(),displayGyno();">
+           <h6 style="font-size:1em; word-break: break-all; ">Gynäkologische-/Urologische-/Sexualanamnese​</h6>
          </button>
 
      <button v-else id="gynoquestion"  color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
            @click.prevent="gynocounter(),displayGyno();">
-           <h6 style="font-size:1em; white-space: pre-wrap; ">Gynäkologische / Urologische / Sexualanamnese</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Gynäkologische-/Urologische-/Sexualanamnese​</h6>
          </button>
           
     <button v-if="click.psyche==1" id="psychequestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayPsyche();">
-           <h6 style="font-size:1em; ">Psyche</h6>
+            @click.prevent="psychetimecounter(),displayPsyche();">
+           <h6 style="font-size:1em;word-break: break-all; ">Psyche</h6>
          </button>
 
               
     <button v-else id="psychequestion" color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="psychecounter(),displayPsyche();">
-           <h6 style="font-size:1em; ">Psyche</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Psyche</h6>
          </button>
          
      <button v-if="click.familien==1" id="familienquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
-            @click.prevent="displayFamilien();">
-           <h6 style="font-size:1em; ">Familien- und Sozialanamnese (Beruf, Wohnsituation)</h6>
+            @click.prevent="familientimecounter(),displayFamilien();">
+           <h6 style="font-size:1em;word-break: break-all; ">Familien- und Sozialanamnese (Beruf, Wohnsituation)</h6>
          </button>
 
       <button v-else id="familienquestion"   color="#42b983" class="button btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl"
             @click.prevent="familiencounter(),displayFamilien();">
-           <h6 style="font-size:1em; ">Familien- und Sozialanamnese (Beruf, Wohnsituation)</h6>
+           <h6 style="font-size:1em;word-break: break-all; ">Familien- und Sozialanamnese (Beruf, Wohnsituation)</h6>
          </button>
 
           </div>
@@ -126,7 +127,7 @@
 </template>
 
 <script>
-import Popup from '@/components/Popup.vue';
+import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
 import Submit from '@/components/Submit.vue';
@@ -134,6 +135,7 @@ import axios from "axios";
 
 
 export default {
+  
  name:"Anamneses",
   data() {
     return {counters: {
@@ -151,20 +153,61 @@ export default {
     };
   },
 
-  created(){this.clicks(); this.displays();},
+  created(){this.currentpage();this.clicks(); this.sendthesteps(); },
 
  methods: {
-  displays(){
-   akutesanswer.style.display='none',
-   allerginanswer.style.display == "none",
-   beschreibenanswer.style.display == "none",
-   gewohnanswer.style.display == "none",
-   familienanswer.style.display == "none",
-   gynoanswer.style.display == "none",
-   medikamenanswer.style.display == "none",
-   nikotinanswer.style.display == "none",
-   psycheanswer.style.display == "none",
-   vegetativeanswer.style.display == "none"
+
+  sendthesteps(){
+    var data = new FormData();
+     data.append("step","Der Benutzer ist auf dem Anamnese-Menü gelandet.")
+    data.append("onlineuser",localStorage.email);
+axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=sendthesteps",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+    currentpage(){
+    var data = new FormData();
+     data.append("main",0);
+     data.append("warte",0);data.append("patient",0);data.append("anamnese",1);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",0);
+    data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=currentpage",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+          
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
+  hauptmenu(){
+    document.location.reload();
   },
 
 clicks(){
@@ -175,10 +218,7 @@ clicks(){
 
 },
 
- displayAkutes(){  if (akutesanswer.style.display !== "none") {
-        akutesanswer.style.display = "none";
-        akutesquestion.style.opacity="1";
-      } else {
+ displayAkutes(){ 
         akutesanswer.style.display = "block";
         akutesquestion.style.opacity="0.5";
         allerginquestion.style.opacity="1";
@@ -199,11 +239,8 @@ clicks(){
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayAllergin(){  if (allerginanswer.style.display !== "none") {
-        allerginanswer.style.display = "none";
-        allerginquestion.style.opacity="1";
-      } else {
+      },
+displayAllergin(){  
         allerginanswer.style.display = "block";
         allerginquestion.style.opacity="0.5";
          akutesanswer.style.display = "none";
@@ -224,12 +261,8 @@ displayAllergin(){  if (allerginanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayBeschreiben(){  if (beschreibenanswer.style.display !== "none") {
-        beschreibenanswer.style.display = "none";
-        beschreibenquestion.style.opacity="1";
-
-      } else {
+      },
+displayBeschreiben(){
         beschreibenanswer.style.display = "block";
         beschreibenquestion.style.opacity="0.5";
           allerginanswer.style.display = "none";
@@ -250,11 +283,8 @@ displayBeschreiben(){  if (beschreibenanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayFamilien(){  if (familienanswer.style.display !== "none") {
-        familienanswer.style.display = "none";
-        familienquestion.style.opacity="1";
-      } else {
+      },
+displayFamilien(){
         familienanswer.style.display = "block";
         familienquestion.style.opacity="0.5";
         allerginanswer.style.display = "none";
@@ -275,11 +305,8 @@ displayFamilien(){  if (familienanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayGewohn(){  if (gewohnanswer.style.display !== "none") {
-        gewohnanswer.style.display = "none";
-        gewohnquestion.style.opacity="1";
-      } else {
+      },
+displayGewohn(){ 
         gewohnanswer.style.display = "block";
         gewohnquestion.style.opacity="0.5";
           allerginanswer.style.display = "none";
@@ -300,11 +327,8 @@ displayGewohn(){  if (gewohnanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayGyno(){  if (gynoanswer.style.display !== "none") {
-        gynoanswer.style.display = "none";
-         gynoquestion.style.opacity="1";
-      } else {
+      },
+displayGyno(){
        akutesanswer.style.display = "none";
         akutesquestion.style.opacity="1";
         allerginquestion.style.opacity="1";
@@ -325,11 +349,8 @@ displayGyno(){  if (gynoanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayMedikamen(){  if (medikamenanswer.style.display !== "none") {
-        medikamenanswer.style.display = "none";
-        medikamenquestion.style.opacity="1";
-      } else {
+      },
+displayMedikamen(){ 
         medikamenanswer.style.display = "block";
         medikamenquestion.style.opacity="0.5";
           allerginanswer.style.display = "none";
@@ -350,14 +371,11 @@ displayMedikamen(){  if (medikamenanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }},
-displayNikotin(){  if (nikotinanswer.style.display !== "none") {
-        nikotinanswer.style.display = "none";
-         nikotinquestion.style.opacity="1";
-      } else {
+      },
+displayNikotin(){ 
         nikotinanswer.style.display = "block";
         nikotinquestion.style.opacity="0.5";
-          allerginanswer.style.display = "none";
+        allerginanswer.style.display = "none";
         beschreibenanswer.style.display = "none";
         familienanswer.style.display = "none";
         gewohnanswer.style.display = "none";
@@ -375,11 +393,8 @@ displayNikotin(){  if (nikotinanswer.style.display !== "none") {
         vegetativequestion.style.opacity="1";
         psycheanswer.style.display = "none";
         psychequestion.style.opacity="1";
-      }}, 
-displayPsyche(){  if (psycheanswer.style.display !== "none") {
-        psycheanswer.style.display = "none";
-        psychequestion.style.opacity="1";
-      } else {
+      }, 
+displayPsyche(){
         psycheanswer.style.display = "block";
         psychequestion.style.opacity="0.5";
         allerginanswer.style.display = "none";
@@ -400,11 +415,8 @@ displayPsyche(){  if (psycheanswer.style.display !== "none") {
         gewohnquestion.style.opacity="1";
         vegetativeanswer.style.display = "none";
         vegetativequestion.style.opacity="1";
-      }}, 
-displayVegetative(){  if (vegetativeanswer.style.display !== "none") {
-        vegetativeanswer.style.display = "none";
-        vegetativequestion.style.opacity="1";
-      } else {
+      }, 
+displayVegetative(){
         vegetativeanswer.style.display = "block";
         vegetativequestion.style.opacity="0.5";
         allerginanswer.style.display = "none";
@@ -425,7 +437,268 @@ displayVegetative(){  if (vegetativeanswer.style.display !== "none") {
         gynoquestion.style.opacity="1";
         akutesquestion.style.opacity="1";
         gewohnquestion.style.opacity="1";
-      }}, 
+      }, 
+
+ akutestimecounter() {
+      var data = new FormData();
+     
+      data.append("time",0.3);
+      data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+           
+           
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+ },
+allergintimecounter() {
+      var data = new FormData();
+      data.append("time",0.3);
+      data.append("step","Sie haben akutes Allergin unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+beschreibentimecounter() {
+      var data = new FormData();
+  
+ 
+      data.append("time",2)
+      data.append("step","Sie haben Beschreiben Sie Ihre Symptome genauer! unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+familientimecounter() {
+      var data = new FormData();
+  
+
+      data.append("time",1);
+      data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gewohntimecounter() {
+      var data = new FormData();
+  
+     
+      data.append("time",1);
+      data.append("safety",100);
+      data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+gynotimecounter() {
+      var data = new FormData();
+  
+  
+      data.append("time",2);
+      data.append("safety",100);
+      data.append("step","Sie haben Gynokologische/Urologische/Sexualanamnese unter ausführlichere Anamnese angekreuzt")
+       data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+medikamentimecounter() {
+      var data = new FormData();
+  
+   
+      data.append("time",0.5);
+      data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+nikotintimecounter() {
+      var data = new FormData();
+ 
+      data.append("time",1);
+      data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+psychetimecounter() {
+      var data = new FormData();
+  
+
+      data.append("time",1);
+      data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+vegetativetimecounter() {
+      var data = new FormData();
+
+      data.append("time",2);
+      data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt");
+      data.append("onlineuser",localStorage.email);
+      axios
+        .post(
+          // "./Api/api.php?action=countervariable",
+          "./Api/api.php?action=countertimevariable",
+          data
+        )
+        .then(res => {
+          if (res.data.error) {
+            console.log("Error", res.data);
+            alert(res.data.message);
+          } else {
+            console.log("Success", res.data.message);
+            this.clicks();
+          }
+        })
+        .catch(err => {
+          console.log("Error", err);
+        });
+    },
+
 
 
  akutescounter() {
@@ -764,12 +1037,12 @@ h3:hover {
   background: black;
   margin-right: 5%;
   margin-left:1%;
-  margin-top:1%;
+  margin-top:2%;
   color: white;
   padding: 5%;
   border-radius: 20px;
 
-  width:85%;
+  width:87%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */
