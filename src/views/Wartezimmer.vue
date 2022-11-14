@@ -93,7 +93,7 @@ Header
     pagez:[]
     }},
     created(){  
-    if (localStorage.email==''){this.$router.push("/login");}
+    if (!(localStorage.email)){this.$router.push("/login");}
      this.pagestatus();
     this.currentpage();
  this.getsubmit();

@@ -1,7 +1,8 @@
-<template>  <!-- eslint-disable -->
+<template>
+  <!-- eslint-disable -->
   <!-- prettier-ignore -->
 
-              <form action="" class="form" method="POST">
+  <form action="" class="form" method="POST">
                  
                   <div class="form__group">
                      <div class="linking">
@@ -40,16 +41,12 @@
                     </button>
                   
               </form>
-             <div class="linking">
-    <p for="Password" class="form__label">
-     
-    </p>
-    
+  <div class="linking">
+    <p for="Password" class="form__label"></p>
   </div>
 </template>
 <script>
 import axios from "axios";
-
 
 export default {
   name: "Home",
@@ -57,98 +54,92 @@ export default {
     return {
       User: {
         email: null,
-        password: null
+        password: null,
       },
-  }
-    
-    
-  }, created(){
-    console.log(localStorage.email)
-    if (localStorage.email){this.$router.push("/main");}
+    };
+  },
+  created() {
+    console.log(localStorage.email);
+    if (localStorage.email) {
+      this.$router.push("/main");
+    }
   },
   methods: {
-    sendthesteps(){
-    var data = new FormData();
-     data.append("step","Der Nutzer hat sich bei der Plattform eingeloggt.")
-      data.append("onlineuser",localStorage.email);
-axios
+    sendthesteps() {
+      var data = new FormData();
+      data.append("step", "Der Nutzer hat sich bei der Plattform eingeloggt.");
+      data.append("onlineuser", localStorage.email);
+      axios
         .post(
           // "./Api/api.php?action=countervariable",
           "./Api/api.php?action=sendthesteps",
           data
         )
-        .then(res => {
+        .then((res) => {
           if (res.data.error) {
             console.log("Error", res.data);
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
-           
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error", err);
         });
     },
-    Online(){
+    Online() {
       var data = new FormData();
-    
-      
-      data.append("email", this.User.email);
-      localStorage.email=this.User.email;
-      localStorage.currentpage=='';
+
+      data.append("email", this.User.email.trim());
+      localStorage.email = this.User.email.trim();
+      localStorage.currentpage == "";
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=online",
+          "./Api/api.php?action=online",
           data
         )
-        .then(res => {
+        .then((res) => {
           if (res.data.error) {
             console.log("Error", res.data);
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
             this.sendthesteps();
-            
-          
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error", err);
         });
     },
 
-
     onLogin() {
       var data = new FormData();
-    
-      
+
       data.append("email", this.User.email);
       data.append("password", this.User.password);
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=login",
+          "./Api/api.php?action=login",
           data
         )
-        .then(res => {
+        .then((res) => {
           if (res.data.error) {
             console.log("Error", res.data);
             alert(res.data.message);
           } else {
             console.log("Success", res.data.message);
             this.Online();
-         
-             
+
             this.$router.push("/main");
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log("Error", err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -215,7 +206,6 @@ a:focus {
     cursor: pointer;
   }
 }
-
 
 .valid:focus,
 .valid:active {

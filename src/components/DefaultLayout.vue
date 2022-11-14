@@ -145,7 +145,6 @@ export default{
     BellIcon,
     MenuIcon,
     XIcon,
-    Notification,
     Main
   },
   methods: {

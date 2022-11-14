@@ -1,15 +1,13 @@
 <template>
-   <div style="height:95vh; overflow:auto">
+  <Header />
   <div class="flex sticky top -0 align-center content-center justify-center justify-items-center justify-evenly place-content-center">
-      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click.prevent="btnWarte();" > Schließen Sie den Fall</button>
-      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click.prevent="btnPrint(); btnprint()" >Laden Sie Ihre Diagnoseergebnisse herunter</button>
+      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click.prevent="btnWarte();" >Rückkehr ins Wartezimmer</button>
+      <button type="button"  id="btnPrint" class="button   btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-xl" @click.prevent="btnPrint();" >Laden Sie Ihre Diagnoseergebnisse herunter</button>
    </div>
-   <br>
-  <div class="ml-60 mr-60  border border-green-500">
+  <div class="ml-60 mr-60 mt-10 mb-20 border border-green-500">
     
-   <br>
-     <form id="form1">
-   <div id="html-content" class="html-content">
+    <form id="form1">
+    <div id="html-content" class="html-content">
       <h1 class=" bg-emerald-200 pl-3 py-2" > Ihre Diagnoseergebnisse: </h1>
       <div  >
       <div class="flex flex-col">
@@ -35,7 +33,7 @@
             </div>
               <div  class="col-span-3">         
                <td v-if="c.economy<0" class="text-sm text-red-500  px-6 py-4 whitespace-prewrap">
-              Sie haben eine negative Punktzahl erhalten, weil die Anzahl der gewählten relevanten/idealen/richtigen Aktionen geringer war als die Anzahl der irrelevanten/nicht idealen/falschen Aktionen.
+              Sie haben eine negative Punktzahl erhalten, weil die Anzahl der gewählten relevanten / idealen / richtigen Aktionen geringer war als die Anzahl der irrelevanten/nicht idealen/falschen Aktionen.
               </td>
             </div>
             </div>
@@ -53,7 +51,8 @@
               </td>
               </div>
               <div  class="col-span-3">         
-                <td v-if="c.safety<=50" class="text-sm text-red-500  px-6 py-4 whitespace-prewrap">
+         
+    <td v-if="c.safety<=50" class="text-sm text-red-500  px-6 py-4 whitespace-prewrap">
              Ihr Patientensicherheits-Score von {{c.safety.replace('.',',')}} % liegt zwischen 0 % und 50 %. Punktzahlen in diesem Bereich bedeuten Ihre Entscheidungen für das weitere Vorgehen bergen erhebliche Risiken. Der weitere Verlauf ist mehr abhängig vom Zufall als von Ihrer ärztlichen Betreuung. Somit gefährden Sie das Wohl des Patienten.
               </td>
               <td v-if="c.safety>50 && c.safety<=75" class="text-sm text-orange-500 px-6 py-4 whitespace-prewrap">
@@ -146,7 +145,7 @@
              Krankenhauseinweisung
               </td>
               <td v-if="submit.noappointment==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             Keine Wiedervorstellung verabredet
+              Keine Wiedervorstellung verabredet
               </td>
               <td v-if="submit.badappointment==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
              Wiedervorstellung bei Verschlechterung
@@ -160,7 +159,7 @@
               <td v-if="submit.fourweeks==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
             Wiedervorstellung in 4 Wochen
               </td>
-                 <td v-if="submit.wiedereinbestellen==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
+               <td v-if="submit.wiedereinbestellen==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
             Wiedereinbestellen
               </td>
               <td v-if="submit.ausstellen==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
@@ -238,10 +237,7 @@
    
     </form>
     </div>
-    <br>
- 
-    <br> 
-    </div>
+     
 </template>
 
   
@@ -251,7 +247,7 @@
 
     import axios from "axios";
     import jQuery from "jquery";
-   
+    import Header from '@/components/DefaultLayout.vue';
 
      
     const $ = jQuery;
@@ -263,92 +259,22 @@
         notes: [],
         stepsmodified:[],
         counters:[],
-        submits:[],
+         submits:[],
         email:localStorage.email,
 			}},
-      components: {},
-       created(){this.currentpage();this.submitted();this.allNotes();this.allCounters(); this.allSubmits(); this.sendthesteps(); },
+      components: {Header},
+       created(){this.allNotes();this.allCounters();this.allSubmits();
+       console.log(localStorage.email)
+    if (localStorage.email==''){this.$router.push("/login");}
+},
 			methods: {
 
-      sendthesteps(){
-    var data = new FormData();
-     data.append("step","Der Benutzer hat mit der Diagnose abgeschlossen und die heutige Vorstellung ist beendet.")
-    data.append("onlineuser",localStorage.email);
-axios
-        .post(
-          // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
-          data
-        )
-        .then(res => {
-          if (res.data.error) {
-            console.log("Error", res.data);
-            alert(res.data.message);
-          } else {
-            console.log("Success", res.data.message);
-           
-          }
-        })
-        .catch(err => {
-          console.log("Error", err);
-        });
-    },  
-    currentpage(){
-    var data = new FormData();
-     data.append("main",0);
-     data.append("warte",0);data.append("patient",0);data.append("anamnese",0);data.append("patientenakte",0);data.append("laboratory",0);data.append("blood",0);data.append("urine",0);data.append("stool",0);data.append("sendblood",0);data.append("sendurine",0);data.append("sendstool",0);data.append("doctors",0);data.append("senddoctors",0);data.append("untersuchen",0);data.append("nicht",0);data.append("kopf",0);data.append("rumpf",0);data.append("thorax",0);data.append("wirbel",0);data.append("abdomen",0);data.append("obere",0);data.append("untere",0);data.append("genital",0);data.append("apparative",0);data.append("sono",0);data.append("ekg",0);data.append("lungen",0);data.append("sendsubmit",0);data.append("submit1",0);data.append("submit2",0);data.append("submit3",0);data.append("lab",0);data.append("afterlab",0);data.append("specialties",0);data.append("afterspecialties",0);data.append("prints",1);
-    data.append("onlineuser",localStorage.email);
-      axios
-        .post(
-          // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
-          data
-        )
-        .then(res => {
-          if (res.data.error) {
-            console.log("Error", res.data);
-            alert(res.data.message);
-          } else {
-            console.log("Success", res.data.message);
-          
-          }
-        })
-        .catch(err => {
-          console.log("Error", err);
-        });
-    },
-        allSubmits(){
+         allSubmits(){
 
          axios.get( "./Api/api.php?action=getsubmit",)
         .then((response) => {this.submits=response.data;} )
           },
 
-        submitted(){ 
-          
-          var data = new FormData();
-            data.append("onlineuser",localStorage.email);
-          axios
-        .post(
-          // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendsubmit4",
-          data
-        )
-        .then(res => {
-          if (res.data.error) {
-            console.log("Error", res.data);
-            alert(res.data.message);
-            
-          } else {
-            console.log("Success", res.data.message);
-            
-          }
-        })
-        .catch(err => {
-          console.log("Error", err);
-        });
-    },
-
-        btnprint(){this.$router.push("/warte");},
         emptydiagnosis(){
           var data= new FormData();
           data.append("onlineuser",localStorage.email);
@@ -394,14 +320,13 @@ axios
             
    
 
-    },     
-    
-      btnWarte(){
+    },   
+    btnWarte(){
      this.$router.push({ name: 'Wartezimmer' })
 
 
 
-    },  
+    },         
     allNotes() {
         
 
@@ -409,7 +334,7 @@ axios
     
     .then((response) => {this.notes=response.data;  } )
   },
-       btnPrint()
+      btnPrint()
        {
         var element = document.getElementById('html-content');
 var opt = {
@@ -428,11 +353,14 @@ html2pdf().set(opt).from(element).save();
   </script>
  <style scoped>
  .button {
-   background: #be123c;
+   background: rgb(202, 40, 7);
   color: white;
   padding: 1%;
   border-radius: 2%;
-  width:25%;
+  margin-right: 10%;
+  margin-left:10%;
+  margin-top:2%;
+  width:20%;
   /* width: 20%; */
   cursor: pointer;
   /* color: #444   */

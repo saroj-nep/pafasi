@@ -297,6 +297,9 @@ export default{
         
         Header
     },
+    created(){
+      console.log(localStorage.email)
+       if (!(localStorage.email)){this.$router.push("/login");}},
     methods:{
      hauptmenu(){this.$router.push("/main");}}
 }

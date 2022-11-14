@@ -316,7 +316,7 @@
         },
 
           allCounters(){
-            axios.get( "./Api/api.php?action=getoriginalcounters",)
+            axios.get( "./Api/api.php?action=getcounters",)
     
     .then((response) => {this.counters=response.data;} )
   },
@@ -324,7 +324,7 @@
 
          allSubmits(){
 
-         axios.get( "./Api/api.php?action=getoriginalsubmit",)
+         axios.get( "./Api/api.php?action=getsubmit",)
         .then((response) => {this.submits=response.data;} )
           },
 
@@ -332,7 +332,7 @@
           this.e=e;
           
             
-  axios.get( "./Api/api.php?action=getoriginaldownloadstuff", {params: {
+  axios.get( "./Api/api.php?action=getdownloadstuff", {params: {
     'user': e,
   }})
     
@@ -374,7 +374,7 @@ html2pdf().set(opt).from(element).save();
       
          allstudents(){
 
-         axios.get( "./Api/api.php?action=getoriginalcounters",)
+         axios.get( "./Api/api.php?action=getcounters",)
         .then((response) => {this.students=response.data;} )
           },
 

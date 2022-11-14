@@ -35,7 +35,7 @@ export default{
         Header
     },
     created(){ 
-    if (localStorage.email==''){this.$router.push("/login");}
+    if (!(localStorage.email)){this.$router.push("/login");}
    
     if( localStorage.rrload=false){this.rload();}
     else{this.sendthesteps()}
