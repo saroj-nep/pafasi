@@ -48,8 +48,8 @@
 <script>
 import Popup2 from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Submit from '@/components/Submit.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Submit from '@/components/Hirtz_Submit.vue';
 import axios from 'axios';
 
 
@@ -67,7 +67,7 @@ export default {
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -90,7 +90,7 @@ axios
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -115,7 +115,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -139,7 +139,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {

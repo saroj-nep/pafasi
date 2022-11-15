@@ -72,9 +72,9 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Sendblood from './Sendblood.vue';
-import Sendstool from './Sendstool.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Sendblood from './Hirtz_Sendblood.vue';
+import Sendstool from './Hirtz_Sendstool.vue';
 import axios from "axios";
 
 
@@ -107,7 +107,7 @@ this.showvalue();this.clicks();
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -125,7 +125,7 @@ axios
     },
     clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -167,7 +167,7 @@ if (localStorage.suchen == "true") { document.getElementById('vue-checkbox3').ch
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendstool",
+           "./Api/hirtz_api.php?action=sendstool",
           data
         )
         .then(res => {
@@ -201,7 +201,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countertimevariable",
+              "./Api/hirtz_api.php?action=countertimevariable",
               data
             )
             .then(res => {
@@ -224,7 +224,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countertimevariable",
+              "./Api/hirtz_api.php?action=countertimevariable",
               data
             )
             .then(res => {
@@ -247,7 +247,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countertimevariable",
+              "./Api/hirtz_api.php?action=countertimevariable",
               data
             )
             .then(res => {
@@ -281,7 +281,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countervariable",
+              "./Api/hirtz_api.php?action=countervariable",
               data
             )
             .then(res => {
@@ -307,7 +307,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countervariable",
+              "./Api/hirtz_api.php?action=countervariable",
               data
             )
             .then(res => {
@@ -333,7 +333,7 @@ stooltimecounter() {
           axios
             .post(
               // "./Api/api.php?action=countervariable",
-              "./Api/api.php?action=countervariable",
+              "./Api/hirtz_api.php?action=countervariable",
               data
             )
             .then(res => {

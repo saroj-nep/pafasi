@@ -271,7 +271,7 @@
 
          allSubmits(){
 
-         axios.get( "./Api/api.php?action=getsubmit",)
+         axios.get( "./Api/hirtz_api.php?action=getsubmit",)
         .then((response) => {this.submits=response.data;} )
           },
 
@@ -281,7 +281,7 @@
           axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=emptydiagnosis",
+           "./Api/hirtz_api.php?action=emptydiagnosis",
           data
         )
         .then(res => {
@@ -304,7 +304,7 @@
        
  
         allCounters(){
-            axios.get( "./Api/api.php?action=getcounters",)
+            axios.get( "./Api/hirtz_api.php?action=getcounters",)
     
     .then((response) => {this.counters=response.data;} )
   },
@@ -330,7 +330,7 @@
     allNotes() {
         
 
-    axios.get( "./Api/api.php?action=getnotess",)
+    axios.get( "./Api/hirtz_api.php?action=getnotess",)
     
     .then((response) => {this.notes=response.data;  } )
   },
@@ -339,7 +339,7 @@
         var element = document.getElementById('html-content');
 var opt = {
   margin:       1,
-  filename:     'Diagnoseergebnisse_Schneider.pdf',
+  filename:     'Diagnoseergebnisse_Hirtz.pdf',
   image:        { type: 'jpeg', quality: 1 },
   html2canvas:  { scale: 2 },
   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }

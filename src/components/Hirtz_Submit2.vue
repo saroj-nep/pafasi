@@ -191,9 +191,9 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
 import axios from 'axios';
-import Specialties from '@/components/Facharzt/Specialties.vue';
+import Specialties from '@/components/Hirtz_Facharzt/Hirtz_Specialties.vue';
 
 
 export default {
@@ -232,7 +232,7 @@ methods:{
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -257,7 +257,7 @@ methods:{
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -275,7 +275,7 @@ methods:{
     },
   showvalue(){
 
-    axios.get( "./Api/api.php?action=getsubmit",)
+    axios.get( "./Api/hirtz_api.php?action=getsubmit",)
     
     .then((response) => {this.submits=response.data;} )
     alert('Dies ist Ihre aktuelle Diagnose. Bitte nehmen Sie Änderungen vor, wenn Sie möchten. Fahren Sie trotzdem fort.')
@@ -350,7 +350,7 @@ sendvalue() {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendsubmit2",
+           "./Api/hirtz_api.php?action=sendsubmit2",
           data
         )
         .then(res => {
@@ -402,7 +402,7 @@ if ((b.checked==1 && b.value==0)){ if ((a.checked==0 && a.value==1)) {data.appen
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitrezeptvariable",
+          "./Api/hirtz_api.php?action=submitrezeptvariable",
           data
         )
         .then(res => {
@@ -441,7 +441,7 @@ submitcounter(){
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitvariable2",
+          "./Api/hirtz_api.php?action=submitvariable2",
           data
         )
         .then(res => {
@@ -473,7 +473,7 @@ else if (l.checked==true){data.append("safety",80);
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitvariable2",
+          "./Api/hirtz_api.php?action=submitvariable2",
           data
         )
         .then(res => {
@@ -500,7 +500,7 @@ else if (l.checked==true){data.append("safety",80);
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitvariable2",
+          "./Api/hirtz_api.php?action=submitvariable2",
           data
         )
         .then(res => {

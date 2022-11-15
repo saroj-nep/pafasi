@@ -72,9 +72,9 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Nichtapparative from '@/components/Untersuchen/Nichtapparative.vue';
-import Apparative from '@/components/Untersuchen/Apparative.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Nichtapparative from '@/components/Hirtz_Untersuchen/Hirtz_Nichtapparative.vue';
+import Apparative from '@/components/Hirtz_Untersuchen/Hirtz_Apparative.vue';
 import axios from 'axios';
 
 export default {
@@ -96,7 +96,7 @@ export default {
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -123,7 +123,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {

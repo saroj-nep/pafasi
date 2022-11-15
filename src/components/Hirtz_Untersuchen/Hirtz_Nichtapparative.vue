@@ -149,12 +149,12 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Kopf from '@/components/Untersuchen/Kopf.vue';
-import Rumpf from '@/components/Untersuchen/Rumpf.vue';
-import Obere from '@/components/Untersuchen/Obere.vue';
-import Untere from '@/components/Untersuchen/Untere.vue';
-import Genital from '@/components/Untersuchen/Genital.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Kopf from '@/components/Hirtz_Untersuchen/Hirtz_Kopf.vue';
+import Rumpf from '@/components/Hirtz_Untersuchen/Hirtz_Rumpf.vue';
+import Obere from '@/components/Hirtz_Untersuchen/Hirtz_Obere.vue';
+import Untere from '@/components/Hirtz_Untersuchen/Hirtz_Untere.vue';
+import Genital from '@/components/Hirtz_Untersuchen/Hirtz_Genital.vue';
 
 export default {
  name:"Untersuchens",

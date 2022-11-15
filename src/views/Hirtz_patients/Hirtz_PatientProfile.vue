@@ -334,10 +334,10 @@
         <div class="shadow-md shadow-green-600 bg-green-50 " style="display:flex;  padding: 20px; margin-left:10px; padding-left: 40px; border-radius: 10px;">
           <div class=" " style="width: 20%;">
             <div class="grid grid-cols-1 pl-6 ">
-              <img src= "../../assets/Schneider.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
+              <img src= "../../assets/Hirtz.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
          
-            <div class="flex content-start "><h1><b> Hr. Wolfgang Schneider</b></h1></div>
-              <div class="flex content-start   ">Alter: 78</div>
+            <div class="flex content-start "><h1><b> Hr. Pascal Hirtz</b></h1></div>
+              <div class="flex content-start   ">Alter: ...</div>
               <div class="flex content-start    ">Geschlecht: Männlich</div>
             </div>
            
@@ -346,7 +346,13 @@
             <!-- Should be replaced by a widget -->
             <h3 style="font-size:3ex; "><b>Fallbeschreibung</b></h3>
             <br>
-            <p style="border-radius: 5px">Herr Wolfgang Schneider, leicht adipöser EZ, AZ gut. Herr Schneider bewegt sich schwerfällig, leicht gebeugt und leicht humpelnd durchs Zimmer, stützt sich stöhnend auf Ihrem Schreibtisch ab, als er sich hinsetzt. Auf die Frage, was ihm fehle: „Es ist das Kreuz! Ich kann mich bald nicht mehr bewegen! Der Herr Dr. Weber, der hatte mir immer diese Kortisonspritzen gegeben. Bitte, können Sie das bei mir wieder machen? Das ist das Einzige, was bei mir hilft. Sie wissen ja, mit den alten Knochen da hat man nur Probleme!“.</p>
+            <p style="border-radius: 5px">"Herr Pascal Hirtz, 1,85cm groß, schlanker EZ, AZ gut, freundliches Auftreten. Herr Hirtz bewegt sich soweit jugendlich agil durch das Sprechzimmer, er zeigt ein leichtes Zögern, als er sich drehen muss, um die Tür zu schließen und beim Hinsetzen.
+Hr. Hirtz kommt mit der Bitte um Krankschreibung, da er unter sehr starken Rückenschmerzen leide. Da sei wohl etwas ausgerenkt. Dies ist schon das dritte Mal innerhalb von drei Wochen, dass er sich bei Ihnen mit der Bitte nach AU wegen der gleichen Beschwerden vorstellt."					
+					
+					
+					
+					
+					</p>
             <!-- </div> -->
             <!-- <div class="column left"> -->
             <!-- </div> -->
@@ -698,28 +704,27 @@
 
 <script>
 
-import Schneider from '../../assets/Schneider.jpg';
 import Popup from '../../components/Popup.vue';
 import { ref } from 'vue';
 import Notepad from '@/components/Notepad.vue';
-import Anamnese from '@/components/Anamnese.vue';
-import Patientenakte from '../../components/Patientenakte.vue';
-import Untersuchen from '../../components/Untersuchen.vue';
-import Labaratory from '../../components/Labaratory.vue';
-import Facharzt from '../../components/Facharzt.vue';
-import Sendsubmit from '../../components/Sendsubmit.vue';
+import Anamnese from '@/components/Hirtz_Anamnese.vue';
+import Patientenakte from '../../components/Hirtz_Patientenakte.vue';
+import Untersuchen from '../../components/Hirtz_Untersuchen.vue';
+import Labaratory from '../../components/Hirtz_Labaratory.vue';
+import Facharzt from '../../components/Hirtz_Facharzt.vue';
+import Sendsubmit from '../../components/Hirtz_Sendsubmit.vue';
 import Header from '@/components/DefaultLayout.vue';
 import Popup2 from '@/components/Popup2.vue';
 // import Tooltip from '@/components/Tooltip.vue';
 import axios from "axios";
-import Submit from '@/components/Submit.vue';
-import TotalNextday from '@/components/Labaratory/TotalNextday.vue';
-import Afterlab from '@/components/Afterlab.vue';
-import Submit2 from '@/components/Submit2.vue';
-import Specialties from '@/components/Facharzt/Specialties.vue';
-import Afterspecialties from '@/components/Afterspecialties.vue';
-import Submit3 from '@/components/Submit3.vue';
-import Prints from '@/components/Prints.vue'; 
+import Submit from '@/components/Hirtz_Submit.vue';
+import TotalNextday from '@/components/Hirtz_Labaratory/Hirtz_TotalNextday.vue';
+import Afterlab from '@/components/Hirtz_Afterlab.vue';
+import Submit2 from '@/components/Hirtz_Submit2.vue';
+import Specialties from '@/components/Hirtz_Facharzt/Hirtz_Specialties.vue';
+import Afterspecialties from '@/components/Hirtz_Afterspecialties.vue';
+import Submit3 from '@/components/Hirtz_Submit3.vue';
+import Prints from '@/components/Hirtz_Prints.vue'; 
 
 export default {
   name:"Patient1",
@@ -772,7 +777,7 @@ printstrigger(){
           axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=emptydiagnosis",
+           "./Api/hirtz_api.php?action=emptydiagnosis",
           data
         )
         .then(res => {
@@ -841,7 +846,7 @@ warteroom(){this.$router.push("/warte");},
 pagestatus(){
   
   
-  axios.get( "./Api/api.php?action=getpagestatus")
+  axios.get( "./Api/hirtz_api.php?action=getpagestatus")
     
     .then((response) => {this.pagez=response.data })
        
@@ -849,12 +854,12 @@ pagestatus(){
 
     sendthesteps(){
     var data = new FormData();
-     data.append("step","Der Benutzer ist auf der Seite Fall 1: Hr. Schneider Seite gelandet.")
+     data.append("step","Der Benutzer ist auf der Seite Fall 2: Hr. Hirtz Seite gelandet.")
     data.append("onlineuser",localStorage.email);
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -879,7 +884,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -906,7 +911,7 @@ axios
 },
   clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
     console.log(this.clickz)
@@ -921,7 +926,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -940,17 +945,16 @@ axios
     patientenaktecounter() {
       var data = new FormData();
       
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("satisfaction",0);
       data.append("patientenakte",1)
       data.append("time",1);
-      data.append("safety",1);
       data.append("step","Sie haben einen Blick in die Patientenakte geworfen")
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {

@@ -6,12 +6,12 @@
     <div style="margin-top:50px">
       
     <ul class='marker:text-green list-outside list-disc ml-6'>
-  <li>72J., 1,70cm groß</li>
-  <li>Letzte Vorstellung vor ca. ½ Jahr wegen eingewachsenem Großzehennagel rechts</li>
-  <li>Regelmäßig Folgeverordnung ASS 100 und Atorvastatin bei KHK</li>
+  <li>Alter: 30 J.</li>
+  <li>Mit 18 J. in Behandlung wegen saisonal allerg. Asthma, keine weiteren bekannten chron. Erkr.</li>
+  <li>Vor 6 Mon. eitrige Tonsillitis.</li>
   <li>Prostata-CA vor 7 Jahren, radikale Prostatektomie, T2b N1 M0 R0, Gleason 6</li>
-  <li>Z.n. Myokardinfarkt (STEMI) vor 4 Jahren, 2 Stents</li>
-  <li>Diskusprolaps L3/4, L4/5 seit vielen Jahren bekannt</li>
+  <li>In den letzten 2 Monaten schon 4x AU wegen „steifem Nacken“.</li>
+  <li>Impfstatus vollst.</li>
    </ul>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default{
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -55,7 +55,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {

@@ -25,8 +25,8 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Labaratory from '@/components/Labaratory.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Labaratory from '@/components/Hirtz_Labaratory.vue';
 
 export default {
  methods: {

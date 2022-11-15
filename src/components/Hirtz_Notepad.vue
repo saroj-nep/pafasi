@@ -112,7 +112,7 @@ setTimeout(function() {
   axios
     .post(
       // "./Api/api.php?action=login",
-       "./Api/api.php?action=removenote",
+       "./Api/hirtz_api.php?action=removenote",
       data
     )
     .then(res => {
@@ -134,7 +134,7 @@ setTimeout(function() {
     allNotes() {
         
    
-    axios.get( "./Api/api.php?action=getnotes",)
+    axios.get( "./Api/hirtz_api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data })
   },
@@ -156,7 +156,7 @@ setTimeout(function() {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=addnote",
+           "./Api/hirtz_api.php?action=addnote",
           data
         )
         .then(res => {
@@ -194,7 +194,7 @@ setTimeout(function() {
   axios
     .post(
       // "./Api/api.php?action=login",
-       "./Api/api.php?action=removenotes",
+       "./Api/hirtz_api.php?action=removenotes",
       data
     )
     .then(res => {

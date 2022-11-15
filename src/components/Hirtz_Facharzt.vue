@@ -168,8 +168,8 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Senddoctor from '@/components/Facharzt/Senddoctor.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Senddoctor from '@/components/Hirtz_Facharzt/Hirtz_Senddoctor.vue';
 import axios from "axios";
 import jquery from 'jquery';
 
@@ -204,7 +204,7 @@ this.showvalue();this.clicks() ; this.sendthesteps();
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -227,7 +227,7 @@ axios
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -252,7 +252,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -270,7 +270,7 @@ axios
     },
     clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -446,7 +446,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=senddoctors",
+           "./Api/hirtz_api.php?action=senddoctors",
           data
         )
         .then(res => {
@@ -494,7 +494,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
    axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -517,7 +517,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -540,7 +540,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -562,7 +562,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -587,7 +587,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -609,7 +609,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -631,7 +631,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -653,7 +653,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -675,7 +675,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -698,7 +698,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -720,7 +720,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
        axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -742,7 +742,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -764,7 +764,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -786,7 +786,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -808,7 +808,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -831,7 +831,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -854,7 +854,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -877,7 +877,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -923,7 +923,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
         data.append('economy',-3.125),
         data.append("doctors",1);
         data.append("onlineuser",localStorage.email);
-        axios.post("./Api/api.php?action=facharzteconomyvariable",data) .then(res => {
+        axios.post("./Api/hirtz_api.php?action=facharzteconomyvariable",data) .then(res => {
           if (res.data.error) {
             console.log("Error", res.data);
             alert(res.data.message);
@@ -944,7 +944,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
    axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -968,7 +968,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -990,7 +990,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1011,7 +1011,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1035,7 +1035,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1056,7 +1056,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1077,7 +1077,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1098,7 +1098,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1119,7 +1119,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1141,7 +1141,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1162,7 +1162,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
        axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1183,7 +1183,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1204,7 +1204,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1225,7 +1225,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1246,7 +1246,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1268,7 +1268,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1290,7 +1290,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {
@@ -1312,7 +1312,7 @@ if (localStorage.uro== "true") { document.getElementById('vue-checkbox18').check
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=facharztvariable",
+          "./Api/hirtz_api.php?action=facharztvariable",
           data
         )
         .then(res => {

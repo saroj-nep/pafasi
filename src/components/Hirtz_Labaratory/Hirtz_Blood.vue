@@ -171,8 +171,8 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Sendblood from './Sendblood.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Sendblood from './Hirtz_Sendblood.vue';
 import axios from "axios";
 
 
@@ -206,7 +206,7 @@ this.showvalue();this.clicks();
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -225,7 +225,7 @@ axios
 
     clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -359,7 +359,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendblood",
+           "./Api/hirtz_api.php?action=sendblood",
           data
         )
         .then(res => {
@@ -404,7 +404,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
      axios
        .post(
          // "./Api/api.php?action=login",
-          "./Api/api.php?action=sendblood",
+          "./Api/hirtz_api.php?action=sendblood",
          data
        )
        .then(res => {
@@ -432,7 +432,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -463,7 +463,7 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {

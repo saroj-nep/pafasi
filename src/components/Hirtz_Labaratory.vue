@@ -121,11 +121,11 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Blood from "./Labaratory/Blood.vue";
-import Urine from "./Labaratory/Urine.vue";
-import Stool from "./Labaratory/Stool.vue";
-import TotalNextday from './Labaratory/TotalNextday.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Blood from "./Hirtz_Labaratory/Hirtz_Blood.vue";
+import Urine from "./Hirtz_Labaratory/Hirtz_Urine.vue";
+import Stool from "./Hirtz_Labaratory/Hirtz_Stool.vue";
+import TotalNextday from './Hirtz_Labaratory/Hirtz_TotalNextday.vue';
 import axios from 'axios';
 
 export default {
@@ -149,7 +149,7 @@ sendthesteps(){
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -173,7 +173,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {

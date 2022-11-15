@@ -101,10 +101,10 @@
 import Popup from '@/components/Popup.vue';
 import Popup2 from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Print from '@/components/Prints.vue';
-import Submit3 from './Submit3.vue';
-import Specialties from './Facharzt/Specialties.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Print from '@/components/Hirtz_Prints.vue';
+import Submit3 from './Hirtz_Submit3.vue';
+import Specialties from './Hirtz_Facharzt/Hirtz_Specialties.vue';
 import axios from 'axios';
 
 
@@ -121,7 +121,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -139,7 +139,7 @@ export default {
     },
     
         getdoctorloops(){
-            axios.get( "./Api/api.php?action=getsubmit",)
+            axios.get( "./Api/hirtz_api.php?action=getsubmit",)
     
     .then((response) => {this.doctorloops=response.data;} )
   },
@@ -150,7 +150,7 @@ export default {
           axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitdoctorloop",
+          "./Api/hirtz_api.php?action=submitdoctorloop",
           data
         )
         .then(res => {

@@ -112,16 +112,16 @@
           </div>
           </form>
           
-    <h3 id="akutesanswer" style="display:none"> Er habe ja immer Rückenschmerzen, aber so schlimm sei es seit der Gartenarbeit am Wochenende. Auf genaueres Nachfragen: kein Sturz, hat Unkraut gerupft, ruckartig bewegt, was den Schmerz ausgelöst hatte.</h3> 
-    <h3 id="allerginanswer" style="display:none">Keine Bekannt.</h3> 
-    <h3 id="beschreibenanswer" style="display:none">Schmerzlokalisation: Patient weist auf lumbalen Bereich mit Ausstrahlung ins linke Bein, Dauer: er habe ja immer Rückenschmerzen, aber so schlimm sei es seit dem vergangenen Wochenende.</h3> 
-    <h3 id="familienanswer" style="display:none">Pensionierter Lehrer. Lebt mit seiner Ehefrau in einem Einfamilienhaus in ruhiger Wohngegend, zwei erwachsene Kinder.</h3> 
-    <h3 id="gewohnanswer" style="display:none">Kein Sport.</h3> 
-    <h3 id="gynoanswer" style="display:none">Kann seit OP Urin nicht mehr so gut halten, seit OP Impotenz.</h3> 
-    <h3 id="medikamenanswer" style="display:none">ASS 100, Atorvastatin.</h3> 
-    <h3 id="nikotinanswer" style="display:none">Ex-Raucher seit 20 Jahren, davor 35J geraucht (mal mehr, mal weniger)(0,5-1Pck), 1Bier/Tag, gelegentlich Rotwein mit seiner Frau beim Essen, andere Drogen werden verneint.</h3> 
-    <h3 id="psycheanswer" style="display:none">Patient ist orientiert und angepasst, psychische Belastung durch körperl. Einschränkung angemessen, ansonsten ausgeglichen. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.</h3> 
-    <h3 id="vegetativeanswer" style="display:none">Er schlafe eh in letzter Zeit schlecht, aber jetzt könne er kaum noch liegen. Auf genaueres Nachfragen gibt er an, dass er in letzter Zeit nachts "die Hitz" hätte und schwitze, nun sei aufgrund der Schmerzen die Rückenlage kaum erträglich.</h3> 
+    <h3 id="akutesanswer" style="display:none"> Kein Trauma erinnerlich. Er deutet Stress auf der Arbeit und privat an.</h3> 
+    <h3 id="allerginanswer" style="display:none">Pollenallergie</h3> 
+    <h3 id="beschreibenanswer" style="display:none">Schmerzlokalisation: Nacken und oberer Rücken, Ziehen in rechte Schulter und Arm, aber auch Schmerzen „weiter unten“ (Patient weist auf thorakolumbalen Übergang); Schmerzcharakter bohrend und ziehend, Schmerzintensität ca 7/10; Dauer nicht genau benennbar, es sei im letzten Monat schwankend; er sei ja in den letzten Wochen schon da gewesen, aber jetzt „geht es gar nicht mehr“; die Schmerzen seien bewegungsabhängig und den ganzen Tag über gleich stark; in Ruhe sei es etwas besser, er habe es auch schon mit der Wärmflasche versucht und damit leichte Besserung erreicht; er mache auch die ganze Nacht "kein Auge mehr zu".</h3> 
+    <h3 id="familienanswer" style="display:none">Privat: Wohnt mit Lebenspartnerin und Kindern in einer Mietwohnung.  Vor 3 Monaten habe er mit seiner Partnerin sein drittes Kind bekommen (alle drei Kinder  &lt 6Jahre). Herr Hirtz wirkt diesbezüglich positiv gestimmt, gibt aber Erschöpfung an. Die Rückenschmerzen beeinträchtigen seine Arbeit, seinen Schlaf und das Spielen mit den Kindern. Beruf: Schlosser „auf der Hütt“, er sei aber kürzlich auf eine andere Stelle versetzt worden, die weniger mit seinem eigentlichen Beruf zu tun habe. Körperlich belaste ihn die Tätigkeit sehr. Er fühle sich aufgrund der Schmerzen nicht fähig aktuell weiter zu arbeiten. Sein neuer Chef habe ihn eh "auf dem Kieker" und habe deswegen wenig Verständnis, wenn er seine Leistung nicht erwartungsgemäß erbringe. </h3> 
+    <h3 id="gewohnanswer" style="display:none">Herr Hirtz spielt im örtlichen Fußballverein, gehe aber in den letzten Monaten nicht mehr regelmäßig zum Training wegen der Schmerzen und aus Zeitgründen.</h3> 
+    <h3 id="gynoanswer" style="display:none">Keine Probleme beim Wasserlassen, keine Potenzstörungen, keine Probleme bzgl. Libido. </h3> 
+    <h3 id="medikamenanswer" style="display:none">In der letzten Woche täglich 2 x Ibuprofen 400mg, die hatte er noch zu Hause. Damit mäßige Besserung.</h3> 
+    <h3 id="nikotinanswer" style="display:none">Alkohol: hin und wieder mal ein paar Bier mit Kumpels, 2-3x pro Woche; Hr. Hirtz ist Raucher, ca. 1/2 Pck. pro Tag.</h3> 
+    <h3 id="psycheanswer" style="display:none">Patient wach, orieniert. Affekt leicht gedrückt, Psychomotorik unauffällig. Konzentration, Aufmerksamkeit, Gedächtnis, Sprache o.p.B.. Der Patient gibt Erschöpfung an sowohl im privaten als auch im beruflichen Bereich. Die Rückenschmerzen beeinträchtigen seine Arbeit, seinen Schlaf und das Spielen mit den Kindern. Er fühle sich aufgrund der Schmerzen nicht fähig aktuell weiter zu arbeiten. Mit seiner beruflichen Situation sei er unzufrieden seit er betriebsintern auf eine andere Stelle versetzt wurde, die weniger mit seinem eigentlichen Beruf zu tun hat und ihn körperlich mehr belaste. Sein neuer Chef habe kein Verständnis für ihn. Er fühle sich auch unter Druck und gestresst, weil seine Familie finanziell von ihm abhänge.</h3> 
+    <h3 id="vegetativeanswer" style="display:none">Er schlafe schlecht, durch die Schmerzen und eben auch wegen des Babys. </h3> 
  
  </div>
 </template>
@@ -129,8 +129,8 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Submit from '@/components/Submit.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Submit from '@/components/Hirtz_Submit.vue';
 import axios from "axios";
 
 
@@ -164,7 +164,7 @@ export default {
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -189,7 +189,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -212,7 +212,7 @@ axios
 
 clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -442,13 +442,13 @@ displayVegetative(){
  akutestimecounter() {
       var data = new FormData();
      
-      data.append("time",0.3);
+      data.append("time",0.5);
       data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -474,7 +474,7 @@ allergintimecounter() {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -494,13 +494,13 @@ beschreibentimecounter() {
       var data = new FormData();
   
  
-      data.append("time",2)
+      data.append("time",1)
       data.append("step","Sie haben Beschreiben Sie Ihre Symptome genauer! unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -520,13 +520,13 @@ familientimecounter() {
       var data = new FormData();
   
 
-      data.append("time",1);
+      data.append("time",2);
       data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -546,14 +546,13 @@ gewohntimecounter() {
       var data = new FormData();
   
      
-      data.append("time",1);
-      data.append("safety",100);
+      data.append("time",0.75);
       data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -573,14 +572,13 @@ gynotimecounter() {
       var data = new FormData();
   
   
-      data.append("time",2);
-      data.append("safety",100);
+      data.append("time",1);
       data.append("step","Sie haben Gynokologische/Urologische/Sexualanamnese unter ausführlichere Anamnese angekreuzt")
        data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -600,13 +598,13 @@ medikamentimecounter() {
       var data = new FormData();
   
    
-      data.append("time",0.5);
+      data.append("time",0.3);
       data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -625,13 +623,13 @@ medikamentimecounter() {
 nikotintimecounter() {
       var data = new FormData();
  
-      data.append("time",1);
+      data.append("time",0.75);
       data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -651,13 +649,13 @@ psychetimecounter() {
       var data = new FormData();
   
 
-      data.append("time",1);
+      data.append("time",2);
       data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -676,13 +674,13 @@ psychetimecounter() {
 vegetativetimecounter() {
       var data = new FormData();
 
-      data.append("time",2);
+      data.append("time",0.5);
       data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -703,17 +701,17 @@ vegetativetimecounter() {
 
  akutescounter() {
       var data = new FormData();
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("akutes",1)
       data.append("satisfaction",1);
-      data.append("time",0.3);
-      data.append("safety",100);
+      data.append("time",0.5);
+  
       data.append("step","Sie haben akutes Ergebnis unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -734,7 +732,7 @@ vegetativetimecounter() {
 allergincounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",0);
       data.append("allergien",1)
       data.append("time",0.3);
@@ -744,7 +742,7 @@ allergincounter() {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -763,17 +761,17 @@ allergincounter() {
 beschreibencounter() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
       data.append("beschreiben",1)
-      data.append("time",2);
-      data.append("safety",100);
+      data.append("time",1);
+    
       data.append("step","Sie haben Beschreiben Sie Ihre Symptome genauer! unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -792,17 +790,17 @@ beschreibencounter() {
 familiencounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
-      data.append("satisfaction",0);
-      data.append("time",1);
+      data.append("economy",6.66);
+      data.append("satisfaction",1);
+      data.append("time",2);
       data.append("familien",1)
-      data.append("safety",100);
+      
       data.append("step","Sie haben Familien- und Sozialanamnese  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -821,17 +819,17 @@ familiencounter() {
 gewohncounter() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
-      data.append("time",1);
+      data.append("time",0.75);
       data.append("gewohn",1)
-      data.append("safety",100);
+   
       data.append("step","Sie haben Gewohnheiten, Lebensstil  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -850,17 +848,17 @@ gewohncounter() {
 gynocounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",0);
-      data.append("time",2);
+      data.append("time",1);
       data.append("gyna",1)
-      data.append("safety",100);
+      
       data.append("step","Sie haben Gynokologische/Urologische/Sexualanamnese unter ausführlichere Anamnese angekreuzt")
        data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -879,17 +877,17 @@ gynocounter() {
 medikamencounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
-      data.append("time",0.5);
+      data.append("time",0.3);
       data.append("medikamen",1)
-      data.append("safety",100);
+      
       data.append("step","Sie haben Medikamentenanamnese unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -908,17 +906,17 @@ medikamencounter() {
 nikotincounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",0);
-      data.append("time",1);
+      data.append("time",0.75);
       data.append("nikotin",1)
-      data.append("safety",100);
+     
       data.append("step","Sie haben Nikotin, Alkohol, Drogen? unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -937,17 +935,17 @@ nikotincounter() {
 psychecounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",6.66);
       data.append("satisfaction",0);
-      data.append("time",1);
+      data.append("time",2);
       data.append("psyche",1)
-      data.append("safety",0);
+    
       data.append("step","Sie haben Psyche unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -966,17 +964,17 @@ psychecounter() {
 vegetativecounter() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
-      data.append("time",2);
+      data.append("time",0.5);
       data.append("vegetative",1)
-      data.append("safety",0);
+     
       data.append("step","Sie haben vegetative Anamnese  unter ausführlichere Anamnese angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {

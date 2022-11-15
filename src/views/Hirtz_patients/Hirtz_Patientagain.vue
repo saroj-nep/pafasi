@@ -53,7 +53,7 @@ export default {
           axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=emptydiagnosis",
+           "./Api/hirtz_api.php?action=emptydiagnosis",
           data
         )
         .then(res => {

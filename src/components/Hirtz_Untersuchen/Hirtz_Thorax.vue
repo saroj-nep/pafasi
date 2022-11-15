@@ -38,7 +38,7 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
 import axios from 'axios';
 
 export default {
@@ -63,7 +63,7 @@ export default {
   methods: {
     clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -79,7 +79,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -106,7 +106,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -135,7 +135,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -165,7 +165,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {

@@ -1054,11 +1054,11 @@
 
 <script>
   import Popup from '@/components/Popup2.vue';
-  import Notepad from '@/components/Notepad.vue';
+  import Notepad from '@/components/Hirtz_Notepad.vue';
    import axios from "axios";
-   import Afterlab from '@/components/Afterlab.vue';
+   import Afterlab from '@/components/Hirtz_Afterlab.vue';
   import { ref } from 'vue';
-  import Specialties from '@/components/Facharzt/Specialties.vue' 
+  import Specialties from '@/components/Hirtz_Facharzt/Hirtz_Specialties.vue' 
   
 
     
@@ -1096,7 +1096,7 @@
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -1145,7 +1145,7 @@
     allbloods() {
         
 
-    axios.get( "./Api/api.php?action=getblood",)
+    axios.get( "./Api/hirtz_api.php?action=getblood",)
     
     .then((response) => {this.bloods=response.data })
     
@@ -1153,7 +1153,7 @@
     allurines() {
         
 
-    axios.get( "./Api/api.php?action=geturine",)
+    axios.get( "./Api/hirtz_api.php?action=geturine",)
     
     .then((response) => {this.urines=response.data })
     
@@ -1161,7 +1161,7 @@
     allstools() {
         
 
-    axios.get( "./Api/api.php?action=getstool",)
+    axios.get( "./Api/hirtz_api.php?action=getstool",)
     
     .then((response) => {this.stools=response.data })
     

@@ -68,12 +68,12 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Kopf from '@/components/Untersuchen/Kopf.vue';
-import Rumpf from '@/components/Untersuchen/Rumpf.vue';
-import Obere from '@/components/Untersuchen/Obere.vue';
-import Untere from '@/components/Untersuchen/Untere.vue';
-import Genital from '@/components/Untersuchen/Genital.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Kopf from '@/components/Hirtz_Untersuchen/Hirtz_Kopf.vue';
+import Rumpf from '@/components/Hirtz_Untersuchen/Hirtz_Rumpf.vue';
+import Obere from '@/components/Hirtz_Untersuchen/Hirtz_Obere.vue';
+import Untere from '@/components/Hirtz_Untersuchen/Hirtz_Untere.vue';
+import Genital from '@/components/Hirtz_Untersuchen/Hirtz_Genital.vue';
 import axios from 'axios';
 
 export default {
@@ -98,7 +98,7 @@ export default {
   methods: {
     clicks(){
 
-  axios.get( "./Api/api.php?action=getclicks",)
+  axios.get( "./Api/hirtz_api.php?action=getclicks",)
     
     .then((response) => {this.clickz=response.data })
 
@@ -112,7 +112,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -138,7 +138,7 @@ export default {
         axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -164,7 +164,7 @@ export default {
        axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -189,7 +189,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countertimevariable",
+          "./Api/hirtz_api.php?action=countertimevariable",
           data
         )
         .then(res => {
@@ -221,7 +221,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -251,7 +251,7 @@ export default {
         axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -281,7 +281,7 @@ export default {
        axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {
@@ -310,7 +310,7 @@ export default {
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=countervariable",
+          "./Api/hirtz_api.php?action=countervariable",
           data
         )
         .then(res => {

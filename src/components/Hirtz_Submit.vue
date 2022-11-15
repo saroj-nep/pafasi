@@ -177,9 +177,9 @@
 <script>
 import Popup from '@/components/Popup2.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
 import axios from 'axios';
-import TotalNextday from '@/components/Labaratory/TotalNextday.vue';
+import TotalNextday from '@/components/Hirtz_Labaratory/Hirtz_TotalNextday.vue';
 
 
 export default {
@@ -209,7 +209,7 @@ export default {
 methods:{
   showvalue(){
 
-    axios.get( "./Api/api.php?action=getsubmit",)
+    axios.get( "./Api/hirtz_api.php?action=getsubmit",)
     
     .then((response) => {this.submits=response.data;} )},
 
@@ -221,7 +221,7 @@ methods:{
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -304,7 +304,7 @@ sendvalue() {
       axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendsubmit1",
+           "./Api/hirtz_api.php?action=sendsubmit1",
           data
         )
         .then(res => {
@@ -339,7 +339,7 @@ else {if (b.checked==1){data.append("economy",-3.125)}}
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitrezeptvariable",
+          "./Api/hirtz_api.php?action=submitrezeptvariable",
           data
         )
         .then(res => {
@@ -400,7 +400,7 @@ else if (g.checked==true){data.append("safety",20);
  axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=submitvariable",
+          "./Api/hirtz_api.php?action=submitvariable",
           data
         )
         .then(res => {

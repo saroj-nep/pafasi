@@ -20,7 +20,7 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
 
 
 export default {

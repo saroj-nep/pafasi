@@ -122,8 +122,8 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Labaratory from '@/components/Labaratory.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Labaratory from '@/components/Hirtz_Labaratory.vue';
 import axios from "axios";
 
 export default {
@@ -150,7 +150,7 @@ export default {
     allurines() {
         
 
-    axios.get( "./Api/api.php?action=geturine",)
+    axios.get( "./Api/hirtz_api.php?action=geturine",)
     
     .then((response) => {this.urines=response.data })
     

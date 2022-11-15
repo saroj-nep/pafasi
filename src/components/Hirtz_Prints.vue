@@ -277,7 +277,7 @@
 axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=sendthesteps",
+          "./Api/hirtz_api.php?action=sendthesteps",
           data
         )
         .then(res => {
@@ -301,7 +301,7 @@ axios
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -319,7 +319,7 @@ axios
     },
         allSubmits(){
 
-         axios.get( "./Api/api.php?action=getsubmit",)
+         axios.get( "./Api/hirtz_api.php?action=getsubmit",)
         .then((response) => {this.submits=response.data;} )
           },
 
@@ -330,7 +330,7 @@ axios
           axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=sendsubmit4",
+           "./Api/hirtz_api.php?action=sendsubmit4",
           data
         )
         .then(res => {
@@ -355,7 +355,7 @@ axios
           axios
         .post(
           // "./Api/api.php?action=login",
-           "./Api/api.php?action=emptydiagnosis",
+           "./Api/hirtz_api.php?action=emptydiagnosis",
           data
         )
         .then(res => {
@@ -378,7 +378,7 @@ axios
        
  
         allCounters(){
-            axios.get( "./Api/api.php?action=getcounters",)
+            axios.get( "./Api/hirtz_api.php?action=getcounters",)
     
     .then((response) => {this.counters=response.data;} )
   },
@@ -405,7 +405,7 @@ axios
     allNotes() {
         
 
-    axios.get( "./Api/api.php?action=getnotess",)
+    axios.get( "./Api/hirtz_api.php?action=getnotess",)
     
     .then((response) => {this.notes=response.data;  } )
   },

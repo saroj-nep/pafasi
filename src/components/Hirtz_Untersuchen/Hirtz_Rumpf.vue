@@ -99,10 +99,10 @@
 <script>
 import Popup from '@/components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
-import Thorax from '@/components/Untersuchen/Thorax.vue';
-import Wirbel from '@/components/Untersuchen/Wirbel.vue';
-import Abdomen from '@/components/Untersuchen/Abdomen.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
+import Thorax from '@/components/Hirtz_Untersuchen/Hirtz_Thorax.vue';
+import Wirbel from '@/components/Hirtz_Untersuchen/Hirtz_Wirbel.vue';
+import Abdomen from '@/components/Hirtz_Untersuchen/Hirtz_Abdomen.vue';
 
 
 export default {

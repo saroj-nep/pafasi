@@ -208,10 +208,10 @@
     import Popup2 from '@/components/Popup2.vue';
  import Popup from '@/components/Popup.vue';
     import { ref } from 'vue';
-    import Notepad from '@/components/Notepad.vue';
+    import Notepad from '@/components/Hirtz_Notepad.vue';
    import axios from "axios";
-   import Afterspecialties from '@/components/Afterspecialties.vue';
-import Prints from '../Prints.vue';
+   import Afterspecialties from '@/components/Hirtz_Afterspecialties.vue';
+import Prints from '../Hirtz_Prints.vue';
   
 
     
@@ -258,7 +258,7 @@ import Prints from '../Prints.vue';
       axios
         .post(
           // "./Api/api.php?action=countervariable",
-          "./Api/api.php?action=currentpage",
+          "./Api/hirtz_api.php?action=currentpage",
           data
         )
         .then(res => {
@@ -324,7 +324,7 @@ import Prints from '../Prints.vue';
     alldoctors() {
         
 
-    axios.get( "./Api/api.php?action=getdoctors",)
+    axios.get( "./Api/hirtz_api.php?action=getdoctors",)
     
     .then((response) => {this.doctors=response.data })
     
