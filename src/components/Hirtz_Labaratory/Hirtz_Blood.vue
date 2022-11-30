@@ -452,10 +452,9 @@ if (localStorage.serum == "true") { document.getElementById('vue-checkbox19').ch
     bloodcounter() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
-      data.append("satisfaction",1);
+      data.append("economy",-3.33);
+      data.append("satisfaction",0);
       data.append("blood",1);
-      data.append("safety",1);
       data.append("time",1440);
       data.append("step","Sie haben einen Bluttest beantragt");
       data.append("onlineuser",localStorage.email);

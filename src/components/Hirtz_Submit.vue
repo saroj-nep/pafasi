@@ -328,8 +328,8 @@ sendvalue() {
           const b = document.querySelector('#ausstellencheck');        
      
 
-if (a.checked==1){ if (b.checked==1){data.append("economy",3.125)} else {data.append("economy",6.25)}}
-else {if (b.checked==1){data.append("economy",-3.125)}}
+if (a.checked==1){ if (b.checked==1){data.append("economy",13.32)} else {data.append("economy",6.66)}}
+else {if (b.checked==1){data.append("economy",6.66)}}
  
  data.append("step",'Sie haben Ihre Diagnose eingereicht');
  data.append("onlineuser",localStorage.email);
@@ -371,26 +371,26 @@ submitcounter(){
      
 
 if (a.checked==1){data.append("safety",100);
-                     data.append("economy",-3.125) 
+                     data.append("economy",-3.33) 
                      }
 
 else if (b.checked==true){data.append("safety",100);
-                     data.append("economy",6.25) 
+                     data.append("economy",-3.33) 
                      }
-else if (c.checked==true){data.append("safety",0);
-                     data.append("economy",-3.125 ) 
+else if (c.checked==true){data.append("safety",60);
+                     data.append("economy",-3.33 ) 
                      }
-else if (d.checked==true){data.append("safety",50);
-                     data.append("economy",-3.125 ) 
+else if (d.checked==true){data.append("safety",90);
+                     data.append("economy",6.66 ) 
                      }   
-else if (e.checked==true){data.append("safety",80);
-                     data.append("economy",-3.125 ) 
+else if (e.checked==true){data.append("safety",100);
+                     data.append("economy",-3.33 ) 
                      }
-else if (f.checked==true){data.append("safety",70);
-                     data.append("economy",-3.125 ) 
+else if (f.checked==true){data.append("safety",90);
+                     data.append("economy",-3.33 ) 
                      }
-else if (g.checked==true){data.append("safety",20);
-                     data.append("economy",-3.125) 
+else if (g.checked==true){data.append("safety",75);
+                     data.append("economy",-3.33) 
 }
  data.append("step",'Sie haben Ihre Diagnose eingereicht');
  data.append("onlineuser",localStorage.email);

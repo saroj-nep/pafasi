@@ -267,7 +267,7 @@ export default {
     countertimeSono() {
       var data = new FormData();
 
-      data.append("time",1);
+      data.append("time",10);
       data.append("step","Sie haben Sonografie durchführen unter Apparative Untersuchen angekreuzt");
      data.append("onlineuser",localStorage.email);
       axios
@@ -435,7 +435,7 @@ export default {
       data.append("economy",-3.125);
       data.append("satisfaction",1);
       data.append("sono",1);
-      data.append("time",1);
+      data.append("time",10);
      data.append("safety",100);
       data.append("step","Sie haben Sonografie durchführen unter Apparative Untersuchen angekreuzt");
      data.append("onlineuser",localStorage.email);

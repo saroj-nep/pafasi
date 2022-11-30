@@ -42,49 +42,49 @@
         <td></td>
         <td >Hämoglobin</td>
         <td>g/dl</td>
-        <td>10,9</td>
+        <td>13,5</td>
         <td>13-17</td>
       </tr>
       <tr>
         <td></td>
         <td>Hämatokrit</td>
         <td>%</td>
-        <td>40</td>
+        <td>45</td>
         <td>42-50</td>
       </tr>
       <tr>
         <td></td>
         <td>MCH</td>
         <td>fl</td>
-        <td>89</td>
+        <td>95</td>
         <td>85-98</td>
       </tr>
       <tr>
         <td></td>
         <td>MCHC</td>
         <td>g/dl</td>
-        <td>34</td>
+        <td>36</td>
         <td>31-37</td>
       </tr>
       <tr>
         <td></td>
         <td>Leukozyten</td>
         <td>/ul</td>
-        <td>6400</td>
+        <td>4200</td>
         <td>3.800-10.500</td>
       </tr>
       <tr>
         <td></td>
         <td>RDW</td>
         <td>%</td>
-        <td>12,3</td>
+        <td>11,9</td>
         <td>11,5-14,5</td>
       </tr>
       <tr>
         <td></td>
         <td>Erythrozyten</td>
         <td>Mio./µl</td>
-        <td>5,2</td>
+        <td>4,8</td>
         <td>4,3-5,6</td>
       </tr>
       <tr>
@@ -104,7 +104,7 @@
     </tbody>
     <tbody v-if="blood.grosses==1">
       <tr>
-        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Großes Blutbild</td>
+        <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Großes Blutbild(=kleines BB + Differential BB)</td>
         <td></td>
         <td></td>
         <td></td>
@@ -114,49 +114,49 @@
         <td></td>
         <td>Hämoglobin</td>
         <td>g/dl</td>
-        <td>10,9</td>
+        <td>13,5</td>
         <td>13-17</td>
       </tr>
       <tr>
         <td></td>
         <td>Hämatokrit</td>
         <td>%</td>
-        <td>40</td>
+        <td>45</td>
         <td>42-50</td>
       </tr>
       <tr>
         <td></td>
         <td>MCH</td>
         <td>fl</td>
-        <td>89</td>
+        <td>95</td>
         <td>85-98</td>
       </tr>
       <tr>
         <td></td>
         <td>MCHC</td>
         <td>g/dl</td>
-        <td>34</td>
+        <td>36</td>
         <td>31-37</td>
       </tr>
       <tr>
         <td></td>
         <td>Leukozyten</td>
         <td>/ul</td>
-        <td>6400</td>
+        <td>4200</td>
         <td>3.800-10.500</td>
       </tr>
       <tr>
         <td></td>
         <td>RDW</td>
         <td>%</td>
-        <td>12,3</td>
+        <td>11,9</td>
         <td>11,5-14,5</td>
       </tr>
       <tr>
         <td></td>
         <td>Erythrozyten</td>
         <td>Mio./µl</td>
-        <td>5,2</td>
+        <td>4,8</td>
         <td>4,3-5,6</td>
       </tr>
       <tr>
@@ -259,28 +259,28 @@
         <td></td>
         <td>BSG n.1h</td>
         <td>mm/h</td>
-        <td>18</td>
+        <td>12</td>
         <td>&lt;15</td>
       </tr>
       <tr>
         <td></td>
         <td>CRP</td>
         <td>mg/l</td>
-        <td>5,8</td>
+        <td>2,3</td>
         <td>&lt;5</td>
       </tr>
       <tr>
         <td></td>
         <td>Transferrin</td>
         <td>g/l</td>
-        <td>3,9</td>
+        <td>3,1</td>
         <td>2,0-3,6</td>
       </tr>
       <tr>
         <td></td>
         <td>Procalcitonin</td>
         <td>ug/l</td>
-        <td>0,5</td>
+        <td>0,25</td>
         <td>&lt;0,5</td>
       </tr>
     </tbody>
@@ -296,14 +296,14 @@
         <td></td>
         <td>Glucose</td>
         <td>mg/dl</td>
-        <td>135</td>
-        <td>70-130</td>
+        <td>95</td>
+        <td></td>
       </tr>
       <tr>
         <td></td>
         <td>HbA1C</td>
         <td>%</td>
-        <td>6,0</td>
+        <td>4,8</td>
         <td>&lt;5,7</td>
       </tr>
     </tbody>
@@ -319,7 +319,7 @@
         <td></td>
         <td>Cholesterin gesamt</td>
         <td>mm/h</td>
-        <td>233</td>
+        <td>195</td>
         <td>&lt;200</td>
       </tr>
       <tr>
@@ -333,14 +333,14 @@
         <td></td>
         <td>HDL</td>
         <td>mg/dl</td>
-        <td>65</td>
+        <td>50</td>
         <td>&gt;35</td>
       </tr>
       <tr>
         <td></td>
         <td>TAG</td>
         <td>mg/dl</td>
-        <td>190</td>
+        <td>170</td>
         <td>&lt;150</td>
       </tr>
     </tbody>
@@ -370,7 +370,7 @@
         <td></td>
         <td>Transferrin</td>
         <td>g/l</td>
-        <td>3,9</td>
+        <td>3,1</td>
         <td>2,0-3,6</td>
       </tr>
     </tbody>
@@ -400,14 +400,14 @@
         <td></td>
         <td>AST(GOT)</td>
         <td>U/l</td>
-        <td>28</td>
+        <td>35</td>
         <td>&lt;38</td>
       </tr>
       <tr>
         <td></td>
         <td>ALT(GPT)</td>
         <td>U/l</td>
-        <td>31</td>
+        <td>40</td>
         <td>&lt;41</td>
       </tr>
       <tr>
@@ -421,14 +421,14 @@
         <td></td>
         <td>yGT</td>
         <td>U/l</td>
-        <td>48</td>
+        <td>55</td>
         <td>&lt;60</td>
       </tr>
       <tr>
         <td></td>
         <td>aP</td>
         <td>U/l</td>
-        <td>150</td>
+        <td>128</td>
         <td>40-130</td>
       </tr>
       <tr>
@@ -481,28 +481,28 @@
         <td></td>
         <td>Keratinin</td>
         <td>mg/dl</td>
-        <td>1,5</td>
+        <td>0,9</td>
         <td>&lt;1,1</td>
       </tr>
       <tr>
         <td></td>
         <td>Keratinin Clearance</td>
         <td>ml/min</td>
-        <td>120</td>
+        <td>130</td>
         <td>&gt;110</td>
       </tr>
       <tr>
         <td></td>
         <td>GFR</td>
         <td>ml/min/1,73m&sup2;</td>
-        <td>60</td>
+        <td>120</td>
         <td>&gt;90</td>
       </tr>
       <tr>
         <td></td>
         <td>Harnstoff</td>
         <td>mg/dl</td>
-        <td>23</td>
+        <td>30</td>
         <td>12-50</td>
       </tr>
     </tbody>
@@ -539,7 +539,7 @@
         <td></td>
         <td>Calcium</td>
         <td>mmol/l</td>
-        <td>2,9</td>
+        <td>2,4</td>
         <td>2,2-2,6</td>
       </tr>
       <tr>
@@ -569,7 +569,7 @@
         <td></td>
         <td>Calcium</td>
         <td>mmol/l</td>
-        <td>2.9</td>
+        <td>2.4</td>
         <td>2,2-2,6</td>
       </tr>
       <tr>
@@ -597,7 +597,7 @@
         <td></td>
         <td>TSH</td>
         <td>uU/ml</td>
-        <td>2,7</td>
+        <td>0,9</td>
         <td>0,4-4,0</td>
       </tr>
       <tr>
@@ -625,7 +625,7 @@
         <td></td>
         <td>TPO-Ak (Thyreoperoxidase-Antikörper)</td>
         <td>IU/ml</td>
-        <td>12</td>
+        <td>5</td>
         <td>&lt;35</td>
       </tr>
       <tr>
@@ -648,28 +648,28 @@
         <td></td>
         <td>CK</td>
         <td>U/l</td>
-        <td>190</td>
+        <td>95</td>
         <td>&lt;190</td>
       </tr>
       <tr>
         <td></td>
         <td>CK-MB</td>
         <td>U/l</td>
-        <td>27</td>
+        <td>12</td>
         <td>&lt;25</td>
       </tr>
       <tr>
         <td></td>
         <td>Troponin T</td>
         <td>pg/ml</td>
-        <td>13,8</td>
-        <td>14,0</td>
+        <td>8</td>
+        <td>&lt;14,0</td>
       </tr>
       <tr>
         <td></td>
         <td>HBDH (α-Hydroxybutyrat-Dehydrogenase)</td>
         <td>U/l</td>
-        <td>148</td>
+        <td>92</td>
         <td>72-182</td>
       </tr>
     </tbody>
@@ -700,7 +700,7 @@
         <td></td>
         <td>Vit. B12 (Cobalamin)</td>
         <td>pg/l</td>
-        <td>564</td>
+        <td>220</td>
         <td>211-911</td>
       </tr>
       <tr>
@@ -734,7 +734,7 @@
         <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">PSA</td>
         <td></td>
         <td>ng/ml</td>
-        <td>6,0</td>
+        <td>6</td>
         <td>&lt;4</td>
       </tr>
     </tbody>
@@ -877,7 +877,7 @@
       <tr style="text-align: center">
         <td></td>
         <td>Ketone</td>
-        <td>-</td>
+        <td>+</td>
      
         <td>-</td>
       </tr>
@@ -962,7 +962,7 @@
       <tr >
         <td></td>
         <td>Elastace</td>
-        <td>315</td>
+        <td>244</td>
         <td>250-2500 µg/g</td>
      </tr>
     </tbody>
@@ -972,7 +972,7 @@
         <td style="text-align: center" class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Stuhlkultur</td>
        
         <td v-if="stool.probe==1"></td>
-        <td>Campylobacter, Shigellen, Salmonellen, Yersinien negativ.</td>
+        <td>Campylobacter, Shigellen, Salmonellen, Yersinien negativ.</td>
       </tr>
     </tbody>
      <tbody  v-if="stool.untersuchung==1" >

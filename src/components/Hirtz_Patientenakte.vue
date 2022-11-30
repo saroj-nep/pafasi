@@ -9,8 +9,7 @@
   <li>Alter: 30 J.</li>
   <li>Mit 18 J. in Behandlung wegen saisonal allerg. Asthma, keine weiteren bekannten chron. Erkr.</li>
   <li>Vor 6 Mon. eitrige Tonsillitis.</li>
-  <li>Prostata-CA vor 7 Jahren, radikale Prostatektomie, T2b N1 M0 R0, Gleason 6</li>
-  <li>In den letzten 2 Monaten schon 4x AU wegen „steifem Nacken“.</li>
+  <li>in den letzten zwei Monaten insgesamt bereits 4x AU wegen "steifem Nacken" oder "Rückenschmerzen".</li>
   <li>Impfstatus vollst.</li>
    </ul>
       </div>

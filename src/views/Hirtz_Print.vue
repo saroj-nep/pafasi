@@ -28,7 +28,7 @@
               </div>
               <div  class="col-span-1">
               <td class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-                {{c.economy.replace('.',',')}} Punkte.
+               {{(c.economy).replace('.',',')}} Punkte.
               </td>
             </div>
               <div  class="col-span-3">         
@@ -330,7 +330,7 @@
     allNotes() {
         
 
-    axios.get( "./Api/hirtz_api.php?action=getnotess",)
+    axios.get( "./Api/hirtz_api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data;  } )
   },

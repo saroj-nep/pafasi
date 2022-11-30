@@ -449,7 +449,7 @@ submitcounter(){
           console.log("Error", err);
         }); 
                      }
-else if (l.checked==true){data.append("safety",80);
+else if (l.checked==true){data.append("safety",100);
 
                      
                     

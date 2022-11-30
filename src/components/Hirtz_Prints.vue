@@ -30,7 +30,7 @@
               </div>
               <div  class="col-span-1">
               <td class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-                {{c.economy.replace('.',',')}} Punkte.
+                {{(c.economy).replace('.',',')}} Punkte.
               </td>
             </div>
               <div  class="col-span-3">         
@@ -405,7 +405,7 @@ axios
     allNotes() {
         
 
-    axios.get( "./Api/hirtz_api.php?action=getnotess",)
+    axios.get( "./Api/hirtz_api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data;  } )
   },
@@ -414,7 +414,7 @@ axios
         var element = document.getElementById('html-content');
 var opt = {
   margin:       1,
-  filename:     'Diagnoseergebnisse_Schneider.pdf',
+  filename:     'Diagnoseergebnisse_Hirtz.pdf',
   image:        { type: 'jpeg', quality: 1 },
   html2canvas:  { scale: 2 },
   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }

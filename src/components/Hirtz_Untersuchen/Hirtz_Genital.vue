@@ -31,8 +31,8 @@
           </div> 
       
   </div>
-    <h3 id="inspektionanswer" style="display:none">Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen, geschlechtstypisches Behaarungsmuster, kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
-         <h3 id="naseanswer" style="display:none">Kein Hervortreten von Schleimhaut, Analreflex normal auslösbar, normaler Sphinktertonus, Schleimhaut gleichmäßig, weich und verschieblich, keine Raumforderungen, keine Schmerzauslösung, kein Blut am Fingerling. keine Prostata tastbar, keine Schmerzen.</h3> 
+    <h3 id="inspektionanswer" style="display:none">Geschlechtstypisches Behaarungsmuster. Haut o.p.B., insbes. keine Rötungen, Bläschen oder Rhagaden, keine Wucherungen. Kein Ausfluss aus der Harnröhre, optisch sowie palpatorisch keine feststellbaren Schwellungen oder Hernien. Vorhaut komplett reponibel, Glans reizlos, Skrotum weich, beide Hoden tastbar, keine Knoten oder Verhärtungen, keine Varikosis, keine Druckschmerzhaftigkeit.</h3> 
+         <h3 id="naseanswer" style="display:none">Kein Hervortreten von Schleimhaut, Analreflex normal auslösbar, normaler Sphinktertonus, Schleimhaut gleichmäßig, weich und verschieblich, keine Raumforderungen, keine Schmerzauslösung, kein Blut am Fingerling. Prostata prallelastisch tastbar, kastaniengroß, glatt, kugelig, flacher Sulcus, schmerzlos.</h3> 
           
 </template>
 
@@ -123,11 +123,10 @@ export default {
   counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",0);
         data.append("genitalinspektion",1);
       data.append("time",0.5);
-      data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Genital- und Glutealregion angekreuzt");
      data.append("onlineuser",localStorage.email);
       axios
@@ -153,11 +152,10 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.33);
       data.append("satisfaction",0);
       data.append("genitalrektal",1);
       data.append("time",0.5);
-      data.append("safety",100);
       data.append("step","Sie haben digital rektale Untersuchung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
       data.append("onlineuser",localStorage.email);
       axios

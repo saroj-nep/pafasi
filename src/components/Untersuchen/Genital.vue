@@ -153,7 +153,7 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",0);
+      data.append("economy",-3.125);
       data.append("satisfaction",0);
       data.append("genitalrektal",1);
       data.append("time",0.5);

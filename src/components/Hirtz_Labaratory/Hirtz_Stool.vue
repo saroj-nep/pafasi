@@ -270,7 +270,7 @@ stooltimecounter() {
           const c = document.querySelector('#vue-checkbox3');
       
          if (c.checked==1) {
-          data.append("economy",-3.125);
+          data.append("economy",-3.33);
           data.append("stool",1);
               data.append("safety",1);
           data.append("satisfaction",0);
@@ -297,7 +297,7 @@ stooltimecounter() {
               console.log("Error", err);
             });}
           else if (b.checked==1){
-             data.append("economy",-3.125);
+             data.append("economy",-3.33);
           data.append("stool",1);
               data.append("safety",1);
           data.append("satisfaction",0);
@@ -323,7 +323,7 @@ stooltimecounter() {
               console.log("Error", err);
             });}
              else if (a.checked==1){
-               data.append("economy",-3.125);
+               data.append("economy",-3.33);
           data.append("stool",1);
           data.append("satisfaction",0);
               data.append("safety",1);

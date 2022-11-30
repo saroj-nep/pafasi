@@ -337,7 +337,7 @@
               <img src= "../../assets/Hirtz.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
          
             <div class="flex content-start "><h1><b> Hr. Pascal Hirtz</b></h1></div>
-              <div class="flex content-start   ">Alter: ...</div>
+              <div class="flex content-start   ">Alter: 30 J</div>
               <div class="flex content-start    ">Geschlecht: Männlich</div>
             </div>
            
@@ -706,7 +706,7 @@ Hr. Hirtz kommt mit der Bitte um Krankschreibung, da er unter sehr starken Rück
 
 import Popup from '../../components/Popup.vue';
 import { ref } from 'vue';
-import Notepad from '@/components/Notepad.vue';
+import Notepad from '@/components/Hirtz_Notepad.vue';
 import Anamnese from '@/components/Hirtz_Anamnese.vue';
 import Patientenakte from '../../components/Hirtz_Patientenakte.vue';
 import Untersuchen from '../../components/Hirtz_Untersuchen.vue';

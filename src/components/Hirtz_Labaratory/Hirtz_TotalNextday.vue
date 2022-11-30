@@ -9,7 +9,7 @@
     
       <div v-for="blood in bloods">
 <div v-if="blood.user===email">
-  <div class=" bg-emerald-600" v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.electrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.beta==1||blood.serum==1" >
+  <div class=" bg-emerald-600" v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.elektrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.hcg==1||blood.serum==1" >
  <h1 class="h1 text-white pl-2 " > <b>Ergebnisse der Blutuntersuchung: </b> </h1>
  <br>
  </div>
@@ -18,7 +18,7 @@
 
 <div v-for="blood in bloods">
 <div v-if="blood.user===email">
-  <div  v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.electrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.beta==1||blood.serum==1" >
+  <div  v-if="blood.kleines==1||blood.grosses==1||blood.gerin==1||blood.entz==1||blood.glucose==1||blood.fetts==1||blood.eisen==1||blood.leber==1||blood.pankreas==1||blood.niere==1||blood.elektrolyte==1||blood.herz==1||blood.bvitamin==1||blood.ldh==1||blood.harn==1||blood.psa==1||blood.hcg==1||blood.serum==1" >
 <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="bloodtag();">
     <table  class=" border-separate border-spacing-8 border border-emerald-500" >
     <thead class="sticky bg-emerald-200 top-0">
@@ -506,7 +506,7 @@
         <td>12-50</td>
       </tr>
     </tbody>
-    <tbody style="text-align: center" v-if="blood.electrolyte==1">
+    <tbody style="text-align: center" v-if="blood.elektrolyte==1">
     <tr>
         <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Electrolyte</td>
         <td></td>
@@ -738,7 +738,7 @@
         <td>&lt;4</td>
       </tr>
     </tbody>
-    <tbody style="text-align: center" v-if="blood.beta==1">
+    <tbody style="text-align: center" v-if="blood.hcg==1">
     <tr>
         <td class="px-2 py-2 bg-emerald-100 border border-emerald-600 ">Beta-HCG</td>
         <td></td>

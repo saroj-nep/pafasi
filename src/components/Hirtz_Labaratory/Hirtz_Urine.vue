@@ -268,7 +268,7 @@ if (localStorage.kultur == "true") { document.getElementById('vue-checkbox3').ch
          console.log(b.checked);
          console.log(c.checked);
          if (c.checked==1) {
-          data.append("economy",-3.125);
+          data.append("economy",-3.33);
           data.append("urine",1);
           data.append("satisfaction",0);
               data.append("safety",1);
@@ -296,7 +296,7 @@ if (localStorage.kultur == "true") { document.getElementById('vue-checkbox3').ch
           else if (b.checked==1){
 
           data.append("satisfaction",0);
-          data.append("economy",-3.125);
+          data.append("economy",-3.33);
           data.append("urine",1);
               data.append("safety",1);
           data.append("time",10);
@@ -321,7 +321,7 @@ if (localStorage.kultur == "true") { document.getElementById('vue-checkbox3').ch
               console.log("Error", err);
             });}
              else if (a.checked==1){
-          data.append("economy",-3.125);
+          data.append("economy",-3.33);
           data.append("urine",1);
               data.append("safety",1);
           data.append("satisfaction",0);

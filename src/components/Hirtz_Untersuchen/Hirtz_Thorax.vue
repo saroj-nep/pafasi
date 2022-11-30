@@ -31,8 +31,8 @@
        
           
   </div>
-   <h3 id="inspektionanswer" style="display:none"> Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 12/min, Herzspitzenstoß regelrecht tastbar.</h3> 
-    <h3 id="naseanswer" style="display:none">Herz:  Rhythmisch, leises, bandförmiges Systolikum mit p.m. im 5. ICR links medioclaviculär, Fortleitung in Axilla, Herzfrequenz ca. 68/min, leichte Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit.</h3> 
+   <h3 id="inspektionanswer" style="display:none"> Schmaler Körperbau (leptosomer Typ), Haut: o.p.B., Halsvenen nicht gestaut, Thorax: symmetrisch, Trichterbrust, ansonsten keine Thoraxdeformitäten, Rippen durchgängig tastbar, keine Konturunterbrechung, keine Thoraxinstabilität, seitengleiche Atemexkursionen, Atemfrequenz etwa 14/min, Herzspitzenstoß regelrecht tastbar.</h3> 
+    <h3 id="naseanswer" style="display:none">Herz: Herztöne rein, rhythmisch, Herzfrequenz ca. 68/min, kein vitientypisches Geräusch, keine Strömungsgeräusche über den Carotiden, Lunge: vesikuläre Atemgeräusche bds., keine Nebengeräusche, thorakal bds. sonorer Klopfschall, Lungengrenzen etwa bei BWK 10-11, normale Atemverschieblichkeit.</h3> 
 </template>
 
 <script>
@@ -125,11 +125,11 @@ export default {
      counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
       data.append("thoraxinspektion",1);
       data.append("time",0.5);
-      data.append("safety",100);
+    
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios
@@ -155,11 +155,11 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
-      data.append("satisfaction",1);
+      data.append("economy",-3.33);
+      data.append("satisfaction",0);
       data.append("thoraxauskultation",1);
       data.append("time",2);
-      data.append("safety",100);
+   
       data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Thorax angekreuzt")
      data.append("onlineuser",localStorage.email);
       axios

@@ -337,7 +337,7 @@
               <img src= "../../assets/Schneider.jpg" class="object-contain h-48 " alt="Patient Image" style="top: 20px;" />   
          
             <div class="flex content-start "><h1><b> Hr. Wolfgang Schneider</b></h1></div>
-              <div class="flex content-start   ">Alter: 78</div>
+              <div class="flex content-start   ">Alter: 78 J</div>
               <div class="flex content-start    ">Geschlecht: Männlich</div>
             </div>
            

@@ -60,10 +60,10 @@
       
            
   </div>
-    <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, Atrophien oder Faszikulationen; keine Nagelveränderungen; keine Fußdeformitäten; Beckenstand gerade, keine Beinlängendifferenz; keine trophischen Störungen, Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek. Schmerzausstrahlung bis lateralem Fußrand linker Fuß.</h3> 
+    <h3 id="inspektionanswer" style="display:none">Haut bds. o.p.B.. Beide Beine geschlechtstypisch behaart, gleichmäßig rosig. Bds. keine Varizen, Ödeme, keine trophischen Störungen. Keine Atrophien oder Faszikulationen. Keine Nagelveränderungen, keine Fußdeformitäten. Beckenstand gerade, keine Beinlängendifferenz. Femoralis-, Popliteal- und Fußpulse bds. palpabel, Puls ca. 68/min, beide Füße gleich warm, Rekapilarisationszeit bds. &lt;2 Sek. </h3> 
         <h3 id="naseanswer" style="display:none">Normale und beschwerdefreie Beweglichkeit in Hüft-, Knie- und Fußgelenken.</h3> 
-        <h3 id="mundanswer" style="display:none">Sensibilität: Hypästhesien links dorsal und lateral, Rest o.p.B.. Tonus unauffällig. Muskelkraft bei Kniestreckung (M. quadriceps (L4)) bds gleich, bei Plantar- und Dorsalflexion des Fußes und der Großzehen (L5/S1) li &lt;re, Kraftgrad 4/5. Reflexe: Patellarsehnenreflex (PSR) bds regelrecht, Achillessehnenreflex (ASR) links abgeschwächt, Babinski bds. negativ. Beinvorhalteversuch(Anwinkeln im 90° Winkel): kein Absinken. Knie-Hacke-Versuch zielsicher, Romberg- und Unterberger-Versuch unauffällig. Einbeinstand etwas wackelig aufgrund der einsetzenden Rückenschmerzen, Fersen- und Zehenspitzengang wackelig, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite. Rütteltest fraglich positiv.</h3> 
-        <h3 id="ohrenanswer" style="display:none">Beide Beine mäßig blass, leichte Varkosis: Corona Phlebetica paraplantaris, mehrere Besenreißervarizen an Fuß- und Kniegelenken; keine Ödeme, keine trophischen Störungen, leichte Strömungsgeräusche über den Femoralisarterien bds., Femoralispulse bds gut palpabel, Popliteal- und Fußpulse bds. schwach palpabel, Puls ca. 68/min, beide Füße eher kalt, Rekapilarisationszeit bds. &lt;2Sek.</h3> 
+        <h3 id="mundanswer" style="display:none">Sensibilität bds. für alle Qualitäten intakt, grobe Kraft allseits Kraftgrad 5/5, Feinmotilität allseits unauffällig, Tonus unauffällig. Beinvorhalteversuch(Anwinkeln im 90° Winkel): kein Absinken. Reflexe seitengleich mittellebhaft auslösbar, Knie-Hacke-Versuch zielsicher, Babinski bds. negativ, Romberg- und Unterberger-Versuch unauffällig, Einbeinstand unauffällig, Fersen- und Zehenspitzengang unauffällig, Blind- und Strichgang unauffällig, Lasègue bds. negativ.</h3> 
+        <h3 id="ohrenanswer" style="display:none">Beide Beine gleichmäßig rosig, bds. keine Varizen oder Ödeme, keine trophischen Störungen. Femoralis-, Popliteal- und Fußpulse bds. palpabel, Puls ca. 68/min, beide Füße gleich warm, Rekapilarisationszeit bds. &lt;2Sek.</h3> 
 </template>
 
 <script>
@@ -214,11 +214,10 @@ countertimeInspektion() {
    counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
        data.append("untereinspektion",1);
       data.append("time",0.5);
-      data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: untere Extremität angekreuzt");
    data.append("onlineuser",localStorage.email);
       axios
@@ -244,11 +243,10 @@ countertimeInspektion() {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
          data.append("unterebeweg",1);
       data.append("time",2);
-      data.append("safety",100);
       data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios
@@ -274,11 +272,10 @@ countertimeInspektion() {
     counterMund() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
        data.append("untereneurolog",1);
       data.append("time",5);
-      data.append("safety",100);
       data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
       data.append("onlineuser",localStorage.email);
       axios
@@ -303,11 +300,10 @@ countertimeInspektion() {
     counterOhren() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
          data.append("unteredurch",1);
       data.append("time",1.5);
-     data.append("safety",100);
      data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: untere Extremität angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios

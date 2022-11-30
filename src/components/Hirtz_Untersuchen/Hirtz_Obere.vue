@@ -59,10 +59,10 @@
         
            
   </div>
-  <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Arme gleichmäßig rosig, bds. keine Ödeme, Atrophien oder Faszikulationen, Hand- und Fingergelenke schmal, keine Nagelveränderungen, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm,  Fingergelenke nicht druckschmerzhaft beim Händedruck.</h3> 
-         <h3 id="naseanswer" style="display:none">Normale und beschwerdefreie Beweglichkeit in Schultergürtel, Ellenbogengelenk, Hand- und Fingergelenken.</h3> 
-          <h3 id="mundanswer" style="display:none"> Sensibilität bds für alle Qualitäten intakt, grobe Kraft allseits KG 5/5, Feinmotilität allseits unauffällig, Tonus unauffällig, Armvorhalteversuch: kein Absinken, keine Pronation. Eudiadochokinese bds., Reflexe seitengleich mittellebhaft auslösbar, Finger-Nase-Versuch zielsicher, Rebound negativ.</h3> 
-           <h3 id="ohrenanswer" style="display:none">Beide Arme gleichmäßig rosig, bds. keine Ödeme, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm.</h3> 
+  <h3 id="inspektionanswer" style="display:none"> Haut bds. o.p.B., beide Arme geschlechtstypisch behaart, gleichmäßig rosig, bds. keine Ödeme, Atrophien oder Faszikulationen, Hand- und Fingergelenke schmal, keine Nagelveränderungen, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;2Sek., beide Hände gleich warm,  Fingergelenke nicht druckschmerzhaft beim Händedruck.</h3> 
+         <h3 id="naseanswer" style="display:none">Beweglichkeit in Schultergürtel links normal und beschwerdefrei, rechts Elevation und Retroversion schmerzhaft, Rotation beschwerdefrei möglich. Normale und beschwerdefreie Beweglichkeit in Ellenbogengelenk, Hand- und Fingergelenken.</h3> 
+          <h3 id="mundanswer" style="display:none"> Sensibilität bds. für alle Qualitäten intakt, grobe Kraft allseits Kraftgrad 5/5, Feinmotilität allseits unauffällig, Tonus unauffällig, Armvorhalteversuch: kein Absinken, keine Pronation. Eudiadochokinese bds., Reflexe seitengleich mittellebhaft auslösbar, Finger-Nase-Versuch zielsicher, Rebound negativ.</h3> 
+           <h3 id="ohrenanswer" style="display:none">beide Arme gleichmäßig rosig, bds. keine Ödeme, Radialispuls bds. kräftig palpabel, Puls ca. 68/min, Rekapilarisationszeit bds. &lt;Sek., beide Hände gleich warm.</h3> 
 </template>
 
 <script>
@@ -211,11 +211,10 @@ export default {
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
       data.append("obereinspektion",1);
       data.append("time",0.5);
-      data.append("safety",100);
       data.append("step","Sie haben Inspektion & Palpation unter Nicht Apparative Untersuchen: obere Extremität angekreuzt");
      data.append("onlineuser",localStorage.email);
       axios
@@ -241,12 +240,11 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
        data.append("oberebeweg",1);
       data.append("time",2);
-       data.append("safety",100);
-        data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
+         data.append("step","Sie haben Prüfung der Beweglichkeit unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
      data.append("onlineuser",localStorage.email);
         axios
         .post(
@@ -271,12 +269,11 @@ export default {
     counterMund() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",6.66);
       data.append("satisfaction",1);
        data.append("obereneurolog",1);
       data.append("time",3);
-      data.append("safety",100);
-       data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
+      data.append("step","Sie haben neurolog Untersuchung: Prüfung von Reflexen, Kraft und Sensibilität unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
      data.append("onlineuser",localStorage.email); 
        axios
         .post(
@@ -300,11 +297,10 @@ export default {
     counterOhren() {
       var data = new FormData();
   
-      data.append("economy",-3.125);
+      data.append("economy",-3.33);
       data.append("satisfaction",1);
       data.append("oberedurch",1);
       data.append("time",1);
-     data.append("safety",100);
       data.append("step","Sie haben Prüfung der peripheren Durchblutung unter Nicht Apparative Untersuchen: obere Extremität angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios

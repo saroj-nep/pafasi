@@ -32,8 +32,8 @@
           </div>
     
   </div>
-      <h3 id="inspektionanswer" style="display:none">Männliches Behaarungsmuster, keine patholog. Venenzeichnung, Prostatektomie-Narbe am Unterbauch, Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 2cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, Bauchhautreflexe in allen Etagen auslösbar, Rüttelschmerz fraglich positiv.</h3> 
-         <h3 id="naseanswer" style="display:none">Abdomen: rege Darmgeräusche in allen vier Quadranten, unterer Leberrand 1 Querfinger unterhalb des Rippenbogens.</h3> 
+      <h3 id="inspektionanswer" style="display:none">Haut: o.p.B., geschlechtstypisches Behaarungsmuster, keine Venenzeichnung, keine Narben. Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 1cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, kein Rüttelschmerz, Bauchhautreflexe in allen Etagen auslösbar.</h3> 
+         <h3 id="naseanswer" style="display:none">Abdomen: unauffällige Darmgeräusche in allen vier Quadranten, unterer Leberrand auf Höhe des Rippenbogens.</h3> 
           
 </template>
 
@@ -127,12 +127,11 @@ export default {
     counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",6.25);
-      data.append("satisfaction",1);
+      data.append("economy",-3.33);
+      data.append("satisfaction",0);
         data.append("abdomeninspektion",1);
       data.append("time",0.3);
-      data.append("safety",100);
-      data.append("step","Sie haben Inspektion und Palpation unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
+         data.append("step","Sie haben Inspektion und Palpation unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
      data.append("onlineuser",localStorage.email);
       axios
         .post(
@@ -157,12 +156,11 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",6.25);
-      data.append("satisfaction",1);
+      data.append("economy"-3.33);
+      data.append("satisfaction",0);
         data.append("abdomenauskultation",1);
       data.append("time",0.5);
-       data.append("safety",100);
-      data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
+        data.append("step","Sie haben Auskultation & Perkussion unter Nicht Apparative Untersuchen: Rumpf-Abdomen angekreuzt")
     data.append("onlineuser",localStorage.email);
       axios
         .post(

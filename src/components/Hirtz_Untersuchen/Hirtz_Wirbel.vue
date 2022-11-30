@@ -42,9 +42,9 @@
           </div> 
         
   </div>
-  <h3 id="inspektionanswer" style="display:none">Adipöser EZ, gebeugte Haltung, Muskelverhärtungen paravertebral v.a. lumbal, WS-Klopfschmerz.</h3> 
-         <h3 id="naseanswer" style="display:none">Ante-, Retro-, Lateroflexion sowie Rotation mit erheblichen Schmerzen verbunden, bei Vorbeugung kein Hinweis auf ausgeprägte Skoliose, kein Vorlaufphänomen. Der Patient gibt Schmerzen beim Vorbeugen sowie Hochkommen an, Rüttelschmerz fraglich positiv, Lasègue rechts negativ, links schnell einschießende Schmerzen in das ipsilaterale Bein mit Ausstrahlung bis an die Fußaußenseite, kein Meningismus.</h3> 
-       <h3 id="halsanswer" style="display:none">Kopfhaltung gerade, Kopfbewegung in alle Richtungen gut und schmerzfrei möglich, keine muskulären Resistenzen, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3>    
+  <h3 id="inspektionanswer" style="display:none">Schlanker, moderat muskulöser Körperbau, leichter Schulterschiefstand re>li, Myogelosen (Muskelverhärtungen) im Bereich des M. trapezius und entlang der WS bds, kein WS-Klopfschmerz.</h3> 
+         <h3 id="naseanswer" style="display:none">Ante-, Retro-, Lateroflexion sowie Rotation mit normaler Beweglichkeit und schmerzfrei möglich, bei Vorbeugung Hinweis auf leicht ausgeprägte Skoliosenach rechts, kein Vorlaufphänomen, keine Schmerzen beim Vorbeugen, leichte Schmerzen beim Hochkommen, kein Rüttelschmerz, Lasègue bds. negativ, kein Meningismus.</h3> 
+       <h3 id="halsanswer" style="display:none">Kopfhaltung gerade, Rotationseinschränkung nach rechts. Schmerzen bei Kopfinklination und -reklination, Neigung nach links löst Dehnungsschmerz aus, Neigung nach rechts bringt Erleichterung. M. trapezius verhärtet, Wirbelkörperfortsätze in einer Linie tastbar, kein Meningismus.</h3>    
 </template>
 
 <script>
@@ -164,11 +164,11 @@ export default {
    counterInspektion() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
      data.append("wirbelinspektion",1);
       data.append("satisfaction",1);
       data.append("time",0.2);
-      data.append("safety",100);
+     
       data.append("step","Sie haben Inspektion und Palpation unter Nicht Apparative Untersuchen: Rumpf-Wirbelsauele angekreuzt")
      data.append("onlineuser",localStorage.email);
       axios
@@ -194,11 +194,11 @@ export default {
     counterNase() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",-3.33);
       data.append("wirbelfunktion",1);
       data.append("satisfaction",1);
       data.append("time",1.5);
-      data.append("safety",100);
+ 
       data.append("step","Sie haben Funktionsuntersuchung unter Nicht Apparative Untersuchen: Rumpf-Wirbelsauele angekreuzt")
      data.append("onlineuser",localStorage.email);
       axios
@@ -223,11 +223,11 @@ export default {
      counterHals() {
       var data = new FormData();
   
-      data.append("economy",6.25);
+      data.append("economy",6.66);
       data.append("wirbelhals",1);
       data.append("satisfaction",1);
       data.append("time",0.2);
-      data.append("safety",100);
+  
       data.append("step","Sie haben Halswirbelsäule unter Nicht Apparative Untersuchen: Rumpf-Wirbelsauele angekreuzt")
       data.append("onlineuser",localStorage.email);
       axios

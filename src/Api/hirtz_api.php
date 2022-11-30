@@ -938,7 +938,7 @@ if($action=='getclicks'){
 }
 
 if($action=='getcounters'){
-	$sql="SELECT ROUND(`economy-sum`,2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_users`";
+	$sql="SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_users`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -956,7 +956,7 @@ if($action=='getcounters'){
 	
 }
 if($action=='getoriginalcounters'){
-	$sql="SELECT ROUND(`economy-sum`,2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_users_original`";
+	$sql="SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_users_original`";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);
 	$userData=array();
@@ -1028,7 +1028,7 @@ if($action=='getsteps'){
 	}
 	
 }
-if($action=='getnotess'){
+if($action=='getnotes'){
 	$sql="SELECT * FROM `hirtz_notepad` ";
 	$result=$conn->query($sql);
 	$num=mysqli_num_rows($result);

@@ -93,7 +93,7 @@
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="onkotag();">
     <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Innere Medizin - Hämato-/Onkologie</td>
-        <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik geschickt.</td>
+        <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td>
        
       </tr>
       
@@ -110,7 +110,7 @@
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="neurochirutag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Neurochirurgie</td>
-        <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik überwiesen.</td> 
+        <td>Unaufälliger Befund. Insbesondere kein Anhalt für Karpaltunnelsyndrom oder sonstige Nervenkompressionssyndrome.</td> 
       </tr>
 
     </tbody>
@@ -118,14 +118,14 @@
       <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="neurotag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Neurologie</td>
-        <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie (CAVE: beginnende Parese) bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Patient zeigt Hinweise auf mögliche ossäre Metastasierung seines Prostata-CA. Er wird zur Weiterbehandlung in die onkologische Klinik überwiesen.</td> 
+        <td>Unauffälliger neurologischer Untersuchungsbefund. Keine Auffälligkeiten in den Messungen der Nervenleitgeschwindigkeit.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.ortho==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="orthotag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Orthopädie</td>
-        <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
+        <td>Keine strukturellen Veränderungen oder sonstige Pathologien in HWS, rechter Schulter und rechtem Arm. Insgesamt unauffälliger Untersuchungsbefund.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.padi==1">
@@ -139,21 +139,21 @@
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="psychitag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2  ">Psychiatrie/Psychosomatik</td>
-        <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
+        <td>Eine psychosomatische Unterhaltung und/oder Verstärkung des Schmerzes bei ausgeprägter privater sowie beruflicher Stressbelastung ist denkbar. Eine begleitende psychologische Mitbehandlung kann im Verlauf unterstützend in Betracht gezogen werden. Dennoch sehen wir in der aktuellen Situation keine dringliche Notwendigkeit einer psychologischen/psychiatrischen oder psychosomatischen Akutbehandlung.</td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.radio==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="radiotag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Radiologie</td>
-        <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei bekannten BSV L3/4 und L4/5 sowie Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es zeigen sich unscharf begrenzte, inhomogene hyperdense Areale (Sklerosierungen) im Bereich der WK L2 - S1. Unter Berücksichtigung der Patientenvorgeschichte könnte es sich hierbei um osteoblastische Metastasen im Rahmen der Prostata-CA handeln. Zusätzlich sind Deckplatteneinbrüche des LWK 5 zu erkennen. Diese deuten auf eine Wirbelkörperfraktur ohne Instabilitätskriterien hin. </td> 
+        <td>Unauffälliger Röntgenbefund von rechter Schulter und HWS. </td> 
       </tr>
     </tbody>
       <tbody v-if="doctor.uro==1">
         <img src="@/assets/Schneider.jpg" class="w-1 h-1 opacity-0" @load="urotag();">
       <tr>
         <td style="text-align: center" class="bg-emerald-100 border border-emerald-600 px-2 py-2 ">Urologie</td>
-        <td>Patient mit starken Rückenschmerzen und Zeichen einer Radikulopathie bei Z.n. radikaler Prostatektomie bei Prostata-Ca 2015, Gleason 6, T2b N1 M0 R0. Es wurde ein Anstieg des PSA auf 6,0ng/ml festgestellt, sodass von einer ossären Metastasierung in die Wirbelsäule auszugehen ist. Wir haben Hr. Schneider in die onkologische Klinik überwiesen, wo seine Weiterbehandlung koordiniert werden soll.</td> 
+        <td>Für diesen Fall ist ein solches Konsil nicht vorgesehen / notwendig. Es ergaben sich keine wegweisenden neuen Befunde.</td> 
       </tr>
     </tbody>
   </table>
