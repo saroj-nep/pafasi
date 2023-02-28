@@ -31,7 +31,7 @@
               Gesamte Diagnosezeit
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
-              Bewertung der Patientenzufriedenheit (von 100 %)
+              Patientenzufriedenheit  (von 100 %)
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
               Detailliertes Fallergebnis
@@ -88,7 +88,7 @@
 <div style="margin: 20px 0 20px 0;"></div>
   
    <div id="htmlcontent" style="display:none"  class="htmlcontent">
-    <h1 style='text-align:center' class=" font-bold  py-2" > Fall: Hr. Schneider </h1>
+    <h1 style='text-align:center' class=" font-bold  py-2" > Fall: Hr. Hirtz </h1>
     <h1 style='text-align:center' class=" font-bold  py-2" > Studenten/Studentin: {{e}} </h1>
     <div style="margin: 10px 0 10px 0;"></div>
       <h1 class=" bg-emerald-200 pl-3 py-2" >Diagnoseergebnisse: </h1>

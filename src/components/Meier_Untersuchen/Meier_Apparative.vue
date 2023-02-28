@@ -490,7 +490,7 @@ export default {
       var data = new FormData();
 
       data.append("economy", -5.55);
-      data.append("satisfaction", 0);
+      data.append("satisfaction", 1);
       data.append("temperatur", 1);
       data.append("time", 0.3);
       data.append(
@@ -522,7 +522,7 @@ export default {
       var data = new FormData();
 
       data.append("economy", -5.55);
-      data.append("satisfaction", 0);
+      data.append("satisfaction", 1);
       data.append("blutzucker", 1);
       data.append("time", 1);
       data.append(
@@ -554,7 +554,7 @@ export default {
       var data = new FormData();
 
       data.append("economy", -5.55);
-      data.append("satisfaction", 0);
+      data.append("satisfaction", 1);
       data.append("blutdruck", 1);
       data.append("time", 1);
       data.append(

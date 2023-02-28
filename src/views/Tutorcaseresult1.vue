@@ -25,13 +25,13 @@
               Wirtschaftlichkeit (Höchstwert 100)
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
-              Patientensicherheit (von 100 %)
+              Patientensicherheit  (von 100 %)
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
               Gesamte Diagnosezeit
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
-              Bewertung der Patientenzufriedenheit (von 100 %)
+             Patientenzufriedenheit (von 100 %)
               </th>
               <th scope="col" class="text-sm font-medium text-white px-6 py-4 text-middle border-r">
               Detailliertes Fallergebnis

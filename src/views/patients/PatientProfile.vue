@@ -808,6 +808,7 @@ printstrigger(){
          localStorage.suchen = "false";
          localStorage.stix = "false";
          localStorage.sediment = "false";
+           localStorage.betahcg='false';
          localStorage.kultur = "false";
          localStorage.augen = "false";
          localStorage.chiru = "false";

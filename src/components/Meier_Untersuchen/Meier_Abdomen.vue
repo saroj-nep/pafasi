@@ -32,7 +32,7 @@
           </div>
     
   </div>
-      <h3 id="inspektionanswer" style="display:none">Haut: helle Haut,  multiple Naevi unauffäliger Größe und Gestalt. Gut verheilte, reizlose Sectio-Narbe am Unterbauch, ansonsten o.p.B.. Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 1cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, kein Rüttelschmerz, Bauchhautreflexe in allen Etagen auslösbar.</h3> 
+      <h3 id="inspektionanswer" style="display:none">Haut: helle Haut,  multiple Naevi unauffäliger Größe und Gestalt. Gut verheilte, reizlose Sectio-Narbe am Untermeier, ansonsten o.p.B.. Abdomen: Abdomen weich, keine Abwehrspannung, kein Druckschmerz, keine Resistenzen, unterer Leberrand 1cm unter dem Rippenbogen tastbar und glatt, Gallenblase nicht tastbar, kein Rüttelschmerz, Meierhautreflexe in allen Etagen auslösbar.</h3> 
          <h3 id="naseanswer" style="display:none">Abdomen: rege Darmgeräusche in allen vier Quadranten, unterer Leberrand auf Höhe des Rippenbogens.</h3> 
           
 </template>

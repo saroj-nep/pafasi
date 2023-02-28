@@ -89,8 +89,7 @@
               v-if="submit.submitted == '0'"
               class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
             >
-              
-              <router-link  :to="{ name: 'Hirtz' }">
+              <router-link :to="{ name: 'Hirtz' }">
                 <img
                   src="../assets/Hirtz2.jpg"
                   class="w-45"
@@ -161,13 +160,321 @@
           </div>
         </div>
       </div>
-      <div
-        class="nopatient mr-6 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-      >
-        <router-link to="">
-          <br />
-          <h3 style="text-align: center">Demnächst</h3>
-        </router-link>
+       
+     <div>
+        <div v-for="submit in meiersubmits">
+          <div v-if="submit.user == email">
+            <div
+              v-if="submit.submitted == '0'"
+              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+            >
+              <router-link :to="{ name: 'Meier' }">
+                <img
+                  src="../assets/Meier2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anke Meier</h3>
+                <h3 style="text-align: center">Status: Offen</h3>
+              </router-link>
+            </div>
+            <div
+              v-else
+              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
+            >
+              <router-link v-if="submit.tutor == '0'" to="#">
+                <img
+                  src="../assets/Meier2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anke Meier</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in meiersubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Meierprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+              <router-link v-else :to="{ name: 'Meier' }">
+                <img
+                  src="../assets/Meier2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anke Meier</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in meiersubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Meierprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+           
+     <div>
+        <div v-for="submit in bauchsubmits">
+          <div v-if="submit.user == email">
+            <div
+              v-if="submit.submitted == '0'"
+              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+            >
+              <router-link :to="{ name: 'Bauch' }">
+                <img
+                  src="../assets/Bauch2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Daria Olewski</h3>
+                <h3 style="text-align: center">Status: Offen</h3>
+              </router-link>
+            </div>
+            <div
+              v-else
+              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
+            >
+              <router-link v-if="submit.tutor == '0'" to="#">
+                <img
+                  src="../assets/Bauch2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Daria Olewski</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in bauchsubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Bauchprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+              <router-link v-else :to="{ name: 'Bauch' }">
+                <img
+                  src="../assets/Bauch2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Daria Olewski</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in bauchsubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Bauchprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div v-for="submit in rigassubmits">
+          <div v-if="submit.user == email">
+            <div
+              v-if="submit.submitted == '0'"
+              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+            >
+            
+                <router-link  :to="{ name: 'Rigas' }">
+                <img
+                  src="../assets/Rigas2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Georgios Rigas</h3>
+                <h3 style="text-align: center">Status: Offen</h3>
+              </router-link>
+            </div>
+            <div
+              v-else
+              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
+            >
+              <router-link v-if="submit.tutor == '0'" to="#">
+                <img
+                  src="../assets/Rigas2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Georgios Rigas</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in rigassubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Rigasprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+              <router-link v-else :to="{ name: 'Rigas' }">
+                <img
+                  src="../assets/Rigas2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Georgios Rigas</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in rigassubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Rigasprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div>
+        <div v-for="submit in holderbaumsubmits">
+          <div v-if="submit.user == email">
+            <div
+              v-if="submit.submitted == '0'"
+              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+            >
+            
+                <router-link  :to="{ name: 'Holderbaum' }">
+                <img
+                  src="../assets/Holderbaum2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anneliese Holderbaum</h3>
+                <h3 style="text-align: center">Status: Offen</h3>
+              </router-link>
+            </div>
+            <div
+              v-else
+              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
+            >
+              <router-link v-if="submit.tutor == '0'" to="#">
+                <img
+                  src="../assets/Holderbaum2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anneliese Holderbaum</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in holderbaumsubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Holderbaumprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+              <router-link v-else :to="{ name: 'Holderbaum' }">
+                <img
+                  src="../assets/Holderbaum2.jpg"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Fr. Anneliese Holderbaum</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in holderbaumsubmits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Holderbaumprint' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -186,6 +493,10 @@ export default {
     return {
       submits: [],
       hirtzsubmits: [],
+      meiersubmits:[],
+      bauchsubmits:[],
+      rigassubmits:[],
+      holderbaumsubmits: [],
       email: localStorage.email,
       pagez: [],
     };
@@ -198,6 +509,10 @@ export default {
     this.currentpage();
     this.getsubmit();
     this.gethirtzsubmit();
+    this.getmeiersubmit();
+    this.getbauchsubmit();
+    this.getrigassubmit();
+    this.getholderbaumsubmit();
     this.sendthesteps();
   },
   methods: {
@@ -277,6 +592,38 @@ export default {
           this.hirtzsubmits = response.data;
         });
     },
+     getmeiersubmit() {
+      axios
+        .get("./Api/meier_api.php?action=getsubmit")
+
+        .then((response) => {
+          this.meiersubmits = response.data;
+        });
+    },
+      getbauchsubmit() {
+      axios
+        .get("./Api/bauch_api.php?action=getsubmit")
+
+        .then((response) => {
+          this.bauchsubmits = response.data;
+        });
+    },
+         getrigassubmit() {
+      axios
+        .get("./Api/rigas_api.php?action=getsubmit")
+
+        .then((response) => {
+          this.rigassubmits = response.data;
+        });
+    },
+           getholderbaumsubmit() {
+      axios
+        .get("./Api/holderbaum_api.php?action=getsubmit")
+
+        .then((response) => {
+          this.holderbaumsubmits = response.data;
+        });
+    },
     showsubmit() {},
   },
 };
@@ -295,6 +642,8 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 2 ex;
+  margin-top:5%;
+  margin-bottom: 5%;
 }
 .patient:hover {
   background: rgb(39, 190, 107);

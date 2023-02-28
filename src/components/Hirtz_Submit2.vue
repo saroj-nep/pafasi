@@ -374,22 +374,22 @@ submitrezept(){
           const b = document.querySelector('#ausstellencheck2');        
      
 
-if ((b.checked==1 && b.value==0)){ if ((a.checked==0 && a.value==0)) {data.append("economy",-3.125)}}
-if ((b.checked==0 && b.value==0)){ if ((a.checked==1 && a.value==0)) {data.append("economy",6.25)}}
-if ((b.checked==0 && b.value==0)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-6.25)}}
-if ((b.checked==0 && b.value==1)){ if ((a.checked==0 && a.value==0)) {data.append("economy",3.125)}}
+if ((b.checked==1 && b.value==0)){ if ((a.checked==0 && a.value==0)) {data.append("economy",6.66)}}
+if ((b.checked==0 && b.value==0)){ if ((a.checked==1 && a.value==0)) {data.append("economy",6.66)}}
+if ((b.checked==0 && b.value==0)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-6.66)}}
+if ((b.checked==0 && b.value==1)){ if ((a.checked==0 && a.value==0)) {data.append("economy",-6.66)}}
 if ((b.checked==1 && b.value==1)){ if ((a.checked==0 && a.value==0)) {data.append("economy",0)}}
 if ((b.checked==0 && b.value==0)){ if ((a.checked==0 && a.value==0)) {data.append("economy",0)}}
-if ((b.checked==1 && b.value==1)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-6.25)}}
-if ((b.checked==1 && b.value==1)){ if ((a.checked==1 && a.value==0)) {data.append("economy",6.25)}}
-if ((b.checked==0 && b.value==1)){ if ((a.checked==1 && a.value==0)) {data.append("economy",9.375)}}
-if ((b.checked==0 && b.value==1)){ if ((a.checked==1 && a.value==1)) {data.append("economy",3.125)}}
+if ((b.checked==1 && b.value==1)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-6.66)}}
+if ((b.checked==1 && b.value==1)){ if ((a.checked==1 && a.value==0)) {data.append("economy",6.66)}}
+if ((b.checked==0 && b.value==1)){ if ((a.checked==1 && a.value==0)) {data.append("economy",0)}}
+if ((b.checked==0 && b.value==1)){ if ((a.checked==1 && a.value==1)) {data.append("economy",-6.66)}}
 if ((b.checked==0 && b.value==0)){ if ((a.checked==1 && a.value==1)) {data.append("economy",0)}}
 if ((b.checked==1 && b.value==1)){ if ((a.checked==1 && a.value==1)) {data.append("economy",0)}}
-if ((b.checked==1 && b.value==0)){ if ((a.checked==1 && a.value==1)) {data.append("economy",-3.125)}}
-if ((b.checked==0 && b.value==1)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-3.125)}}
-if ((b.checked==1 && b.value==0)){ if ((a.checked==1 && a.value==0)) {data.append("economy",3.125)}}
-if ((b.checked==1 && b.value==0)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-9.375)}}
+if ((b.checked==1 && b.value==0)){ if ((a.checked==1 && a.value==1)) {data.append("economy",6.66)}}
+if ((b.checked==0 && b.value==1)){ if ((a.checked==0 && a.value==1)) {data.append("economy",-13.32)}}
+if ((b.checked==1 && b.value==0)){ if ((a.checked==1 && a.value==0)) {data.append("economy",13.32)}}
+if ((b.checked==1 && b.value==0)){ if ((a.checked==0 && a.value==1)) {data.append("economy",0)}}
 
 
 
