@@ -5,7 +5,7 @@
       class="grid grid-cols-3 mt-5 mb-2 ml-1 mr-1 align-center content-center justify-center justify-items-center justify-evenly place-content-center"
     >
       <div>
-        <div v-for="submit in submits">
+        <!-- <div v-for="submit in submits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -80,7 +80,7 @@
               </router-link>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div>
         <div v-for="submit in hirtzsubmits">
@@ -161,7 +161,7 @@
         </div>
       </div>
        
-     <div>
+     <!-- <div>
         <div v-for="submit in meiersubmits">
           <div v-if="submit.user == email">
             <div
@@ -238,9 +238,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
            
-     <div>
+     <!-- <div>
         <div v-for="submit in bauchsubmits">
           <div v-if="submit.user == email">
             <div
@@ -317,9 +317,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div>
-        <div v-for="submit in rigassubmits">
+        <!-- <div v-for="submit in rigassubmits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -395,10 +395,10 @@
               </router-link>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
        <div>
-        <div v-for="submit in holderbaumsubmits">
+        <!-- <div v-for="submit in holderbaumsubmits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -474,7 +474,7 @@
               </router-link>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

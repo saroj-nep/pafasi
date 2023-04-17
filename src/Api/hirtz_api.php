@@ -1133,6 +1133,67 @@ if ($action == 'getblood') {
 	}
 
 }
+
+if ($action == 'getbloods') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_bluten_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getstools') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_stuhl_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'geturines') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_urin_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
 if ($action == 'geturine') {
 	$sql = "SELECT * FROM `hirtz_urin_options`";
 	$result = $conn->query($sql);
