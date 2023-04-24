@@ -1116,7 +1116,7 @@ export default {
 
     allCounters() {
       axios
-        .get("./Api/hirtz_api.php?action=getcounters")
+        .get("./Api/hirtz_api.php?action=getoriginalcounters")
 
         .then((response) => {
           this.counters = response.data;
@@ -1128,7 +1128,7 @@ export default {
     },
 
     allSubmits() {
-      axios.get("./Api/hirtz_api.php?action=getsubmit").then((response) => {
+      axios.get("./Api/hirtz_api.php?action=getoriginalsubmit").then((response) => {
         this.submits = response.data;
       });
     },
@@ -1137,7 +1137,7 @@ export default {
       this.e = e;
 
       axios
-        .get("./Api/hirtz_api.php?action=getdownloadstuff", {
+        .get("./Api/hirtz_api.php?action=getoriginaldownloadstuff", {
           params: {
             user: e,
           },
@@ -1148,7 +1148,7 @@ export default {
         });
 
       axios
-        .get("./Api/hirtz_api.php?action=getisclicked", {
+        .get("./Api/hirtz_api.php?action=getoriginalisclicked", {
           params: {
             user: e,
           },
@@ -1159,7 +1159,7 @@ export default {
         });
 
       axios
-        .get("./Api/hirtz_api.php?action=getbloods", {
+        .get("./Api/hirtz_api.php?action=getoriginalbloods", {
           params: {
             user: e,
           },
@@ -1169,7 +1169,7 @@ export default {
           this.bluten = response.data;
         });
         axios
-        .get("./Api/hirtz_api.php?action=geturines", {
+        .get("./Api/hirtz_api.php?action=getoriginalurines", {
           params: {
             user: e,
           },
@@ -1179,7 +1179,7 @@ export default {
           this.urin = response.data;
         });
         axios
-        .get("./Api/hirtz_api.php?action=getstools", {
+        .get("./Api/hirtz_api.php?action=getoriginalstools", {
           params: {
             user: e,
           },
@@ -1216,7 +1216,7 @@ export default {
     },
 
     allstudents() {
-      axios.get("./Api/hirtz_api.php?action=getcounters").then((response) => {
+      axios.get("./Api/hirtz_api.php?action=getoriginalcounters").then((response) => {
         this.students = response.data;
       });
     },

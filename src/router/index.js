@@ -23,7 +23,7 @@ import Tutorpanel from "@/views/Tutorpanel.vue";
 // import Tutorcaseresult1 from "@/views/Tutorcaseresult1.vue";
 import Tutorcaseresult2 from "@/views/Tutorcaseresult2.vue";
 // import Tutorcaseresult1re from "@/views/Tutorcaseresult1_re.vue";
-// import Tutorcaseresult2re from "@/views/Tutorcaseresult2_re.vue";
+import Tutorcaseresult2re from "@/views/Tutorcaseresult2_re.vue";
 // import Tutorcaseresult3 from "@/views/Tutorcaseresult3.vue";
 // import Tutorcaseresult3re from "@/views/Tutorcaseresult3_re.vue";
 // import Tutorcaseresult4 from "@/views/Tutorcaseresult4.vue";
@@ -148,11 +148,11 @@ const routes = [
   //   name: "Tutorcaseresult1_re",
   //   component: Tutorcaseresult1re,
   // },
-  // {
-  //   path: "/caseresults2_re",
-  //   name: "Tutorcaseresult2_re",
-  //   component: Tutorcaseresult2re,
-  // },
+  {
+    path: "/caseresults2_re",
+    name: "Tutorcaseresult2_re",
+    component: Tutorcaseresult2re,
+  },
   // {
   //   path: "/caseresults3",
   //   name: "Tutorcaseresult3",

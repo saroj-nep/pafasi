@@ -955,7 +955,7 @@ if ($action == 'getcounters') {
 
 }
 if ($action == 'getoriginalcounters') {
-	$sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_users_original`";
+	$sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `hirtz_original_users`";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1178,6 +1178,66 @@ if ($action == 'geturines') {
 
 	$user = $_GET['user'];
 	$sql = "SELECT * FROM `hirtz_urin_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalbloods') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_original_bluten_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalstools') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_original_stuhl_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalurines') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_original_urin_options` WHERE `user`='$user' ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1635,7 +1695,7 @@ if ($action == 'getsubmit') {
 
 }
 if ($action == 'getoriginalsubmit') {
-	$sql = "SELECT * FROM `hirtz_submit_options_original`";
+	$sql = "SELECT * FROM `hirtz_original_submit_options`";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1673,7 +1733,7 @@ if ($action == 'getdownloadstuff') {
 }
 if ($action == 'getoriginaldownloadstuff') {
 	$user = $_GET['user'];
-	$sql = "SELECT * FROM `hirtz_submit_options_original` WHERE `user`='$user' ";
+	$sql = "SELECT * FROM `hirtz_original_submit_options` WHERE `user`='$user' ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1694,6 +1754,26 @@ if ($action == 'getisclicked') {
 
 	$user = $_GET['user'];
 	$sql = "SELECT * FROM `hirtz_isclicked` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalisclicked') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `hirtz_original_isclicked` WHERE `user`='$user' ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
