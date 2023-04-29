@@ -4,84 +4,7 @@
     <div
       class="grid grid-cols-3 mt-5 mb-2 ml-1 mr-1 align-center content-center justify-center justify-items-center justify-evenly place-content-center"
     >
-      <!-- <div> -->
-        <!-- <div v-for="submit in submits">
-          <div v-if="submit.user == email">
-            <div
-              v-if="submit.submitted == '0'"
-              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-            >
-              <router-link :to="{ name: 'Patient' }">
-                <img
-                  src="../assets/Schneider2.png"
-                  class="w-45"
-                  alt="Patient Image"
-                />
-                <br />
-                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
-                <h3 style="text-align: center">Status: Offen</h3>
-              </router-link>
-            </div>
-            <div
-              v-else
-              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
-            >
-              <router-link v-if="submit.tutor == '0'" to="#">
-                <img
-                  src="../assets/Schneider2.png"
-                  class="w-45"
-                  alt="Patient Image"
-                />
-                <br />
-                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
-                <h3 style="text-align: center">Status: Geschlossen</h3>
-                <div v-for="submit in submits">
-                  <div v-if="submit.user == email">
-                    <router-link :to="{ name: 'Print' }">
-                      <div
-                        v-if="submit.submitted == '1'"
-                        id="Schneiderbutton"
-                        style="display: block"
-                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-                      >
-                        <h3 style="text-align: center">
-                          Fallergebnisse herunterladen
-                        </h3>
-                      </div>
-                    </router-link>
-                  </div>
-                </div>
-              </router-link>
-              <router-link v-else :to="{ name: 'Patient' }">
-                <img
-                  src="../assets/Schneider2.png"
-                  class="w-45"
-                  alt="Patient Image"
-                />
-                <br />
-                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
-                <h3 style="text-align: center">Status: Geschlossen</h3>
-                <div v-for="submit in submits">
-                  <div v-if="submit.user == email">
-                    <router-link :to="{ name: 'Print' }">
-                      <div
-                        v-if="submit.submitted == '1'"
-                        id="Schneiderbutton"
-                        style="display: block"
-                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-                      >
-                        <h3 style="text-align: center">
-                          Fallergebnisse herunterladen
-                        </h3>
-                      </div>
-                    </router-link>
-                  </div>
-                </div>
-              </router-link>
-            </div>
-          </div>
-        </div> -->
-      <!-- </div> -->
+      
       <div>
         <div v-for="submit in hirtzsubmits">
           <div v-if="submit.user == email">
@@ -160,7 +83,84 @@
           </div>
         </div>
       </div>
-       
+       <div>
+        <div v-for="submit in submits">
+          <div v-if="submit.user == email">
+            <div
+              v-if="submit.submitted == '0'"
+              class="patient ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+            >
+              <router-link :to="{ name: 'Patient' }">
+                <img
+                  src="../assets/Schneider2.png"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
+                <h3 style="text-align: center">Status: Offen</h3>
+              </router-link>
+            </div>
+            <div
+              v-else
+              class="patientdisabled ml-12 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 rounded shadow-2xl"
+            >
+              <router-link v-if="submit.tutor == '0'" to="#">
+                <img
+                  src="../assets/Schneider2.png"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in submits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Print' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+              <router-link v-else :to="{ name: 'Patient' }">
+                <img
+                  src="../assets/Schneider2.png"
+                  class="w-45"
+                  alt="Patient Image"
+                />
+                <br />
+                <h3 style="text-align: center">Hr. Wolfgang Schneider</h3>
+                <h3 style="text-align: center">Status: Geschlossen</h3>
+                <div v-for="submit in submits">
+                  <div v-if="submit.user == email">
+                    <router-link :to="{ name: 'Print' }">
+                      <div
+                        v-if="submit.submitted == '1'"
+                        id="Schneiderbutton"
+                        style="display: block"
+                        class="case ml-2 mr-5 btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+                      >
+                        <h3 style="text-align: center">
+                          Fallergebnisse herunterladen
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
      <!-- <div>
         <div v-for="submit in meiersubmits">
           <div v-if="submit.user == email">

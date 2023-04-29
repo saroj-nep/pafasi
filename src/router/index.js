@@ -2,7 +2,7 @@ import Main from "../views/MainPageView.vue";
 import EinleitungView from "../views/EinleitungView.vue";
 import Wartezimmer from "../views/Wartezimmer.vue";
 import Login from "../views/LoginPage.vue";
-// import Patient from "../views/patients/PatientProfile.vue";
+import Patient from "../views/patients/PatientProfile.vue";
 import Hirtz from "../views/Hirtz_patients/Hirtz_PatientProfile.vue";
 // import Rigas from "../views/Rigas_patients/Rigas_PatientProfile.vue";
 // import Meier from "../views/Meier_patients/Meier_PatientProfile.vue";
@@ -10,17 +10,17 @@ import Hirtz from "../views/Hirtz_patients/Hirtz_PatientProfile.vue";
 // import Holderbaum from "../views/Holderbaum_patients/Holderbaum_PatientProfile.vue";
 import ErrorPage from "@/views/ErrorPage.vue";
 import store from "@/store";
-// import Print from "@/views/Print.vue";
+import Print from "@/views/Print.vue";
 import Hirtzprint from "@/views/Hirtz_Print.vue";
 // import Rigasprint from "@/views/Rigas_Print.vue";
 // import Meierprint from "@/views/Meier_Print.vue";
 // import Bauchprint from "@/views/Bauch_Print.vue";
 // import Holderbaumprint from "@/views/Holderbaum_Print.vue";
-// import Patientagain from "@/views/patients/Patientagain.vue";
+import Patientagain from "@/views/patients/Patientagain.vue";
 import Hirtzagain from "@/views/Hirtz_patients/Hirtz_Patientagain.vue";
 // import Tutorlogin from '@/views/Tutorlogin.vue'
 import Tutorpanel from "@/views/Tutorpanel.vue";
-// import Tutorcaseresult1 from "@/views/Tutorcaseresult1.vue";
+import Tutorcaseresult1 from "@/views/Tutorcaseresult1.vue";
 import Tutorcaseresult2 from "@/views/Tutorcaseresult2.vue";
 // import Tutorcaseresult1re from "@/views/Tutorcaseresult1_re.vue";
 import Tutorcaseresult2re from "@/views/Tutorcaseresult2_re.vue";
@@ -58,11 +58,11 @@ const routes = [
     component: EinleitungView,
   },
 
-  // {
-  //   path: "/Schneider",
-  //   name: "Patient",
-  //   component: Patient,
-  // },
+  {
+    path: "/Schneider",
+    name: "Patient",
+    component: Patient,
+  },
   {
     path: "/Hirtz",
     name: "Hirtz",
@@ -88,21 +88,21 @@ const routes = [
   //   name: "Bauch",
   //   component: Bauch,
   // },
-  // {
-  //   path: "/redodiagnosis",
-  //   name: "Patientagain",
-  //   component: Patientagain,
-  // },
+  {
+    path: "/redodiagnosis",
+    name: "Patientagain",
+    component: Patientagain,
+  },
   {
     path: "/redohirtz",
     name: "Hirtzagain",
     component: Hirtzagain,
   },
-  // {
-  //   path: "/print",
-  //   name: "Print",
-  //   component: Print,
-  // },
+  {
+    path: "/print",
+    name: "Print",
+    component: Print,
+  },
   {
     path: "/hirtzprint",
     name: "Hirtzprint",
@@ -133,11 +133,11 @@ const routes = [
     name: "Tutorpanel",
     component: Tutorpanel,
   },
-  // {
-  //   path: "/caseresults1",
-  //   name: "Tutorcaseresult1",
-  //   component: Tutorcaseresult1,
-  // },
+  {
+    path: "/caseresults1",
+    name: "Tutorcaseresult1",
+    component: Tutorcaseresult1,
+  },
   {
     path: "/caseresults2",
     name: "Tutorcaseresult2",

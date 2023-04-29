@@ -937,7 +937,7 @@ if ($action == 'getclicks') {
 }
 
 if ($action == 'getcounters') {
-	$sql = "SELECT ROUND(`economy-sum`,2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `users`";
+	$sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `users`";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -955,7 +955,7 @@ if ($action == 'getcounters') {
 
 }
 if ($action == 'getoriginalcounters') {
-	$sql = "SELECT ROUND(`economy-sum`,2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `users_original`";
+	$sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `original_users`";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1027,7 +1027,7 @@ if ($action == 'getsteps') {
 	}
 
 }
-if ($action == 'getnotess') {
+if ($action == 'getnotes') {
 	$sql = "SELECT * FROM `notepad` ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
@@ -1117,6 +1117,127 @@ if ($action == 'senddoctors') {
 
 if ($action == 'getblood') {
 	$sql = "SELECT * FROM `bluten_options`";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+
+if ($action == 'getbloods') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `bluten_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getstools') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `stuhl_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'geturines') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `urin_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalbloods') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `original_bluten_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalstools') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `original_stuhl_options` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalurines') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `original_urin_options` WHERE `user`='$user' ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1574,7 +1695,7 @@ if ($action == 'getsubmit') {
 
 }
 if ($action == 'getoriginalsubmit') {
-	$sql = "SELECT * FROM `submit_options_original`";
+	$sql = "SELECT * FROM `original_submit_options`";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1612,7 +1733,7 @@ if ($action == 'getdownloadstuff') {
 }
 if ($action == 'getoriginaldownloadstuff') {
 	$user = $_GET['user'];
-	$sql = "SELECT * FROM `submit_options_original` WHERE `user`='$user' ";
+	$sql = "SELECT * FROM `original_submit_options` WHERE `user`='$user' ";
 	$result = $conn->query($sql);
 	$num = mysqli_num_rows($result);
 	$userData = array();
@@ -1629,6 +1750,47 @@ if ($action == 'getoriginaldownloadstuff') {
 	}
 
 }
+if ($action == 'getisclicked') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `isclicked` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+if ($action == 'getoriginalisclicked') {
+
+	$user = $_GET['user'];
+	$sql = "SELECT * FROM `original_isclicked` WHERE `user`='$user' ";
+	$result = $conn->query($sql);
+	$num = mysqli_num_rows($result);
+	$userData = array();
+	if ($num > 0) {
+		while ($row = $result->fetch_assoc()) {
+			array_push($userData, $row);
+		}
+
+		$res = $userData;
+
+	} else {
+		$res['error'] = false;
+		$res['message'] = "No Data Found!";
+	}
+
+}
+
 $conn->close();
 header("Content-type: application/json");
 echo json_encode($res);

@@ -10,18 +10,7 @@
   >
     <div v-for="t in tutors">
       <div v-if="t.email == email">
-        <!-- <div class="flex justify-center">
-          <router-link v-if="t.tutor == 1" to="/caseresults1"
-            ><br /><Button
-              class="btn mr-2 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-              text="Fall 1: Hr. Schneider"
-          /></router-link>
-          <router-link v-if="t.tutor == 1" to="/caseresults1_re"
-            ><br /><Button
-              class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
-              text="Fall 1 Wiederholung"
-          /></router-link>
-        </div> -->
+       
         <div class="flex justify-center">
           <router-link v-if="t.tutor == 1" to="/caseresults2"
             ><br /><Button
@@ -32,6 +21,19 @@
             ><br /><Button
               class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
               text="Fall 1 Wiederholung"
+          /></router-link>
+        </div>
+
+         <div class="flex justify-center">
+          <router-link v-if="t.tutor == 1" to="/caseresults1"
+            ><br /><Button
+              class="btn mr-2 shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+              text="Fall 2: Hr. Schneider"
+          /></router-link>
+          <router-link v-if="t.tutor == 1" to="#"
+            ><br /><Button
+              class="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl"
+              text="Fall 2 Wiederholung"
           /></router-link>
         </div>
         <!-- <div class="flex justify-center">
