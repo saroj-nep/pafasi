@@ -1206,7 +1206,7 @@ export default {
       var element = document.getElementById("htmlcontent");
       var opt = {
         margin: 1,
-        filename: "Diagnoseergebnisse_Schneider.pdf",
+        filename: "Diagnoseergebnisse_schneider_wiederholung.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },

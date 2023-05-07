@@ -1116,7 +1116,7 @@ export default {
 
     allCounters() {
       axios
-        .get("./Api/api.php?action=getcounters")
+        .get("./Api/api.php?action=getoriginalcounters")
 
         .then((response) => {
           this.counters = response.data;
@@ -1128,7 +1128,7 @@ export default {
     },
 
     allSubmits() {
-      axios.get("./Api/api.php?action=getsubmit").then((response) => {
+      axios.get("./Api/api.php?action=getoriginalsubmit").then((response) => {
         this.submits = response.data;
       });
     },
@@ -1137,7 +1137,7 @@ export default {
       this.e = e;
 
       axios
-        .get("./Api/api.php?action=getdownloadstuff", {
+        .get("./Api/api.php?action=getoriginaldownloadstuff", {
           params: {
             user: e,
           },
@@ -1148,7 +1148,7 @@ export default {
         });
 
       axios
-        .get("./Api/api.php?action=getisclicked", {
+        .get("./Api/api.php?action=getoriginalisclicked", {
           params: {
             user: e,
           },
@@ -1159,7 +1159,7 @@ export default {
         });
 
       axios
-        .get("./Api/api.php?action=getbloods", {
+        .get("./Api/api.php?action=getoriginalbloods", {
           params: {
             user: e,
           },
@@ -1169,7 +1169,7 @@ export default {
           this.bluten = response.data;
         });
         axios
-        .get("./Api/api.php?action=geturines", {
+        .get("./Api/api.php?action=getoriginalurines", {
           params: {
             user: e,
           },
@@ -1179,7 +1179,7 @@ export default {
           this.urin = response.data;
         });
         axios
-        .get("./Api/api.php?action=getstools", {
+        .get("./Api/api.php?action=getoriginalstools", {
           params: {
             user: e,
           },
@@ -1206,7 +1206,7 @@ export default {
       var element = document.getElementById("htmlcontent");
       var opt = {
         margin: 1,
-        filename: "Diagnoseergebnisse_Schneider.pdf",
+        filename: "Diagnoseergebnisse_schneider.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
@@ -1216,7 +1216,7 @@ export default {
     },
 
     allstudents() {
-      axios.get("./Api/api.php?action=getcounters").then((response) => {
+      axios.get("./Api/api.php?action=getoriginalcounters").then((response) => {
         this.students = response.data;
       });
     },
