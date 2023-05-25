@@ -4,7 +4,7 @@
     <div class="menu grid justify-center content-center justify-self-center self-center items-center justify-items-center "> 
          <div v-for ="t in tutors">
           <div v-if ="t.email==email">
-            <router-link v-if="t.tutor==1"  to="/tutorpanel"><br><Button class="btn  shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Tutor Dashboard" /></router-link>
+            <router-link v-if="t.tutor==1"  to="/tutoroptions"><br><Button class="btn  shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Tutor Dashboard" /></router-link>
              </div>
      </div>
       <router-link to="/anleitung"><br><Button class="btn  shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded shadow-2xl" text="Anleitung" /></router-link>

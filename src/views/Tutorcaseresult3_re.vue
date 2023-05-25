@@ -472,106 +472,63 @@
                                 v-if="click.beschreiben == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
-                              </td>
-                              <!-- <td
-                                v-if="click.beschreiben == '1'"
-                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
-                              >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Beschreiben Sie Ihre Symptome genauer'
                               </td>
                               <td
-                                v-if="click.beschreiben == 1"
+                                v-if="click.akutes == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                  'akutes Ereignis?'
                               </td>
                               <td
-                                v-if="click.beschreiben == '1'"
+                                v-if="click.medikamen == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Medikamentenanamnese'
                               </td>
                               <td
-                                v-if="click.beschreiben == 1"
+                                v-if="click.gewohn == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Gewohnheiten, Lebensstil'
                               </td>
                               <td
-                                v-if="click.beschreiben == '1'"
+                                v-if="click.nikotin == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Nikotin, Alkohol, Drogen?'
                               </td>
                               <td
-                                v-if="click.beschreiben == 1"
+                                v-if="click.allergien == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Allergien'
                               </td>
                               <td
-                                v-if="click.beschreiben == '1'"
+                                v-if="click.vegetative == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'vegetative Anamnese'
                               </td>
                               <td
-                                v-if="click.beschreiben == 1"
+                                v-if="click.gyna== 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                                'Gynokologische / urologische / Sexualanamnese'
                               </td>
                               <td
-                                v-if="click.beschreiben == '1'"
+                                v-if="click.psyche == 1"
                                 class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Beschreiben Sie Ihre Symptome genauer
+                               'Psyche'
                               </td>
-                               -->
-                            </div>
-                          </div>
-                        </tr>
-
-                        <tr
-                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
-                        >
-                          <div class="grid-container grid grid-cols-6">
-                            <div class="col-span-2">
                               <td
-                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                                v-if="click.familien == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
                               >
-                                Nicht-Apparative Untersuchen:
+                                'Familien- und Sozialanamnese'
                               </td>
-                            </div>
-                            <div class="col-span-4">
-                              <!-- <td v-if="submit.ambulance==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             Rettungsdienst rufen und Notfallmaßnahmen ergreifen
-              </td>
-              <td v-if="submit.hospital==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             Krankenhauseinweisung
-              </td>
-              <td v-if="submit.noappointment==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-              Keine Wiedervorstellung verabredet
-              </td>
-              <td v-if="submit.badappointment==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             Wiedervorstellung bei Verschlechterung
-              </td>
-              <td v-if="submit.twodays==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-            Wiedervorstellung in 2 Tagen
-              </td>
-              <td v-if="submit.fivedays==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             Wiedervorstellung in 5 Tagen
-              </td>
-              <td v-if="submit.fourweeks==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-            Wiedervorstellung in 4 Wochen
-              </td>
-               <td v-if="submit.wiedereinbestellen==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-            Wiedereinbestellen
-              </td>
-              <td v-if="submit.ausstellen==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-            AU ausstellen
-              </td> -->
+                              
                             </div>
                           </div>
                         </tr>
@@ -583,17 +540,531 @@
                               <td
                                 class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
                               >
-                                Apparative Untersuchen:
+                                Nicht Apparative Untersuchung:
                               </td>
                             </div>
                             <div class="col-span-4">
-                              <!-- <td v-if="submit.rezept==1" class="text-sm text-gray-900  px-6 py-4 whitespace-prewrap">
-             {{submit.rezeptext}}</td>
-             <td v-else></td>
-            -->
+                              <td
+                                v-if="click.kopfinspecktion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Inspektion un Palpation'
+                                </td>
+                              <td
+                                v-if="click.kopfhals == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                  'Kopf: Nase untersuchen'
+                              </td>
+                              <td
+                                v-if="click.kopfmund == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Mund untersuchen'
+                              </td>
+                              <td
+                                v-if="click.kopfmund == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Ohren untersuchen'
+                              </td>
+                              <td
+                                v-if="click.kopfohren == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Lymphknoten abtasten'
+                              </td>
+                              <td
+                                v-if="click.kopfschild == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Schilddrüse untersuchen'
+                              </td>
+                              <td
+                                v-if="click.kopflymph == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Halswirbelsäule'
+                              </td>
+                              <td
+                                v-if="click.kopforient== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Kopf: Orientierende neurologische untersuchen'
+                              </td>
+                              <td
+                                v-if="click.thoraxinspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                               'Thorax: Inspektion und Palpation'
+                              </td>
+                              <td
+                                v-if="click.thoraxauskultation == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Thorax: Auskultation & Perkussion'
+                              </td>
+                               <td
+                                v-if="click.wirbelinspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Wirbelsäule: Inspektion & Palpation'
+                              </td>
+                               <td
+                                v-if="click.wirbelfunktion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Wirbelsäule: Funktionsuntersuchung'
+                              </td>
+                               <td
+                                v-if="click.wirbelhals== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Wirbelsäule: Halswirbelsäule'
+                              </td>
+                               <td
+                                v-if="click.abdomeninspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                               'Abdomen: Inspektion und Palpation'
+                              </td>
+                              <td
+                                v-if="click.abdomenauskultation == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Abdomen: Auskultation & Perkussion'
+                              </td>
+                              <td
+                                v-if="click.obereinspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Oberen Extremität: Inspektion & Palpation'
+                              </td>
+                               <td
+                                v-if="click.obereweg == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Oberen Extremität: Beweglichkeit'
+                              </td>
+                               <td
+                                v-if="click.obereneurolog== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Oberen Extremität: Neurolog'
+                              </td>
+                                <td
+                                v-if="click.oberedurch== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Oberen Extremität: Peripheren Durchblutung'
+                              </td>
+                                <td
+                                v-if="click.untereinspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Unteren Extremität: Inspektion & Palpation'
+                              </td>
+                               <td
+                                v-if="click.untereweg == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Unteren Extremität: Beweglichkeit'
+                              </td>
+                               <td
+                                v-if="click.untereneurolog== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Unteren Extremität: Neurolog'
+                              </td>
+                                <td
+                                v-if="click.unteredurch== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Unteren Extremität: Peripheren Durchblutung'
+                              </td>
+                                   <td
+                                v-if="click.genitalinspektion == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                               'Genital & Glutealregion: Inspektion & Palpation'
+                              </td>
+                              <td
+                                v-if="click.genitalrektal == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Genital & Glutealregion: Digital-rektale Untersuchung'
+                              </td>
                             </div>
                           </div>
                         </tr>
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                                Apparative Untersuchung:
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.temperatur == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Körpertemperatur messen'
+                              </td>
+                              <td
+                                v-if="click.blutzucker== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                  'Blutzucker messen'
+                              </td>
+                              <td
+                                v-if="click.blutdruck == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Blutdruck messen'
+                              </td>
+                              <td
+                                v-if="click.sono == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Sonografie durchführen'
+                              </td>
+                              <td
+                                v-if="click.ekg == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'EKG durchführen lassen'
+                              </td>
+                              <td
+                                v-if="click.lung== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Lungenfunktionstest durchführen lassen'
+                              </td>                                
+                        
+                            </div>
+                          </div>
+                        </tr>
+                       
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                               Einen Blick in die Patientenakte werfen:
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.patientenakte== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Ja, der Benutzer hat sich die Patientenakte angesehen.'
+                              </td>
+                              <td
+                                v-if="click.patientenakte== 0"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Nein, der Benutzer hat sich die Patientenakte nicht angesehen.'
+                              </td>                             
+                        
+                        
+                            </div>
+                          </div>
+                        </tr>
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                               Einen Überweisung zum Facharzt ausstellen:
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.doctors== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Ja, der Benutzer hat den Patientenfall an die Spezialisten weitergeleitet.'
+                              </td>
+                              <td
+                                v-if="click.doctors== 0"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Nein, der Benutzer hat den Patientenfall nicht an die Spezialisten weitergeleitet.'
+                              </td>                             
+                        
+                        
+                            </div>
+                          </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="flex flex-col">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="overflow-auto">
+                <div v-for="click in bluten">
+                  <div v-if="click.user == e">
+                    <table class="min-w-full">
+                      <tbody>
+                    
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                               Laboranordungen: Blutentnahme
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.kleines== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'kleines'
+                              </td>
+                              <td
+                                v-if="click.grosses== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                  'grosses'
+                              </td>
+                              <td
+                                v-if="click.gerin == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'gerin'
+                              </td>
+                              <td
+                                v-if="click.entz == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'entz'
+                              </td>
+                              <td
+                                v-if="click.glucose == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'glucose'
+                              </td>
+                              <td
+                                v-if="click.fetts== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'fetts'
+                              </td>
+                              <td
+                                v-if="click.eisen == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'eisen'
+                              </td>
+                              <td
+                                v-if="click.leber== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'leber'
+                              </td>
+                              <td
+                                v-if="click.pankreas == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'pankreas'
+                              </td>
+                              <td
+                                v-if="click.niere == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'niere'
+                              </td>
+                              <td
+                                v-if="click.elektrolyte == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'elektrolyte'
+                              </td>
+                              <td
+                                v-if="click.schild == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'schild'
+                              </td>
+                              <td
+                                v-if="click.herz == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'herz'
+                              </td>
+                              <td
+                                v-if="click.bvitamin== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'bvitamin'
+                              </td>
+                              <td
+                                v-if="click.ldh == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'ldh'
+                              </td>
+                              <td
+                                v-if="click.harn == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'harn'
+                              </td>
+                              <td
+                                v-if="click.psa == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'psa'
+                              </td>
+                              <td
+                                v-if="click.hcg == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'hcg'
+                              </td>
+                              <td
+                                v-if="click.serum == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'serum'
+                              </td>
+                                                            
+                        
+                            </div>
+                          </div>
+                        </tr>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+           <div class="flex flex-col">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="overflow-auto">
+                <div v-for="click in urin">
+                  <div v-if="click.user == e">
+                    <table class="min-w-full">
+                      <tbody>
+                    
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                               Laboranordungen: Urintests
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.stix== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'U-stix'
+                              </td>
+                              <td
+                                v-if="click.sediment== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                  'Urin-sediment'
+                              </td>
+                              <td
+                                v-if="click.kultur == 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Urin-kultur'
+                              </td>
+                             
+                                                            
+                        
+                            </div>
+                          </div>
+                        </tr>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="flex flex-col">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="overflow-auto">
+                <div v-for="click in stuhl">
+                  <div v-if="click.user == e">
+                    <table class="min-w-full">
+                      <tbody>
+                    
+                        <tr
+                          class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <div class="grid-container grid grid-cols-6">
+                            <div class="col-span-2">
+                              <td
+                                class="text-sm text-gray-900 font-semibold px-6 py-4 whitespace-prewrap"
+                              >
+                               Laboranordungen: Stuhltests
+                              </td>
+                            </div>
+                            <div class="col-span-4">
+                              <td
+                                v-if="click.probe== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Stuhlprobe'
+                              </td>
+                              <td
+                                v-if="click.kultur== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                  'Stuhlkultur'
+                              </td>
+                              <td
+                                v-if="click.untersuchung== 1"
+                                class="text-sm text-gray-900 px-6 py-4 whitespace-prewrap"
+                              >
+                                'Untersuchung auf Parasiten'
+                              </td>
+                             
+                                                            
+                        
+                            </div>
+                          </div>
+                        </tr>
+                      
                       </tbody>
                     </table>
                   </div>
@@ -622,6 +1093,9 @@ export default {
       downloads: [],
       counters: [],
       isclicked: [],
+      bluten:[],
+      urin:[],
+      stuhl:[],
       counterbtn: 0,
     };
   },
@@ -684,6 +1158,37 @@ export default {
           this.isclicked = response.data;
         });
 
+      axios
+        .get("./Api/meier_api.php?action=getbloods", {
+          params: {
+            user: e,
+          },
+        })
+
+        .then((response) => {
+          this.bluten = response.data;
+        });
+        axios
+        .get("./Api/meier_api.php?action=geturines", {
+          params: {
+            user: e,
+          },
+        })
+
+        .then((response) => {
+          this.urin = response.data;
+        });
+        axios
+        .get("./Api/meier_api.php?action=getstools", {
+          params: {
+            user: e,
+          },
+        })
+
+        .then((response) => {
+          this.stuhl = response.data;
+        });
+
       htmlcontent.style.display = "block";
       buttons.style.display = "block";
       resulttable.style.display = "none";
@@ -701,7 +1206,7 @@ export default {
       var element = document.getElementById("htmlcontent");
       var opt = {
         margin: 1,
-        filename: "Diagnoseergebnisse_Schneider.pdf",
+        filename: "Diagnoseergebnisse_meier_weiderholung.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },

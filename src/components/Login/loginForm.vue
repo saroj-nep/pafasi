@@ -44,6 +44,7 @@
   <div class="linking">
     <p for="Password" class="form__label"></p>
   </div>
+  
 </template>
 <script>
 import axios from "axios";

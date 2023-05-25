@@ -14,7 +14,8 @@
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <router-link to="/main"><span class="bg-emerald-600 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hauptmenü</span></router-link>
-        <router-link to="/warte"><span class="bg-emerald-600 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Wartezimmer</span></router-link>
+               <router-link to="/warte"><span class="bg-emerald-600 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Wartezimmer</span></router-link>
+             
               </div>
             </div>
           </div>

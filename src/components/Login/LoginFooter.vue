@@ -1,12 +1,23 @@
 <template>
   <div class="login">
     <img src="@/assets/Pafasi.png" alt="Pafasi logo" class="logo" />
-   <div style="margin: 10px 0 10px 0;"></div> <h2 class="">Bitte loggen Sie sich mit Ihrem Studierendenkonto ein.</h2>
- <div style="margin: 10px 0 10px 0;"></div>
+    <div style="margin: 10px 0 10px 0"></div>
+    <h2 class="">Bitte loggen Sie sich mit Ihrem Studierendenkonto ein.</h2>
+    <div style="margin: 10px 0 10px 0"></div>
     <LoginOptions />
     <LoginForm />
-    
+     <a
+    href="#"
+    target=""
+    rel="noopener noreferrer"
+    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+  >
+    <span class="text-emerald-600"
+      >Bitte klicken Sie hier, um den Chatroom zu betreten.
+    </span>
+  </a>
   </div>
+ 
 </template>
 
 <script>
@@ -53,7 +64,6 @@ export default {
 
 .logo {
   width: 40rem;
-  
 }
 
 .or {

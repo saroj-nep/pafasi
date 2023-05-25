@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-     <!-- <div>
+     <div>
         <div v-for="submit in meiersubmits">
           <div v-if="submit.user == email">
             <div
@@ -238,8 +238,7 @@
             </div>
           </div>
         </div>
-      </div> -->
-           
+      </div>
      <!-- <div>
         <div v-for="submit in bauchsubmits">
           <div v-if="submit.user == email">
@@ -317,8 +316,8 @@
             </div>
           </div>
         </div>
-      </div> -->
-      <div>
+      </div> 
+      <div> -->
         <!-- <div v-for="submit in rigassubmits">
           <div v-if="submit.user == email">
             <div
@@ -477,7 +476,7 @@
         </div> -->
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>

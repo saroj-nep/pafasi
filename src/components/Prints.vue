@@ -405,7 +405,7 @@ axios
     allNotes() {
         
 
-    axios.get( "./Api/api.php?action=getnotess",)
+    axios.get( "./Api/api.php?action=getnotes",)
     
     .then((response) => {this.notes=response.data;  } )
   },
