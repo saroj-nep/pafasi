@@ -5,7 +5,7 @@
       <img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" />
     </button>
   </div>
-   <!-- <div class="ml-80 mr-80 border-2 border-green-500">
+  <div class="ml-80 mr-80 border-2 border-green-500">
     <div
       class="grid grid-cols-3 mt-5 mb-2 ml-1 mr-1 align-center content-center justify-center justify-items-center justify-evenly place-content-center"
     >
@@ -243,8 +243,8 @@
             </div>
           </div>
         </div>
-      </div> 
-     <div>
+      </div>
+      <div>
         <div v-for="submit in bauchsubmits">
           <div v-if="submit.user == email">
             <div
@@ -323,7 +323,7 @@
         </div>
       </div> 
       <div> 
-        <div v-for="submit in rigassubmits">
+        <!-- <div v-for="submit in rigassubmits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -399,10 +399,10 @@
               </router-link>
             </div>
           </div>
-        </div> 
-      </div>
-       <div> 
-        <div v-for="submit in holderbaumsubmits">
+        </div> -->
+      <!-- </div>
+       <div> -->
+        <!-- <div v-for="submit in holderbaumsubmits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -478,11 +478,10 @@
               </router-link>
             </div>
           </div>
-        </div> 
-       </div>
+        </div> -->
+      </div>
     </div>
-    </div> -->
-
+</div>
 </template>
 
 <script>
@@ -521,10 +520,9 @@ export default {
     this.sendthesteps();
   },
   methods: {
-    hauptmenu() {
+      hauptmenu() {
       this.$router.push("/tutoroptions");
     },
-
     sendthesteps() {
       var data = new FormData();
       data.append(

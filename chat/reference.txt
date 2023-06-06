@@ -1,37 +1,7 @@
-Verify
-Do you both agree with the following statement: Feedback refers to transmission of information about learner performance. Why?
-Do you both agree with the following statement: Reinforcement strengthens behavior. Why?
-Do you both agree with the following statement: Punishment refers to undesirable consequence of actions. Why?
-Do you both agree with the following statement: Praise refers to desirable consequence of actions. Why?
-Do you both agree with the following statement: Behaviorism refers to systematic approach to understanding the behavior of humans and other animals. Why?
-Do you both agree with the following statement: Peer feedback refers to two-way communication process. Why?
-Do you both agree with the following statement: Self-assessment is self-regulated evaluation. Why?
-Do you both agree with the following statement: Audience response systems are used for audience voting. Why?
-Do you both agree with the following statement: Awareness tools are used for data collection. Why?
-Do you both agree with the following statement: Badges display accomplishments. Why?
-Do you both agree with the following statement: E-portfolios display accomplishments. Why?
-Do you both agree with the following statement: Evaluative feedback refers to measure of quality. Why?
-Do you both agree with the following statement: Descriptive feedback contains specific information. Why?
-Do you both agree with the following statement: Scaffolding refers to support. Why?
-Do you both agree with the following statement: Prompts include reminder, support, example. Why?
-Do you both agree with the following statement: Graphic organizers include PMI diagram, Venn diagram, concept maps. Why?
-Do you both agree with the following statement: Questions lead to integration, understanding. Why?
-Do you both agree with the following statement: Backchannel refers to question live feed. Why?
-Do you both agree with the following statement: Implicit instructions do not provide specific guidance. Why?
-Do you both agree with the following statement: Orchestration refers to teacher interventions. Why?
-Do you both agree with the following statement: Learning activities refers to learning opportunity. Why?
-Do you both agree with the following statement: Learning arrangements refers to learnig resources. Why?
-Do you both agree with the following statement: Technology refers to tools. Why?
-Do you both agree with the following statement: Roles refers to roles in classroom. Why?
-Do you both agree with the following statement: Mobile learning refers to learning with mobile devices. Why?
-Do you both agree with the following statement: Micro-learning refers to learning with small learning units. Why?
-Do you both agree with the following statement: Inquiry learning refers to active learning. Why?
-Do you both agree with the following statement: Mobile devices are needed for mobile learning. Why?
-Do you both agree with the following statement: Exploratory learning encourages exploration. Why?
-Do you both agree with the following statement: Augmented Reality refers to, enhanced version of real physical world. Why?
-Do you both agree with the following statement: Open educational resources are freely accessible resources. Why?
-Do you both agree with the following statement: Blended learning refers to educational approach. Why?
-Do you both agree with the following statement: Hybrid learning includes rotation model, flex model. Why?
-Do you both agree with the following statement: Social media refers to social networks, wikis, blogs, newsgroups, forums, Twitter, Facebook, Instagram, Snapchat. Why?
-Do you both agree with the following statement: Media competence is vital for learning with media. Why?
-Do you both agree with the following statement: Flipped classroom refers to blended learning approach. Why?
+Fragen-1:  
+Listen Sie die wichtigsten Probleme oder Symptome auf, von denen der Patient berichtet. Beginnen Sie mit dem Hauptproblem/Hauptsymptom, und ergänzen sie ggf. weitere in absteigender Relevanz.  
+Nennen Sie die drei wahrscheinlichsten Diagnosen, die das oben aufgeführte Hauptproblem erklären könnten. Beginnen Sie mit der am ehesten zutreffenden Diagnose.  
+Geben Sie die wichtigsten Informationen, die Sie im Rahmen der Anamnese erhalten haben, an. Was davon spricht für, was spricht gegen die Verdachtsdiagnose? Hat sich durch die erhaltenen Informationen etwas an Ihren differentialdiagnostischen Überlegungen verändert? 
+Nennen Sie drei Schritte der körperlichen Untersuchung, deren Durchführung Sie aufgrund Ihrer Differentialdiagnose für wichtig halten, sowie das jeweilige Untersuchungsergebnis. Hat sich durch die erhaltenen Informationen etwas an Ihren differentialdiagnostischen Überlegungen verändert?  
+Halten Sie in der aktuellen Situation aufgrund der klinischen Präsentation und der bisherigen Ergebnisse weitere diagnostische Schritte für angebracht? Wenn ja, welche? 
+Welche therapeutischen Maßnahmen leiten Sie ein? Soll es eine Wiedervorstellung geben? Machen Sie einen Vorschlag für ein Therapie- und Beratungskonzept.  

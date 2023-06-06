@@ -105,14 +105,14 @@
                   <td></td>
                   <td>Hämoglobin</td>
                   <td>g/dl</td>
-                  <td>12,8</td>
+                  <td>13,7</td>
                   <td>12-16</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Hämatokrit</td>
                   <td>%</td>
-                  <td>38</td>
+                  <td>43</td>
                   <td>38-44</td>
                 </tr>
                 <tr>
@@ -126,42 +126,42 @@
                   <td></td>
                   <td>MCHC</td>
                   <td>g/dl</td>
-                  <td>34</td>
+                  <td>32</td>
                   <td>31-37</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Leukozyten</td>
                   <td>/ul</td>
-                  <td>18890</td>
+                  <td>9800</td>
                   <td>3.800-10.500</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>RDW</td>
                   <td>%</td>
-                  <td>12,3</td>
+                  <td>13,5</td>
                   <td>11,5-14,5</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Erythrozyten</td>
                   <td>Mio./µl</td>
-                  <td>4,3</td>
+                  <td>4,8</td>
                   <td>4,0-5,4</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>MCV</td>
                   <td>pg</td>
-                  <td>31</td>
+                  <td>29</td>
                   <td>28-34</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Thrombozyte</td>
                   <td>1.000/µl</td>
-                  <td>342</td>
+                  <td>153</td>
                   <td>140-345</td>
                 </tr>
               </tbody>
@@ -178,18 +178,18 @@
                   <td></td>
                   <td></td>
                 </tr>
-                <tr>
+                 <tr>
                   <td></td>
                   <td>Hämoglobin</td>
                   <td>g/dl</td>
-                  <td>12,8</td>
+                  <td>13,7</td>
                   <td>12-16</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Hämatokrit</td>
                   <td>%</td>
-                  <td>38</td>
+                  <td>43</td>
                   <td>38-44</td>
                 </tr>
                 <tr>
@@ -203,70 +203,70 @@
                   <td></td>
                   <td>MCHC</td>
                   <td>g/dl</td>
-                  <td>34</td>
+                  <td>32</td>
                   <td>31-37</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Leukozyten</td>
                   <td>/ul</td>
-                  <td>18890</td>
+                  <td>9800</td>
                   <td>3.800-10.500</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>RDW</td>
                   <td>%</td>
-                  <td>12,3</td>
+                  <td>13,5</td>
                   <td>11,5-14,5</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Erythrozyten</td>
                   <td>Mio./µl</td>
-                  <td>4,3</td>
+                  <td>4,8</td>
                   <td>4,0-5,4</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>MCV</td>
                   <td>pg</td>
-                  <td>31</td>
+                  <td>29</td>
                   <td>28-34</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Thrombozyte</td>
                   <td>1.000/µl</td>
-                  <td>342</td>
+                  <td>153</td>
                   <td>140-345</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Retikulozyten</td>
                   <td>%</td>
-                  <td>1,9</td>
+                  <td>1,2</td>
                   <td>0,5-2,0</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Stabkernige neutrophile Granulozyten</td>
                   <td>%</td>
-                  <td>3,1</td>
+                  <td>4</td>
                   <td>0-5</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Segmentkernige neutrophile Granulozyten</td>
                   <td>%</td>
-                  <td>61.9</td>
+                  <td>81.9</td>
                   <td>30-80</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Eosinophile Granulozyten</td>
                   <td>%</td>
-                  <td>1,7</td>
+                  <td>0,1</td>
                   <td>0-6</td>
                 </tr>
                 <tr>
@@ -280,14 +280,14 @@
                   <td></td>
                   <td>Lymphozyten</td>
                   <td>%</td>
-                  <td>27.7</td>
+                  <td>7,8</td>
                   <td>15-50</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Monozyten</td>
                   <td>%</td>
-                  <td>5.5</td>
+                  <td>6,1</td>
                   <td>1-12</td>
                 </tr>
               </tbody>
@@ -308,7 +308,7 @@
                   <td></td>
                   <td>Quick (Thromboplastinzeit)</td>
                   <td></td>
-                  <td>90</td>
+                  <td>96</td>
                   <td>70-130</td>
                 </tr>
                 <tr>
@@ -336,28 +336,28 @@
                   <td></td>
                   <td>BSG n.1h</td>
                   <td>mm/h</td>
-                  <td>23</td>
+                  <td>18</td>
                   <td>&lt;20</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>CRP</td>
                   <td>mg/l</td>
-                  <td>45,8</td>
+                  <td>9,8</td>
                   <td>&lt;5</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Transferrin</td>
                   <td>g/l</td>
-                  <td>1,9</td>
+                  <td>2,8</td>
                   <td>2,0-3,6</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Procalcitonin</td>
                   <td>ug/l</td>
-                  <td>0,8</td>
+                  <td>0,27</td>
                   <td>&lt;0,5</td>
                 </tr>
               </tbody>
@@ -377,14 +377,14 @@
                   <td></td>
                   <td>Glucose</td>
                   <td>mg/dl</td>
-                  <td>80</td>
+                  <td>122</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>HbA1C</td>
                   <td>%</td>
-                  <td>5,7</td>
+                  <td>6,1</td>
                   <td>&lt;5,7</td>
                 </tr>
               </tbody>
@@ -404,28 +404,28 @@
                   <td></td>
                   <td>Cholesterin gesamt</td>
                   <td>mm/h</td>
-                  <td>186</td>
+                  <td>185</td>
                   <td>&lt;200</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>LDL</td>
                   <td>mg/dl</td>
-                  <td>120</td>
+                  <td>155</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>HDL</td>
                   <td>mg/dl</td>
-                  <td>58</td>
+                  <td>62</td>
                   <td>&gt;45</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>TAG</td>
                   <td>mg/dl</td>
-                  <td>160</td>
+                  <td>162</td>
                   <td>&lt;150</td>
                 </tr>
               </tbody>
@@ -459,7 +459,7 @@
                   <td></td>
                   <td>Transferrin</td>
                   <td>g/l</td>
-                  <td>1,9</td>
+                  <td>2,8</td>
                   <td>2,0-3,6</td>
                 </tr>
               </tbody>
@@ -493,49 +493,49 @@
                   <td></td>
                   <td>AST(GOT)</td>
                   <td>U/l</td>
-                  <td>11</td>
+                  <td>83</td>
                   <td>&lt;32</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>ALT(GPT)</td>
                   <td>U/l</td>
-                  <td>17</td>
+                  <td>88</td>
                   <td>&lt;31</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>GLDH</td>
                   <td>U/l</td>
-                  <td>3,4</td>
+                  <td>4,9</td>
                   <td>&lt;5</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>yGT</td>
                   <td>U/l</td>
-                  <td>10</td>
+                  <td>63</td>
                   <td>&lt;40</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>aP</td>
                   <td>U/l</td>
-                  <td>88</td>
+                  <td>133</td>
                   <td>35-105</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Bilirubin gesamt</td>
                   <td>mg/dl</td>
-                  <td>0,8</td>
+                  <td>2</td>
                   <td>&lt;1,1</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Bilirubin direkt</td>
                   <td>mg/dl</td>
-                  <td>0,45</td>
+                  <td>1,2</td>
                   <td>&lt;0,6</td>
                 </tr>
               </tbody>
@@ -555,14 +555,14 @@
                   <td></td>
                   <td>Amylase</td>
                   <td>U/l</td>
-                  <td>46</td>
+                  <td>111</td>
                   <td>28-100</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Lipase</td>
                   <td>U/l</td>
-                  <td>24</td>
+                  <td>67</td>
                   <td>13-60</td>
                 </tr>
               </tbody>
@@ -582,28 +582,28 @@
                   <td></td>
                   <td>Keratinin</td>
                   <td>mg/dl</td>
-                  <td>0,62</td>
+                  <td>0,79</td>
                   <td>&lt;0,9</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Keratinin Clearance</td>
                   <td>ml/min</td>
-                  <td>133</td>
+                  <td>81</td>
                   <td>&gt;95</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>GFR</td>
                   <td>ml/min/1,73m&sup2;</td>
-                  <td>145</td>
+                  <td>75</td>
                   <td>&gt;90</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Harnstoff</td>
                   <td>mg/dl</td>
-                  <td>23</td>
+                  <td>46</td>
                   <td>12-50</td>
                 </tr>
               </tbody>
@@ -623,14 +623,14 @@
                   <td></td>
                   <td>Natrium</td>
                   <td>mmol/l</td>
-                  <td>138</td>
+                  <td>132</td>
                   <td>135-145</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Kalium</td>
                   <td>mmol/l</td>
-                  <td>4,1</td>
+                  <td>3,94</td>
                   <td>3,6-5,0</td>
                 </tr>
                 <tr>
@@ -706,7 +706,7 @@
                   <td></td>
                   <td>TSH</td>
                   <td>uU/ml</td>
-                  <td>1,29</td>
+                  <td>1,17</td>
                   <td>0,4-4,0</td>
                 </tr>
                 <tr>
@@ -761,14 +761,14 @@
                   <td></td>
                   <td>CK</td>
                   <td>U/l</td>
-                  <td>65</td>
+                  <td>127</td>
                   <td>&lt;170</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>CK-MB</td>
                   <td>U/l</td>
-                  <td>13</td>
+                  <td>22</td>
                   <td>&lt;25</td>
                 </tr>
                 <tr>
@@ -802,28 +802,28 @@
                   <td></td>
                   <td>Vit. B1 (Thiamin)</td>
                   <td>ug/l</td>
-                  <td>154</td>
+                  <td>54</td>
                   <td>34-102</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Vit. B6 (Pyridoxin)</td>
                   <td>ug/l</td>
-                  <td>63</td>
+                  <td>22</td>
                   <td>5-30</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Vit. B12 (Cobalamin)</td>
                   <td>pg/l</td>
-                  <td>899</td>
+                  <td>621</td>
                   <td>211-911</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>Folsäure</td>
                   <td>nmol/l</td>
-                  <td>42</td>
+                  <td>8,86</td>
                   <td>7-36</td>
                 </tr>
               </tbody>
@@ -875,7 +875,7 @@
                   </td>
                   <td></td>
                   <td>U/l</td>
-                  <td>3,3</td>
+                  <td>0,5</td>
                   <td>&lt;5</td>
                 </tr>
               </tbody>
@@ -955,7 +955,7 @@
       <div v-for="urine in urines">
         <div v-if="urine.user === email">
           <div
-            v-if="urine.stix == 1 || urine.sediment == 1 || urine.kultur == 1"
+            v-if="urine.stix == 1 || urine.sediment == 1 || urine.kultur == 1 || urine.betahcg == 1"
           >
             <table
               class="border-separate border-spacing-8 border border-emerald-500"
@@ -995,7 +995,7 @@
                 <tr style="text-align: center">
                   <td></td>
                   <td>Erythrozyten</td>
-                  <td>+</td>
+                  <td>-</td>
                   <td>-</td>
                 </tr>
                 <tr style="text-align: center">
@@ -1031,7 +1031,7 @@
                 <tr style="text-align: center">
                   <td></td>
                   <td>Ketone</td>
-                  <td>++</td>
+                  <td>-</td>
 
                   <td>-</td>
                 </tr>
@@ -1052,8 +1052,7 @@
 
                   <td v-if="urine.sediment == 1"></td>
                   <td>
-                    Unauffälliger Mikroskopiebefund. Keine Bakterien, keine
-                    Leukozyten- oder Eiweiß-Zylinder.
+                    Unauffälliger Mikroskopiebefund. Keine Bakterien, keine Leukozyten- oder Eiweiß-Zylinder.
                   </td>
                 </tr>
               </tbody>
@@ -1061,7 +1060,7 @@
                 <img
                   src="@/assets/Schneider.jpg"
                   class="w-1 h-1 opacity-0"
-                  @load="urinetag4()"
+                 
                 />
                 <tr>
                   <td
@@ -1092,8 +1091,7 @@
                   <td v-if="urine.kultur == 1"></td>
                   <td>
                     Kein Nachweis antimikrobieller Substanzen. Leukozyten im
-                    Urin Negativ. Gesamtkeimzahl &lt;10³ KBE/ml. Folglich kein
-                    Anhalt auf Infektion.
+                   Kein Nachweis antimikrobieller Substanzen. Leukozyten im Urin Negativ. Gesamtkeimzahl &lt;10³ KBE/ml. Folglich kein Anhalt auf Infektion.
                   </td>
                 </tr>
               </tbody>

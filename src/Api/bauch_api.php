@@ -155,7 +155,7 @@ if ($action == 'emptydiagnosis') {
         $res['message'] = "Somthing Went Wrong";
     }
 
-    $sql = "UPDATE `bauch_urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0, `betahcg`= 0  WHERE `user`='$onlineuser'";
+    $sql = "UPDATE `bauch_urin_options` SET `stix`=0, `sediment`= 0, `kultur`= 0 WHERE `user`='$onlineuser'";
     $result = $conn->query($sql);
     if ($result === true) {
         $res['error'] = false;
@@ -195,7 +195,7 @@ if ($action == 'emptydiagnosis') {
         $res['message'] = "Somthing Went Wrong";
     }
 
-    $sql = "UPDATE `bauch_isclicked` SET  `beschreiben`=0, `akutes`=0, `medikamen`=0, `gewohn`=0, `nikotin`=0, `allergien`=0, `vegetative`=0, `gyna`=0, `psyche`=0, `familien`=0,`patientenakte`=0,`kopfinspektion`=0,`kopfnase`=0,`kopfohren`=0,`kopfmund`=0,`kopfschild`=0,`kopflymph`=0,`kopfhals`=0,`kopforient`=0,`thoraxinspektion`=0,`thoraxauskultation`=0,`mammaeinspektion`=0,`wirbelinspektion`=0,`wirbelhals`=0, `wirbelfunktion`=0, `abdomeninspektion`=0,`abdomenauskultation`=0, `obereinspektion`=0,`oberebeweg`=0,`obereneurolog`=0,`oberedurch`=0,`untereinspektion`=0,`unterebeweg`=0,`untereneurolog`=0,`unteredurch`=0, `genitalinspektion`=0,`genitalrektal`=0, `temperatur`=0,`blutzucker`=0,`blutdruck`=0,`sono`=0,`ekg`=0,`lung`=0, `blood`=0,`urine`=0,`stool`=0,`doctors`=0   WHERE `user`='$onlineuser'";
+    $sql = "UPDATE `bauch_isclicked` SET  `beschreiben`=0, `akutes`=0, `medikamen`=0, `gewohn`=0, `nikotin`=0, `allergien`=0, `vegetative`=0, `gyna`=0, `psyche`=0, `familien`=0,`patientenakte`=0,`kopfinspektion`=0,`kopfnase`=0,`kopfohren`=0,`kopfmund`=0,`kopfschild`=0,`kopflymph`=0,`kopfhals`=0,`kopforient`=0,`thoraxinspektion`=0,`thoraxauskultation`=0,`wirbelinspektion`=0,`wirbelhals`=0, `wirbelfunktion`=0, `abdomeninspektion`=0,`abdomenauskultation`=0, `obereinspektion`=0,`oberebeweg`=0,`obereneurolog`=0,`oberedurch`=0,`untereinspektion`=0,`unterebeweg`=0,`untereneurolog`=0,`unteredurch`=0, `genitalinspektion`=0,`genitalrektal`=0, `temperatur`=0,`blutzucker`=0,`blutdruck`=0,`sono`=0,`ekg`=0,`lung`=0, `blood`=0,`urine`=0,`stool`=0,`doctors`=0   WHERE `user`='$onlineuser'";
     $result = $conn->query($sql);
     if ($result === true) {
         $res['error'] = false;
@@ -321,7 +321,6 @@ if ($action == 'countervariable') {
     $kopfhals = $_POST['kopfhals'];
     $kopforient = $_POST['kopforient'];
     $thoraxinspektion = $_POST['thoraxinspektion'];
-    $mammaeinspektion = $_POST['mammaeinspektion'];
     $thoraxauskultation = $_POST['thoraxauskultation'];
     $wirbelinspektion = $_POST['wirbelinspektion'];
     $wirbelfunktion = $_POST['wirbelfunktion'];
@@ -531,15 +530,6 @@ if ($action == 'countervariable') {
         $res['message'] = "Somthing Went Wrong";
     }
     $sql = "UPDATE `bauch_isclicked` SET `thoraxinspektion`=$thoraxinspektion WHERE `user`='$onlineuser'";
-    $result = $conn->query($sql);
-    if ($result === true) {
-        $res['error'] = false;
-        $res['message'] = "variables Added Successfully";
-    } else {
-        $res['error'] = true;
-        $res['message'] = "Somthing Went Wrong";
-    }
-    $sql = "UPDATE `bauch_isclicked` SET `mammaeinspektion`=$mammaeinspektion WHERE `user`='$onlineuser'";
     $result = $conn->query($sql);
     if ($result === true) {
         $res['error'] = false;
@@ -965,7 +955,7 @@ if ($action == 'getcounters') {
 
 }
 if ($action == 'getoriginalcounters') {
-    $sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `bauch_users_original`";
+    $sql = "SELECT ROUND((`economy-sum`),2) as `economy`, ROUND(`safety-sum`,2) as `safety`, ROUND(`satisfaction-sum`,2) as `satisfaction`, `time-counter` as `time`, `email` as `email`, `tutor` as `tutor`, `studentid` as `studentid` FROM `bauch_original_users`";
     $result = $conn->query($sql);
     $num = mysqli_num_rows($result);
     $userData = array();
@@ -1167,11 +1157,10 @@ if ($action == 'sendurine') {
     $stix = $_POST['urinstix'];
     $sediment = $_POST['urinsediment'];
     $kultur = $_POST['urinkultur'];
-    $betahcg = $_POST['betahcg'];
     $onlineuser = $_POST["onlineuser"];
 
 
-    $sql = "UPDATE `bauch_urin_options` SET `stix`=$stix, `sediment`= $sediment, `kultur`= $kultur, `betahcg`= $betahcg WHERE `user`='$onlineuser'";
+    $sql = "UPDATE `bauch_urin_options` SET `stix`=$stix, `sediment`= $sediment, `kultur`= $kultur WHERE `user`='$onlineuser'";
     $result = $conn->query($sql);
     if ($result === true) {
         $res['error'] = false;
@@ -1585,7 +1574,67 @@ if ($action == 'getsubmit') {
 
 }
 if ($action == 'getoriginalsubmit') {
-    $sql = "SELECT * FROM `bauch_submit_options_original`";
+    $sql = "SELECT * FROM `bauch_original_submit_options`";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getoriginalbloods') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_original_bluten_options` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getoriginalstools') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_original_stuhl_options` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getoriginalurines') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_original_urin_options` WHERE `user`='$user' ";
     $result = $conn->query($sql);
     $num = mysqli_num_rows($result);
     $userData = array();
@@ -1623,7 +1672,7 @@ if ($action == 'getdownloadstuff') {
 }
 if ($action == 'getoriginaldownloadstuff') {
     $user = $_GET['user'];
-    $sql = "SELECT * FROM `bauch_submit_options_original` WHERE `user`='$user' ";
+    $sql = "SELECT * FROM `bauch_original_submit_options` WHERE `user`='$user' ";
     $result = $conn->query($sql);
     $num = mysqli_num_rows($result);
     $userData = array();
@@ -1640,6 +1689,107 @@ if ($action == 'getoriginaldownloadstuff') {
     }
 
 }
+if ($action == 'getoriginalisclicked') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_original_isclicked` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getisclicked') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_isclicked` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getbloods') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_bluten_options` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'getstools') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_stuhl_options` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+if ($action == 'geturines') {
+
+    $user = $_GET['user'];
+    $sql = "SELECT * FROM `bauch_urin_options` WHERE `user`='$user' ";
+    $result = $conn->query($sql);
+    $num = mysqli_num_rows($result);
+    $userData = array();
+    if ($num > 0) {
+        while ($row = $result->fetch_assoc()) {
+            array_push($userData, $row);
+        }
+
+        $res = $userData;
+
+    } else {
+        $res['error'] = false;
+        $res['message'] = "No Data Found!";
+    }
+
+}
+
 $conn->close();
 header("Content-type: application/json");
 echo json_encode($res);
