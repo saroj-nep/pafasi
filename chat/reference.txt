@@ -1,7 +1,7 @@
-Fragen-1:  
-Listen Sie die wichtigsten Probleme oder Symptome auf, von denen der Patient berichtet. Beginnen Sie mit dem Hauptproblem/Hauptsymptom, und ergänzen sie ggf. weitere in absteigender Relevanz.  
-Nennen Sie die drei wahrscheinlichsten Diagnosen, die das oben aufgeführte Hauptproblem erklären könnten. Beginnen Sie mit der am ehesten zutreffenden Diagnose.  
-Geben Sie die wichtigsten Informationen, die Sie im Rahmen der Anamnese erhalten haben, an. Was davon spricht für, was spricht gegen die Verdachtsdiagnose? Hat sich durch die erhaltenen Informationen etwas an Ihren differentialdiagnostischen Überlegungen verändert? 
-Nennen Sie drei Schritte der körperlichen Untersuchung, deren Durchführung Sie aufgrund Ihrer Differentialdiagnose für wichtig halten, sowie das jeweilige Untersuchungsergebnis. Hat sich durch die erhaltenen Informationen etwas an Ihren differentialdiagnostischen Überlegungen verändert?  
-Halten Sie in der aktuellen Situation aufgrund der klinischen Präsentation und der bisherigen Ergebnisse weitere diagnostische Schritte für angebracht? Wenn ja, welche? 
-Welche therapeutischen Maßnahmen leiten Sie ein? Soll es eine Wiedervorstellung geben? Machen Sie einen Vorschlag für ein Therapie- und Beratungskonzept.  
+Fragen 1:
+Q1)
+Q2)
+Q3)
+Q4)
+Q5)
+Q6)

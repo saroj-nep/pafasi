@@ -318,7 +318,7 @@
         </div>
       </div> 
       <div> 
-        <!-- <div v-for="submit in rigassubmits">
+        <div v-for="submit in rigassubmits">
           <div v-if="submit.user == email">
             <div
               v-if="submit.submitted == '0'"
@@ -394,7 +394,7 @@
               </router-link>
             </div>
           </div>
-        </div> -->
+        </div> 
       <!-- </div>
        <div> -->
         <!-- <div v-for="submit in holderbaumsubmits">

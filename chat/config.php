@@ -8,13 +8,13 @@
 
 $dbss=array();
 $dbss['host']='webdb5.rz.uni-saarland.de';      // Database host (in most cases 'localhost', on Windows systems - use '127.0.0.1' instead of 'localhost' to avoid a php/ipv6 bug)
-$dbss['user']='edutechadm';      // Database user
-$dbss['pass']='%dd_5AYx9';      // Database password
-$dbss['name']='edu_tech3';      // Database name. Note that the installation script cannot create a database for you!
+$dbss['user']='pafasi';      // Database user
+$dbss['pass']='_esd%ssLx9Adx';      // Database password
+$dbss['name']='edu_pafasi';      // Database name. Note that the installation script cannot create a database for you!
 $dbss['sock']='';      // Database socket
-$dbss['prfx']='etcl_blabax';      // Table prefix for chat tables: blab, blabws, blabax, blabwspro
+$dbss['prfx']='pafasi_blabax';      // Table prefix for chat tables: blab, blabws, blabax, blabwspro
 
-$dbss['sprf']='blabax';      /* Table prefix for shared chat tables (this should be the table prefix of the 'master' channel). 
+$dbss['sprf']='pafasi_blabax';      /* Table prefix for shared chat tables (this should be the table prefix of the 'master' channel). 
                                 Affects paintings, avatars, files, mottos.
 
                                 BE CAREFUL WITH THIS! GUEST ACCESS MUST BE DISABLED IN ALL CHANNELS!

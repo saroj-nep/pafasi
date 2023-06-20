@@ -5,8 +5,9 @@ import Login from "../views/LoginPage.vue";
 import Patient from "../views/patients/PatientProfile.vue";
 import Casemodification from "../views/Casemodification.vue";
 import Tutoroptions from "../views/Tutoroptions.vue";
+import Newcase from "../views/Newcase.vue";
 import Hirtz from "../views/Hirtz_patients/Hirtz_PatientProfile.vue";
-// import Rigas from "../views/Rigas_patients/Rigas_PatientProfile.vue";
+import Rigas from "../views/Rigas_patients/Rigas_PatientProfile.vue";
 import Meier from "../views/Meier_patients/Meier_PatientProfile.vue";
 import Bauch from "../views/Bauch_patients/Bauch_PatientProfile.vue";
 // import Holderbaum from "../views/Holderbaum_patients/Holderbaum_PatientProfile.vue";
@@ -14,7 +15,7 @@ import ErrorPage from "@/views/ErrorPage.vue";
 import store from "@/store";
 import Print from "@/views/Print.vue";
 import Hirtzprint from "@/views/Hirtz_Print.vue";
-// import Rigasprint from "@/views/Rigas_Print.vue";
+import Rigasprint from "@/views/Rigas_Print.vue";
 import Meierprint from "@/views/Meier_Print.vue";
 import Bauchprint from "@/views/Bauch_Print.vue";
 // import Holderbaumprint from "@/views/Holderbaum_Print.vue";
@@ -30,8 +31,8 @@ import Tutorcaseresult3 from "@/views/Tutorcaseresult3.vue";
 import Tutorcaseresult3re from "@/views/Tutorcaseresult3_re.vue";
 import Tutorcaseresult4 from "@/views/Tutorcaseresult4.vue";
 import Tutorcaseresult4re from "@/views/Tutorcaseresult4_re.vue";
-// import Tutorcaseresult5 from "@/views/Tutorcaseresult5.vue";
-// import Tutorcaseresult5re from "@/views/Tutorcaseresult5_re.vue";
+import Tutorcaseresult5 from "@/views/Tutorcaseresult5.vue";
+import Tutorcaseresult5re from "@/views/Tutorcaseresult5_re.vue";
 // import Tutorcaseresult6 from "@/views/Tutorcaseresult6.vue";
 // import Tutorcaseresult6re from "@/views/Tutorcaseresult6_re.vue";
 import Anleitung from "@/views/Anleitung.vue";
@@ -75,11 +76,11 @@ const routes = [
     name: "Meier",
     component: Meier,
   },
-  // {
-  //   path: "/Rigas",
-  //   name: "Rigas",
-  //   component: Rigas,
-  // },
+  {
+    path: "/Rigas",
+    name: "Rigas",
+    component: Rigas,
+  },
   // {
   //   path: "/Holderbaum",
   //   name: "Holderbaum",
@@ -116,15 +117,20 @@ const routes = [
     component: Casemodification,
   },
   {
+    path: "/newcase",
+    name: "Newcase",
+    component: Newcase,
+  },
+  {
     path: "/hirtzprint",
     name: "Hirtzprint",
     component: Hirtzprint,
   },
-  // {
-  //   path: "/rigasprint",
-  //   name: "Rigasprint",
-  //   component: Rigasprint,
-  // },
+  {
+    path: "/rigasprint",
+    name: "Rigasprint",
+    component: Rigasprint,
+  },
   {
     path: "/meierprint",
     name: "Meierprint",
@@ -180,16 +186,16 @@ const routes = [
     name: "Tutorcaseresult4_re",
     component: Tutorcaseresult4re,
   },
-  // {
-  //   path: "/caseresults5_re",
-  //   name: "Tutorcaseresult5_re",
-  //   component: Tutorcaseresult5re,
-  // },
-  // {
-  //   path: "/caseresults5",
-  //   name: "Tutorcaseresult5",
-  //   component: Tutorcaseresult5,
-  // },
+  {
+    path: "/caseresults5_re",
+    name: "Tutorcaseresult5_re",
+    component: Tutorcaseresult5re,
+  },
+  {
+    path: "/caseresults5",
+    name: "Tutorcaseresult5",
+    component: Tutorcaseresult5,
+  },
   // {
   //   path: "/caseresults6",
   //   name: "Tutorcaseresult6",

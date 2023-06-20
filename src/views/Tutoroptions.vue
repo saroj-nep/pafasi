@@ -1,10 +1,10 @@
 <template>
   <Header />
-  <div class="mt-10 ml-40">
-    <button class="popup-close" title="Zurück" @click="hauptmenu()">
-      <img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" />
-    </button>
-  </div>
+  <div class="mt-10 px-4 sm:px-6 lg:px-8 lg:ml-40">
+      <button class="popup-close" title="Zurück" @click="hauptmenu()">
+        <img class="h-10 w-10" src="../../src/assets/return.png" alt="Workflow" />
+      </button>
+    </div>
   <div
     class="menu grid justify-center content-center justify-self-center self-center items-center justify-items-center"
   >

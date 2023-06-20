@@ -150,6 +150,7 @@ privhistbutton='<div style="display:inline-block;margin-bottom:5px;min-height:24
 <div id="rbgcolor" class="top_area" style="top:5px"></div>
 
 <div class="x_bcolor_z top_area">
+<div id="typingStatusContainer" class="x_bcolor_z"> This is a typing status container</div>
 
 <div class="status_select" <?php if($user_visible>0){print 'onclick="hst.style.display=\'block\';hoop(ons,1)"';}else{print 'style="opacity:0.3"';} ?>>
 <span id="curr_status_ico" class="pchat_notify status1"></span><span id="curr_status_nme"><?php if($user_visible>0){print str_replace(explode(',',$lang['statusp']),'',$lang['status1']);}else{print $lang['status0'];} ?></span>
@@ -301,8 +302,10 @@ if($settings['novalty']==1){print
 '</div>';
 
 ?>
+
 <div id="bottom_middle" class="x_bcolor_z">
-<input list="auto" type="text" id="text_input" maxlength="1500" class="x_input_blabws" placeholder=" <?php print $lang['message'];?> " onkeypress="chatKeyPress(event)" />
+
+<input list="auto" type="text" id="text_input" maxlength="1500" class="x_input_blabws" placeholder=" <?php print $lang['message'];?> "  onkeydown="sendIsTypingMessage()" onkeyup="stopTyping()"/>
 
     <datalist id="auto">
     </datalist>

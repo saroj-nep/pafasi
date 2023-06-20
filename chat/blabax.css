@@ -71,7 +71,7 @@ input,select,textarea{box-sizing:border-box;border-width:0;border-radius:0;font-
 .container1 {
     background-color: darkgrey;
     display: inline;
-    width: 100%;
+    width: fit-content;
     width: -moz-fit-content;
 }
 
